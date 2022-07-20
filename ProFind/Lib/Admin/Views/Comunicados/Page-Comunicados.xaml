@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="ProFind.Lib.Admin.Views.Comunicados.Page_Comunicados"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProFind.Lib.Admin.Views.Comunicados"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Button x:Name="btnsendstatement" Height="76" Width="219" Content="Send statement" Margin="979,329,0,0" Background="#043860" Foreground="White" CornerRadius="5" VerticalAlignment="Top"/>
+        <Button x:Name="btnCancelcommunication" Height="76" Width="219" Content="Cancel communication" Margin="981,481,0,0" Background="#FFBB2F18" Foreground="White" CornerRadius="5" VerticalAlignment="Top"/>
+        <ComboBox SelectionChanged="ComboBox_SelectionProfesional" Header="Statement for area" PlaceholderText="Profession" Width="636" RenderTransformOrigin="0.555,0.073" Margin="38,552,0,0" Height="80">
+            <x:String>Law Firml</x:String>
+            <x:String>Automotive Outsourcing Services</x:String>
+            <x:String>General Medical Services</x:String>
+            <x:String>All Areas</x:String>
+        </ComboBox>
+
+        <TextBlock Text="Employee communications" Margin="200,25,536,894" FontWeight="Normal" FontSize="50"></TextBlock>
+        <PersonPicture  ProfilePicture="https://dailycontributors.com/wp-content/uploads/2022/05/Strong-Employee-Communications.png" Margin="54,19,1346,881"></PersonPicture>
+        <TextBox Header="Title of the communication" PlaceholderText="Title" TextChanged="TxtNumEmpleado" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="36,183,825,742" >
+            <TextBox.RenderTransform>
+                <CompositeTransform Rotation="-0.195"/>
+            </TextBox.RenderTransform>
+
+        </TextBox>
+        <RichEditBox x:Name="REBCustom" Header="Statement description"
+    AutomationProperties.Name="editor with custom menu" Height="200"
+    Loaded="REBCustom_Loaded"
+    Unloaded="REBCustom_Unloaded" Margin="34,294,820,506" TextChanged="REBCustom_TextChanged"/>
+    </Grid>
+</Page>

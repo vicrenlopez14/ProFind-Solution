@@ -94,5 +94,8 @@
         <Button x:Name="btnGuardarCambios" Height="47" Width="135" Content="Guardar Cambios" Margin="880,299,0,0" Background="#017AEB" Foreground="White" CornerRadius="5" VerticalAlignment="Top"/>
         <Button x:Name="btnCancelarCambios" Height="47" Width="135" Content="Cancelar Cambios" Margin="641,299,0,0" Background="#DF181F" Foreground="White" CornerRadius="5" VerticalAlignment="Top"/>
         <PersonPicture  ProfilePicture="https://es.eserp.com/wp-content/uploads/2019/08/%C3%89tica-profesional-del-abogado.jpg" Margin="1155,34,245,866" RenderTransformOrigin="0.48,0.99"></PersonPicture>
+
+      
     </Grid>
+    
 </Page>

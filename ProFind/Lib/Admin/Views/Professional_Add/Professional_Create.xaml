@@ -20,10 +20,10 @@
                     <CompositeTransform Rotation="-0.195"/>
                 </TextBox.RenderTransform>
             </TextBox>
-            <ComboBox SelectionChanged="ComboBox_SelectionProfesional" Header="Elección de Profesion" PlaceholderText="Profesiones" Width="454" RenderTransformOrigin="0.555,0.073">
-                <x:String>Bufete Legal</x:String>
-                <x:String>Servicios Outsourcing Automotriz</x:String>
-                <x:String>Servicios de Medico General</x:String>
+            <ComboBox SelectionChanged="ComboBox_SelectionProfesional" Header="choice of profession" PlaceholderText="Profession" Width="454" RenderTransformOrigin="0.555,0.073">
+                <x:String>Law Firml</x:String>
+                <x:String>Automotive Outsourcing Services</x:String>
+                <x:String>General Medical Services</x:String>
             </ComboBox>
             <PasswordBox Header="Password for the new professional" x:Name="passwordBox" Width="461" MaxLength="16" PlaceholderText="Password"
              PasswordChanged="passwordBox_PasswordChanged" RenderTransformOrigin="0.538,2.297" UseLayoutRounding="False" d:LayoutRounding="Auto" Height="54">
@@ -39,7 +39,7 @@
                 </PasswordBox.RenderTransform>
             </PasswordBox>
 
-            <Button Content="Crear" HorizontalAlignment="Center" Margin="0 20"/>
+            <Button Content="Create" HorizontalAlignment="Center" Margin="0 20"/>
         </StackPanel>
     </Grid>
 </Page>
