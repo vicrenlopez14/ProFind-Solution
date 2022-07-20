@@ -129,6 +129,9 @@
     <Compile Include="Lib\Admin\Views\Calendar_Page\Calendar_Page.xaml.cs">
       <DependentUpon>Calendar_Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\Admin\Views\Configuración\pageConfiguración.xaml.cs">
+      <DependentUpon>pageConfiguración.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\Admin\Views\Editar_User.xaml.cs">
       <DependentUpon>Editar_User.xaml</DependentUpon>
     </Compile>
@@ -333,6 +336,10 @@
     <Page Include="Lib\Admin\Views\Calendar_Page\Calendar_Page.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Lib\Admin\Views\Configuración\pageConfiguración.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\Admin\Views\Editar_User.xaml">
       <Generator>MSBuild:Compile</Generator>
