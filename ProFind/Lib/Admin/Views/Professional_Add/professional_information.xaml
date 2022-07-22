@@ -104,6 +104,7 @@
             <Button x:Name="btnAgregar" Height="54" Width="131" Content="Agregar" Margin="765,69,0,0" Background="#043860" Foreground="White" CornerRadius="5" VerticalAlignment="Top" Grid.Row="1"/>
             <Button x:Name="btnCancelar" Height="54" Width="131" Content="Cancelar" Margin="27,69,0,0" Background="#043860" Foreground="White" CornerRadius="5" VerticalAlignment="Top" RenderTransformOrigin="1.663,0.216" Grid.Row="1"/>
             <Button x:Name="btnExaminar" Height="30" Width="75" Content="Examinar" Margin="1065,140,0,0" Background="#8EAD8B" Foreground="White" CornerRadius="5" VerticalAlignment="Top"/>
+            
             <PersonPicture  ProfilePicture="https://cdn-icons-png.flaticon.com/512/219/219986.png" Margin="1052,25,41,451" RenderTransformOrigin="0.48,0.99"></PersonPicture>
         </Grid>
     </Grid>

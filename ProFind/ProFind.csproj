@@ -271,6 +271,12 @@
     <Compile Include="Lib\Professional\Views\Activos_Page\Page_Activos.xaml.cs">
       <DependentUpon>Page_Activos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\Professional\Views\actualizar proyectos1\Avance-Proyecto.xaml.cs">
+      <DependentUpon>Avance-Proyecto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\Professional\Views\actualizar proyectos1\Finalizar-Proyecto.xaml.cs">
+      <DependentUpon>Finalizar-Proyecto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\Professional\Views\Calendario\Procesos_Calendario.xaml.cs">
       <DependentUpon>Procesos_Calendario.xaml</DependentUpon>
     </Compile>
@@ -500,6 +506,14 @@
     <Page Include="Lib\Professional\Views\Activos_Page\Page_Activos.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Lib\Professional\Views\actualizar proyectos1\Avance-Proyecto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\Professional\Views\actualizar proyectos1\Finalizar-Proyecto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\Professional\Views\Calendario\Procesos_Calendario.xaml">
       <Generator>MSBuild:Compile</Generator>
