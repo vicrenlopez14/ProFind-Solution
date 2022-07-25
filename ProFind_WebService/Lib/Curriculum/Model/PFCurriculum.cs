@@ -1,21 +1,13 @@
-﻿using Application.Interfaces;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+using MySqlX.XDevAPI.Relational;
 
 namespace ProFind_WebService.Lib.Curriculum.Model;
 
-public class PFCurriculum : DedictionarizableEntity<PFCurriculum>
+public class PFCurriculum
 {
-    private DedictionarizableEntity<PFCurriculum> _dedictionarizableEntityImplementation;
-
-    public static PFCurriculum FromDictionary(IDictionary<string,object> dictionary)
-    {
-        return new PFCurriculum(dictionary["Id_CU"].ToString(), dictionary["Studies_CU"].ToString(),
-            dictionary["Experiences_CU"].ToString(), int.Parse(dictionary["Years_CU"].ToString()));
-    }
-
-    public static IEnumerable<PFCurriculum> FromDictionary(IEnumerable<IDictionary<string,object>> dictionaries)
-        => dictionaries.Select(FromDictionary).ToList();
-
-    public PFCurriculum(string id, string studies, string experiences, int years)
+    [JsonConstructor]
+    public PFCurriculum(string id, string? studies = null, string? experiences = null, int? years = default)
     {
         Id = id;
         Studies = studies;
@@ -23,9 +15,8 @@ public class PFCurriculum : DedictionarizableEntity<PFCurriculum>
         Years = years;
     }
 
-    public string Id { get; set; }
-    public string Studies { get; set; }
-    public string Experiences { get; set; }
-    public int Years { get; set; }  
-
+    [Column("Id_CU")] public string Id { get; set; }
+    [Column("Studies_CU")] public string? Studies { get; set; }
+    [Column("Experiences_CU")] public string? Experiences { get; set; }
+    [Column("Years_CU")] public int? Years { get; set; }
 }

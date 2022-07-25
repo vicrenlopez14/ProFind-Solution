@@ -13,17 +13,18 @@ public class TagController : CrudController<PFTag>
         throw new NotImplementedException();
     }
 
-    public override async Task<ActionResult<IEnumerable<PFTag>>> List<TE>()
+    public override async Task<ActionResult<IEnumerable<PFTag>>> List()
     {
         throw new NotImplementedException();
     }
 
-    public override async Task<ActionResult<IEnumerable<PFTag>>> PaginatedList(string fromIndex, string? toIndex)
+    public override async Task<ActionResult<IEnumerable<PFTag>>> PaginatedList(int fromIndex, int? toIndex)
     {
         throw new NotImplementedException();
     }
 
-    public override async Task<ActionResult<IEnumerable<PFTag>>> Search(IDictionary<string, string> searchCriteria)
+    [HttpGet("criteria")]
+    public async Task<ActionResult<IEnumerable<PFTag>>> Search(IDictionary<string, string> searchCriteria)
     {
         throw new NotImplementedException();
     }

@@ -1,10 +1,16 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
-    <SolidColorBrush x:Key="PrimaryColor" Color="#3F51B5" />
-    <SolidColorBrush x:Key="Neutral-SecondaryColor" Color="#2196F3" />
-    <SolidColorBrush x:Key="Client-SecondaryColor" Color="#7C4DFF" />
-    <SolidColorBrush x:Key="Professional-SecondaryColor" Color="#FF9800" />
-    <SolidColorBrush x:Key="Admin-SecondaryColor" Color="#F44336" />
-    <SolidColorBrush x:Key="PrimaryText" Color="#212121" />
-    <SolidColorBrush x:Key="SecondaryText" Color="#757575" />
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <Color x:Key="SystemAccentColor">#FF2D4DFF</Color>
+            <SolidColorBrush x:Key="SystemControlHighlightAccentBrush" Color="#FF2D4DFF" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <Color x:Key="SystemAccentColor">#FF2D4DFF</Color>
+            <SolidColorBrush x:Key="SystemControlHighlightAccentBrush" Color="#3F51B5" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Light">
+            <Color x:Key="SystemAccentColor">#FF2D4DFF</Color>
+            <SolidColorBrush x:Key="SystemControlHighlightAccentBrush" Color="#3F51B5" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
 </ResourceDictionary>

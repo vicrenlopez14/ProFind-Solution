@@ -14,17 +14,19 @@ public class ClientController : CrudController<PFClient>
         throw new NotImplementedException();
     }
 
-    public override async Task<ActionResult<IEnumerable<PFClient>>> List<TE>()
+    public override async Task<ActionResult<IEnumerable<PFClient>>> List()
     {
         throw new NotImplementedException();
     }
 
-    public override async Task<ActionResult<IEnumerable<PFClient>>> PaginatedList(string fromIndex, string? toIndex)
+    public override async Task<ActionResult<IEnumerable<PFClient>>> PaginatedList(int fromIndex, int? toIndex)
     {
         throw new NotImplementedException();
     }
 
-    public override async Task<ActionResult<IEnumerable<PFClient>>> Search(IDictionary<string, string> searchCriteria)
+    [HttpGet("criteria")]
+
+    public  async Task<ActionResult<IEnumerable<PFClient>>> Search(IDictionary<string, string> searchCriteria)
     {
         throw new NotImplementedException();
     }

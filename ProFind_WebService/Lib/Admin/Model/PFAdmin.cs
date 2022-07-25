@@ -1,42 +1,26 @@
-using Application.Interfaces;
-using ProFind_WebService.Lib.Rank.Model;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ProFind_WebService.Lib.Admin.Model;
 
-public class PFAdmin : DedictionarizableEntity<PFAdmin>
+public class PFAdmin
 {
-    private DedictionarizableEntity<PFAdmin> _dedictionarizableEntityImplementation;
-
-    public static PFAdmin FromDictionary(IDictionary<string, object> dictionary)
-    {
-        return new PFAdmin(dictionary["Id_A"].ToString(), dictionary["Name_A"].ToString(), dictionary["Email_A"].ToString(),
-            dictionary["Tel_A"].ToString(), dictionary["Password_A"].ToString(),
-            PFRank.FromDictionary(dictionary));
-    }
-
-    public static IEnumerable<PFAdmin> FromDictionary(IEnumerable<IDictionary<string, object>> dictionaries)
-        => dictionaries.Select(FromDictionary).ToList();
-
-
-    public PFAdmin(string id)
-    {
-        Id = id;
-    }
-    public PFAdmin(string id, string name, string email, string tel, string password, PFRank rank)
+    [JsonConstructor]
+    public PFAdmin(string id = null, string? name = null, string? email = null, string? tel = null,
+        string? password = null, string? rankId = null)
     {
         Id = id;
         Name = name;
         Email = email;
         Tel = tel;
         Password = password;
-        Rank = rank;
+        RankId = rankId;
     }
 
-    public string Id { get; set; }
-    public string Name { get; set; }
-    public string Email { get; set; }
-    public string Tel { get; set; }
-    public string Password { get; set; }
-    public PFRank Rank { get; set; }
-
+    [Column("Id_A")] public string Id { get; set; }
+    [Column("Name_A")] public string? Name { get; set; }
+    [Column("Email_A")] public string? Email { get; set; }
+    [Column("Tel_A")] public string? Tel { get; set; }
+    [Column("Password_A")] public string? Password { get; set; }
+    [Column("Id_R1")] public string? RankId { get; set; }
 }

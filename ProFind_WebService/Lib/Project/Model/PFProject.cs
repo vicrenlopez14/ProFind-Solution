@@ -1,26 +1,19 @@
-﻿using Application.Interfaces;
+﻿using System.Text.Json.Serialization;
 
 namespace ProFind_WebService.Lib.Project.Model;
 
-public class PFProject : DedictionarizableEntity<PFProject>
+public class PFProject
 {
-    public PFProject(string id, string title, string description)
+    [JsonConstructor]
+    public PFProject(string id, string? title = null, string? description = null)
     {
         Id = id;
         Title = title;
         Description = description;
     }
 
+
     public string Id { get; set; }
-    public string Title { get; set; }
-    public string Description { get; set; }
-
-    public static PFProject FromDictionary(IDictionary<string, object> dictionary)
-    {
-        return new PFProject(dictionary["Id_PJ"].ToString(), dictionary["Title_PJ"].ToString(),
-            dictionary["Description_PJ"].ToString());
-    }
-
-    public static IEnumerable<PFProject> FromDictionary(IEnumerable<IDictionary<string, object>> dictionaries)
-        => dictionaries.Select(FromDictionary).ToList();
+    public string? Title { get; set; }
+    public string? Description { get; set; }
 }

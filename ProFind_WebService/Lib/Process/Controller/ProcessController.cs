@@ -16,19 +16,19 @@ public class ProcessController : CrudController<PFProcess>
     }
 
     [HttpGet]
-    public override async Task<ActionResult<IEnumerable<PFProcess>>> List<TE>()
+    public override async Task<ActionResult<IEnumerable<PFProcess>>> List()
     {
         throw new NotImplementedException();
     }
 
     [HttpGet("{fromIndex, toIndex}")]
-    public override async Task<ActionResult<IEnumerable<PFProcess>>> PaginatedList(string fromIndex, string? toIndex)
+    public override async Task<ActionResult<IEnumerable<PFProcess>>> PaginatedList(int fromIndex, int? toIndex)
     {
         throw new NotImplementedException();
     }
 
-    [HttpGet("{searchCriteria}")]
-    public override async Task<ActionResult<IEnumerable<PFProcess>>> Search(IDictionary<string, string> searchCriteria)
+    [HttpGet("criteria")]
+    public  async Task<ActionResult<IEnumerable<PFProcess>>> Search(IDictionary<string, string> searchCriteria)
     {
         throw new NotImplementedException();
     }

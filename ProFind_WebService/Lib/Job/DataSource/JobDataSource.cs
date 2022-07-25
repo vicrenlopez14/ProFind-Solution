@@ -7,28 +7,29 @@ namespace ProFind_WebService.Lib.Job.DataSource;
 
 public class JobDataSource
 {
-    readonly MySqlConnection connection;
+    readonly MySqlConnection _connection;
+
     public JobDataSource()
     {
-        connection = new MySqlDataSourceLink().getConnection();
+        _connection = new MySqlDataSourceLink().getConnection();
     }
 
     public async Task<PFJob> Get(string id)
     {
         const string query = "SELECT Id_J, Name_J FROM Job WHERE Id_J = ':Id' LIMIT 1;";
         DynamicParameters dynamicParameters = new DynamicParameters();
-        dynamicParameters.AddDynamicParams(new 
+        dynamicParameters.AddDynamicParams(new
         {
             Id = id
         });
 
-        var result = await connection.QueryAsync(query, dynamicParameters);
-        var firstRow = result.First() as IDictionary<string,object>;
+        var result = await _connection.QueryAsync<PFJob>(query, dynamicParameters);
+        var firstRow = result.First();
 
-        return PFJob.FromDictionary(firstRow);
+        return firstRow;
     }
 
-    public async Task <bool> Create(PFJob job)
+    public async Task<bool> Create(PFJob job)
     {
         const string query = "INSERT INTO Job VALUES (':Id',':Name');";
 
@@ -40,10 +41,10 @@ public class JobDataSource
             Name = job.Name
         });
 
-        return (await connection.ExecuteAsync(query,dynamicParameters)>0);
+        return (await _connection.ExecuteAsync(query, dynamicParameters) > 0);
     }
 
-    public async Task <bool> Update(PFJob job)
+    public async Task<bool> Update(PFJob job)
     {
         const string query = "UPDATE Job SET Name_J=':Name' WHERE Id_J = ':Id';";
 
@@ -55,11 +56,10 @@ public class JobDataSource
             Name = job.Name
         });
 
-        return (await connection.ExecuteAsync(query,dynamicParameters) > 0);
-
+        return (await _connection.ExecuteAsync(query, dynamicParameters) > 0);
     }
 
-    public async Task <bool> Delete(PFJob job)
+    public async Task<bool> Delete(PFJob job)
     {
         const string query = "DELETE FROM Job WHERE Id_J = ':Id';";
 
@@ -70,6 +70,6 @@ public class JobDataSource
             Id = job.Id
         });
 
-        return (await connection.ExecuteAsync(query,dynamicParameters) > 0);
+        return (await _connection.ExecuteAsync(query, dynamicParameters) > 0);
     }
 }

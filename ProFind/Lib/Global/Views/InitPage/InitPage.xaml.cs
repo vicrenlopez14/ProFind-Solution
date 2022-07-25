@@ -45,5 +45,10 @@ namespace ProFind.Lib.Global.Views.InitPage
         {
             new GlobalNavigationController().NavigateTo(typeof(Professionals_Login));
         }
+
+        private void Hyperlink_Click(Windows.UI.Xaml.Documents.Hyperlink sender, Windows.UI.Xaml.Documents.HyperlinkClickEventArgs args)
+        {
+            new GlobalNavigationController().NavigateTo(typeof(Clients_Login));
+        }
     }
 }

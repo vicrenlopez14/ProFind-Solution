@@ -1,25 +1,17 @@
-﻿using Application.Interfaces;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ProFind_WebService.Lib.Rank.Model;
 
-public class PFRank : DedictionarizableEntity<PFRank>
+public class PFRank
 {
-    private DedictionarizableEntity<PFRank> _dedictionarizableEntityImplementation;
-
-    public static PFRank FromDictionary(IDictionary<string,object> dictionary)
-    {
-        return new PFRank(dictionary["Id_R"].ToString(), dictionary["Name_R"].ToString());
-    }
-
-    public static IEnumerable<PFRank> FromDictionary(IEnumerable<IDictionary<string,object>> dictionaries)
-        => dictionaries.Select(FromDictionary).ToList();
-
-    public PFRank(string id, string name)
+    [JsonConstructor]
+    public PFRank(string? id = null, string? name = null)
     {
         Id = id;
         Name = name;
     }
 
-    public string Id { get; set; }  
-    public string Name { get; set; }
+    [Column("Id_R")] public string? Id { get; set; }
+    [Column("Name_R")] public string? Name { get; set; }
 }

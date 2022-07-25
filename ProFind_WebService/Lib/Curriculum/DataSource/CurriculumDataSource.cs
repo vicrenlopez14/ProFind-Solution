@@ -16,17 +16,18 @@ public class CurriculumDataSource
 
     public async Task<PFCurriculum> Get(string id)
     {
-        const string query = "SELECT Id_CU, Studies_CU, Experiences_CU, Years_CU FROM Curriculum WHERE id_CU = ':Id' LIMIT 1;";
+        const string query =
+            "SELECT Id_CU, Studies_CU, Experiences_CU, Years_CU FROM Curriculum WHERE id_CU = ':Id' LIMIT 1;";
         var dynamicParameters = new DynamicParameters();
-        dynamicParameters.AddDynamicParams(new {Id=id});
+        dynamicParameters.AddDynamicParams(new {Id = id});
 
-        var result = await connection.QueryAsync(query, dynamicParameters);
-        var firstRow = result.First() as IDictionary<string,object>;
+        var result = await connection.QueryAsync<PFCurriculum>(query, dynamicParameters);
+        var firstRow = result.First();
 
-        return PFCurriculum.FromDictionary(firstRow);
+        return firstRow;
     }
 
-    public async Task <bool> Create(PFCurriculum curriculum)
+    public async Task<bool> Create(PFCurriculum curriculum)
     {
         const string query = "INSERT INTO Curriculum VALUES(':Id',':Studies',':Experiences',:Years);";
         var dynamicParameters = new DynamicParameters();
@@ -42,26 +43,25 @@ public class CurriculumDataSource
         return (await connection.ExecuteAsync(query, dynamicParameters) > 0);
     }
 
-    public async Task <bool> Update(PFCurriculum curriculum)
+    public async Task<bool> Update(PFCurriculum curriculum)
     {
         const string query = "UPDATE Curriculum SET Studies_CU = ':Studies', Experiences_CU = ':Experiences', "
-            + "Years_CU = :Years WHERE Id_CU = ':Id';";
+                             + "Years_CU = :Years WHERE Id_CU = ':Id';";
 
         DynamicParameters dynamicParameters = new DynamicParameters();
 
         dynamicParameters.AddDynamicParams(new
         {
-            Id = curriculum.Id, 
+            Id = curriculum.Id,
             Studies = curriculum.Studies,
             Experiences = curriculum.Experiences,
             Years = curriculum.Years
         });
 
         return (await connection.ExecuteAsync(query, dynamicParameters) > 0);
-
     }
 
-    public async Task <bool> Delete(PFCurriculum curriculum)
+    public async Task<bool> Delete(PFCurriculum curriculum)
     {
         const string query = "DELETE FROM Curriculum WHERE Id_CU = ':Id';";
 
@@ -75,5 +75,4 @@ public class CurriculumDataSource
 
         return (await connection.ExecuteAsync(query, dynamicParameters) > 0);
     }
-
 }

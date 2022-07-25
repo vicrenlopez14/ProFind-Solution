@@ -14,17 +14,19 @@ public class RankController : CrudController<PFRank>
         throw new NotImplementedException();
     }
 
-    public override async Task<ActionResult<IEnumerable<PFRank>>> List<TE>()
+    public override async Task<ActionResult<IEnumerable<PFRank>>> List()
     {
         throw new NotImplementedException();
     }
 
-    public override async Task<ActionResult<IEnumerable<PFRank>>> PaginatedList(string fromIndex, string? toIndex)
+    public override async Task<ActionResult<IEnumerable<PFRank>>> PaginatedList(int fromIndex, int? toIndex)
     {
         throw new NotImplementedException();
     }
 
-    public override async Task<ActionResult<IEnumerable<PFRank>>> Search(IDictionary<string, string> searchCriteria)
+    [HttpGet("criteria")]
+
+    public  async Task<ActionResult<IEnumerable<PFRank>>> Search(IDictionary<string, string> searchCriteria)
     {
         throw new NotImplementedException();
     }

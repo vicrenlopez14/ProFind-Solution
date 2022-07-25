@@ -8,16 +8,14 @@ public abstract class CrudController<T> : ControllerBase
     [HttpGet("{id}")]
     public abstract Task<ActionResult<T>> Get(string id);
 
+    [Route("list")]
     [HttpGet]
-    public abstract Task<ActionResult<IEnumerable<T>>> List<TE>();
+    public abstract Task<ActionResult<IEnumerable<T>>> List();
 
-    [HttpGet("{fromIndex}, {toIndex}")]
-    public abstract Task<ActionResult<IEnumerable<T>>> PaginatedList(string fromIndex, string? toIndex);
-
-    [HttpGet("{searchCriteria}")]
-    public abstract Task<ActionResult<IEnumerable<T>>> Search(IDictionary<string, string> searchCriteria);
-
-    [HttpPost("{newObject}")]
+    [HttpGet("paginated/{fromIndex:int}/{toIndex:int}")]
+    public abstract Task<ActionResult<IEnumerable<T>>> PaginatedList(int fromIndex, int? toIndex);
+    
+    [HttpPost]
     public abstract Task<ActionResult<HttpStatusCode>> Create(T newObject);
 
     [HttpPut("{toUpdateObject}")]

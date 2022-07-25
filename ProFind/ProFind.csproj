@@ -219,6 +219,26 @@
     <Compile Include="Lib\Global\Helpers\Connection.cs" />
     <Compile Include="Lib\Global\Helpers\FieldsChecker.cs" />
     <Compile Include="Lib\Global\Helpers\ThemeHelper.cs" />
+    <Compile Include="Lib\Global\Models\PFAdmin.cs" />
+    <Compile Include="Lib\Global\Models\PFClient.cs" />
+    <Compile Include="Lib\Global\Models\PFCurriculum.cs" />
+    <Compile Include="Lib\Global\Models\PFJob.cs" />
+    <Compile Include="Lib\Global\Models\PFProcess.cs" />
+    <Compile Include="Lib\Global\Models\PFProfessional.cs" />
+    <Compile Include="Lib\Global\Models\PFProject.cs" />
+    <Compile Include="Lib\Global\Models\PFRank.cs" />
+    <Compile Include="Lib\Global\Models\PFTag.cs" />
+    <Compile Include="Lib\Global\Services\CRUDService.cs" />
+    <Compile Include="Lib\Global\Services\PFAdminService.cs" />
+    <Compile Include="Lib\Global\Services\PFClientService.cs" />
+    <Compile Include="Lib\Global\Services\PFCurriculumService.cs" />
+    <Compile Include="Lib\Global\Services\PFJobService.cs" />
+    <Compile Include="Lib\Global\Services\PFProcessService.cs" />
+    <Compile Include="Lib\Global\Services\PFProfessionalService.cs" />
+    <Compile Include="Lib\Global\Services\PFProjectService.cs" />
+    <Compile Include="Lib\Global\Services\PFRankService.cs" />
+    <Compile Include="Lib\Global\Services\PFTagService.cs" />
+    <Compile Include="Lib\Global\Services\WebAPIConnection.cs" />
     <Compile Include="Lib\Global\Views\About_Page\About_Page.xaml.cs">
       <DependentUpon>About_Page.xaml</DependentUpon>
     </Compile>
@@ -287,9 +307,6 @@
     <Compile Include="Lib\Professional\Views\Reservados_Page\Page_Reservados.xaml.cs">
       <DependentUpon>Page_Reservados.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -298,8 +315,12 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\admin_bg.jpg" />
+    <Content Include="Assets\clients_bg.jpg" />
+    <Content Include="Assets\professionals_bg.jpg" />
+    <Content Include="Assets\profind-isotype-en.png" />
+    <Content Include="Assets\profind-isotype-es.png" />
     <Content Include="Lib\Admin\Controllers\Dummy.txt" />
-    <Content Include="Lib\Admin\Models\Dummy.txt" />
     <Content Include="Lib\Admin\Services\Dummy.txt" />
     <Content Include="Lib\Admin\ViewModels\Dummy.txt" />
     <Content Include="Lib\Admin\Views\Dummy.txt" />
@@ -308,9 +329,6 @@
     <Content Include="Lib\Client\Services\Dummy.txt" />
     <Content Include="Lib\Client\ViewModels\Dummy.txt" />
     <Content Include="Lib\Client\Views\Dummy.txt" />
-    <Content Include="Lib\Global\Controllers\Dummy.txt" />
-    <Content Include="Lib\Global\Models\Dummy.txt" />
-    <Content Include="Lib\Global\Services\Dummy.txt" />
     <Content Include="Lib\Global\ViewModels\Dummy.txt" />
     <Content Include="Lib\Global\Views\Dummy.txt" />
     <Content Include="Lib\Professional\Controllers\Dummy.txt" />
@@ -540,19 +558,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Button.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Styles\CommandBar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -560,7 +566,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\TextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\_AcrylicBrushes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -578,6 +592,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client">
+      <Version>5.2.9</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.13</Version>
     </PackageReference>

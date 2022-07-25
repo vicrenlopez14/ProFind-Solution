@@ -1,25 +1,17 @@
-﻿using Application.Interfaces;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ProFind_WebService.Lib.Job.Model;
 
-public class PFJob : DedictionarizableEntity<PFJob>
+public class PFJob
 {
-    private DedictionarizableEntity<PFJob> _dedictionarizableEntityImplementation;
-
-    public static PFJob FromDictionary(IDictionary <string,object> dictionary)
+    [JsonConstructor]
+    public PFJob(string id, string? name)
     {
-        return new PFJob(dictionary["Id_J"].ToString(), dictionary["Name_J"].ToString());
+        Id = id;
+        Name = name;
     }
 
-    public static IEnumerable<PFJob> FromDictionary(IEnumerable<IDictionary<string,object>> dictionaries)
-        => dictionaries.Select(FromDictionary).ToList();    
-
-    public PFJob(string id, string name)
-    {
-        Id=id;
-        Name=name;  
-    }
-
-    public string Id { get; set; }  
-    public string Name { get; set; }    
+    [Column("Id_J")] public string Id { get; set; }
+    [Column("Name_J")] public string? Name { get; set; }
 }

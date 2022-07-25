@@ -1,4 +1,5 @@
 using System.Net;
+using System.Web;
 using Microsoft.AspNetCore.Mvc;
 using ProFind_WebService.Lib.Admin.DataSource;
 using ProFind_WebService.Lib.Admin.Model;
@@ -10,68 +11,55 @@ namespace ProFind_WebService.Lib.Admin.Controller;
 [ApiController]
 public class AdminController : CrudController<PFAdmin>
 {
-    private readonly AdminDataSource dataSource = new();
-
-    [HttpGet("{id}")]
-    public async Task<ActionResult<PFAdmin>> GetAdmin(string id)
-    {
-        PFAdmin admin = await dataSource.Get(id);
-        return admin == null ? NotFound() : admin;
-    }
-
-    [HttpPost("")]
-    public async Task<ActionResult> PostAdmin(PFAdmin admin)
-    {
-        return (await dataSource.Create(admin) ? Ok(admin) : NotFound());
-    }
-
-    [HttpPut("")]
-    public async Task<ActionResult> PutAdmin(PFAdmin admin)
-    {
-        return (await dataSource.Update(admin) ? Ok(admin) : NotFound());
-    }
-
-    [HttpDelete("{id}")]
-    public async Task<ActionResult<PFAdmin>> DeleteAdmin(string id)
-    {
-        PFAdmin admin = new PFAdmin(id);
-        return (await dataSource.Delete(admin) ? admin : NotFound());
-    }
+    private readonly AdminDataSource _dataSource = new();
 
     public override async Task<ActionResult<PFAdmin>> Get(string id)
     {
-        PFAdmin admin = await dataSource.Get(id);
-
-        return admin;
+        PFAdmin? admin = await _dataSource.Get(id);
+        return admin == null ? NotFound() : admin;
     }
 
-    public override async Task<ActionResult<IEnumerable<PFAdmin>>> List<TE>()
+    public override async Task<ActionResult<IEnumerable<PFAdmin>>> List()
     {
-        throw new NotImplementedException();
+        var result = await _dataSource.List();
+        return Ok(result);
     }
 
-    public override async Task<ActionResult<IEnumerable<PFAdmin>>> PaginatedList(string fromIndex, string? toIndex)
+    public override Task<ActionResult<IEnumerable<PFAdmin>>> PaginatedList(int fromIndex, int? toIndex)
     {
-        throw new NotImplementedException();
+        if (toIndex is null or -1) toIndex = fromIndex + 10;
+        var result = _dataSource.PaginatedList(fromIndex, toIndex ?? -1);
+        return Task.FromResult<ActionResult<IEnumerable<PFAdmin>>>(Ok(result));
     }
 
-    public override async Task<ActionResult<IEnumerable<PFAdmin>>> Search(IDictionary<string, string> searchCriteria)
+    [HttpGet("criteria")]
+    public async Task<ActionResult<IEnumerable<PFAdmin>>> Search(string name)
     {
-        throw new NotImplementedException();
+        Dictionary<string, string> searchCriteria = new()
+        {
+            ["Name"] = name
+        };
+
+        // Simple search
+        var result = await _dataSource.Search(searchCriteria);
+        return new ActionResult<IEnumerable<PFAdmin>>(Ok(result));
     }
 
     public override async Task<ActionResult<HttpStatusCode>> Create(PFAdmin newObject)
     {
-        throw new NotImplementedException();
+        newObject.Id = Nanoid.Nanoid.Generate();
+
+        return (await _dataSource.Create(newObject) ? Ok(newObject) : NotFound());
     }
 
     public override async Task<ActionResult<HttpStatusCode>> Update(PFAdmin toUpdateObject)
     {
-        throw new NotImplementedException();
+        return (await _dataSource.Update(toUpdateObject) ? Ok(toUpdateObject) : NotFound());
     }
 
     public override async Task<ActionResult<HttpStatusCode>> Delete(string id)
     {
-        throw new NotImplementedException();
+        var admin = new PFAdmin(id);
+        return (await _dataSource.Delete(admin) ? Ok(admin) : NotFound());
     }
 }

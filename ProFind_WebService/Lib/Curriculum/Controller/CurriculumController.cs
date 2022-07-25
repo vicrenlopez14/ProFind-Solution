@@ -14,17 +14,18 @@ public class CurriculumController : CrudController<PFCurriculum>
         throw new NotImplementedException();
     }
 
-    public override async Task<ActionResult<IEnumerable<PFCurriculum>>> List<TE>()
+    public override async Task<ActionResult<IEnumerable<PFCurriculum>>> List()
     {
         throw new NotImplementedException();
     }
 
-    public override async Task<ActionResult<IEnumerable<PFCurriculum>>> PaginatedList(string fromIndex, string? toIndex)
+    public override async Task<ActionResult<IEnumerable<PFCurriculum>>> PaginatedList(int fromIndex, int? toIndex)
     {
         throw new NotImplementedException();
     }
 
-    public override async Task<ActionResult<IEnumerable<PFCurriculum>>> Search(
+    [HttpGet("criteria")]
+    public  async Task<ActionResult<IEnumerable<PFCurriculum>>> Search(
         IDictionary<string, string> searchCriteria)
     {
         throw new NotImplementedException();

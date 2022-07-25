@@ -1,27 +1,17 @@
-﻿using Application.Interfaces;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProFind_WebService.Lib.Tag.Model;
 
-public class PFTag : DedictionarizableEntity<PFTag>
+public class PFTag
 {
-    public static PFTag FromDictionary(IDictionary<string, object> dictionary)
-    {
-        return new PFTag(dictionary["Id_T"].ToString(), dictionary["Name_T"].ToString(),
-            Lib.Project.Model.PFProject.FromDictionary(dictionary));
-    }
-
-    public static IEnumerable<PFTag> FromDictionary(IEnumerable<IDictionary<string, object>> dictionaries)
-        => dictionaries.Select(FromDictionary).ToList();
-
-
-    public PFTag(string id, string name, Project.Model.PFProject pfProject)
+    public PFTag(string id, string? name = null, string? tagId = null)
     {
         Id = id;
         Name = name;
-        PfProject = pfProject;
+        TagId = tagId;
     }
 
-    public string Id { get; set; }
-    public string Name { get; set; }
-    public Project.Model.PFProject PfProject { get; set; }
+    [Column("Id_T")] public string Id { get; set; }
+    [Column("Name_T")] public string? Name { get; set; }
+    [Column("Id_PJ1")] public string? TagId { get; set; }
 }
