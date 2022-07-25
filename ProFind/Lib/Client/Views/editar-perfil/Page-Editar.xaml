@@ -1,0 +1,78 @@
+﻿<Page
+    x:Class="ProFind.Lib.Client.Views.editar_perfil.Page_Editar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProFind.Lib.Client.Views.editar_perfil"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid>
+            <Grid Margin="46,18,261,32">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="828*"/>
+                    <ColumnDefinition Width="365*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="288*"/>
+                    <RowDefinition Height="187*"/>
+                </Grid.RowDefinitions>
+
+
+                <TextBox Header="Nombre" PlaceholderText="Nombre" TextChanged="TxtNombre" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="28,65,484,454" >
+                    <TextBox.RenderTransform>
+                        <CompositeTransform Rotation="-0.195"/>
+                    </TextBox.RenderTransform>
+
+                </TextBox>
+                <TextBox Header="Apellidos" PlaceholderText="Apellido" TextChanged="TxtApellido" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="27,161,487,357" >
+                    <TextBox.RenderTransform>
+                        <CompositeTransform Rotation="-0.195"/>
+                    </TextBox.RenderTransform>
+                </TextBox>
+                <DatePicker Header="Fecha De Nacimiento" Margin="25,257,0,0" VerticalAlignment="Top" Width="316" Height="73"/>
+                <TextBox Header="Nombre del Usuario" PlaceholderText="Nombre" TextChanged="TxtNombre-Usuario" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="573,366,299,154" Grid.ColumnSpan="2" >
+                    <TextBox.RenderTransform>
+                        <CompositeTransform Rotation="-0.195"/>
+                    </TextBox.RenderTransform>
+                </TextBox>
+                <ComboBox SelectionChanged="Selection_Departamento" Header="Departamento" PlaceholderText="" Width="316" Margin="33,366,0,0">
+                    <x:String>Ahuachapán</x:String>
+                    <x:String>Cabañas</x:String>
+                    <x:String>Chalatenango</x:String>
+                    <x:String>Cuscatlán</x:String>
+                    <x:String>La Libertad</x:String>
+                    <x:String>Morazán</x:String>
+                    <x:String>La Paz</x:String>
+                    <x:String>Santa Ana</x:String>
+                    <x:String>San Miguel</x:String>
+                    <x:String>San Salvador</x:String>
+                    <x:String>San Vicente</x:String>
+                    <x:String>Sonsonate</x:String>
+                    <x:String>La Unión</x:String>
+                    <x:String>Usulután</x:String>
+
+                </ComboBox>
+                <TextBox Header="Email" PlaceholderText="Gmail.com" TextChanged="TxtEmail" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="562,65,306,455" Grid.ColumnSpan="2" >
+                    <TextBox.RenderTransform>
+                        <CompositeTransform Rotation="-0.195"/>
+                    </TextBox.RenderTransform>
+                </TextBox>
+                <ComboBox SelectionChanged="Selection_Sexo" Header="Sexo" PlaceholderText="" Width="323" Margin="570,164,0,0" RenderTransformOrigin="0.477,0.533" Grid.ColumnSpan="2">
+                    <x:String>Masculino</x:String>
+                    <x:String>Femenino</x:String>
+
+
+                </ComboBox>
+                <Button x:Name="btnEditar" Height="54" Width="131" Content="Editar" Margin="753,463,0,0" Background="#043860" Foreground="White" CornerRadius="5" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <Button x:Name="btnCancelar" Height="54" Width="131" Content="Cancelar" Margin="65,463,0,0" Background="#043860" Foreground="White" CornerRadius="5" VerticalAlignment="Top" RenderTransformOrigin="1.663,0.216"/>
+                <Button x:Name="btnExaminar" Height="30" Width="75" Content="Examinar" Margin="237,140,0,0" Background="#8EAD8B" Foreground="White" CornerRadius="5" VerticalAlignment="Top" Grid.Column="1"/>
+
+                <PersonPicture  ProfilePicture="https://cdn-icons-png.flaticon.com/512/219/219986.png" Margin="224,25,41,451" RenderTransformOrigin="0.48,0.99" Grid.Column="1"></PersonPicture>
+                <PasswordBox Header="Password" PlaceholderText="Enter your password" PasswordChar="*" Margin="569,254,300,252" Grid.ColumnSpan="2" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
