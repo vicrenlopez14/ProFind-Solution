@@ -6,10 +6,10 @@ USE ProFind;
 
 CREATE TABLE Client
 (
-    Id_C       CHAR(21) PRIMARY KEY,
-    Name_C     VARCHAR(50),
-    Email_C    VARCHAR(50),
-    Password_C CHAR(64)
+    IdC       CHAR(21) PRIMARY KEY,
+    NameC     VARCHAR(50),
+    EmailC    VARCHAR(50),
+    PasswordC CHAR(64)
 );
 
 SELECT *
@@ -20,33 +20,39 @@ DESCRIBE Client;
 ###########################################
 CREATE TABLE `Rank`
 (
-    Id_R   CHAR(21) PRIMARY KEY,
-    Name_R VARCHAR(50) UNIQUE
+    IdR   CHAR(21) PRIMARY KEY,
+    NameR VARCHAR(50) UNIQUE
 );
+
+INSERT INTO `Rank` VALUES ("1","Empleado");
 
 DESCRIBE `Rank`;
 
 ###########################################
 CREATE TABLE Admin
 (
-    Id_A       CHAR(21) PRIMARY KEY,
-    Name_A     VARCHAR(50),
-    Email_A    VARCHAR(50),
-    Tel_A      VARCHAR(15),
-    Password_A CHAR(64),
-    Id_R1      CHAR(21),
-    FULLTEXT (Name_A, Email_A, Tel_A),
-    FOREIGN KEY (Id_R1) REFERENCES `Rank` (Id_R) ON DELETE CASCADE
+    IdA       CHAR(21) PRIMARY KEY,
+    NameA     VARCHAR(50),
+    EmailA    VARCHAR(50),
+    TelA      VARCHAR(15),
+    PasswordA CHAR(64),
+    IdR1      CHAR(21),
+    FULLTEXT (NameA, EmailA, TelA),
+    FOREIGN KEY (IdR1) REFERENCES `Rank` (IdR) ON DELETE CASCADE
 );
 
-DESCRIBE Admin;
+DESCRIBE ADMIN;
+
+SELECT * FROM ADMIN;
+
+DROP TABLE Admin;
 
 ###############################################
 CREATE TABLE Project
 (
-    Id_PJ          CHAR(21) PRIMARY KEY,
-    Title_PJ       VARCHAR(50),
-    Description_PJ VARCHAR(50)
+    IdPJ          CHAR(21) PRIMARY KEY,
+    TitlePJ       VARCHAR(50),
+    DescriptionPJ VARCHAR(50)
 );
 
 DESCRIBE Project;
@@ -54,11 +60,11 @@ DESCRIBE Project;
 ###############################################
 CREATE TABLE Tag
 (
-    Id_T   CHAR(21) PRIMARY KEY,
-    Name_T VARCHAR(50),
-    Id_PJ1 CHAR(21),
+    IdT   CHAR(21) PRIMARY KEY,
+    NameT VARCHAR(50),
+    IdPJ1 CHAR(21),
 
-    FOREIGN KEY (Id_PJ1) REFERENCES Project (Id_PJ) ON DELETE CASCADE
+    FOREIGN KEY (IdPJ1) REFERENCES Project (IdPJ) ON DELETE CASCADE
 );
 
 DESCRIBE Tag;
@@ -66,29 +72,29 @@ DESCRIBE Tag;
 ###############################################
 CREATE TABLE Process
 (
-    Id_P          CHAR(21) PRIMARY KEY,
-    Title_P       VARCHAR(50),
-    Description_P VARCHAR(350),
-    Begin_Date_P  DATETIME,
-    Id_T1         CHAR(21),
-    End_Date_P    DATETIME,
-    FOREIGN KEY (Id_T1) REFERENCES Tag (Id_T) ON DELETE CASCADE
+    IdPR          CHAR(21) PRIMARY KEY,
+    TitlePR       VARCHAR(50),
+    DescriptionPR VARCHAR(350),
+    BeginDatePR  DATETIME,
+    IdT1         CHAR(21),
+    EndDatePR    DATETIME,
+    FOREIGN KEY (IdT1) REFERENCES Tag (IdT) ON DELETE CASCADE
 );
 
-SELECT Process.Id_P,
-       Process.Title_P,
-       Process.Description_P,
-       Process.Begin_Date_P,
-       Process.End_Date_P,
-       Process.Id_T1,
-       Name_T,
-       Id_PJ1,
-       Title_PJ,
-       Description_PJ
+SELECT Process.IdPR,
+       Process.TitlePR,
+       Process.DescriptionPR,
+       Process.BeginDatePR,
+       Process.EndDatePR,
+       Process.IdT1,
+       NameT,
+       IdPJ1,
+       TitlePJ,
+       DescriptionPJ
 FROM Process
-         INNER JOIN Tag T on Process.Id_T1 = T.Id_T
-         INNER JOIN Project P on T.Id_PJ1 = P.Id_PJ
-WHERE Process.Id_P = ':Id';
+         INNER JOIN Tag T on Process.IdT1 = T.IdT
+         INNER JOIN Project P on T.IdPJ1 = P.IdPJ
+WHERE Process.IdPR = ':Id';
 
 
 
@@ -97,10 +103,10 @@ DESCRIBE Process;
 ###############################################
 CREATE TABLE Curriculum
 (
-    Id_CU          CHAR(21) PRIMARY KEY,
-    Studies_CU     CHAR,
-    Experiences_CU CHAR,
-    Years_CU       INT(2)
+    IdCU          CHAR(21) PRIMARY KEY,
+    StudiesCU     CHAR,
+    ExperiencesCU CHAR,
+    YearsCU       INT(2)
 );
 
 DESCRIBE Curriculum;
@@ -108,8 +114,8 @@ DESCRIBE Curriculum;
 ###############################################
 CREATE TABLE Job
 (
-    Id_J   CHAR(21) PRIMARY KEY,
-    Name_J CHAR(50)
+    IdJ   CHAR(21) PRIMARY KEY,
+    NameJ CHAR(50)
 );
 
 DESCRIBE Job;
@@ -117,13 +123,13 @@ DESCRIBE Job;
 ################################################
 CREATE TABLE Profesional
 (
-    Id_P         CHAR(21) PRIMARY KEY,
-    Name_P       CHAR(50),
-    Date_Birth_P DATE,
-    Email_P      CHAR(21),
-    Password_P   CHAR(64),
-    Id_CU1       CHAR(21),
-    Id_J1        CHAR(21),
-    FOREIGN KEY (Id_CU1) REFERENCES Curriculum (Id_CU) ON DELETE CASCADE,
-    FOREIGN KEY (Id_J1) REFERENCES Job (Id_J) ON DELETE CASCADE
+    IdP         CHAR(21) PRIMARY KEY,
+    NameP       CHAR(50),
+    DateBirthP DATE,
+    EmailP      CHAR(21),
+    PasswordP   CHAR(64),
+    IdCU1       CHAR(21),
+    IdJ1        CHAR(21),
+    FOREIGN KEY (IdCU1) REFERENCES Curriculum (IdCU) ON DELETE CASCADE,
+    FOREIGN KEY (IdJ1) REFERENCES Job (IdJ) ON DELETE CASCADE
 );
