@@ -28,7 +28,7 @@
                         Text="Register" />
                     <RichTextBlock SelectionHighlightColor="Green">
                         <Paragraph>
-                            Already have an account?<Hyperlink Click="Hyperlink_Click" NavigateUri="https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Hyperlink">Log in to your account</Hyperlink>
+                            Already have an account? <Hyperlink Click="Hyperlink_Click" NavigateUri="https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Hyperlink">Log in to your account</Hyperlink>
                         </Paragraph>
                     </RichTextBlock>
                     <TextBox Margin="0,30,0,0" PlaceholderText="Name" />

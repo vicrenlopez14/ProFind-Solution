@@ -301,6 +301,9 @@
     <Compile Include="Lib\Professional\Views\Reservados_Page\Page_Reservados.xaml.cs">
       <DependentUpon>Page_Reservados.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\Professional\Views\UpadateProject_Page\Page_Project-Contingencies.xaml.cs">
+      <DependentUpon>Page_Project-Contingencies.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -543,6 +546,10 @@
     <Page Include="Lib\Professional\Views\Reservados_Page\Page_Reservados.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Lib\Professional\Views\UpadateProject_Page\Page_Project-Contingencies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\CommandBar.xaml">
       <SubType>Designer</SubType>
