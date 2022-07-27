@@ -26,5 +26,40 @@ namespace ProFind.Lib.Client.Views.editar_perfil
         {
             this.InitializeComponent();
         }
+
+        private void TxtNombre(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TxtApellido(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void DatePicker_ProcessKeyboardAccelerators(UIElement sender, ProcessKeyboardAcceleratorEventArgs args)
+        {
+
+        }
+
+        private void Selection_Departamento(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TxtEmail(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Selection_Sexo(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TxtNombre_Usuario(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

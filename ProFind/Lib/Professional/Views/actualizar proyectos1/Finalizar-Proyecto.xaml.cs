@@ -26,5 +26,15 @@ namespace ProFind.Lib.Professional.Views.actualizar_proyectos1
         {
             this.InitializeComponent();
         }
+
+        private void TxtNumEmpleado(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TxtNombreCliente(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

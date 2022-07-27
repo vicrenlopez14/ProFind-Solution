@@ -31,13 +31,13 @@
             </TextBox>
             <RichEditBox x:Name="REBCustom" Header="  Conclusión del proyecto "
     AutomationProperties.Name="editor with custom menu"
-    Loaded="REBCustom_Loaded"
-    Unloaded="REBCustom_Unloaded" Margin="150,254,847,549"/>
+  
+     Margin="150,254,847,549"/>
 
             <RichEditBox x:Name="REBCustom1" Header="Observacion del proyecto  "
     AutomationProperties.Name="editor with custom menu"
-    Loaded="REBCustom1_Loaded"
-    Unloaded="REBCustom_Unloaded" Margin="720,250,277,553"/>
+ 
+    Margin="720,250,277,553"/>
 
             <Button x:Name="btnenviar" Height="60" Width="215" Content="Finalizar Proyecto" Margin="121,504,0,0" Background="#2B9D02" Foreground="White" CornerRadius="5" VerticalAlignment="Top" FontSize="18"/>
             <Button x:Name="btncancelar" Height="60" Width="215" Content="Cancelar" Margin="1033,496,0,0" Background="#DC1324" Foreground="White" CornerRadius="5" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="0.516,0.767"/>

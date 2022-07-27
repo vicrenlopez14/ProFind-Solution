@@ -26,5 +26,30 @@ namespace ProFind.Lib.Client.Views.Metodo_pago
         {
             this.InitializeComponent();
         }
+
+        private void TxtTargeta(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TxtNombre(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TxtMes(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TxAño(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Txtcodigo_seguridad(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -27,7 +27,7 @@
             </TextBox.RenderTransform>
 
         </TextBox>
-        <TextBox Header="Codigo de Seguridad" PlaceholderText="Codigo" TextChanged="Txtcodigo-seguridad" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="587,292,711,633" >
+        <TextBox Header="Codigo de Seguridad" PlaceholderText="Codigo" TextChanged="Txtcodigo_seguridad" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="587,292,711,633" >
             <TextBox.RenderTransform>
                 <CompositeTransform Rotation="-0.195"/>
             </TextBox.RenderTransform>
