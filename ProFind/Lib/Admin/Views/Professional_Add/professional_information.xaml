@@ -16,7 +16,8 @@
             </Grid.RowDefinitions>
 
 
-            <TextBox Header="Num Empleado" PlaceholderText="Num" TextChanged="TxtNumEmpleado" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="28,65,849,454" >
+            <TextBlock x:Uid="Employee-Number" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="27,56,0,0" Text="Employee Number" />
+            <TextBox  PlaceholderText="" TextChanged="TxtNumEmpleado" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="28,85,849,454" >
                 <TextBox.RenderTransform>
                     <CompositeTransform Rotation="-0.195"/>
                 </TextBox.RenderTransform>
@@ -34,18 +35,22 @@
                 </TextBox.RenderTransform>
 
             </TextBox>
-            <TextBox Header="Seguro Social" PlaceholderText="Seguro" TextChanged="TxtNum_SeguroSocial" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="27,161,852,357" >
+            <TextBlock x:Uid="Social-Security" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="27,164,0,0" Text="Social Security" />
+            <TextBox  PlaceholderText="" TextChanged="TxtNum_SeguroSocial" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="27,189,852,351" >
                 <TextBox.RenderTransform>
                     <CompositeTransform Rotation="-0.195"/>
                 </TextBox.RenderTransform>
             </TextBox>
-            <DatePicker Header="Fecha De Nacimiento" Margin="27,239,0,0" VerticalAlignment="Top" Width="316" Height="73"/>
-            <TextBox Header="Puesto de Trabajo" PlaceholderText="Puesto" TextChanged="TxtPuestoDeTrabajo" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="25,326,847,194" >
+            <TextBlock x:Uid="Date-of-Birth" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="27,247,0,0" Text="Date of Birth" />
+            <DatePicker Margin="27,266,0,0" VerticalAlignment="Top" Width="316" Height="36"/>
+            <TextBlock x:Uid="job" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,329,0,0" Text="Job" />
+            <TextBox PlaceholderText="" TextChanged="TxtPuestoDeTrabajo" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="25,351,847,188" >
                 <TextBox.RenderTransform>
                     <CompositeTransform Rotation="-0.195"/>
                 </TextBox.RenderTransform>
             </TextBox>
-            <ComboBox SelectionChanged="Selection_Departamento" Header="Departamento" PlaceholderText="" Width="316" Margin="27,400,0,0">
+            <TextBlock x:Uid="Department" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,400,0,0" Text="Department" />
+            <ComboBox SelectionChanged="Selection_Departamento"  PlaceholderText="" Width="316" Margin="27,424,0,0" Height="36">
                 <x:String>Ahuachapán</x:String>
                 <x:String>Cabañas</x:String>
                 <x:String>Chalatenango</x:String>
