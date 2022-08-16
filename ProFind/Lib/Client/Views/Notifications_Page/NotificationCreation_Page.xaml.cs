@@ -38,9 +38,13 @@ namespace ProFind.Lib.Client.Views.Notifications_Page
         private async void btnSend_Click_1(object sender, RoutedEventArgs e)
         {
             PFNotification ClientNotification = new PFNotification();
+            ClientNotification.Project = new PFProject();
+            ClientNotification.Project.ResponsibleClient = new PFClient();
             ClientNotification.Project.ResponsibleClient.NameC = ClientName_txb.Text;
             ClientNotification.TitleN = Title_txb.Text;
             ClientNotification.DescriptionN = Description_txb.Text;
+            ClientNotification.Project.ResponsibleProfessional = new PFProfessional();
+            ClientNotification.Project.ResponsibleProfessional.Profession = new PFProfession();
             ClientNotification.Project.ResponsibleProfessional.Profession.NamePFS = TypeProfession_txb.Text;
 
             var answer = new PFNotificationService();
@@ -54,6 +58,7 @@ namespace ProFind.Lib.Client.Views.Notifications_Page
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
+
 
         }
     }

@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:models="using:Domain.Models" xmlns:models1="using:Application.Models"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Style="{StaticResource PageStyle}">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -18,7 +18,7 @@
     <Page.Resources>
         <DataTemplate x:Key="ClientsRealizedListViewTemplate" x:DataType="models1:PFProject">
             <StackPanel Orientation="Horizontal" Margin="-900,-800,10,10" Height="100" Width="500">
-                <StackPanel Background="#CAFF78" Margin="1,15" Height="100">
+                <StackPanel Margin="1,15" Height="100">
                     <SymbolIcon Symbol="Accept" Height="79" Width="166"/>
                 </StackPanel>
                 <StackPanel Margin="10, 18, 0, 0">

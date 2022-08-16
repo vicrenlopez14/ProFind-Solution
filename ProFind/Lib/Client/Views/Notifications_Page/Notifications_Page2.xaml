@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:models="using:Domain.Models" xmlns:models1="using:Application.Models"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Style="{StaticResource PageStyle}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*"/>
@@ -17,7 +17,7 @@
 
     <Page.Resources>
         <DataTemplate x:Key="ClientNotificationsListViewTemplate" x:DataType="models1:PFProject">
-            <StackPanel Margin="47,41,778,800" Background="#ECBE3E" CornerRadius="15" Grid.ColumnSpan="2">
+            <StackPanel Margin="47,41,778,800" CornerRadius="15" Grid.ColumnSpan="2">
                 <StackPanel Margin="-75,20,0,0" Height="27" Width="300" >
                     <TextBlock Text= "Payment Notification" FontWeight="Bold" Height="21"/>
                 </StackPanel>
@@ -31,7 +31,7 @@
                     <TextBlock Text="{Binding DescriptionPJ}" Width="372"/>
                 </StackPanel>
                 <PersonPicture  ProfilePicture="{Binding PicturePJ}" Margin="68,72,1332,828"/>
-                <Button Style="{StaticResource AccentButtonStyle}" Content="Aware" Margin="559,138,0,0" VerticalAlignment="Top" Height="34" Width="128" Background="#FF0B7D36" />
+                <Button Style="{StaticResource AccentButtonStyle}" Content="Aware" Margin="559,138,0,0" VerticalAlignment="Top" Height="34" Width="128"/>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
