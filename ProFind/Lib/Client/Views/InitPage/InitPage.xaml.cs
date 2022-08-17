@@ -1,6 +1,7 @@
 ﻿using Windows.UI.Xaml.Controls;
 using ProFind.Lib.Global.Controllers;
 using Application.Services;
+using Application.Models;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -56,6 +57,17 @@ namespace ProFind.Lib.Client.Views.InitPage
         {
             new GlobalNavigationController().NavigateTo(typeof(Professional.Views.InitPage.InitPage));
 
+        }
+
+        private async void Register_btn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            PFClient ClientRegister = new PFClient();
+            ClientRegister.NameC = Name_txb.Text;
+            ClientRegister.EmailC = Email_txb.Text;
+            ClientRegister.PasswordC = Password_txb.ToString();
+
+            var answerClient = new PfClientService();
+            await answerClient.Create(ClientRegister);
         }
     }
 }

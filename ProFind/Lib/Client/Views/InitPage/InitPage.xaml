@@ -31,17 +31,18 @@
                             Already have an account?<Hyperlink Click="Hyperlink_Click" NavigateUri="https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Hyperlink">Log in to your account</Hyperlink>
                         </Paragraph>
                     </RichTextBlock>
-                    <TextBox Margin="0,30,0,0" PlaceholderText="Name" />
-                    <TextBox Margin="0,15,0,0" PlaceholderText="Email" />
-                    <PasswordBox Margin="0,15,0,0" PlaceholderText="Password" />
+                    <TextBox Margin="0,30,0,0" PlaceholderText="Name" Name="Name_txb" />
+                    <TextBox Margin="0,15,0,0" PlaceholderText="Email" Name="Email_txb"/>
+                    <PasswordBox Margin="0,15,0,0" PlaceholderText="Password" Name="Password_txb" />
 
                     <CheckBox Margin="0,5,0,0" Content="I accept terms and conditions and privacy policy" />
                     <Button
+                        Name="Register_btn"
                         Width="100"
                         Margin="0,10,0,0"
                         HorizontalAlignment="Center"
                         Content="Register"
-                        Style="{StaticResource AccentButtonStyle}" />
+                        Style="{StaticResource AccentButtonStyle}" Click="Register_btn_Click" />
 
                     <TextBlock
                         Margin="0,10,0,0"
@@ -55,6 +56,7 @@
 
                         </Grid.ColumnDefinitions>
                         <Button
+                            Name="Twitter_btn"
                             Grid.Column="0"
                             HorizontalAlignment="Center"
                             Background="#03A9F4">
@@ -71,6 +73,7 @@
 
                         </Button>
                         <Button
+                            Name="Facebook_btn"
                             Grid.Column="1"
                             HorizontalAlignment="Center"
                             Background="#2374f2">
@@ -86,6 +89,7 @@
                             </StackPanel>
                         </Button>
                         <Button
+                            Name="Google_btn"
                             Grid.Column="2"
                             HorizontalAlignment="Center"
                             Background="White">

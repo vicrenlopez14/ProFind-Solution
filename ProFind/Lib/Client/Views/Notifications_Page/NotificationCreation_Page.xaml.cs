@@ -58,8 +58,10 @@ namespace ProFind.Lib.Client.Views.Notifications_Page
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-
-
+            ClientName_txb.Text = string.Empty;
+            Title_txb.Text = string.Empty;
+            Description_txb.Text = string.Empty;
+            TypeProfession_txb.Text = string.Empty;
         }
     }
 }
