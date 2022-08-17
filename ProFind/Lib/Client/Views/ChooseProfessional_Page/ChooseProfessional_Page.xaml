@@ -14,7 +14,7 @@
             <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
         <ListView Name="chooseProfessionalListView" ItemTemplate="{StaticResource chooseProfessionalListViewTemplate}"/>
-        <TextBlock Text="Choice professional" Style="{StaticResource TitleTextBlockStyle}" Margin="25,10,493,961"/>
+        <TextBlock Text="Choice professional" Style="{StaticResource TitleTextBlockStyle}" Margin="25,10,440,949"/>
     </Grid>
     
     <Page.Resources>
@@ -26,7 +26,7 @@
                 <Image Source="{Binding PictureP}" Height="139" Width="103" HorizontalAlignment="Center" Margin="0,10"/>
                 <StackPanel Height="96" Background="LightGray" Width="231" Margin="0,2" CornerRadius="10">
                     <TextBlock Text="{Binding NameP}" TextAlignment="Center" Margin="0,5"/>
-                    <Button Content="Choose profesional" Margin="0,15" HorizontalAlignment="Center"  Background="#E43636" Foreground="White" />
+                    <Button  Name="ChooseProfessional_btn" Content="Choose profesional" Margin="0,15" HorizontalAlignment="Center"  Background="#E43636" Foreground="White" />
                 </StackPanel>
             </StackPanel>
         </DataTemplate>
