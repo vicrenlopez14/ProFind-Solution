@@ -3,6 +3,8 @@ using Application.Services;
 using Microsoft.UI.Xaml.Controls;
 using ProFind.Lib.Global.Controllers;
 using ProFind.Lib.Global.Helpers;
+using ProFind.Lib.Global.Services;
+using ProFind.Lib.Global.Services.Models;
 using ProFind.Lib.Global.Views;
 using System;
 using System.Collections.Generic;
@@ -30,7 +32,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminPages.CreatePage
     public sealed partial class CreatePage : Page
     {
  
-            private List<PFRank> ranks = new List<PFRank>();
+            private List<Rank> ranks = new List<Rank>();
             private List<string> rankStrings = new List<string>();
             private byte[] imageBytes;
             private bool isFirstAdmin = false;
@@ -45,7 +47,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminPages.CreatePage
 
             public async void loadUsefulThings()
             {
-                ranks = (List<PFRank>)await new PfRankService().ListObjectAsync();
+            var adminList = await APIConnection.GetConnection.GetAdminsAsync();
 
                 foreach (var rank in ranks)
                 {
@@ -76,7 +78,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminPages.CreatePage
 
             private void Professionals_Login_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
             {
-                new GlobalNavigationController().NavigateTo(typeof(Professional.Views.InitPage.InitPage));
+                new GlobalNavigationController().NavigateTo(typeof(ProfessionalNS.Views.InitPage.InitPage));
             }
 
             private async void PictureSelection_btn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -118,10 +120,10 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminPages.CreatePage
                 {
                     Creation_pr.IsActive = true;
 
-                    var toCreateAdmin = new PFAdmin(Name_tb.Text, Email_tb.Text, PhoneNumber_tb.Text, Password_pb.Password, "", imageBytes);
-                    toCreateAdmin.IdR1 = ranks[Rank_cb.SelectedIndex].IdR;
+                    var toCreateAdmin = new Admin(Name_tb.Text, Email_tb.Text, PhoneNumber_tb.Text, Password_pb.Password, "", imageBytes);
+                    toCreateAdmin.IdR1 = Rank[Rank_cb.SelectedIndex].IdR;
 
-                    var result = await new PFAdminService().Create(toCreateAdmin);
+                var result = await APIConnection.GetConnection.PostAdminAsync();
 
                     if (result == System.Net.HttpStatusCode.OK)
                     {

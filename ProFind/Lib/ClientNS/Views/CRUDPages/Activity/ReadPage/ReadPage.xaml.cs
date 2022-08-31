@@ -1,5 +1,7 @@
-﻿using ProFind.Lib.AdminNS.Controllers;
+﻿using Google.Protobuf.WellKnownTypes;
+using ProFind.Lib.AdminNS.Controllers;
 using ProFind.Lib.AdminNS.Views.Project_CRUD;
+using ProFind.Lib.Global.Services;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -21,12 +23,12 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.Activity.ReadPage
 
         private async void InitializeData()
         {
-            AdminsListView.ItemsSource = await new PfProjectService().ListObjectAsync();
+            AdminsListView.ItemsSource = await APIConnection.GetConnection.PostAdminAsync();
         }
 
         private void AdminListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var project = e.ClickedItem as PFProject;
+            var project = e.ClickedItem as Project;
 
             new InAppNavigationController().NavigateTo(typeof(UpdatePageProject), project);
         }

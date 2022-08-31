@@ -1,5 +1,6 @@
 ﻿using ProFind.Lib.AdminNS.Controllers;
 using ProFind.Lib.Global.Helpers;
+using ProFind.Lib.Global.Services.Models;
 using System;
 using System.Collections.Generic;
 using Windows.UI.Popups;
@@ -15,13 +16,13 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.Project.CreatePage
     /// </summary>
     public sealed partial class CreatePage : Page
     {
-        private PFProject newObject = new PFProject();
+        private Project newObject = new Project();
 
-        private string[] status = Enum.GetNames(typeof(PFProjectStatus));
-        private List<PFProfessional> professionals = new List<PFProfessional>();
+        private string[] status = Enum.GetNames(typeof(ProjectStatus));
+        private List<Professional> professionals = new List<Professional>();
         private List<string> professionalStrings = new List<string>();
 
-        private List<PFClient> clients = new List<PFClient>();
+        private List<Client> clients = new List<Client>();
         private List<string> clientStrings = new List<string>();
 
         public CreatePage()
