@@ -280,6 +280,9 @@
     <Compile Include="Lib\AdminNS\Views\QuickView_Page\QuickView_Page.xaml.cs">
       <DependentUpon>QuickView_Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\AdminNS\Views\ReportPage.xaml.cs">
+      <DependentUpon>ReportPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\AdminNS\Views\Status_Page\Status_Page.xaml.cs">
       <DependentUpon>Status_Page.xaml</DependentUpon>
     </Compile>
@@ -782,6 +785,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\AdminNS\Views\QuickView_Page\QuickView_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\AdminNS\Views\ReportPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

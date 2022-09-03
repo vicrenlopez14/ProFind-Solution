@@ -23,7 +23,8 @@
                         Name="SelectedPicture_pp"
                         Width="100"
                         Height="100"
-                        Margin="0,30,0,20" />
+                        Margin="0,30,0,20" 
+                        />
                     <StackPanel
                         Grid.Column="0"
                         HorizontalAlignment="Center"
@@ -53,6 +54,16 @@
                         Margin="0,15,0,0"
                         PlaceholderText="Description"
                         TextChanged="Description_tb_TextChanged" />
+                    <DatePicker
+                        Name="ExpectedBegin_dp"
+                        Margin="0,15,0,0"
+                        DateChanged="ExpectedBegin_dp_DateChanged"
+                        Header="Expected begin" />
+                    <DatePicker
+                        Name="ExpectedEnd_dp"
+                        Margin="0,15,0,0"
+                        DateChanged="ExpectedEnd_dp_DateChanged"
+                        Header="Expected end" />
 
                     <Grid Margin="0,10,0,0" VerticalAlignment="Center">
                         <Grid.ColumnDefinitions>
