@@ -5,12 +5,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-<<<<<<< HEAD
     Style="{StaticResource PageStyle}"
     mc:Ignorable="d">
-=======
-    Style="{StaticResource PageStyle}">
->>>>>>> Daniel-Rama2
+
 
     <Grid>
         <Grid>
@@ -25,10 +22,10 @@
                             Create a new project from zero.
                         </TextBlock>
                         <Image
-                            Name="SelectedPicture_pp"
+                            x:Name="SelectedPicture_pp"
                             Width="100"
                             Height="100"
-                            Margin="0,30,0,0" />
+                            />
                         <StackPanel
                             Grid.Column="0"
                             HorizontalAlignment="Center"
@@ -71,7 +68,7 @@
                                 <ColumnDefinition Width="433*" />
                             </Grid.ColumnDefinitions>
                             <ComboBox
-<<<<<<< HEAD
+
                                 Name="InitialStatus_cb"
                                 Grid.Column="0"
                                 Margin="0,20"
@@ -81,45 +78,37 @@
                                 SelectionChanged="InitialStatus_cb_SelectionChanged" />
                             <StackPanel Grid.Column="1" Orientation="Vertical">
                                 <TextBlock
-                                    Name="Professional_cb"
+                                   
                                     Margin="0,20"
                                     HorizontalAlignment="Center"
                                     d:Text="Selected professional" />
-                                <Button HorizontalAlignment="Center" Click="Button_Click">Select</Button>
+                                <ComboBox
+                                   Margin="110,-20,0,0"
+                            x:Name="Professional_cb"
+                           
+                            SelectedIndex="0"
+                            SelectionChanged="Professional_cb_SelectionChanged" Width="162" />
+                                <Button HorizontalAlignment="Center" Margin="20" Click="Button_Click">Select</Button>
 
                             </StackPanel>
                             <ComboBox
                                 Name="Client_cb"
-                                Grid.Column="2"
-                                Margin="0,20"
-                                HorizontalAlignment="Center"
+                                Grid.Column="1"
+                                Margin="349,20,0,0"
                                 Header="Client"
                                 SelectedIndex="0"
-                                SelectionChanged="Client_cb_SelectionChanged" />
-=======
-                            Name="InitialStatus_cb"
-                            HorizontalAlignment="Center"
-                            Header="Initial status"
-                            SelectedIndex="0"
-                            SelectionChanged="InitialStatus_cb_SelectionChanged" VerticalAlignment="Center" />
-                            <ComboBox
-                            Name="Professional_cb"
-                            Grid.Column="1"
-                            Margin="141,0,0,0"
-                            Header="Responsible professional"
-                            SelectedIndex="0"
-                            SelectionChanged="Professional_cb_SelectionChanged" VerticalAlignment="Center" />
-                            <ComboBox
-                            Name="Client_cb"
-                            Grid.Column="3"
-                            HorizontalAlignment="Center"
-                            Header="Client"
-                            SelectedIndex="0"
-                            SelectionChanged="Client_cb_SelectionChanged" VerticalAlignment="Center" />
->>>>>>> Daniel-Rama2
-                        </Grid>
+                                SelectionChanged="Client_cb_SelectionChanged" Grid.ColumnSpan="3" Width="127" />
 
-                       
+
+                        </Grid>
+                        <Button
+                            x:Name="Create_btn"
+                            Width="100"
+                            Click="Create_btn_Click"
+                            Content="Create"
+                            Style="{StaticResource AccentButtonStyle}" />
+
+
 
                         <Grid Margin="0,10,0,0" VerticalAlignment="Center">
                             <Grid.ColumnDefinitions>
@@ -127,15 +116,6 @@
                                 <ColumnDefinition Width="0.3*" />
                             </Grid.ColumnDefinitions>
                         </Grid>
-
-                        <Button
-                            x:Name="Create_btn"
-                            Width="100"
-                            Margin="0,50,0,0"
-                            HorizontalAlignment="Center"
-                            Click="Create_btn_Click"
-                            Content="Create"
-                            Style="{StaticResource AccentButtonStyle}" />
 
                         <muxc:ProgressRing
                             x:Name="Creation_pr"

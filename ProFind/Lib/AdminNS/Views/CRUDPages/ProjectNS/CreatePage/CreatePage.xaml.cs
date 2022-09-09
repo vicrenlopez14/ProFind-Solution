@@ -17,14 +17,9 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.CreatePage
     /// </summary>
     public sealed partial class CreatePage : Page
     {
-        private Project newObject = new Project();
+        Project toManipulate = new Project();
 
-        private string[] status = Enum.GetNames(typeof(Projectstatus));
-        private List<Professional> professionals = new List<Professional>();
-        private List<string> professionalStrings = new List<string>();
-
-        private List<Client> clients = new List<Client>();
-        private List<string> clientStrings = new List<string>();
+     
 
 
         public CreatePage()
@@ -81,18 +76,18 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.CreatePage
 
         private async void PictureSelection_btn_Click(object sender, RoutedEventArgs e)
         {
-            newObject.PicturePj = await (await PickFileHelper.PickImage()).ToByteArrayAsync();
+          
 
         }
 
         private void Title_tb_TextChanged(object sender, TextChangedEventArgs e)
         {
-            newObject.TitlePj = Title_tb.Text;
+            
         }
 
         private void Description_tb_TextChanged(object sender, TextChangedEventArgs e)
         {
-            newObject.DescriptionPj = Description_tb.Text;
+            
 
         }
 
@@ -100,20 +95,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.CreatePage
 
         private void TotalPrice_tb_ValueChanged(Microsoft.UI.Xaml.Controls.NumberBox sender, Microsoft.UI.Xaml.Controls.NumberBoxValueChangedEventArgs args)
         {
-            newObject.TotalPricePj = (float)sender.Value;
-
         }
 
         private void InitialStatus_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            Projectstatus selectedStatus = Projectstatus.Inactive;
-
-            if (InitialStatus_cb.SelectedIndex == 1)
-                selectedStatus = Projectstatus.Active;
-
-            newObject.Status = selectedStatus;
-            newObject.IdPS1 = selectedStatus == ProjectStatus.Inactive ? "0" : "1";
+            
         }
 
         private void Professional_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -128,12 +115,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.CreatePage
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            ContentDialogResult result = await new SelectProfessionalDialog().ShowAsync();
-
-            if (result == ContentDialogResult.Primary)
-            {
-                newObject.IdP1 = SelectProfessionalDialog.SelectedProfessional.IdP;
-            }
+            
         }
     }
 

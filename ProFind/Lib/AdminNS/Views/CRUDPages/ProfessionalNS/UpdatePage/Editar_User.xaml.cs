@@ -5,13 +5,11 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using ProFind.Lib.Global.Controllers;
 using ProFind.Lib.Global.Helpers;
-<<<<<<< HEAD
-=======
-using ProFind.Lib.Global.Services.Models;
+using ProFind.Lib.Global.Services;
+using Windows.UI.Popups;
 using Windows.UI.Popups;
 using ProFind.Lib.Global.Services;
 using System;
->>>>>>> Daniel-Rama2
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -43,10 +41,10 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
 
         public async void loadUsefulThings()
         {
-            // Professions
+           
             profession_cbx.ItemsSource = await APIConnection.GetConnection.GetProfessionsAsync();
 
-            // Departments
+       
             departamento.ItemsSource = await APIConnection.GetConnection.GetDepartmentsAsync();
 
         }
@@ -143,48 +141,48 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
             {
 
                 var dialog = new MessageDialog("The field is empty");
-                await dialog.ShowAsync();
+                
             }
 
             else if (string.IsNullOrEmpty(Afp.Text))
             {
                 var dialog = new MessageDialog("The field is empty");
-                await dialog.ShowAsync();
+               
             }
             else if (string.IsNullOrEmpty(Dui.Text))
             {
                 var dialog = new MessageDialog("The field is empty");
-                await dialog.ShowAsync();
             }
+
             else if (string.IsNullOrEmpty(SeguroSocial.Text))
             {
                 var dialog = new MessageDialog("The field is empty");
-                await dialog.ShowAsync();
+
             }
             else if (string.IsNullOrEmpty(CodigoPostal.Text))
             {
                 var dialog = new MessageDialog("The field is empty");
-                await dialog.ShowAsync();
+
             }
             else if (string.IsNullOrEmpty(Salario.Text))
             {
                 var dialog = new MessageDialog("The field is empty");
-                await dialog.ShowAsync();
+
             }
             else if (string.IsNullOrEmpty(Email.Text))
             {
                 var dialog = new MessageDialog("The field is empty");
-                await dialog.ShowAsync();
+
             }
             else if (string.IsNullOrEmpty(passwordBox.Password))
             {
                 var dialog = new MessageDialog("The field is empty");
-                await dialog.ShowAsync();
+
             }
             else if (string.IsNullOrEmpty(Confirm_passwordBox.Password))
             {
                 var dialog = new MessageDialog("The field is empty");
-                await dialog.ShowAsync();
+
             }
 
 

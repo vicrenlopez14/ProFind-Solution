@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.Search_Pages.Search_Page_Clients"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.Search_Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:models1="using:ProFind.Lib.Global.Services"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="114*"/>
+        </Grid.RowDefinitions>
+        <AutoSuggestBox PlaceholderText="Search"
+        TextChanged="Control2_TextChanged"
+        QueryIcon="Find"
+        x:Name="Search_Client"
+        QuerySubmitted="Control2_QuerySubmitted"
+        SuggestionChosen="Control2_SuggestionChosen" Margin="280,44,279,0" Height="34"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Clients" Style="{StaticResource HeaderTextBlockStyle}" Margin="80,39,1268,903" RenderTransformOrigin="0.638,0.776"/>
+            <ListView Name="ClientListView" ItemClick="ClientListView_ItemClick">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models1:Client">
+                        <StackPanel CornerRadius="10" BorderThickness="1" BorderBrush="Black" Orientation="Horizontal" >
+                            <PersonPicture ProfilePicture="{Binding PictureC}" Height="73" Width="69" Margin="15,0"/>
+                            <StackPanel Orientation="Vertical" Height="42">
+                                <TextBlock Text="{Binding NameC}" Height="21"/>
+                                <TextBlock Text="{Binding EmailC}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

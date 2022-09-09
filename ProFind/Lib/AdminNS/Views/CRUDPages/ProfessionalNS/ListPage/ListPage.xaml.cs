@@ -1,11 +1,9 @@
 ﻿using ProFind.Lib.AdminNS.Controllers;
+using ProFind.Lib.Global.Services;
 using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
-<<<<<<< HEAD
-=======
-using ProFind.Lib.Global.Services.Models;
 using ProFind.Lib.Global.Services;
->>>>>>> Daniel-Rama2
+
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 

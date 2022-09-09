@@ -1,12 +1,12 @@
 ﻿<Page
-    x:Class="ProFind.Lib.AdminNS.Views.CRUDPages.ProjectStatusNS.UpdatePage.UpdatePage"
+    x:Class="ProFind.Lib.AdminNS.Views.CRUDPages.TagNS.CreatePage.Create_Tag"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ProFind.Lib.AdminNS.Views.CRUDPages.ProjectStatusNS.UpdatePage"
+    xmlns:local="using:ProFind.Lib.AdminNS.Views.CRUDPages.TagNS.CreatePage"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Style="{StaticResource PageStyle}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
         <ScrollViewer Grid.Column="1" ViewChanged="ScrollViewer_ViewChanged">
@@ -18,7 +18,7 @@
                         Text="Creation" />
 
                     <TextBlock>
-                        Update and Delete a  Profession.
+                        Create a new  Tag.
                     </TextBlock>
                     <StackPanel
                         Grid.Column="0"
@@ -36,21 +36,13 @@
                             <ColumnDefinition Width="0.3*" />
                         </Grid.ColumnDefinitions>
                     </Grid>
-                    <Button
-                        x:Name="Update_btn"
-                        Width="100"
-                        Margin="0,50,0,0"
-                        HorizontalAlignment="Center"
-                        Click="Update_btn_Click"
-                        Content="Update"
-                        Style="{StaticResource AccentButtonStyle}" />
 
                     <Button
-                        x:Name="Delete_btn"
+                        x:Name="Create_btn"
                         Width="100"
                         Margin="0,50,0,0"
                         HorizontalAlignment="Center"
-                        Click="Delete_btn_Click"
+                        Click="Create_btn_Click"
                         Content="Create"
                         Style="{StaticResource AccentButtonStyle}" />
 
@@ -62,4 +54,6 @@
             </Grid>
         </ScrollViewer>
     </Grid>
+
+    
 </Page>

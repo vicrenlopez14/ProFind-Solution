@@ -155,6 +155,9 @@
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ClientNS\ListPage\Clients_List.xaml.cs">
       <DependentUpon>Clients_List.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\ClientNS\Search_Pages\Search_Page_Clients.xaml.cs">
+      <DependentUpon>Search_Page_Clients.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ClientNS\UpdatePage\Client-Update-Delete.xaml.cs">
       <DependentUpon>Client-Update-Delete.xaml</DependentUpon>
     </Compile>
@@ -179,9 +182,6 @@
     <Compile Include="Lib\AdminNS\Views\CRUDPages\NotificationNS\ReadPage\ReadPage.xaml.cs">
       <DependentUpon>ReadPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lib\AdminNS\Views\CRUDPages\NotificationNS\SearchPage\Search_Noti.xaml.cs">
-      <DependentUpon>Search_Noti.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\NotificationNS\UpdatePage\UpdatePage.xaml.cs">
       <DependentUpon>UpdatePage.xaml</DependentUpon>
     </Compile>
@@ -191,23 +191,21 @@
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProfessionalNS\CreatePage\professional_information.xaml.cs">
       <DependentUpon>professional_information.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lib\AdminNS\Views\CRUDPages\ProfessionalNS\DeletePage\Delete.xaml.cs" />
-    <Compile Include="Lib\AdminNS\Views\CRUDPages\ProfessionalNS\ListPage\List-Page.xaml.cs" />
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProfessionalNS\ListPage\ListPage.xaml.cs">
       <DependentUpon>ListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lib\AdminNS\Views\CRUDPages\ProfessionalNS\ListPage\Professionals_Page.cs" />
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProfessionalNS\UpdatePage\Editar_User.xaml.cs">
       <DependentUpon>Editar_User.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lib\AdminNS\Views\CRUDPages\ProfessionalNS\Views.cs" />
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProfessionNS\CreatePage\Profession-Create.xaml.cs">
       <DependentUpon>Profession-Create.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProfessionNS\ListPage\List-Page.xaml.cs">
       <DependentUpon>List-Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lib\AdminNS\Views\CRUDPages\ProfessionNS\UpdatePage\Update_delete-Pro.xaml.cs" />
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\ProfessionNS\UpdatePage\Update_Profesion.xaml.cs">
+      <DependentUpon>Update_Profesion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\CreatePage\CreatePage.xaml.cs">
       <DependentUpon>CreatePage.xaml</DependentUpon>
     </Compile>
@@ -219,23 +217,18 @@
     </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\ReadPage\ReadPage.xaml.cs" />
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\ReadPage\ReadPage.xaml.cs" />
-    <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\UpdatePage\UpdatePage.xaml.cs" />
-    <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\UpdatePage\UpdatePage.xaml.cs" />
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\UpdatePage\Update_Project.xaml.cs">
       <DependentUpon>Update_Project.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectStatusNS\CreatePage\Create-Project-status.xaml.cs">
       <DependentUpon>Create-Project-status.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectStatusNS\CreatePage\CreatePage.xaml.cs" />
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectStatusNS\ListPage\List-Page-Project-status.xaml.cs">
       <DependentUpon>List-Page-Project-status.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectStatusNS\ListPage\ListPage.xaml.cs" />
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectStatusNS\UpdatePage\Update-delete-Project-status.xaml.cs">
       <DependentUpon>Update-delete-Project-status.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectStatusNS\UpdatePage\UpdatePage.xaml.cs" />
     <Compile Include="Lib\AdminNS\Views\CRUDPages\RankNS\CreatePage\Create_Page.xaml.cs">
       <DependentUpon>Create_Page.xaml</DependentUpon>
     </Compile>
@@ -247,6 +240,9 @@
     </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\TagNS\CreatePage\CreateDialog.xaml.cs">
       <DependentUpon>CreateDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\TagNS\CreatePage\Create_Tag.xaml.cs">
+      <DependentUpon>Create_Tag.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\TagNS\ListPage\ListDialog.xaml.cs">
       <DependentUpon>ListDialog.xaml</DependentUpon>
@@ -580,6 +576,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Lib\AdminNS\Views\CRUDPages\ClientNS\Search_Pages\Search_Page_Clients.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Lib\AdminNS\Views\CRUDPages\ClientNS\UpdatePage\Client-Update-Delete.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -612,10 +612,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lib\AdminNS\Views\CRUDPages\NotificationNS\SearchPage\Search_Noti.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Lib\AdminNS\Views\CRUDPages\NotificationNS\UpdatePage\UpdatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -644,9 +640,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Lib\AdminNS\Views\CRUDPages\ProfessionNS\UpdatePage\Update_delete-Pro.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Lib\AdminNS\Views\CRUDPages\ProfessionNS\UpdatePage\Update_Profesion.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\CreatePage\CreatePage.xaml">
       <SubType>Designer</SubType>
@@ -664,10 +660,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\UpdatePage\UpdatePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\UpdatePage\Update_Project.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -676,23 +668,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Lib\AdminNS\Views\CRUDPages\ProjectStatusNS\CreatePage\CreatePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Lib\AdminNS\Views\CRUDPages\ProjectStatusNS\ListPage\List-Page-Project-status.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Lib\AdminNS\Views\CRUDPages\ProjectStatusNS\ListPage\ListPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Lib\AdminNS\Views\CRUDPages\ProjectStatusNS\UpdatePage\Update-delete-Project-status.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Lib\AdminNS\Views\CRUDPages\ProjectStatusNS\UpdatePage\UpdatePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -711,6 +691,10 @@
     <Page Include="Lib\AdminNS\Views\CRUDPages\TagNS\CreatePage\CreateDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Lib\AdminNS\Views\CRUDPages\TagNS\CreatePage\Create_Tag.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\AdminNS\Views\CRUDPages\TagNS\ListPage\ListDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -1034,31 +1018,11 @@
     <PRIResource Include="Strings\es-sv\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Lib\AdminNS\Views\CRUDPages\ActivityNS\CreatePage\.gitkeep" />
     <None Include="Lib\AdminNS\Views\CRUDPages\ActivityNS\DeletePage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\ActivityNS\ListPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\ActivityNS\SearchPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\ActivityNS\UpdatePage\.gitkeep" />
     <None Include="Lib\AdminNS\Views\CRUDPages\CurriculumNS\CreatePage\.gitkeep" />
     <None Include="Lib\AdminNS\Views\CRUDPages\CurriculumNS\UpdatePage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\ProfessionalNS\ListPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\ProfessionalNS\ReadPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\ProfessionalNS\SearchPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\ProfessionalNS\UpdatePage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\ProfessionNS\ReadPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\ProfessionNS\SearchPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\DeletePage\.gitkeep" />
     <None Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\ReadPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\SearchPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\ProjectStatusNS\SearchPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\RankNS\ListPage\.gitkeep" />
     <None Include="Lib\AdminNS\Views\CRUDPages\RankNS\ReadPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\RankNS\SearchPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\TagNS\DeletePage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\TagNS\ListPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\TagNS\ReadPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\TagNS\SearchPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\TagNS\UpdatePage\.gitkeep" />
     <None Include="Lib\AdminNS\Views\CRUDPages\WorkDayTypeNS\CreatePage\.gitkeep" />
     <None Include="Lib\AdminNS\Views\CRUDPages\WorkDayTypeNS\ListPage\.gitkeep" />
     <None Include="Lib\AdminNS\Views\CRUDPages\WorkDayTypeNS\ReadPage\.gitkeep" />
@@ -1125,6 +1089,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Lib\AdminNS\Models\" />
+    <Folder Include="Lib\AdminNS\Views\CRUDPages\ActivityNS\SearchPage\" />
+    <Folder Include="Lib\AdminNS\Views\CRUDPages\ActivityNS\UpdatePage\" />
+    <Folder Include="Lib\AdminNS\Views\CRUDPages\ProfessionalNS\ReadPage\" />
+    <Folder Include="Lib\AdminNS\Views\CRUDPages\ProfessionalNS\SearchPage\" />
+    <Folder Include="Lib\AdminNS\Views\CRUDPages\ProfessionNS\ReadPage\" />
+    <Folder Include="Lib\AdminNS\Views\CRUDPages\ProfessionNS\SearchPage\" />
+    <Folder Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\SearchPage\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

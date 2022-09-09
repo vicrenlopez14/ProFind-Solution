@@ -1,5 +1,4 @@
 ﻿using ProFind.Lib.Global.Services;
-using ProFind.Lib.Global.Services.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,31 +16,25 @@ using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.UpdatePage
+namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.Search_Pages
 {
     /// <summary>
     /// Una página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
     /// </summary>
-    public sealed partial class Update_delete_Pro : Page
+    public sealed partial class Search_Page_Clients : Page
     {
-        Profession pro = new Profession(); 
-        public Update_delete_Pro()
+        Client id = new Client();
+
+        public Search_Page_Clients()
         {
             this.InitializeComponent();
         }
 
-        private async void Update_btn_Click(object sender, RoutedEventArgs e)
+        private async void Control2_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            int idNo = pro.Ids.GetValueOrDefault();
-            var toUpdateProfession = new Profession(int.Parse(""), Name_tb.Text);
-            await APIConnection.GetConnection.PutProfessionAsync( idNo, toUpdateProfession);
-        }
+            var Resul = await APIConnection.GetConnection.SearchAdminsAsync(id.IdC, Search_Client.text);
 
-        private async void Delete_btn_Click(object sender, RoutedEventArgs e)
-        {
-            int idNo = pro.Ids.GetValueOrDefault();
-         
-            await APIConnection.GetConnection.DeleteProfessionAsync(idNo);
+            await APIConnection.GetConnection.GetAdminAsync(Resul);
         }
     }
 }

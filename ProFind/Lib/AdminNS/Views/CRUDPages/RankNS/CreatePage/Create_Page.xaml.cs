@@ -31,15 +31,15 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.RankNS.CreatePage
 
         private async void Title_tb_TextChanged(object sender, TextChangedEventArgs e)
         {
+           
+        }
+
+        private async void Create_btn_Click(object sender, RoutedEventArgs e)
+        {
             var toCreateClien = new Rank(int.Parse(""), Name_tb.Text);
 
 
             var result = await APIConnection.GetConnection.PostRankAsync(toCreateClien);
-        }
-
-        private void Create_btn_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
