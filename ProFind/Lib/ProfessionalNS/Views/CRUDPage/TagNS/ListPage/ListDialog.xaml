@@ -69,5 +69,4 @@
             <Button Name="Add_btn" Click="Add_btn_Click">Add</Button>
         </StackPanel>
     </Grid>
-
 </ContentDialog>

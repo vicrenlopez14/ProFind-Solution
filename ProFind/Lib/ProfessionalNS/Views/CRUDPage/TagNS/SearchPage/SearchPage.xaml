@@ -1,24 +1,22 @@
 ﻿<ContentDialog
-    x:Class="ProFind.Lib.ClientNS.Views.CRUDPages.TagNS.SearchPage.SearchPage"
+    x:Class="ProFind.Lib.ProfessionalNS.Views.CRUDPage.TagNS.SearchPage.SearchPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ProFind.Lib.ClientNS.Views.CRUDPages.TagNS.SearchPage"
+    xmlns:local="using:ProFind.Lib.ProfessionalNS.Views.CRUDPage.TagNS.SearchPage"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
     xmlns:services="using:ProFind.Lib.Global.Services"
     Title="Tags for this project"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
     PrimaryButtonText="Done"
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
     SecondaryButtonText="Cancel"
-    mc:Ignorable="d">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Margin="0,0,0,579">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="00 *" />
-        </Grid.ColumnDefinitions>
+    <Grid>
+    <Grid.ColumnDefinitions>
+       <ColumnDefinition Width="1*" />
+       <ColumnDefinition Width="00 *" />
+    </Grid.ColumnDefinitions>
 
         <AutoSuggestBox PlaceholderText="Type a control name"
             Name="TagSearch"
@@ -28,30 +26,30 @@
             SuggestionChosen="Control2_SuggestionChosen" Width="490"/>
         
         <StackPanel>
-            <StackPanel
+        <StackPanel
                 Margin="20"
                 Padding="20"
                 Orientation="Vertical">
-                <TextBlock
+            <TextBlock
                     Margin="20"
                     RenderTransformOrigin="0.638,0.776"
                     Style="{StaticResource SubheaderTextBlockStyle}"
                     Text="Tags for this project" />
-                <!--  To create this sample, add/change the following properties onto the code for the base example above:  -->
+            <!--  To create this sample, add/change the following properties onto the code for the base example above:  -->
 
-                <ListView SelectionMode="Single">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="services:Tag">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*" />
-                                    <RowDefinition Height="*" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Ellipse
+            <ListView SelectionMode="Single">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="services:Tag">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Ellipse
                                     x:Name="Ellipse"
                                     Grid.RowSpan="2"
                                     Width="32"
@@ -60,26 +58,23 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     Fill="{ThemeResource SystemControlBackgroundBaseMediumBrush}" />
-                                <TextBlock
+                            <TextBlock
                                     Grid.Column="1"
                                     Margin="12,6,0,0"
                                     x:Phase="1"
                                     Style="{ThemeResource BaseTextBlockStyle}"
                                     Text="{x:Bind NameT}" />
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
-        <StackPanel
+    </StackPanel>
+    <StackPanel
             Grid.Column="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
-            <Button Name="Add_btn" Click="Add_btn_Click">Add</Button>
-        </StackPanel>
-
+        <Button Name="Add_btn" Click="Add_btn_Click">Add</Button>
+    </StackPanel>
     </Grid>
 </ContentDialog>
-    
-
