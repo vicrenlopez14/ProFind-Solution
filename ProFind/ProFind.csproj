@@ -311,11 +311,17 @@
     <Compile Include="Lib\ClientNS\Views\CRUDPages\ProposalsNS\ReadPage\ReadPage.xaml.cs">
       <DependentUpon>ReadPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\ClientNS\Views\CRUDPages\ProposalsNS\SearchPage\SearchPage.xaml.cs">
+      <DependentUpon>SearchPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\ClientNS\Views\CRUDPages\TagNS\ListPage\ListDialog.xaml.cs">
       <DependentUpon>ListDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\ClientNS\Views\CRUDPages\TagNS\ReadPage\ReadDialog.xaml.cs">
       <DependentUpon>ReadDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\ClientNS\Views\CRUDPages\TagNS\SearchPage\SearchPage.xaml.cs">
+      <DependentUpon>SearchPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\ClientNS\Views\InitPage\InitPage.xaml.cs">
       <DependentUpon>InitPage.xaml</DependentUpon>
@@ -790,11 +796,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Lib\ClientNS\Views\CRUDPages\ProposalsNS\SearchPage\SearchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Lib\ClientNS\Views\CRUDPages\TagNS\ListPage\ListDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\ClientNS\Views\CRUDPages\TagNS\ReadPage\ReadDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\ClientNS\Views\CRUDPages\TagNS\SearchPage\SearchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1063,7 +1077,6 @@
     <None Include="Lib\ClientNS\Views\CRUDPages\TagNS\DeletePage\.gitkeep" />
     <None Include="Lib\ClientNS\Views\CRUDPages\TagNS\ListPage\.gitkeep" />
     <None Include="Lib\ClientNS\Views\CRUDPages\TagNS\ReadPage\.gitkeep" />
-    <None Include="Lib\ClientNS\Views\CRUDPages\TagNS\SearchPage\.gitkeep" />
     <None Include="Lib\ClientNS\Views\CRUDPages\TagNS\UpdatePage\.gitkeep" />
     <None Include="Lib\Global\Services\Swagger.json">
       <Generator>NSwagCodeGenerator</Generator>
