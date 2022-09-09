@@ -20,7 +20,8 @@
                 TintOpacity="0.6" />
         </Grid.Resources>
         <muxc:NavigationView
-            Header="Bienvenido"
+            x:Uid="WelcomeMainPageProfessionals"
+            Header="Welcome"
             IsBackButtonVisible="Collapsed"
             IsSettingsVisible="False"
             ItemInvoked="NavigationView_ItemInvoked"
@@ -28,18 +29,22 @@
             <muxc:NavigationView.MenuItems>
                 <muxc:NavigationViewItemHeader Content="ProFind.Work" />
                 <muxc:NavigationViewItem
+                    x:Uid="ActiveProjectsMainPageProfessional"
                     Content="Active projects"
                     Icon="People"
                     Tag="ActiveProjects_Page" />
                 <muxc:NavigationViewItem
+                    x:Uid="InactiveProjects"
                     Content="Inactive projects"
                     Icon="AllApps"
                     Tag="InactiveProjects_Page" />
                 <muxc:NavigationViewItem
+                    x:Uid="NotificationsMainPageProfessional"
                     Content="Notifications"
                     Icon="AllApps"
                     Tag="Notifications_Page" />
                 <muxc:NavigationViewItem
+                    x:Uid="ProposalsMainPageProfessional"
                     Content="Proposals"
                     Icon="AllApps"
                     Tag="Activities_Page" />
@@ -57,10 +62,12 @@
                 <StackPanel Orientation="Vertical">
                     <NavigationViewItemHeader Content="Más" />
                     <muxc:NavigationViewItem
+                        x:Uid="PreferencesMainPageProfessional"
                         Content="Preferences"
                         Icon="Setting"
                         Tag="Preferences_Page" />
                     <muxc:NavigationViewItem
+                        x:Uid="AboutMainPageProfessional"
                         Content="About"
                         Icon="People"
                         Tag="About_Page" />
@@ -70,6 +77,7 @@
 
         </muxc:NavigationView>
         <Button
+            x:Uid="ButtonMainPageProfessional"
             Margin="-533,-43,0,0"
             VerticalAlignment="Top"
             Content="Button" />

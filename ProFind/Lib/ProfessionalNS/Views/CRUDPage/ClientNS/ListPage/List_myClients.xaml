@@ -13,7 +13,7 @@
             <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Clients" Style="{StaticResource HeaderTextBlockStyle}" Margin="80,39,1268,903" RenderTransformOrigin="0.638,0.776"/>
+        <TextBlock x:Uid="CLientsLisMyClientsProfessional" Text="Clients" Style="{StaticResource HeaderTextBlockStyle}" Margin="80,39,1268,903" RenderTransformOrigin="0.638,0.776"/>
         <ListView Name="ClientListView" ItemClick="ClientListView_ItemClick">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="models1:Client">

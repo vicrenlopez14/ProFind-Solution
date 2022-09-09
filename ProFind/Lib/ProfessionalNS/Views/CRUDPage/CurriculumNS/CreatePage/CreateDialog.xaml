@@ -29,21 +29,25 @@
                 VerticalAlignment="Center"
                 Orientation="Vertical">
                 <TextBlock
+                    x:Uid="SaveYourResumeCreateDialogProfessional"
                     Name="SideHeader_txt"
                     FontWeight="Medium"
                     Style="{StaticResource SubheaderTextBlockStyle}"
                     Text="Save your resume" />
                 <TextBlock
+                    x:Uid="UseOurUploaderCreateDialogProfessional"
                     Name="SideText_txt"
                     Text="Use our uploader to save your resume and reach thousands of potential Clients."
                     TextWrapping="WrapWholeWords" />
                 <TextBlock
+                    x:Uid="ResumeSelectedCreateDialogProfessional"
                     Margin="0,20,0,0"
                     FontWeight="Medium"
                     Style="{StaticResource PageTitleStyle}">
                     Resume selected
                 </TextBlock>
                 <ToggleButton
+                    x:Uid="UploadResumeCreateDialogProfessional"
                     Name="UploadResume_btn"
                     HorizontalAlignment="Stretch"
                     Checked="ToggleButton_Checked"
@@ -52,12 +56,13 @@
                 </ToggleButton>
                 <StackPanel Orientation="Vertical">
                     <TextBlock
+                        x:Uid="ResumePrivacyCreateDialogProfessional"
                         Margin="0,20,0,0"
                         FontWeight="Medium"
                         Style="{StaticResource PageTitleStyle}">
                         Resume privacy
                     </TextBlock>
-                    <CheckBox>I authorize this file to be uploaded publicily on Internet.</CheckBox>
+                    <CheckBox x:Uid="AuthorizeThisFileCreateDialogProfessional">I authorize this file to be uploaded publicily on Internet.</CheckBox>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

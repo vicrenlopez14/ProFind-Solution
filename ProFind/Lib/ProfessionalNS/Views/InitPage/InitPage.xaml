@@ -17,6 +17,7 @@
             <ColumnDefinition Width="0.5*" />
         </Grid.ColumnDefinitions>
         <muxc:TeachingTip
+            x:Uid="AuthenticationFailedInitPageProfessional"
             x:Name="FailedAuth_tt"
             Title="The authentication has failed"
             PreferredPlacement="RightTop"
@@ -29,25 +30,29 @@
             <Grid>
                 <StackPanel Padding="100" Orientation="Vertical">
                     <TextBlock
+                        x:Uid="LogInInitPageProfessional"
                         FontWeight="Bold"
                         Style="{StaticResource HeaderTextBlockStyle}"
                         Text="Log In" />
-                    <TextBlock Margin="0,0,0,20">You are in the log in page for Professionals</TextBlock>
+                    <TextBlock x:Uid="YouAreInTheLoginForProfessionalInitPage" Margin="0,0,0,20">You are in the log in page for Professionals</TextBlock>
                     <RichTextBlock SelectionHighlightColor="Green">
-                        <Paragraph>
+                        <Paragraph x:Uid="ForgotPasswordInitPageProfessional">
                             Forgot password?<Hyperlink Click="Hyperlink_Click" NavigateUri="https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Hyperlink">Click here</Hyperlink>
                         </Paragraph>
                     </RichTextBlock>
                     <TextBox
+                        x:Uid="EmailInitPageProfessional"
                         x:Name="Email_tb"
                         Margin="0,15,0,0"
                         PlaceholderText="Email" />
                     <PasswordBox
+                        x:Uid="PasswordInitPageProfessional"
                         Name="Password_tb"
                         Margin="0,15,0,0"
                         PlaceholderText="Password" />
 
                     <Button
+                        x:Uid="LogInInitPageProfessionalII"
                         Width="100"
                         Margin="0,10,0,0"
                         HorizontalAlignment="Center"
@@ -56,6 +61,7 @@
                         Style="{StaticResource AccentButtonStyle}" />
 
                     <TextBlock
+                        x:Uid="OtherAccesWaysInitpageProfessinal"
                         Margin="0,30,0,0"
                         Style="{StaticResource SubtitleTextBlockStyle}"
                         Text="Other access ways" />
@@ -64,11 +70,13 @@
                         HorizontalAlignment="Center"
                         Orientation="Horizontal">
                         <Button
+                            x:Uid="AdministratorsInitPageProfessionals"
                             x:Name="Administrators_Login"
                             Margin="0,0,10,0"
                             Click="Button_Click_4"
                             Content="Administrators" />
                         <Button
+                            x:Uid="ClientsInitPageProfessionals"
                             x:Name="Clients_Login"
                             Margin="10,0,0,0"
                             Click="Professionals_Login_Click"

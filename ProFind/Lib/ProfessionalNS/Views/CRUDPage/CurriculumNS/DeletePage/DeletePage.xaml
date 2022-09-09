@@ -22,11 +22,13 @@
                 VerticalAlignment="Center"
                 Orientation="Vertical">
                 <TextBlock
+                    x:Uid="UploadResumeDeletePageProfessional"
                     FontWeight="Medium"
                     Style="{StaticResource SubheaderTextBlockStyle}"
                     Text="Upload your existant resume" />
-                <TextBlock Text="Always provide the most updated information as possible." />
+                <TextBlock x:Uid="AlwaysProvideDeletePageProfessional" Text="Always provide the most updated information as possible." />
                 <TextBlock
+                    x:Uid="ResumeSelectedDeletePageProfessional"
                     Margin="0,60,0,0"
                     FontWeight="Medium"
                     Style="{StaticResource PageTitleStyle}">
@@ -34,6 +36,7 @@
                 </TextBlock>
                 <ToggleButton HorizontalAlignment="Stretch" IsChecked="False">Upload my resume</ToggleButton>
                 <TextBlock
+                    x:Uid="ResumePrivacyDeletePageProfessional"
                     Margin="0,20,0,0"
                     FontWeight="Medium"
                     Style="{StaticResource PageTitleStyle}">

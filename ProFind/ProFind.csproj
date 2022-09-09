@@ -143,14 +143,17 @@
     <Compile Include="Lib\AdminNS\Views\CRUDPages\AdminNS\CreatePage\CreatePage.xaml.cs">
       <DependentUpon>CreatePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\AdminNS\SearchPage\search-admin.xaml.cs">
+      <DependentUpon>search-admin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\AdminNS\UpdatePage\UpdatePage.xaml.cs">
       <DependentUpon>UpdatePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\ClientNS\CreatePage\Create_page.xaml.cs">
+      <DependentUpon>Create_page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ClientNS\ListPage\Clients_List.xaml.cs">
       <DependentUpon>Clients_List.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Lib\AdminNS\Views\CRUDPages\ClientNS\SearchPage\Search-Clients.xaml.cs">
-      <DependentUpon>Search-Clients.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ClientNS\UpdatePage\Client-Update-Delete.xaml.cs">
       <DependentUpon>Client-Update-Delete.xaml</DependentUpon>
@@ -175,6 +178,9 @@
     </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\NotificationNS\ReadPage\ReadPage.xaml.cs">
       <DependentUpon>ReadPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\NotificationNS\SearchPage\Search_Noti.xaml.cs">
+      <DependentUpon>Search_Noti.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\NotificationNS\UpdatePage\UpdatePage.xaml.cs">
       <DependentUpon>UpdatePage.xaml</DependentUpon>
@@ -305,7 +311,6 @@
     <Compile Include="Lib\ClientNS\Views\CRUDPages\ProposalsNS\ReadPage\ReadPage.xaml.cs">
       <DependentUpon>ReadPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lib\ClientNS\Views\CRUDPages\ProposalsNS\UpdatePage\UpdatePage.xaml.cs" />
     <Compile Include="Lib\ClientNS\Views\CRUDPages\TagNS\ListPage\ListDialog.xaml.cs">
       <DependentUpon>ListDialog.xaml</DependentUpon>
     </Compile>
@@ -553,15 +558,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Lib\AdminNS\Views\CRUDPages\AdminNS\SearchPage\search-admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Lib\AdminNS\Views\CRUDPages\AdminNS\UpdatePage\UpdatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lib\AdminNS\Views\CRUDPages\ClientNS\ListPage\Clients_List.xaml">
+    <Page Include="Lib\AdminNS\Views\CRUDPages\ClientNS\CreatePage\Create_page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lib\AdminNS\Views\CRUDPages\ClientNS\SearchPage\Search-Clients.xaml">
+    <Page Include="Lib\AdminNS\Views\CRUDPages\ClientNS\ListPage\Clients_List.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -594,6 +603,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\AdminNS\Views\CRUDPages\NotificationNS\ReadPage\ReadPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\AdminNS\Views\CRUDPages\NotificationNS\SearchPage\Search_Noti.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1012,14 +1025,8 @@
     <None Include="Lib\AdminNS\Views\CRUDPages\ActivityNS\ListPage\.gitkeep" />
     <None Include="Lib\AdminNS\Views\CRUDPages\ActivityNS\SearchPage\.gitkeep" />
     <None Include="Lib\AdminNS\Views\CRUDPages\ActivityNS\UpdatePage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\AdminNS\SearchPage\.gitkeep" />
     <None Include="Lib\AdminNS\Views\CRUDPages\CurriculumNS\CreatePage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\CurriculumNS\DeletePage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\CurriculumNS\ReadPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\CurriculumNS\SearchPage\.gitkeep" />
     <None Include="Lib\AdminNS\Views\CRUDPages\CurriculumNS\UpdatePage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\NotificationNS\ReadPage\.gitkeep" />
-    <None Include="Lib\AdminNS\Views\CRUDPages\NotificationNS\SearchPage\.gitkeep" />
     <None Include="Lib\AdminNS\Views\CRUDPages\ProfessionalNS\ListPage\.gitkeep" />
     <None Include="Lib\AdminNS\Views\CRUDPages\ProfessionalNS\ReadPage\.gitkeep" />
     <None Include="Lib\AdminNS\Views\CRUDPages\ProfessionalNS\SearchPage\.gitkeep" />

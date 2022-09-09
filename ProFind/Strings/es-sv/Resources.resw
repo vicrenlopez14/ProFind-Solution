@@ -51,7 +51,7 @@
     
     mimetype: application/x-microsoft.net.object.soap.base64
     value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.Soaormatter
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
@@ -157,7 +157,7 @@
     <value>retry</value>
     <comment>Retry button for WebView</comment>
   </data>
-    <data name="WebView_BrowserBackButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+  <data name="WebView_BrowserBackButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Back</value>
     <comment>WebView back button automation name property for WebView</comment>
   </data>
@@ -253,7 +253,7 @@
     <value>DataGrid</value>
     <comment>Menu item text for DataGrid</comment>
   </data>
-  <data name="TabbedPivot_PivotItem1.Header" xml:space="preserve">  
+  <data name="TabbedPivot_PivotItem1.Header" xml:space="preserve">
     <value>Item 1</value>
     <comment>First Pivot item title for TabbedPivot</comment>
   </data>
@@ -309,7 +309,7 @@
   <data name="Camera_Exception_InitializationCanceled" xml:space="preserve">
     <value>Camera control initialization has been canceled.</value>
   </data>
-  <data name="CameraControl_CameraButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">    
+  <data name="CameraControl_CameraButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Take a photo</value>
     <comment>Camera control button automation name property</comment>
   </data>
@@ -317,7 +317,7 @@
     <value>Take a photo</value>
     <comment>Camera control button automation tooltip property</comment>
   </data>
-  <data name="CameraControl_SwitchCameraButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">    
+  <data name="CameraControl_SwitchCameraButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Switch camera</value>
     <comment>Camera control switch camera button automation name property</comment>
   </data>
@@ -365,7 +365,7 @@
     <value>Undo</value>
     <comment>Undo button label property for InkSmartCanvas</comment>
   </data>
-    <data name="InkSmartCanvas_UndoButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkSmartCanvas_UndoButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Undo</value>
     <comment>Undo button tooltip property for InkSmartCanvas</comment>
   </data>
@@ -377,7 +377,7 @@
     <value>Redo</value>
     <comment>Redo button label property for InkSmartCanvas</comment>
   </data>
-    <data name="InkSmartCanvas_RedoButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkSmartCanvas_RedoButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Redo</value>
     <comment>Redo button tooltip property for InkSmartCanvas</comment>
   </data>
@@ -389,7 +389,7 @@
     <value>Load ink file</value>
     <comment>LoadInkFile button label property for InkSmartCanvas</comment>
   </data>
-    <data name="InkSmartCanvas_LoadInkFileButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkSmartCanvas_LoadInkFileButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Load ink file</value>
     <comment>LoadInkFile button tooltip property for InkSmartCanvas</comment>
   </data>
@@ -401,7 +401,7 @@
     <value>Save ink file</value>
     <comment>SaveInkFile button label property for InkSmartCanvas</comment>
   </data>
-    <data name="InkSmartCanvas_SaveInkFileButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkSmartCanvas_SaveInkFileButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Save ink file</value>
     <comment>SaveInkFile button tooltip property for InkSmartCanvas</comment>
   </data>
@@ -413,7 +413,7 @@
     <value>Transform text and shapes</value>
     <comment>TransformTextAndShapes button label property for InkSmartCanvas</comment>
   </data>
-    <data name="InkSmartCanvas_TransformTextAndShapesButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkSmartCanvas_TransformTextAndShapesButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Transform text and shapes</value>
     <comment>TransformTextAndShapes button tooltip property for InkSmartCanvas</comment>
   </data>
@@ -425,7 +425,7 @@
     <value>Clear all</value>
     <comment>ClearAll button label property for InkSmartCanvas</comment>
   </data>
-    <data name="InkSmartCanvas_ClearAllButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkSmartCanvas_ClearAllButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Clear all</value>
     <comment>ClearAll button tooltip property for InkSmartCanvas</comment>
   </data>
@@ -465,7 +465,7 @@
     <value>Zoom in</value>
     <comment>ZoomIn button label property for InkDraw</comment>
   </data>
-    <data name="InkDraw_ZoomInButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDraw_ZoomInButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Zoom in</value>
     <comment>ZoomIn button tooltip property for InkDraw</comment>
   </data>
@@ -477,7 +477,7 @@
     <value>Zoom out</value>
     <comment>ZoomOut button label property for InkDraw</comment>
   </data>
-    <data name="InkDraw_ZoomOutButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDraw_ZoomOutButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Zoom out</value>
     <comment>ZoomOut button tooltip property for InkDraw</comment>
   </data>
@@ -489,7 +489,7 @@
     <value>Cut</value>
     <comment>Cut button label property for InkDraw</comment>
   </data>
-    <data name="InkDraw_CutButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDraw_CutButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Cut</value>
     <comment>Cut button tooltip property for InkDraw</comment>
   </data>
@@ -501,7 +501,7 @@
     <value>Copy</value>
     <comment>Copy button label property for InkDraw</comment>
   </data>
-    <data name="InkDraw_CopyButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDraw_CopyButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Copy</value>
     <comment>Copy button tooltip property for InkDraw</comment>
   </data>
@@ -513,7 +513,7 @@
     <value>Paste</value>
     <comment>Paste button label property for InkDraw</comment>
   </data>
-    <data name="InkDraw_PasteButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDraw_PasteButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Paste</value>
     <comment>Paste button tooltip property for InkDraw</comment>
   </data>
@@ -525,7 +525,7 @@
     <value>Undo</value>
     <comment>Undo button label property for InkDraw</comment>
   </data>
-    <data name="InkDraw_UndoButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDraw_UndoButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Undo</value>
     <comment>Undo button tooltip property for InkDraw</comment>
   </data>
@@ -537,7 +537,7 @@
     <value>Redo</value>
     <comment>Redo button label property for InkDraw</comment>
   </data>
-    <data name="InkDraw_RedoButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDraw_RedoButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Redo</value>
     <comment>Redo button tooltip property for InkDraw</comment>
   </data>
@@ -549,7 +549,7 @@
     <value>Load ink file</value>
     <comment>LoadInkFile button label property for InkDraw</comment>
   </data>
-    <data name="InkDraw_LoadInkFileButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDraw_LoadInkFileButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Load ink file</value>
     <comment>LoadInkFile button tooltip property for InkDraw</comment>
   </data>
@@ -561,7 +561,7 @@
     <value>Save ink file</value>
     <comment>SaveInkFile button label property for InkDraw</comment>
   </data>
-    <data name="InkDraw_SaveInkFileButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDraw_SaveInkFileButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Save ink file</value>
     <comment>SaveInkFile button tooltip property for InkDraw</comment>
   </data>
@@ -573,7 +573,7 @@
     <value>Export as image</value>
     <comment>ExportAsImage button label property for InkDraw</comment>
   </data>
-    <data name="InkDraw_ExportAsImageButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDraw_ExportAsImageButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Export as image</value>
     <comment>ExportAsImage button tooltip property for InkDraw</comment>
   </data>
@@ -585,7 +585,7 @@
     <value>Clear all</value>
     <comment>ClearAll button label property for InkDraw</comment>
   </data>
-    <data name="InkDraw_ClearAllButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDraw_ClearAllButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Clear all</value>
     <comment>ClearAll button tooltip property for InkDraw</comment>
   </data>
@@ -621,11 +621,11 @@
     <value>Mouse inking</value>
     <comment>Mouse inking button automation name property for InkDrawPicture</comment>
   </data>
-<data name="InkDrawPicture_ZoomInButton.Label" xml:space="preserve">
+  <data name="InkDrawPicture_ZoomInButton.Label" xml:space="preserve">
     <value>Zoom in</value>
     <comment>ZoomIn button label property for InkDrawPicture</comment>
   </data>
-    <data name="InkDrawPicture_ZoomInButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDrawPicture_ZoomInButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Zoom in</value>
     <comment>ZoomIn button tooltip property for InkDrawPicture</comment>
   </data>
@@ -637,7 +637,7 @@
     <value>Zoom out</value>
     <comment>ZoomOut button label property for InkDrawPicture</comment>
   </data>
-    <data name="InkDrawPicture_ZoomOutButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDrawPicture_ZoomOutButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Zoom out</value>
     <comment>ZoomOut button tooltip property for InkDrawPicture</comment>
   </data>
@@ -649,7 +649,7 @@
     <value>Original size</value>
     <comment>OriginalSize button label property for InkDrawPicture</comment>
   </data>
-    <data name="InkDrawPicture_OriginalSizeButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDrawPicture_OriginalSizeButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Original size</value>
     <comment>OriginalSize button tooltip property for InkDrawPicture</comment>
   </data>
@@ -661,7 +661,7 @@
     <value>Fit to screen</value>
     <comment>FitToScreen button label property for InkDrawPicture</comment>
   </data>
-    <data name="InkDrawPicture_FitToScreenButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDrawPicture_FitToScreenButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Fit to screen</value>
     <comment>FitToScreen button tooltip property for InkDrawPicture</comment>
   </data>
@@ -673,7 +673,7 @@
     <value>Open image</value>
     <comment>OpenImage button label property for InkDrawPicture</comment>
   </data>
-    <data name="InkDrawPicture_OpenImageButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDrawPicture_OpenImageButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Open image</value>
     <comment>OpenImage button tooltip property for InkDrawPicture</comment>
   </data>
@@ -685,7 +685,7 @@
     <value>Save image</value>
     <comment>SaveImage button label property for InkDrawPicture</comment>
   </data>
-    <data name="InkDrawPicture_SaveImageButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDrawPicture_SaveImageButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Save image</value>
     <comment>SaveImage button tooltip property for InkDrawPicture</comment>
   </data>
@@ -697,7 +697,7 @@
     <value>Clear all</value>
     <comment>ClearAll button label property for InkDrawPicture</comment>
   </data>
-    <data name="InkDrawPicture_ClearAllButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+  <data name="InkDrawPicture_ClearAllButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>Clear all</value>
     <comment>ClearAll button tooltip property for InkDrawPicture</comment>
   </data>
@@ -725,23 +725,23 @@
     <value>Light</value>
     <comment>Light theme text for Settings</comment>
   </data>
-  <data name="Settings_About.Text" xml:space="preserve">    
+  <data name="Settings_About.Text" xml:space="preserve">
     <value>About this application</value>
     <comment>About this application title for Settings</comment>
   </data>
-  <data name="Settings_AboutDescription.Text" xml:space="preserve">    
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
     <value>Settings page placeholder text.  Your app description goes here.</value>
     <comment>About this application description for Settings</comment>
   </data>
-  <data name="Settings_PrivacyTermsLink.Content" xml:space="preserve">    
+  <data name="Settings_PrivacyTermsLink.Content" xml:space="preserve">
     <value>Privacy Statement</value>
     <comment>Privacy Statement link content for Settings</comment>
   </data>
-  <data name="Settings_PrivacyTermsLink.NavigateUri" xml:space="preserve">  
+  <data name="Settings_PrivacyTermsLink.NavigateUri" xml:space="preserve">
     <value>https://YourPrivacyUrlGoesHere/</value>
     <comment>Here is your Privacy Statement url for Settings</comment>
   </data>
-  <data name="Settings_Personalization.Text" xml:space="preserve">   
+  <data name="Settings_Personalization.Text" xml:space="preserve">
     <value>Personalization</value>
     <comment>Personalization text for Settings</comment>
   </data>
@@ -845,5 +845,188 @@ Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Ma
   <data name="Settings_LogOut.Content" xml:space="preserve">
     <value>Log out</value>
     <comment>Settings LogOut user content</comment>
+  </data>
+  <data name="AboutMainPageProfessional.Content" xml:space="preserve">
+    <value>Acerca de </value>
+  </data>
+  <data name="ActiveProjectsMainPageProfessional.Content" xml:space="preserve">
+    <value>Proyectos Activos</value>
+  </data>
+  <data name="AddButtonReadPageClients.Button" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="AddMoreReadPageClients.Button" xml:space="preserve">
+    <value>Agregar más</value>
+  </data>
+  <data name="AddMoresReadPageClientsIII.Button" xml:space="preserve">
+    <value>Agregar más</value>
+  </data>
+  <data name="AddReadPageClientsIII.Button" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="AddReadPageClientsIV.Button" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="AdministratorsInitPageProfessionals.Content" xml:space="preserve">
+    <value>Administradores</value>
+  </data>
+  <data name="AdministratorsReadPageProfessional.Text" xml:space="preserve">
+    <value>Administradores</value>
+  </data>
+  <data name="AdminListViewReadPageClients.SelectionMode" xml:space="preserve">
+    <value>Ninguno</value>
+  </data>
+  <data name="AlwaysProvideDeletePageProfessional.Text" xml:space="preserve">
+    <value>Proporcione siempre la información más actualizada posible.</value>
+  </data>
+  <data name="AuthenticationFailedInitPageProfessional.Subtitle" xml:space="preserve">
+    <value>Verifique el correo electrónico y la contraseña, si olvidó la contraseña, haga clic en el enlace de arriba.</value>
+  </data>
+  <data name="AuthenticationFailedInitPageProfessional.Title" xml:space="preserve">
+    <value>Error en la autenticación</value>
+  </data>
+  <data name="AuthorizeThisFileCreateDialogProfessional.CheckBox" xml:space="preserve">
+    <value>Autorizo que este archivo se cargue públicamente en Internet.</value>
+  </data>
+  <data name="ButtonMainPageProfessional.Content" xml:space="preserve">
+    <value>Boton</value>
+  </data>
+  <data name="CalendarCreatePageClients.Header" xml:space="preserve">
+    <value>Calendario</value>
+  </data>
+  <data name="CalendarCreatePageClients.PlaceholderText" xml:space="preserve">
+    <value>Escoge una Fecha</value>
+  </data>
+  <data name="ClientsInitPageProfessionals.Content" xml:space="preserve">
+    <value>Clientes</value>
+  </data>
+  <data name="CLientsLisMyClientsProfessional.Text" xml:space="preserve">
+    <value>Clientes</value>
+  </data>
+  <data name="CreateCreatePageClientsII.Content" xml:space="preserve">
+    <value>Crear</value>
+  </data>
+  <data name="CreatedProjectsReadPageClients.Text" xml:space="preserve">
+    <value>Proyectos Creados</value>
+  </data>
+  <data name="CreateNewNotificationCreatePageClients.TextBlock" xml:space="preserve">
+    <value>Cree una nueva notificación.</value>
+  </data>
+  <data name="CreateNotificationReadPageClients.Text" xml:space="preserve">
+    <value>Cree una nueva notificación.</value>
+  </data>
+  <data name="CreationCreatePageClients.Text" xml:space="preserve">
+    <value>Creaciones</value>
+  </data>
+  <data name="DescriptionCreatePageClientsII.PlaceholderText" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="EmailInitPageProfessional.PlaceholderText" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="FalseCreatePageClientsII.IsActive" xml:space="preserve">
+    <value>Falso</value>
+  </data>
+  <data name="ForgotPasswordInitPageProfessional.Paragraph" xml:space="preserve">
+    <value>¿Olvidaste la contraseña?</value>
+  </data>
+  <data name="InactiveProjects.Content" xml:space="preserve">
+    <value>Proyectos Inactivos</value>
+  </data>
+  <data name="LogInInitPageProfessional.Text" xml:space="preserve">
+    <value>Iniciar sesión</value>
+  </data>
+  <data name="LogInInitPageProfessionalII.Content" xml:space="preserve">
+    <value>Iniciar sesión</value>
+  </data>
+  <data name="NoPictureSelectedCreatePageClients.TextBlock" xml:space="preserve">
+    <value>Ninguna imagen Seleccionada</value>
+  </data>
+  <data name="NotificationslistViewReadPageClients. IsItemClickEnabled" xml:space="preserve">
+    <value>Verdadero</value>
+  </data>
+  <data name="NotificationslistViewReadPageClients.SelectionMode" xml:space="preserve">
+    <value>Ninguno</value>
+  </data>
+  <data name="NotificationsMainPageProfessional.Content" xml:space="preserve">
+    <value>Notificaciones</value>
+  </data>
+  <data name="OtherAccesWaysInitpageProfessinal.Text" xml:space="preserve">
+    <value>Otras vías de acceso</value>
+  </data>
+  <data name="PasswordInitPageProfessional. PlaceholderText" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="PreferencesMainPageProfessional.Content" xml:space="preserve">
+    <value>Preferencias</value>
+  </data>
+  <data name="ProfessionalReadPageClientsII.Text" xml:space="preserve">
+    <value>Profesional:</value>
+  </data>
+  <data name="ProjectsListViewReadPageClients.IsItemClickEnabled" xml:space="preserve">
+    <value>Verdadero</value>
+  </data>
+  <data name="ProjectsListViewReadPageClients.SelectionMode" xml:space="preserve">
+    <value>Ninguno</value>
+  </data>
+  <data name="ProjectsListViewReadPageProfessional.IsItemClickEnabled" xml:space="preserve">
+    <value>Verdadero</value>
+  </data>
+  <data name="ProjectsListViewReadPageProfessional.SelectionMode" xml:space="preserve">
+    <value>Ninguno</value>
+  </data>
+  <data name="ProjectsReadClients.Text" xml:space="preserve">
+    <value>Proyectos</value>
+  </data>
+  <data name="ProposalsMainPageProfessional.Content" xml:space="preserve">
+    <value>Propuestas</value>
+  </data>
+  <data name="RegisteredAdministratorsReadPageClients.Text" xml:space="preserve">
+    <value>Administradores registrados</value>
+  </data>
+  <data name="ResumePrivacyCreateDialogProfessional.TextBlock" xml:space="preserve">
+    <value>Reanudar la privacidad</value>
+  </data>
+  <data name="ResumePrivacyDeletePageProfessional.TextBlock" xml:space="preserve">
+    <value>Reanudar la privacidad</value>
+  </data>
+  <data name="ResumeSelectedCreateDialogProfessional.TextBlocResumeSelectedCreateDialogProfessional.TextBlocResumeSelectedCreateDialogProfessional.TextBlock" xml:space="preserve">
+    <value>Currículum seleccionado</value>
+  </data>
+  <data name="ResumeSelectedDeletePageProfessional.TextBlock" xml:space="preserve">
+    <value>Currículum seleccionado</value>
+  </data>
+  <data name="SaveYourResumeCreateDialogProfessional.Text" xml:space="preserve">
+    <value>Guarda tu currículum</value>
+  </data>
+  <data name="SelectPictureCreatePageClients.Content" xml:space="preserve">
+    <value>Seleccionar una imagen</value>
+  </data>
+  <data name="TitleCreatePageClientsII. PlaceholderText" xml:space="preserve">
+    <value>Titulo</value>
+  </data>
+  <data name="UploadResumeCreateDialogProfessional.IsChecked" xml:space="preserve">
+    <value>Falso</value>
+  </data>
+  <data name="UploadResumeCreateDialogProfessional.ToggleButton" xml:space="preserve">
+    <value>Subir mi currículum</value>
+  </data>
+  <data name="UploadResumeDeletePageProfessional.Text" xml:space="preserve">
+    <value>Sube tu currículum existente</value>
+  </data>
+  <data name="UseOurUploaderCreateDialogProfessional.Text" xml:space="preserve">
+    <value>Utilice nuestro cargador para guardar su currículum y llegar a miles de clientes potenciales.</value>
+  </data>
+  <data name="WelcomeMainPageProfessionals.Header" xml:space="preserve">
+    <value>Bienvenido</value>
+  </data>
+  <data name="WelcomeMainPageProfessionals.IsBackButtonVisiblWelcomeMainPageProfessionals.IsBackButtonVisible" xml:space="preserve">
+    <value>Colapsado</value>
+  </data>
+  <data name="WelcomeMainPageProfessionals.IsSettingsVisible" xml:space="preserve">
+    <value>Falso</value>
+  </data>
+  <data name="YouAreInTheLoginForProfessionalInitPage.TextBlock" xml:space="preserve">
+    <value>Estás en la página de inicio de sesión para Profesionales</value>
   </data>
 </root>

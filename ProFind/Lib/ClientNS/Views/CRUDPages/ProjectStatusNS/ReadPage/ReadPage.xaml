@@ -18,11 +18,13 @@
                 Padding="20"
                 Orientation="Vertical">
                 <TextBlock
+                    x:Uid="RegisteredAdministratorsReadPageClients"
                     Margin="20"
                     RenderTransformOrigin="0.638,0.776"
                     Style="{StaticResource SubheaderTextBlockStyle}"
                     Text="Registered administrators" />
                 <ListView
+                    x:Uid="ProjectsListViewReadPageClients"
                     Name="ProjectsListView"
                     IsItemClickEnabled="True"
                     ItemClick="AdminListView_ItemClick"
@@ -46,7 +48,7 @@
                                             FontWeight="Medium"
                                             Style="{StaticResource BodyTextBlockStyle}"
                                             Text="{x:Bind NamePs}" />
-                                        <TextBlock Text="{x:Bind }" />
+                                        <TextBlock Text="{x:Bind DescriptionPs}" />
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>
@@ -60,7 +62,7 @@
             Grid.Column="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
-            <Button Name="Add_btn" Click="Add_btn_Click">Add</Button>
+            <Button x:Uid="AddReadPageClientsIV" Name="Add_btn" Click="Add_btn_Click">Add</Button>
         </StackPanel>
     </Grid>
 </Page>

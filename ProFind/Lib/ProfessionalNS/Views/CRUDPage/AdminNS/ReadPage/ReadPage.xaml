@@ -18,11 +18,13 @@
                 Padding="20"
                 Orientation="Vertical">
                 <TextBlock
+                    x:Uid="AdministratorsReadPageProfessional"
                     Margin="20"
                     RenderTransformOrigin="0.638,0.776"
                     Style="{StaticResource SubheaderTextBlockStyle}"
                     Text="Administrators" />
                 <ListView
+                    x:Uid="ProjectsListViewReadPageProfessional"
                     Name="ProjectsListView"
                     IsItemClickEnabled="True"
                     ItemClick="AdminListView_ItemClick"

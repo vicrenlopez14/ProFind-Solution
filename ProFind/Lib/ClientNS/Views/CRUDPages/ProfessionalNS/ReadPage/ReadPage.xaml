@@ -51,6 +51,7 @@
                     Margin="-425,-100,0,-70" />
                         <StackPanel Height="23" Margin="130,5">
                             <TextBlock
+                        x:Uid="ProfessionalReadPageClientsII"
                         Height="23"
                         FontWeight="Bold"
                         Text="Professional:" />

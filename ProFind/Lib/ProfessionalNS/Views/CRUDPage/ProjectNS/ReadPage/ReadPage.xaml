@@ -60,7 +60,7 @@
                                             Height="21"
                                             FontWeight="Medium"
                                             Style="{StaticResource BodyTextBlockStyle}"
-                                            Text="{x:Bind TitlePJ}" />
+                                            Text="{x:Bind TitlePj}" />
                                         <TextBlock Text="{x:Bind ResponsibleProfessional.NameP}" />
                                     </StackPanel>
                                 </StackPanel>
