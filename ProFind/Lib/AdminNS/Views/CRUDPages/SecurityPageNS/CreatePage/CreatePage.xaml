@@ -1,12 +1,12 @@
 ﻿<Page
-    x:Class="ProFind.Lib.AdminNS.Views.CRUDPages.SecurityPageNS.SecurityPage"
+    x:Class="ProFind.Lib.AdminNS.Views.CRUDPages.SecurityPageNS.CreatePage.CreatePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ProFind.Lib.AdminNS.Views.CRUDPages.SecurityPageNS"
+    xmlns:local="using:ProFind.Lib.AdminNS.Views.CRUDPages.SecurityPageNS.CreatePage"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Style="{StaticResource PageStyle}">
 
     <Grid>
         <StackPanel Margin="610,50,0,852" HorizontalAlignment="Left" Width="310">
