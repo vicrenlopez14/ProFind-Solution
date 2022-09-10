@@ -340,6 +340,12 @@
     <Compile Include="Lib\ClientNS\Views\CRUDPages\ProposalsNS\SearchPage\SearchPage.xaml.cs">
       <DependentUpon>SearchPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\ClientNS\Views\CRUDPages\SecurityAnswerClientNS\CreatePage\CreatePage.xaml.cs">
+      <DependentUpon>CreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\ClientNS\Views\CRUDPages\SecurityAnswerClientNS\ListView\ListView.xaml.cs">
+      <DependentUpon>ListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\ClientNS\Views\CRUDPages\TagNS\ListPage\ListDialog.xaml.cs">
       <DependentUpon>ListDialog.xaml</DependentUpon>
     </Compile>
@@ -860,6 +866,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\ClientNS\Views\CRUDPages\ProposalsNS\SearchPage\SearchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\ClientNS\Views\CRUDPages\SecurityAnswerClientNS\CreatePage\CreatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\ClientNS\Views\CRUDPages\SecurityAnswerClientNS\ListView\ListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
