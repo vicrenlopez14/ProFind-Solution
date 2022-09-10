@@ -238,6 +238,21 @@
     <Compile Include="Lib\AdminNS\Views\CRUDPages\RankNS\UpdatePage\Update_Page_Rank.xaml.cs">
       <DependentUpon>Update_Page_Rank.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerAdmins\AnswersPage\AswersPageSQ.xaml.cs">
+      <DependentUpon>AswersPageSQ.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerAdmins\AnswersPage\RestorePasswordSQ.xaml.cs">
+      <DependentUpon>RestorePasswordSQ.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerAdmins\CreatePage\Create_PageSQ.xaml.cs">
+      <DependentUpon>Create_PageSQ.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerAdmins\ReadPage\ReadPageSQ.xaml.cs">
+      <DependentUpon>ReadPageSQ.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerAdmins\UpdatePage\UpdatePage_SQ.xaml.cs">
+      <DependentUpon>UpdatePage_SQ.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerClientsNS\ReadPage.xaml.cs">
       <DependentUpon>ReadPage.xaml</DependentUpon>
     </Compile>
@@ -379,6 +394,9 @@
     </Compile>
     <Compile Include="Lib\Global\Views\ApplicationFrame.xaml.cs">
       <DependentUpon>ApplicationFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\Global\Views\ChangePasswordCode\ChangePasswordCode.xaml.cs">
+      <DependentUpon>ChangePasswordCode.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\Global\Views\Clients_Login.xaml.cs">
       <DependentUpon>Clients_Login.xaml</DependentUpon>
@@ -709,6 +727,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerAdmins\AnswersPage\AswersPageSQ.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerAdmins\AnswersPage\RestorePasswordSQ.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerAdmins\CreatePage\Create_PageSQ.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerAdmins\ReadPage\ReadPageSQ.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerAdmins\UpdatePage\UpdatePage_SQ.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerClientsNS\ReadPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -862,6 +900,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\Global\Views\ApplicationFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\Global\Views\ChangePasswordCode\ChangePasswordCode.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
