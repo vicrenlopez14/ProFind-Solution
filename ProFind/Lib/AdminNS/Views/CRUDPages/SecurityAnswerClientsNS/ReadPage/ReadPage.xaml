@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="ProFind.Lib.AdminNS.Views.CRUDPages.SecurityAnswerClientsNS.ReadPage.ReadPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProFind.Lib.AdminNS.Views.CRUDPages.SecurityAnswerClientsNS.ReadPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+ Style="{StaticResource PageStyle}">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Top" Height="99" Margin="0,50,0,0">
+            <TextBlock TextAlignment="Center" Text="Security answer - Clients" Style="{StaticResource HeaderTextBlockStyle}" FontWeight="Bold"/>
+            <TextBlock Text="View customer feedback" TextAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Margin="107,179,106,632" Padding="20" BorderBrush="Gray" BorderThickness="1">
+            <StackPanel Orientation="Horizontal" Background="{StaticResource AppBarBackgroundThemeBrush}" Padding="10">
+                <TextBlock Text="Client: " FontWeight="Bold" Margin="0,0,5,0" />
+                <TextBlock Text="Rodrigo Alejandro Rodas"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Padding="10" Height="50">
+                <TextBlock Text="Por qué el cielo es azul?" FontWeight="Bold"/>
+                <TextBlock Text="Porque asi lo hizo Diosito"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Padding="10" Height="50">
+                <TextBlock Text="Por qué el cielo es azul?" FontWeight="Bold"/>
+                <TextBlock Text="Porque asi lo hizo Diosito"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
