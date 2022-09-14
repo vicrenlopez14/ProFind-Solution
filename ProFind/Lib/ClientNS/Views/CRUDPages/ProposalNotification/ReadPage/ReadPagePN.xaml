@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="ProFind.Lib.ClientNS.Views.CRUDPages.ProposalNotification.ReadPage.ReadPagePN"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProFind.Lib.ClientNS.Views.CRUDPages.ProposalNotification.ReadPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.9*" />
+            <ColumnDefinition Width="0.1*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel
+                                BorderBrush="Gray"
+                                BorderThickness="0.5"
+                                CornerRadius="16"
+                                Orientation="Horizontal" Margin="290,316,471,568">
+            <StackPanel Orientation="Horizontal">
+                <PersonPicture
+                                        Width="69"
+                                        Height="73"
+                                        Margin="15,0"
+                                        ProfilePicture="{Binding PicturePJ}" />
+                <StackPanel Height="106" Orientation="Vertical" Width="456">
+                    <TextBlock
+                                            Height="25"
+                                            FontWeight="Medium"
+                                            Style="{StaticResource BodyTextBlockStyle}"
+                                            Text="Project: taller" />
+
+                    <TextBlock Text="Profesionales: daniel alessandro "  />
+                    <TextBlock Text="Content: Hello my name is daniel " Height="45" />
+
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Page>
