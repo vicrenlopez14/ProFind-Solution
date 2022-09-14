@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace ProFind.Lib.AdminNS.Views.CRUDPages.SecurityPageNS.ReadPage
+namespace ProFind.Lib.AdminNS.Views.CRUDPages.SecurityAnswerClientsNS.ReadPage
 {
     /// <summary>
     /// Una página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
@@ -25,11 +25,6 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.SecurityPageNS.ReadPage
         public ReadPage()
         {
             this.InitializeComponent();
-        }
-
-        private void QuestionsListView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
         }
     }
 }
