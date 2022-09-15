@@ -464,6 +464,9 @@
     <Compile Include="Lib\ProfessionalNS\Views\CRUDPage\CurriculumNS\UpdatePage\UpdatePage.xaml.cs">
       <DependentUpon>UpdatePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\ProfessionalNS\Views\CRUDPage\Map\Map.xaml.cs">
+      <DependentUpon>Map.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\ProfessionalNS\Views\CRUDPage\NotificationNS\CreatePage\CreatePage.xaml.cs">
       <DependentUpon>CreatePage.xaml</DependentUpon>
     </Compile>
@@ -1028,6 +1031,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\ProfessionalNS\Views\CRUDPage\CurriculumNS\UpdatePage\UpdatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\ProfessionalNS\Views\CRUDPage\Map\Map.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
