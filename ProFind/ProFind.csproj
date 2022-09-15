@@ -386,7 +386,7 @@
     <Compile Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerAdmins\UpdatePage\UpdatePage_SQ.xaml.cs">
       <DependentUpon>UpdatePage_SQ.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerClientsNS\ReadPage.xaml.cs">
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerClientsNS\ReadPage\ReadPage.xaml.cs">
       <DependentUpon>ReadPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerProfessionalsNS\ReadPage\ReadPage.xaml.cs">
@@ -824,7 +824,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerClientsNS\ReadPage.xaml">
+    <Page Include="Lib\AdminNS\Views\CRUDPages\SecurityAnswerClientsNS\ReadPage\ReadPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

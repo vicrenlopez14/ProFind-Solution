@@ -16,12 +16,12 @@
 
         <StackPanel Margin="0,187,0,502" HorizontalAlignment="Center" Width="602" BorderBrush="Gray" BorderThickness="1" Padding="30">
             <TextBlock Text="Create some anwers for the account security." TextAlignment="Left" FontWeight="Medium"/>
-            <TextBox Header="Write the first question:" PlaceholderText="Question 1" Margin="0,20,0,0" />
-            <TextBox Header="Write the second question:" PlaceholderText="Question 2" Margin="0,20,0,0" />
+            <TextBox Header="Write the first question:" PlaceholderText="Question 1" Margin="0,20,0,0" Name="Question1_tb" />
+            <TextBox Header="Write the second question:" PlaceholderText="Question 2" Margin="0,20,0,0" Name="Question2_tb" />
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,35,0,0" >
-                <Button Content="Send" Margin="0,0,40,0" Style="{StaticResource AccentButtonStyle}"/>
-                <Button Content="Cancel" Style="{StaticResource AccentButtonStyle}"/>
+                <Button Name="btnSend" Content="Send" Margin="0,0,40,0" Style="{StaticResource AccentButtonStyle}" Click="Button_Click"/>
+                <Button Name="btnCancel" Content="Cancel" Style="{StaticResource AccentButtonStyle}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

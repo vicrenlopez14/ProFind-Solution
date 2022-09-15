@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProFind.Lib.Global.Services;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.SecurityAnswerClientsNS.ReadPage
         public ReadPage()
         {
             this.InitializeComponent();
+            InitializeData();
+        }
+
+        private async void InitializeData()
+        {
+            SecurityAnswerClientListView.ItemsSource = await APIConnection.GetConnection.GetSecurityanswerclientsAsync();
         }
     }
 }
