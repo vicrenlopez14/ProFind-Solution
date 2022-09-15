@@ -350,6 +350,9 @@
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\UpdatePage\Update_Project.xaml.cs">
       <DependentUpon>Update_Project.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectPay\ReadPage\ReadPagePJ.xaml.cs">
+      <DependentUpon>ReadPagePJ.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectStatusNS\CreatePage\Create-Project-status.xaml.cs">
       <DependentUpon>Create-Project-status.xaml</DependentUpon>
     </Compile>
@@ -455,6 +458,12 @@
     </Compile>
     <Compile Include="Lib\ClientNS\Views\CRUDPages\ProjectStatusNS\ReadPage\ReadPage.xaml.cs">
       <DependentUpon>ReadPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\ClientNS\Views\CRUDPages\ProposalNotification\Create\CreatePagePN.xaml.cs">
+      <DependentUpon>CreatePagePN.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\ClientNS\Views\CRUDPages\ProposalNotification\ReadPage\ReadPagePN.xaml.cs">
+      <DependentUpon>ReadPagePN.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\ClientNS\Views\CRUDPages\ProposalsNS\CreatePage\CreatePage.xaml.cs">
       <DependentUpon>CreatePage.xaml</DependentUpon>
@@ -597,6 +606,12 @@
     </Compile>
     <Compile Include="Lib\ProfessionalNS\Views\CRUDPage\ProjectNS\UpdatePage\UpdatePage.xaml.cs">
       <DependentUpon>UpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\ProfessionalNS\Views\CRUDPage\ProposalNotification\Create\Create_PN.xaml.cs">
+      <DependentUpon>Create_PN.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\ProfessionalNS\Views\CRUDPage\ProposalNotification\ReadPage\ReadPage.xaml.cs">
+      <DependentUpon>ReadPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\ProfessionalNS\Views\CRUDPage\ProposalNS\ReadPage\ReadPage.xaml.cs">
       <DependentUpon>ReadPage.xaml</DependentUpon>
@@ -761,6 +776,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Lib\AdminNS\Views\CRUDPages\ProjectPay\ReadPage\ReadPagePJ.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Lib\AdminNS\Views\CRUDPages\ProjectStatusNS\CreatePage\Create-Project-status.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -888,6 +907,14 @@
     <Page Include="Lib\ClientNS\Views\CRUDPages\ProjectStatusNS\ReadPage\ReadPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Lib\ClientNS\Views\CRUDPages\ProposalNotification\Create\CreatePagePN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\ClientNS\Views\CRUDPages\ProposalNotification\ReadPage\ReadPagePN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\ClientNS\Views\CRUDPages\ProposalsNS\CreatePage\CreatePage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -1044,6 +1071,14 @@
     <Page Include="Lib\ProfessionalNS\Views\CRUDPage\ProjectNS\UpdatePage\UpdatePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Lib\ProfessionalNS\Views\CRUDPage\ProposalNotification\Create\Create_PN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\ProfessionalNS\Views\CRUDPage\ProposalNotification\ReadPage\ReadPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\ProfessionalNS\Views\CRUDPage\ProposalNS\ReadPage\ReadPage.xaml">
       <Generator>MSBuild:Compile</Generator>
