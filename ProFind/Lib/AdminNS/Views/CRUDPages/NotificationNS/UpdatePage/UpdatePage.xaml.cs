@@ -1,6 +1,5 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
 using ProFind.Lib.AdminNS.Controllers;
 using ProFind.Lib.Global.Helpers;
 using ProFind.Lib.Global.Services;
@@ -29,27 +28,16 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.NotificationNS.UpdatePage
         {
             Title_tb.Text = "";
             Description_tb.Text = "";
-
-
         }
 
 
         private async void Update_btn_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
-            //await new NotificationService().Update(toManipulate);
-            await APIConnection.GetConnection.GetNotificationsAsync();
-=======
             byte[] da = toManipulate.PictureN = await (await PickFileHelper.PickImage()).ToByteArrayAsync();
 
             var toUpdapteNoti = new Notification("", Title_tb.Text, Description_tb.Text, fecha.DayFormat, da);
 
             await APIConnection.GetConnection.PutNotificationAsync(toManipulate.IdN, toUpdapteNoti);
-
-            
-
-
->>>>>>> Daniel-Rama2
         }
 
         private async void Delete_btn_Click(object sender, RoutedEventArgs e)

@@ -7,10 +7,16 @@ using Microsoft.EntityFrameworkCore;
 namespace WebService.Models.Generated
 {
     [Table("activity")]
-    [Index("IdPj1", Name = "IdPJ1")]
-    [Index("IdT1", Name = "IdT1")]
+    [Index("IdPj1", Name = "FK_Activity_Project")]
+    [Index("IdT1", Name = "FK_Activity_Tag")]
     public partial class Activity
     {
+        public Activity()
+        {
+            Activitycomments = new HashSet<Activitycomment>();
+            Supporttickets = new HashSet<Supportticket>();
+            }
+
         [Key]
         [StringLength(21)]
         public string IdA { get; set; } = null!;
@@ -26,5 +32,16 @@ namespace WebService.Models.Generated
         public string? IdPj1 { get; set; }
         [StringLength(21)]
         public string? IdT1 { get; set; }
+
+        [ForeignKey("IdPj1")]
+        [InverseProperty("Activities")]
+        public virtual Project? IdPj1Navigation { get; set; }
+        [ForeignKey("IdT1")]
+        [InverseProperty("Activities")]
+        public virtual Tag? IdT1Navigation { get; set; }
+        [InverseProperty("IdA1Navigation")]
+        public virtual ICollection<Activitycomment> Activitycomments { get; set; }
+        [InverseProperty("IdAct1Navigation")]
+        public virtual ICollection<Supportticket> Supporttickets { get; set; }
     }
 }

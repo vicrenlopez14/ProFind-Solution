@@ -1,90 +1,70 @@
 ﻿<Page
-<<<<<<<< HEAD:ProFind/Lib/AdminNS/Views/CRUDPages/AdminNS/ListPage/ListPage.xaml
-    x:Class="ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ListPage.ListPage"
-========
     x:Class="ProFind.Lib.AdminNS.Views.CRUDPages.NotificationNS.ListPage.List_Page"
->>>>>>>> Daniel-Rama2:ProFind/Lib/AdminNS/Views/CRUDPages/NotificationNS/ListPage/List-Page.xaml
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ProFind.Lib.AdminNS.Views.CRUDPages.NotificationNS.ListPage"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-<<<<<<<< HEAD:ProFind/Lib/AdminNS/Views/CRUDPages/AdminNS/ListPage/ListPage.xaml
     xmlns:local="using:ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ListPage"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:services="using:ProFind.Lib.Global.Services"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    mc:Ignorable="d">
+   
+    >
 
-========
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:models="using:ProFind.Lib.Global.Services.Models"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
->>>>>>>> Daniel-Rama2:ProFind/Lib/AdminNS/Views/CRUDPages/NotificationNS/ListPage/List-Page.xaml
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="00 *" />
-        </Grid.ColumnDefinitions>
-        <StackPanel>
-            <StackPanel
+<Grid>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1*" />
+        <ColumnDefinition Width="00 *" />
+    </Grid.ColumnDefinitions>
+    <StackPanel>
+        <StackPanel
                 Margin="20"
                 Padding="20"
                 Orientation="Vertical">
-                <TextBlock
+            <TextBlock
                     Margin="20"
                     RenderTransformOrigin="0.638,0.776"
                     Style="{StaticResource SubheaderTextBlockStyle}"
                     Text="Registered administrators" />
-                <ListView
+            <ListView
                     Name="AdminsListView"
                     d:ItemsSource=""
                     IsItemClickEnabled="True"
                     ItemClick="AdminListView_ItemClick"
                     SelectionMode="None">
-                    <ListView.ItemTemplate>
-<<<<<<<< HEAD:ProFind/Lib/AdminNS/Views/CRUDPages/AdminNS/ListPage/ListPage.xaml
-                        <DataTemplate x:DataType="services:Admin">
-========
-                        <DataTemplate x:DataType="models:Notification">
->>>>>>>> Daniel-Rama2:ProFind/Lib/AdminNS/Views/CRUDPages/NotificationNS/ListPage/List-Page.xaml
-                            <StackPanel
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Notification">
+                        <StackPanel
                                 BorderBrush="Gray"
                                 BorderThickness="0.5"
                                 CornerRadius="16"
                                 Orientation="Horizontal">
-                                <StackPanel Orientation="Horizontal">
-                                    <PersonPicture
+                            <StackPanel Orientation="Horizontal">
+                                <PersonPicture
                                         Width="69"
                                         Height="73"
                                         Margin="15,0"
                                         ProfilePicture="{Binding PictureN}" />
-                                    <StackPanel Height="42" Orientation="Vertical">
-                                        <TextBlock
+                                <StackPanel Height="42" Orientation="Vertical">
+                                    <TextBlock
                                             Height="21"
                                             FontWeight="Medium"
                                             Style="{StaticResource BodyTextBlockStyle}"
-<<<<<<<< HEAD:ProFind/Lib/AdminNS/Views/CRUDPages/AdminNS/ListPage/ListPage.xaml
                                             Text="{x:Bind NameA}" />
-                                        <TextBlock Text="" />
-========
-                                            Text="{x:Bind DescriptionN}" />
-                                        <TextBlock Text="{x:Bind TitleN}" />
->>>>>>>> Daniel-Rama2:ProFind/Lib/AdminNS/Views/CRUDPages/NotificationNS/ListPage/List-Page.xaml
-                                    </StackPanel>
+                                    <TextBlock Text="" />
+                                    <TextBlock Text="{x:Bind TitleN}" />
                                 </StackPanel>
                             </StackPanel>
-
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
-        <StackPanel
+    </StackPanel>
+    <StackPanel
             Grid.Column="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
-            <Button Name="Add_btn" Click="Add_btn_Click">Add</Button>
-        </StackPanel>
+        <Button Name="Add_btn" Click="Add_btn_Click">Add</Button>
+    </StackPanel>
 
-    </Grid>
-</Page>
+</Grid>
+<Page/>

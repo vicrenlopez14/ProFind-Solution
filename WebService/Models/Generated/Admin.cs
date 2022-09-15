@@ -7,9 +7,15 @@ using Microsoft.EntityFrameworkCore;
 namespace WebService.Models.Generated
 {
     [Table("admin")]
-    [Index("IdR1", Name = "IdR1")]
+    [Index("IdR1", Name = "FK_Admin_Rank")]
     public partial class Admin
     {
+        public Admin()
+        {
+            Securityansweradmins = new HashSet<Securityansweradmin>();
+            Supporttickets = new HashSet<Supportticket>();
+        }
+
         [Key]
         [StringLength(21)]
         public string IdA { get; set; } = null!;
@@ -22,7 +28,15 @@ namespace WebService.Models.Generated
         [StringLength(64)]
         public string? PasswordA { get; set; }
         public byte[]? PictureA { get; set; }
-        [StringLength(21)]
-        public string? IdR1 { get; set; }
+        [Column(TypeName = "int(11)")]
+        public int? IdR1 { get; set; }
+
+        [ForeignKey("IdR1")]
+        [InverseProperty("Admins")]
+        public virtual Rank? IdR1Navigation { get; set; }
+        [InverseProperty("IdA1Navigation")]
+        public virtual ICollection<Securityansweradmin> Securityansweradmins { get; set; }
+        [InverseProperty("IdA2Navigation")]
+        public virtual ICollection<Supportticket> Supporttickets { get; set; }
     }
 }

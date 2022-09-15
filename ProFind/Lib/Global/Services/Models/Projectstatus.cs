@@ -15,6 +15,17 @@
             this.text = text;
         }
 
+        public Projectstatus(string idPs, string namePs, string descriptionPs, string colorPs, string idPj3, int v, object text)
+        {
+            IdPs = idPs;
+            NamePs = namePs;
+            DescriptionPs = descriptionPs;
+            ColorPs = colorPs;
+            IdPj3 = idPj3;
+            this.v = v;
+            this.text = text;
+        }
+
         public override string ToString() => NamePs;
     }
 }

@@ -7,13 +7,13 @@ using Microsoft.EntityFrameworkCore;
 namespace WebService.Models.Generated
 {
     [Table("supportticket")]
-    [Index("IdA2", Name = "IdA2")]
-    [Index("IdAct1", Name = "IdACT1")]
-    [Index("IdC5", Name = "IdC5")]
-    [Index("IdP5", Name = "IdP5")]
-    [Index("IdPj4", Name = "IdPJ4")]
-    [Index("IdPp2", Name = "IdPP2")]
-    [Index("IdPpy1", Name = "IdPPY1")]
+    [Index("IdAct1", Name = "FK_SupportTicket_Activity")]
+    [Index("IdA2", Name = "FK_SupportTicket_Admin")]
+    [Index("IdC5", Name = "FK_SupportTicket_Client")]
+    [Index("IdP5", Name = "FK_SupportTicket_Professional")]
+    [Index("IdPj4", Name = "FK_SupportTicket_Project")]
+    [Index("IdPpy1", Name = "FK_SupportTicket_ProjectPay")]
+    [Index("IdPp2", Name = "FK_SupportTicket_Proposal")]
     public partial class Supportticket
     {
         [Key]
@@ -71,5 +71,27 @@ namespace WebService.Models.Generated
         [Column("IdPPY1")]
         [StringLength(21)]
         public string? IdPpy1 { get; set; }
+
+        [ForeignKey("IdA2")]
+        [InverseProperty("Supporttickets")]
+        public virtual Admin? IdA2Navigation { get; set; }
+        [ForeignKey("IdAct1")]
+        [InverseProperty("Supporttickets")]
+        public virtual Activity? IdAct1Navigation { get; set; }
+        [ForeignKey("IdC5")]
+        [InverseProperty("Supporttickets")]
+        public virtual Client? IdC5Navigation { get; set; }
+        [ForeignKey("IdP5")]
+        [InverseProperty("Supporttickets")]
+        public virtual Professional? IdP5Navigation { get; set; }
+        [ForeignKey("IdPj4")]
+        [InverseProperty("Supporttickets")]
+        public virtual Project? IdPj4Navigation { get; set; }
+        [ForeignKey("IdPp2")]
+        [InverseProperty("Supporttickets")]
+        public virtual Proposal? IdPp2Navigation { get; set; }
+        [ForeignKey("IdPpy1")]
+        [InverseProperty("Supporttickets")]
+        public virtual Projectpay? IdPpy1Navigation { get; set; }
     }
 }

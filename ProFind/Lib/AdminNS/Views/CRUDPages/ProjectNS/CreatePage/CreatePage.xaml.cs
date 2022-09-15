@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using ProFind.Lib.AdminNS.Controllers;
 
 using ProFind.Lib.Global.Helpers;
 using ProFind.Lib.Global.Services;

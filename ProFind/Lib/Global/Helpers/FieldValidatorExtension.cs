@@ -174,7 +174,7 @@ namespace ProFind.Lib.Global.Helpers
 
             return invalidTextBoxes;
         }
-        
+
 
         #region Validations
         public static bool IsValid(this TextBox textBox)
@@ -275,6 +275,7 @@ namespace ProFind.Lib.Global.Helpers
             var picture = textBlock.Text;
             return picture.Length >= 1;
         }
+        #endregion
 
     }
 
@@ -291,3 +292,4 @@ namespace ProFind.Lib.Global.Helpers
     }
 
 }
+#endregion

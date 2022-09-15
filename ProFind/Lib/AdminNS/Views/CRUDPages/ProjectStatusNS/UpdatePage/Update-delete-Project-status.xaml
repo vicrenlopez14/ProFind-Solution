@@ -17,7 +17,7 @@
                         Style="{StaticResource HeaderTextBlockStyle}"
                         Text="Creation" />
 
-                    <TextBlock>
+                    <TextBlock SelectionChanged="TextBlock_SelectionChanged">
                         Update and Delete a  Profession.
                     </TextBlock>
                     <StackPanel

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace WebService.Models.Generated
 {
     [Table("changepasswordcode")]
-    [Index("IdC1", Name = "IdC1")]
+    [Index("IdC1", Name = "FK_Client_ChangePasswordCode")]
     public partial class Changepasswordcode
     {
         [Key]
@@ -21,5 +21,9 @@ namespace WebService.Models.Generated
         public bool? VerifiedCpc { get; set; }
         [StringLength(21)]
         public string? IdC1 { get; set; }
+
+        [ForeignKey("IdC1")]
+        [InverseProperty("Changepasswordcodes")]
+        public virtual Client? IdC1Navigation { get; set; }
     }
 }

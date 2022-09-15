@@ -1,14 +1,5 @@
 ﻿<Page
-<<<<<<<< HEAD:ProFind/Lib/ProfessionalNS/Views/CRUDPage/NotificationNS/CreatePage/CreatePage.xaml
-    x:Class="ProFind.Lib.ProfessionalNS.Views.CRUDPage.NotificationNS.CreatePage.CreatePage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ProFind.Lib.ProfessionalNS.Views.CRUDPage.NotificationNS.CreatePage"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Style="{StaticResource PageStyle}">
-========
+
     x:Class="ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.UpdatePage.Update_Project"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -17,7 +8,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
->>>>>>>> Daniel-Rama2:ProFind/Lib/AdminNS/Views/CRUDPages/ProjectNS/UpdatePage/Update_Project.xaml
 
     <Grid>
         <Grid>
@@ -28,17 +18,10 @@
                         FontWeight="Bold"
                         Style="{StaticResource HeaderTextBlockStyle}"
                         Text="Creation" />
-<<<<<<<< HEAD:ProFind/Lib/ProfessionalNS/Views/CRUDPage/NotificationNS/CreatePage/CreatePage.xaml
-                    <TextBlock>
-                        Create a new notification.
-                    </TextBlock>
-                    <Image
-========
                         <TextBlock>
                         Create a new project from zero.
                         </TextBlock>
                         <Image
->>>>>>>> Daniel-Rama2:ProFind/Lib/AdminNS/Views/CRUDPages/ProjectNS/UpdatePage/Update_Project.xaml
                         Name="SelectedPicture_pp"
                         Width="100"
                         Height="100"
@@ -72,15 +55,7 @@
                         Margin="0,15,0,0"
                         PlaceholderText="Description"
                         TextChanged="Description_tb_TextChanged" />
-<<<<<<<< HEAD:ProFind/Lib/ProfessionalNS/Views/CRUDPage/NotificationNS/CreatePage/CreatePage.xaml
 
-                    <Grid Margin="0,10,0,0" VerticalAlignment="Center">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.7*" />
-                            <ColumnDefinition Width="0.3*" />
-                        </Grid.ColumnDefinitions>
-                    </Grid>
-========
                         <muxc:NumberBox
                         x:Name="TotalPrice_tb"
                         Margin="0,15,0,0"
@@ -115,9 +90,6 @@
                             SelectionChanged="Client_cb_SelectionChanged" VerticalAlignment="Center" />
                         </Grid>
 
-
->>>>>>>> Daniel-Rama2:ProFind/Lib/AdminNS/Views/CRUDPages/ProjectNS/UpdatePage/Update_Project.xaml
-
                         <Grid Margin="0,10,0,0" VerticalAlignment="Center">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="0.7*" />
@@ -142,15 +114,6 @@
                         Content="Update"
                         Style="{StaticResource AccentButtonStyle}" />
 
-<<<<<<<< HEAD:ProFind/Lib/ProfessionalNS/Views/CRUDPage/NotificationNS/CreatePage/CreatePage.xaml
-                    <d:ProgressRing
-                        x:Name="Creation_pr"
-                        Margin="0,20,0,0"
-                        IsActive="False" />
-                </StackPanel>
-            </Grid>
-        </ScrollViewer>
-========
                         <d:ProgressRing
                         x:Name="Creation_pr"
                         Margin="0,20,0,0"
@@ -160,6 +123,5 @@
             </ScrollViewer>
         </Grid>
 
->>>>>>>> Daniel-Rama2:ProFind/Lib/AdminNS/Views/CRUDPages/ProjectNS/UpdatePage/Update_Project.xaml
     </Grid>
 </Page>

@@ -1,24 +1,12 @@
 ﻿<Page
-<<<<<<<< HEAD:ProFind/Lib/ClientNS/Views/CRUDPages/ProposalsNS/ReadPage/ReadPage.xaml
-    x:Class="ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.ReadPage.ReadPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.ReadPage"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:models="using:ProFind.Lib.Global.Services.Models"
-    mc:Ignorable="d"
-      Style="{StaticResource PageStyle}">
-
-========
     x:Class="ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.ListPage.List_Page"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.ListPage"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:models="using:ProFind.Lib.Global.Services.Models"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:models="using:ProFind.Lib.Global.Services.Models" xmlns:services="using:ProFind.Lib.Global.Services"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
->>>>>>>> Daniel-Rama2:ProFind/Lib/AdminNS/Views/CRUDPages/ProfessionNS/ListPage/List-Page.xaml
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -30,30 +18,6 @@
                 Margin="20"
                 Padding="20"
                 Orientation="Vertical">
-<<<<<<<< HEAD:ProFind/Lib/ClientNS/Views/CRUDPages/ProposalsNS/ReadPage/ReadPage.xaml
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.9*" />
-                        <ColumnDefinition Width="0.1*" />
-                    </Grid.ColumnDefinitions>
-                    <TextBlock
-                        Grid.Column="0"
-                        Margin="20"
-                        HorizontalAlignment="Left"
-                        RenderTransformOrigin="0.638,0.776"
-                        Style="{StaticResource SubheaderTextBlockStyle}"
-                        Text="Created notifications" />
-                    <Button
-                        Grid.Column="1"
-                        HorizontalAlignment="Center"
-                        Click="Button_Click"
-                        Style="{StaticResource AccentButtonStyle}">
-                        Add more
-                    </Button>
-                </Grid>
-                <ListView
-                    Name="ProposalListView"
-========
                 <TextBlock
                     Margin="20"
                     RenderTransformOrigin="0.638,0.776"
@@ -61,16 +25,11 @@
                     Text="Registered administrators" />
                 <ListView
                     Name="ProjectsListView"
->>>>>>>> Daniel-Rama2:ProFind/Lib/AdminNS/Views/CRUDPages/ProfessionNS/ListPage/List-Page.xaml
                     IsItemClickEnabled="True"
                     ItemClick="ProposalListView_ItemClick"
                     SelectionMode="None">
                     <ListView.ItemTemplate>
-<<<<<<<< HEAD:ProFind/Lib/ClientNS/Views/CRUDPages/ProposalsNS/ReadPage/ReadPage.xaml
-                        <DataTemplate x:DataType="models:Notification">
-========
-                        <DataTemplate x:DataType="models:Profession">
->>>>>>>> Daniel-Rama2:ProFind/Lib/AdminNS/Views/CRUDPages/ProfessionNS/ListPage/List-Page.xaml
+                        <DataTemplate x:DataType="services:Profession">
                             <StackPanel
                                 BorderBrush="Gray"
                                 BorderThickness="0.5"
@@ -81,27 +40,19 @@
                                         Width="69"
                                         Height="73"
                                         Margin="15,0"
-<<<<<<<< HEAD:ProFind/Lib/ClientNS/Views/CRUDPages/ProposalsNS/ReadPage/ReadPage.xaml
-                                        ProfilePicture="{Binding PictureN}" />
-========
+
                                         ProfilePicture="https://st4.depositphotos.com/13768208/30915/i/450/depositphotos_309152478-stock-photo-group-of-businessmen-walking-down.jpg" />
->>>>>>>> Daniel-Rama2:ProFind/Lib/AdminNS/Views/CRUDPages/ProfessionNS/ListPage/List-Page.xaml
                                     <StackPanel Height="42" Orientation="Vertical">
                                         <TextBlock
                                             Height="21"
                                             FontWeight="Medium"
                                             Style="{StaticResource BodyTextBlockStyle}"
-<<<<<<<< HEAD:ProFind/Lib/ClientNS/Views/CRUDPages/ProposalsNS/ReadPage/ReadPage.xaml
                                             Text="{x:Bind TitleN}" />
                                         <TextBlock Text="{x:Bind DescriptionN}" />
-========
-                                            Text="{x:Bind Names}" />
-                                        <TextBlock Text="{x:Bind }" />
->>>>>>>> Daniel-Rama2:ProFind/Lib/AdminNS/Views/CRUDPages/ProfessionNS/ListPage/List-Page.xaml
+                                        <TextBlock Text="{x:Bind NameN}" />
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>
-
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

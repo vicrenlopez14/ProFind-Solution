@@ -7,8 +7,8 @@ using Microsoft.EntityFrameworkCore;
 namespace WebService.Models.Generated
 {
     [Table("securityanswerprofessionals")]
-    [Index("IdP1", Name = "IdP1")]
-    [Index("IdSq1", Name = "IdSQ1")]
+    [Index("IdP", Name = "FK_Professional_SecurityAnswerProfessionals")]
+    [Index("IdSq", Name = "FK_SecurityAnswerProfessionals_SecurityQuestion")]
     public partial class Securityanswerprofessional
     {
         [Key]
@@ -18,10 +18,17 @@ namespace WebService.Models.Generated
         [Column("AnswerSA")]
         [StringLength(50)]
         public string? AnswerSa { get; set; }
-        [Column("IdSQ1")]
+        [Column("IdSQ")]
         [StringLength(21)]
-        public string? IdSq1 { get; set; }
+        public string? IdSq { get; set; }
         [StringLength(21)]
-        public string? IdP1 { get; set; }
+        public string? IdP { get; set; }
+
+        [ForeignKey("IdP")]
+        [InverseProperty("Securityanswerprofessionals")]
+        public virtual Professional? IdPNavigation { get; set; }
+        [ForeignKey("IdSq")]
+        [InverseProperty("Securityanswerprofessionals")]
+        public virtual Securityquestion? IdSqNavigation { get; set; }
     }
 }

@@ -4,7 +4,6 @@ using Windows.UI.Xaml.Controls;
 using ProFind.Lib.Global.Views.Preferences_Page;
 using ProFind.Lib.Global.Views.About_Page;
 using ProFind.Lib.AdminNS.Controllers;
-using ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ListPage;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 

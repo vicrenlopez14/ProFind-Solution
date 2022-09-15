@@ -1210,6 +1210,33 @@
         }
       }
     },
+    "/api/LoginAdmin": {
+      "post": {
+        "tags": [
+          "LoginAdmin"
+        ],
+        "operationId": "Login",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AdminLogin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Messages": {
       "get": {
         "tags": [
@@ -4153,6 +4180,69 @@
           "maxLength": 21,
           "minLength": 0,
           "type": "string"
+        },
+        "idPj1Navigation": {
+          "$ref": "#/definitions/Project"
+        },
+        "idT1Navigation": {
+          "$ref": "#/definitions/Tag"
+        },
+        "activitycomments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Activitycomment"
+          }
+        },
+        "supporttickets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Supportticket"
+          }
+        }
+      }
+    },
+    "Activitycomment": {
+      "type": "object",
+      "properties": {
+        "idAc": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "commentAc": {
+          "maxLength": 500,
+          "minLength": 0,
+          "type": "string"
+        },
+        "dateAc": {
+          "$ref": "#/definitions/DateOnly"
+        },
+        "askToCheckChatAc": {
+          "type": "boolean"
+        },
+        "idA1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idP5": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idC5": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idA1Navigation": {
+          "$ref": "#/definitions/Activity"
+        },
+        "idC5Navigation": {
+          "$ref": "#/definitions/Client"
+        },
+        "idP5Navigation": {
+          "$ref": "#/definitions/Professional"
         }
       }
     },
@@ -4189,9 +4279,60 @@
           "type": "string"
         },
         "idR1": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idR1Navigation": {
+          "$ref": "#/definitions/Rank"
+        },
+        "securityansweradmins": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Securityansweradmin"
+          }
+        },
+        "supporttickets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Supportticket"
+          }
+        }
+      }
+    },
+    "AdminLogin": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "Changepasswordcode": {
+      "type": "object",
+      "properties": {
+        "idCpc": {
           "maxLength": 21,
           "minLength": 0,
           "type": "string"
+        },
+        "codeCpc": {
+          "maxLength": 64,
+          "minLength": 0,
+          "type": "string"
+        },
+        "verifiedCpc": {
+          "type": "boolean"
+        },
+        "idC1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idC1Navigation": {
+          "$ref": "#/definitions/Client"
         }
       }
     },
@@ -4221,6 +4362,60 @@
         "pictureC": {
           "format": "byte",
           "type": "string"
+        },
+        "activitycomments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Activitycomment"
+          }
+        },
+        "changepasswordcodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Changepasswordcode"
+          }
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Message"
+          }
+        },
+        "projectpays": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Projectpay"
+          }
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Project"
+          }
+        },
+        "proposalnotifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Proposalnotification"
+          }
+        },
+        "proposals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Proposal"
+          }
+        },
+        "securityanswerclients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Securityanswerclient"
+          }
+        },
+        "supporttickets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Supportticket"
+          }
         }
       }
     },
@@ -4278,6 +4473,12 @@
           "maxLength": 30,
           "minLength": 0,
           "type": "string"
+        },
+        "professionals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Professional"
+          }
         }
       }
     },
@@ -4323,6 +4524,12 @@
           "maxLength": 21,
           "minLength": 0,
           "type": "string"
+        },
+        "idC4Navigation": {
+          "$ref": "#/definitions/Client"
+        },
+        "idP4Navigation": {
+          "$ref": "#/definitions/Professional"
         }
       }
     },
@@ -4355,6 +4562,9 @@
           "maxLength": 21,
           "minLength": 0,
           "type": "string"
+        },
+        "idPj2Navigation": {
+          "$ref": "#/definitions/Project"
         }
       }
     },
@@ -4369,6 +4579,12 @@
           "maxLength": 50,
           "minLength": 0,
           "type": "string"
+        },
+        "professionals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Professional"
+          }
         }
       }
     },
@@ -4458,6 +4674,66 @@
         "idWdt1": {
           "format": "int32",
           "type": "integer"
+        },
+        "idDp1Navigation": {
+          "$ref": "#/definitions/Department"
+        },
+        "idPfs1Navigation": {
+          "$ref": "#/definitions/Profession"
+        },
+        "activitycomments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Activitycomment"
+          }
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Message"
+          }
+        },
+        "projectpays": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Projectpay"
+          }
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Project"
+          }
+        },
+        "projecttemplates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Projecttemplate"
+          }
+        },
+        "proposalnotifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Proposalnotification"
+          }
+        },
+        "proposals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Proposal"
+          }
+        },
+        "securityanswerprofessionals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Securityanswerprofessional"
+          }
+        },
+        "supporttickets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Supportticket"
+          }
         }
       }
     },
@@ -4488,8 +4764,9 @@
           "type": "number"
         },
         "idPs1": {
-          "format": "int32",
-          "type": "integer"
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
         },
         "idP1": {
           "maxLength": 21,
@@ -4500,6 +4777,45 @@
           "maxLength": 21,
           "minLength": 0,
           "type": "string"
+        },
+        "idC1Navigation": {
+          "$ref": "#/definitions/Client"
+        },
+        "idP1Navigation": {
+          "$ref": "#/definitions/Professional"
+        },
+        "idPs1Navigation": {
+          "$ref": "#/definitions/Projectstatus"
+        },
+        "activities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Activity"
+          }
+        },
+        "notifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Notification"
+          }
+        },
+        "projectpays": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Projectpay"
+          }
+        },
+        "supporttickets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Supportticket"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tag"
+          }
         }
       }
     },
@@ -4556,6 +4872,57 @@
           "maxLength": 21,
           "minLength": 0,
           "type": "string"
+        },
+        "idC3Navigation": {
+          "$ref": "#/definitions/Client"
+        },
+        "idP3Navigation": {
+          "$ref": "#/definitions/Professional"
+        },
+        "idPj3Navigation": {
+          "$ref": "#/definitions/Project"
+        },
+        "supporttickets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Supportticket"
+          }
+        }
+      }
+    },
+    "Projectpaytemplate": {
+      "type": "object",
+      "properties": {
+        "idPpt": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "titlePpt": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "descriptionPpt": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "picturePpt": {
+          "format": "byte",
+          "type": "string"
+        },
+        "totalPricePpt": {
+          "format": "float",
+          "type": "number"
+        },
+        "idPt1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idPt1Navigation": {
+          "$ref": "#/definitions/Projecttemplate"
         }
       }
     },
@@ -4582,10 +4949,11 @@
           "minLength": 0,
           "type": "string"
         },
-        "idPj3": {
-          "maxLength": 21,
-          "minLength": 0,
-          "type": "string"
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Project"
+          }
         }
       }
     },
@@ -4625,6 +4993,21 @@
           "maxLength": 21,
           "minLength": 0,
           "type": "string"
+        },
+        "idP1Navigation": {
+          "$ref": "#/definitions/Professional"
+        },
+        "projectpaytemplates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Projectpaytemplate"
+          }
+        },
+        "tagtemplates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tagtemplate"
+          }
         }
       }
     },
@@ -4671,6 +5054,70 @@
           "maxLength": 21,
           "minLength": 0,
           "type": "string"
+        },
+        "idC3Navigation": {
+          "$ref": "#/definitions/Client"
+        },
+        "idP3Navigation": {
+          "$ref": "#/definitions/Professional"
+        },
+        "proposalnotifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Proposalnotification"
+          }
+        },
+        "supporttickets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Supportticket"
+          }
+        }
+      }
+    },
+    "Proposalnotification": {
+      "type": "object",
+      "properties": {
+        "idPn": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "contentPn": {
+          "maxLength": 500,
+          "minLength": 0,
+          "type": "string"
+        },
+        "imagePn": {
+          "format": "byte",
+          "type": "string"
+        },
+        "actionPn": {
+          "type": "string"
+        },
+        "idPp1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idP4": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idC4": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idC4Navigation": {
+          "$ref": "#/definitions/Client"
+        },
+        "idP4Navigation": {
+          "$ref": "#/definitions/Professional"
+        },
+        "idPp1Navigation": {
+          "$ref": "#/definitions/Proposal"
         }
       }
     },
@@ -4685,6 +5132,12 @@
           "maxLength": 50,
           "minLength": 0,
           "type": "string"
+        },
+        "admins": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Admin"
+          }
         }
       }
     },
@@ -4710,6 +5163,12 @@
           "maxLength": 21,
           "minLength": 0,
           "type": "string"
+        },
+        "idA1Navigation": {
+          "$ref": "#/definitions/Admin"
+        },
+        "idSq1Navigation": {
+          "$ref": "#/definitions/Securityquestion"
         }
       }
     },
@@ -4735,6 +5194,12 @@
           "maxLength": 21,
           "minLength": 0,
           "type": "string"
+        },
+        "idC1Navigation": {
+          "$ref": "#/definitions/Client"
+        },
+        "idSq1Navigation": {
+          "$ref": "#/definitions/Securityquestion"
         }
       }
     },
@@ -4751,15 +5216,21 @@
           "minLength": 0,
           "type": "string"
         },
-        "idSq1": {
+        "idSq": {
           "maxLength": 21,
           "minLength": 0,
           "type": "string"
         },
-        "idP1": {
+        "idP": {
           "maxLength": 21,
           "minLength": 0,
           "type": "string"
+        },
+        "idPNavigation": {
+          "$ref": "#/definitions/Professional"
+        },
+        "idSqNavigation": {
+          "$ref": "#/definitions/Securityquestion"
         }
       }
     },
@@ -4775,6 +5246,24 @@
           "maxLength": 50,
           "minLength": 0,
           "type": "string"
+        },
+        "securityansweradmins": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Securityansweradmin"
+          }
+        },
+        "securityanswerclients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Securityanswerclient"
+          }
+        },
+        "securityanswerprofessionals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Securityanswerprofessional"
+          }
         }
       }
     },
@@ -4878,6 +5367,27 @@
           "maxLength": 21,
           "minLength": 0,
           "type": "string"
+        },
+        "idA2Navigation": {
+          "$ref": "#/definitions/Admin"
+        },
+        "idAct1Navigation": {
+          "$ref": "#/definitions/Activity"
+        },
+        "idC5Navigation": {
+          "$ref": "#/definitions/Client"
+        },
+        "idP5Navigation": {
+          "$ref": "#/definitions/Professional"
+        },
+        "idPj4Navigation": {
+          "$ref": "#/definitions/Project"
+        },
+        "idPp2Navigation": {
+          "$ref": "#/definitions/Proposal"
+        },
+        "idPpy1Navigation": {
+          "$ref": "#/definitions/Projectpay"
         }
       }
     },
@@ -4899,10 +5409,19 @@
           "maxLength": 3,
           "type": "string"
         },
-        "idPj1": {
+        "idPj": {
           "maxLength": 21,
           "minLength": 0,
           "type": "string"
+        },
+        "idPjNavigation": {
+          "$ref": "#/definitions/Project"
+        },
+        "activities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Activity"
+          }
         }
       }
     },
@@ -4928,6 +5447,9 @@
           "maxLength": 21,
           "minLength": 0,
           "type": "string"
+        },
+        "idPt1Navigation": {
+          "$ref": "#/definitions/Projecttemplate"
         }
       }
     }

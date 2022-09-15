@@ -7,11 +7,16 @@ using Microsoft.EntityFrameworkCore;
 namespace WebService.Models.Generated
 {
     [Table("projectpay")]
-    [Index("IdC3", Name = "IdC3")]
-    [Index("IdP3", Name = "IdP3")]
-    [Index("IdPj3", Name = "IdPJ3")]
+    [Index("IdC3", Name = "FK_ProjectPay_Client")]
+    [Index("IdP3", Name = "FK_ProjectPay_Professional")]
+    [Index("IdPj3", Name = "FK_ProjectPay_Project")]
     public partial class Projectpay
     {
+        public Projectpay()
+        {
+            Supporttickets = new HashSet<Supportticket>();
+        }
+
         [Key]
         [Column("IdPPY")]
         [StringLength(21)]
@@ -41,5 +46,17 @@ namespace WebService.Models.Generated
         [Column("IdPJ3")]
         [StringLength(21)]
         public string? IdPj3 { get; set; }
+
+        [ForeignKey("IdC3")]
+        [InverseProperty("Projectpays")]
+        public virtual Client? IdC3Navigation { get; set; }
+        [ForeignKey("IdP3")]
+        [InverseProperty("Projectpays")]
+        public virtual Professional? IdP3Navigation { get; set; }
+        [ForeignKey("IdPj3")]
+        [InverseProperty("Projectpays")]
+        public virtual Project? IdPj3Navigation { get; set; }
+        [InverseProperty("IdPpy1Navigation")]
+        public virtual ICollection<Supportticket> Supporttickets { get; set; }
     }
 }

@@ -43,83 +43,15 @@ CREATE TABLE Admin
     TelA      VARCHAR(15),
     PasswordA CHAR(64),
     PictureA  LONGBLOB,
-    IdR1      CHAR(21),
+    IdR1      INT,
     FULLTEXT (NameA, EmailA, TelA),
-    FOREIGN KEY (IdR1) REFERENCES `Rank` (IdR) ON DELETE CASCADE
+    CONSTRAINT FK_Admin_Rank FOREIGN KEY (IdR1) REFERENCES `Rank` (IdR) ON DELETE CASCADE
 );
 
 DESCRIBE ADMIN;
 
 SELECT *
 FROM Admin;
-
-###########################################
-#Security questions
-CREATE TABLE SecurityQuestion
-(
-    IdSQ   CHAR(21) PRIMARY KEY,
-    NameSQ VARCHAR(50) UNIQUE
-);
-
-###########################################
-#Security answers
-CREATE TABLE SecurityAnswerClients
-(
-    IdSA     CHAR(21) PRIMARY KEY,
-    AnswerSA VARCHAR(50),
-    IdSQ1    CHAR(21),
-    IdC1     CHAR(21),
-    FOREIGN KEY (IdSQ1) REFERENCES SecurityQuestion (IdSQ) ON DELETE CASCADE,
-    FOREIGN KEY (IdC1) REFERENCES Client (IdC) ON DELETE CASCADE
-);
-
-###########################################
-#Security answers for professionals
-CREATE TABLE SecurityAnswerProfessionals
-(
-    IdSA     CHAR(21) PRIMARY KEY,
-    AnswerSA VARCHAR(50),
-    IdSQ1    CHAR(21),
-    IdP1     CHAR(21),
-    FOREIGN KEY (IdSQ1) REFERENCES SecurityQuestion (IdSQ) ON DELETE CASCADE,
-    FOREIGN KEY (IdP1) REFERENCES Professional (IdP) ON DELETE CASCADE
-);
-
-###########################################
-#Security answers for admins
-CREATE TABLE SecurityAnswerAdmins
-(
-    IdSA     CHAR(21) PRIMARY KEY,
-    AnswerSA VARCHAR(50),
-    IdSQ1    CHAR(21),
-    IdA1     CHAR(21),
-    FOREIGN KEY (IdSQ1) REFERENCES SecurityQuestion (IdSQ) ON DELETE CASCADE,
-    FOREIGN KEY (IdA1) REFERENCES Admin (IdA) ON DELETE CASCADE
-);
-
-###############################################
-# Change password codes
-CREATE TABLE ChangePasswordCode
-(
-    IdCPC       CHAR(21) PRIMARY KEY,
-    CodeCPC     CHAR(64),
-    VerifiedCPC BOOLEAN,
-    IdC1        CHAR(21),
-    FOREIGN KEY (IdC1) REFERENCES Client (IdC) ON DELETE CASCADE
-);
-
-###############################################
-CREATE TABLE Tag
-(
-    IdT    CHAR(21) PRIMARY KEY,
-    NameT  VARCHAR(50),
-    ColorT BINARY(3),
-    IdPJ1  CHAR(21),
-
-    FOREIGN KEY (IdPJ1) REFERENCES Project (IdPJ) ON DELETE CASCADE
-);
-
-DESCRIBE Tag;
 
 ################################################
 CREATE TABLE Department
@@ -146,8 +78,20 @@ VALUES ('Ahuachapán'),
 
 SELECT *
 FROM Department;
-################################################
 
+################################################
+CREATE TABLE Profession
+(
+    IdPFS   INT AUTO_INCREMENT PRIMARY KEY,
+    NamePFS VARCHAR(50)
+);
+
+INSERT INTO Profession (NamePFS)
+VALUES ('Law firm'),
+       ('Automotive services'),
+       ('General medicine');
+
+################################################
 CREATE TABLE Professional
 (
     IdP                CHAR(21) PRIMARY KEY,
@@ -170,11 +114,68 @@ CREATE TABLE Professional
     IdPFS1             INT,
     IdDP1              INT,
     IdWDT1             INT,
-    FOREIGN KEY (IdPFS1) REFERENCES Profession (IdPFS) ON DELETE CASCADE,
-    FOREIGN KEY (IdDP1) REFERENCES Department (IdDP) ON DELETE CASCADE
+    CONSTRAINT FK_Professional_Profession FOREIGN KEY (IdPFS1) REFERENCES Profession (IdPFS) ON DELETE CASCADE,
+    CONSTRAINT FK_Professional_Department FOREIGN KEY (IdDP1) REFERENCES Department (IdDP) ON DELETE CASCADE
 );
+
 SELECT *
 FROM Professional;
+
+
+###########################################
+#Security questions
+CREATE TABLE SecurityQuestion
+(
+    IdSQ   CHAR(21) PRIMARY KEY,
+    NameSQ VARCHAR(50) UNIQUE
+);
+
+###########################################
+#Security answers
+CREATE TABLE SecurityAnswerClients
+(
+    IdSA     CHAR(21) PRIMARY KEY,
+    AnswerSA VARCHAR(50),
+    IdSQ1    CHAR(21),
+    IdC1     CHAR(21),
+    CONSTRAINT FK_SecurityAnswerClients_SecurityQuestion FOREIGN KEY (IdSQ1) REFERENCES SecurityQuestion (IdSQ) ON DELETE CASCADE,
+    CONSTRAINT FK_Client_SecurityAnswerClients FOREIGN KEY (IdC1) REFERENCES Client (IdC) ON DELETE CASCADE
+);
+
+###########################################
+#Security answers for professionals
+CREATE TABLE SecurityAnswerProfessionals
+(
+    IdSA     CHAR(21) PRIMARY KEY,
+    AnswerSA VARCHAR(50),
+    IdSQ     CHAR(21),
+    IdP      CHAR(21),
+    CONSTRAINT FK_SecurityAnswerProfessionals_SecurityQuestion FOREIGN KEY (IdSQ) REFERENCES SecurityQuestion (IdSQ) ON DELETE CASCADE,
+    CONSTRAINT FK_Professional_SecurityAnswerProfessionals FOREIGN KEY (IdP) REFERENCES Professional (IdP) ON DELETE CASCADE
+);
+
+###########################################
+#Security answers for admins
+CREATE TABLE SecurityAnswerAdmins
+(
+    IdSA     CHAR(21) PRIMARY KEY,
+    AnswerSA VARCHAR(50),
+    IdSQ1    CHAR(21),
+    IdA1     CHAR(21),
+    CONSTRAINT FK_SecurityAnswerAdmins_SecurityQuestion FOREIGN KEY (IdSQ1) REFERENCES SecurityQuestion (IdSQ) ON DELETE CASCADE,
+    CONSTRAINT FK_Admin_SecurityAnswerAdmins FOREIGN KEY (IdA1) REFERENCES Admin (IdA) ON DELETE CASCADE
+);
+
+###############################################
+# Change password codes
+CREATE TABLE ChangePasswordCode
+(
+    IdCPC       CHAR(21) PRIMARY KEY,
+    CodeCPC     CHAR(64),
+    VerifiedCPC BOOLEAN,
+    IdC1        CHAR(21),
+    CONSTRAINT FK_Client_ChangePasswordCode FOREIGN KEY (IdC1) REFERENCES Client (IdC) ON DELETE CASCADE
+);
 
 ###############################################
 CREATE TABLE ProjectStatus
@@ -182,9 +183,7 @@ CREATE TABLE ProjectStatus
     IdPS          CHAR(21) PRIMARY KEY,
     NamePS        VARCHAR(20),
     DescriptionPS VARCHAR(150),
-    ColorPS       VARCHAR(6),
-    IdPJ3         CHAR(21),
-    FOREIGN KEY (IdPJ3) REFERENCES Project (IdPJ) ON DELETE CASCADE
+    ColorPS       VARCHAR(6)
 );
 
 SELECT *
@@ -198,18 +197,32 @@ CREATE TABLE Project
     DescriptionPJ VARCHAR(50),
     PicturePJ     LONGBLOB,
     TotalPricePJ  FLOAT,
-    IdPS1         INT,
+    IdPS1         CHAR(21),
     IdP1          CHAR(21),
     IdC1          CHAR(21),
-    FOREIGN KEY (IdPS1) REFERENCES ProjectStatus (IdPS) ON DELETE CASCADE,
-    FOREIGN KEY (IdP1) REFERENCES Professional (IdP) ON DELETE CASCADE,
-    FOREIGN KEY (IdC1) REFERENCES Client (IdC) ON DELETE CASCADE
+    CONSTRAINT FK_Project_ProjectStatus FOREIGN KEY (IdPS1) REFERENCES ProjectStatus (IdPS) ON DELETE CASCADE,
+    CONSTRAINT FK_Project_Professional FOREIGN KEY (IdP1) REFERENCES Professional (IdP) ON DELETE CASCADE,
+    CONSTRAINT FK_Project_Client FOREIGN KEY (IdC1) REFERENCES Client (IdC) ON DELETE CASCADE
 );
 
 DESCRIBE Project;
 
 SELECT *
 FROM Project;
+
+###############################################
+CREATE TABLE Tag
+(
+    IdT    CHAR(21) PRIMARY KEY,
+    NameT  VARCHAR(50),
+    ColorT BINARY(3),
+    IdPJ   CHAR(21),
+    CONSTRAINT FK_Tag_Project FOREIGN KEY (IdPJ) REFERENCES Project (IdPJ) ON DELETE CASCADE
+);
+
+DESCRIBE Tag;
+
+
 
 ###############################################
 # ProjectTemplate
@@ -223,7 +236,7 @@ CREATE TABLE ProjectTemplate
     SaveTagsPT        BOOLEAN,
     SaveProjectPaysPT BOOLEAN,
     IdP1              CHAR(21),
-    FOREIGN KEY (IdP1) REFERENCES Professional (IdP) ON DELETE CASCADE
+    CONSTRAINT FK_ProjectTemplate_Professional FOREIGN KEY (IdP1) REFERENCES Professional (IdP) ON DELETE CASCADE
 );
 
 ###############################################
@@ -234,7 +247,7 @@ CREATE TABLE TagTemplate
     NameTT  VARCHAR(50),
     ColorTT BINARY(3),
     IdPT1   CHAR(21),
-    FOREIGN KEY (IdPT1) REFERENCES ProjectTemplate (IdPT) ON DELETE CASCADE
+    CONSTRAINT FK_TagTemplate_ProjectTemplate FOREIGN KEY (IdPT1) REFERENCES ProjectTemplate (IdPT) ON DELETE CASCADE
 );
 
 ###############################################
@@ -247,7 +260,7 @@ CREATE TABLE ProjectPayTemplate
     PicturePPT     LONGBLOB,
     TotalPricePPT  FLOAT,
     IdPT1          CHAR(21),
-    FOREIGN KEY (IdPT1) REFERENCES ProjectTemplate (IdPT) ON DELETE CASCADE
+    CONSTRAINT FK_ProjectPayTemplate_ProjectTemplate FOREIGN KEY (IdPT1) REFERENCES ProjectTemplate (IdPT) ON DELETE CASCADE
 );
 
 ################################################
@@ -261,8 +274,8 @@ CREATE TABLE Activity
     PictureA       LONGBLOB,
     IdPJ1          CHAR(21),
     IdT1           CHAR(21),
-    FOREIGN KEY (IdPJ1) REFERENCES Project (IdPJ) ON DELETE CASCADE,
-    FOREIGN KEY (IdT1) REFERENCES Tag (IdT) ON DELETE CASCADE
+    CONSTRAINT FK_Activity_Project FOREIGN KEY (IdPJ1) REFERENCES Project (IdPJ) ON DELETE CASCADE,
+    CONSTRAINT FK_Activity_Tag FOREIGN KEY (IdT1) REFERENCES Tag (IdT) ON DELETE CASCADE
 );
 
 SELECT *
@@ -279,22 +292,10 @@ CREATE TABLE ActivityComment
     IdA1             CHAR(21),
     IdP5             CHAR(21),
     IdC5             CHAR(21),
-    FOREIGN KEY (IdA1) REFERENCES Activity (IdA) ON DELETE CASCADE,
-    FOREIGN KEY (IdP5) REFERENCES Professional (IdP) ON DELETE CASCADE,
-    FOREIGN KEY (IdC5) REFERENCES Client (IdC) ON DELETE CASCADE
+    CONSTRAINT FK_ActivityComment_Activity FOREIGN KEY (IdA1) REFERENCES Activity (IdA) ON DELETE CASCADE,
+    CONSTRAINT FK_ActivityComment_Professional FOREIGN KEY (IdP5) REFERENCES Professional (IdP) ON DELETE CASCADE,
+    CONSTRAINT FK_ActivityComment_Client FOREIGN KEY (IdC5) REFERENCES Client (IdC) ON DELETE CASCADE
 );
-
-################################################
-CREATE TABLE Profession
-(
-    IdPFS   INT AUTO_INCREMENT PRIMARY KEY,
-    NamePFS VARCHAR(50)
-);
-
-INSERT INTO Profession (NamePFS)
-VALUES ('Law firm'),
-       ('Automotive services'),
-       ('General medicine');
 
 ################################################
 
@@ -306,7 +307,7 @@ CREATE TABLE Notification
     DateTimeIssuedN DATE,
     PictureN        LONGBLOB,
     IdPJ2           CHAR(21),
-    FOREIGN KEY (IdPJ2) REFERENCES Project (IdPJ) ON DELETE CASCADE
+    CONSTRAINT FK_Notification_Project FOREIGN KEY (IdPJ2) REFERENCES Project (IdPJ) ON DELETE CASCADE
 );
 
 ################################################
@@ -322,8 +323,8 @@ CREATE TABLE Proposal
     RevisionStatus ENUM ('pending', 'planning', 'rejected', 'clientaccepted', 'topay', 'readytostart'),
     IdP3           CHAR(21),
     IdC3           CHAR(21),
-    FOREIGN KEY (IdP3) REFERENCES Professional (IdP) ON DELETE CASCADE,
-    FOREIGN KEY (IdC3) REFERENCES Client (IdC) ON DELETE CASCADE
+    CONSTRAINT FK_Proposal_Professional FOREIGN KEY (IdP3) REFERENCES Professional (IdP) ON DELETE CASCADE,
+    CONSTRAINT FK_Proposal_Client FOREIGN KEY (IdC3) REFERENCES Client (IdC) ON DELETE CASCADE
 );
 
 ################################################
@@ -342,9 +343,9 @@ CREATE TABLE ProjectPay
     IdP3             CHAR(21),
     IdC3             CHAR(21),
     IdPJ3            CHAR(21),
-    FOREIGN KEY (IdP3) REFERENCES Professional (IdP) ON DELETE CASCADE,
-    FOREIGN KEY (IdC3) REFERENCES Client (IdC) ON DELETE CASCADE,
-    FOREIGN KEY (IdPJ3) REFERENCES Project (IdPJ) ON DELETE CASCADE
+    CONSTRAINT FK_ProjectPay_Professional FOREIGN KEY (IdP3) REFERENCES Professional (IdP) ON DELETE CASCADE,
+    CONSTRAINT FK_ProjectPay_Client FOREIGN KEY (IdC3) REFERENCES Client (IdC) ON DELETE CASCADE,
+    CONSTRAINT FK_ProjectPay_Project FOREIGN KEY (IdPJ3) REFERENCES Project (IdPJ) ON DELETE CASCADE
 );
 
 ################################################
@@ -358,9 +359,9 @@ CREATE TABLE ProposalNotification
     IdPP1     CHAR(21),
     IdP4      CHAR(21),
     IdC4      CHAR(21),
-    FOREIGN KEY (IdPP1) REFERENCES Proposal (IdPP) ON DELETE CASCADE,
-    FOREIGN KEY (IdP4) REFERENCES Professional (IdP) ON DELETE CASCADE,
-    FOREIGN KEY (IdC4) REFERENCES Client (IdC) ON DELETE CASCADE
+    CONSTRAINT FK_ProposalNotification_Proposal FOREIGN KEY (IdPP1) REFERENCES Proposal (IdPP) ON DELETE CASCADE,
+    CONSTRAINT FK_ProposalNotification_Professional FOREIGN KEY (IdP4) REFERENCES Professional (IdP) ON DELETE CASCADE,
+    CONSTRAINT FK_ProposalNotification_Client FOREIGN KEY (IdC4) REFERENCES Client (IdC) ON DELETE CASCADE
 );
 
 ################################################
@@ -375,8 +376,8 @@ CREATE TABLE Message
     DateTimeM DATE,
     IdP4      CHAR(21),
     IdC4      CHAR(21),
-    FOREIGN KEY (IdP4) REFERENCES Professional (IdP) ON DELETE CASCADE,
-    FOREIGN KEY (IdC4) REFERENCES Client (IdC) ON DELETE CASCADE
+    CONSTRAINT FK_Message_Professional FOREIGN KEY (IdP4) REFERENCES Professional (IdP) ON DELETE CASCADE,
+    CONSTRAINT FK_Message_Client FOREIGN KEY (IdC4) REFERENCES Client (IdC) ON DELETE CASCADE
 );
 
 ################################################
@@ -405,11 +406,11 @@ CREATE TABLE SupportTicket
     IdACT1             CHAR(21),
     IdPP2              CHAR(21),
     IdPPY1             CHAR(21),
-    FOREIGN KEY (IdP5) REFERENCES Professional (IdP) ON DELETE CASCADE,
-    FOREIGN KEY (IdC5) REFERENCES Client (IdC) ON DELETE CASCADE,
-    FOREIGN KEY (IdA2) REFERENCES Activity (IdA) ON DELETE CASCADE,
-    FOREIGN KEY (IdPJ4) REFERENCES Project (IdPJ) ON DELETE CASCADE,
-    FOREIGN KEY (IdACT1) REFERENCES Activity (IdA) ON DELETE CASCADE,
-    FOREIGN KEY (IdPP2) REFERENCES Proposal (IdPP) ON DELETE CASCADE,
-    FOREIGN KEY (IdPPY1) REFERENCES ProjectPay (IdPPY) ON DELETE CASCADE
+    CONSTRAINT FK_SupportTicket_Professional FOREIGN KEY (IdP5) REFERENCES Professional (IdP) ON DELETE CASCADE,
+    CONSTRAINT FK_SupportTicket_Client FOREIGN KEY (IdC5) REFERENCES Client (IdC) ON DELETE CASCADE,
+    CONSTRAINT FK_SupportTicket_Admin FOREIGN KEY (IdA2) REFERENCES Admin (IdA) ON DELETE CASCADE,
+    CONSTRAINT FK_SupportTicket_Project FOREIGN KEY (IdPJ4) REFERENCES Project (IdPJ) ON DELETE CASCADE,
+    CONSTRAINT FK_SupportTicket_Activity FOREIGN KEY (IdACT1) REFERENCES Activity (IdA) ON DELETE CASCADE,
+    CONSTRAINT FK_SupportTicket_Proposal FOREIGN KEY (IdPP2) REFERENCES Proposal (IdPP) ON DELETE CASCADE,
+    CONSTRAINT FK_SupportTicket_ProjectPay FOREIGN KEY (IdPPY1) REFERENCES ProjectPay (IdPPY) ON DELETE CASCADE
 );

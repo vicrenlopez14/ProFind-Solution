@@ -2,6 +2,12 @@
 {
     public partial class Profession
     {
-        public override string ToString() => Names;
+        public Profession(int? idPfs, string namePfs)
+        {
+            IdPfs = idPfs;
+            NamePfs = namePfs;
+        }
+
+        public override string ToString() => NamePfs;
     }
 }

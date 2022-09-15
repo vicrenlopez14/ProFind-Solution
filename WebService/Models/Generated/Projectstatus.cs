@@ -7,9 +7,13 @@ using Microsoft.EntityFrameworkCore;
 namespace WebService.Models.Generated
 {
     [Table("projectstatus")]
-    [Index("IdPj3", Name = "IdPJ3")]
     public partial class Projectstatus
     {
+        public Projectstatus()
+        {
+            Projects = new HashSet<Project>();
+        }
+
         [Key]
         [Column("IdPS")]
         [StringLength(21)]
@@ -23,8 +27,8 @@ namespace WebService.Models.Generated
         [Column("ColorPS")]
         [StringLength(6)]
         public string? ColorPs { get; set; }
-        [Column("IdPJ3")]
-        [StringLength(21)]
-        public string? IdPj3 { get; set; }
+
+        [InverseProperty("IdPs1Navigation")]
+        public virtual ICollection<Project> Projects { get; set; }
     }
 }

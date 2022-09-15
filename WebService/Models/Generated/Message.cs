@@ -7,8 +7,8 @@ using Microsoft.EntityFrameworkCore;
 namespace WebService.Models.Generated
 {
     [Table("message")]
-    [Index("IdC4", Name = "IdC4")]
-    [Index("IdP4", Name = "IdP4")]
+    [Index("IdC4", Name = "FK_Message_Client")]
+    [Index("IdP4", Name = "FK_Message_Professional")]
     public partial class Message
     {
         [Key]
@@ -26,5 +26,12 @@ namespace WebService.Models.Generated
         public string? IdP4 { get; set; }
         [StringLength(21)]
         public string? IdC4 { get; set; }
+
+        [ForeignKey("IdC4")]
+        [InverseProperty("Messages")]
+        public virtual Client? IdC4Navigation { get; set; }
+        [ForeignKey("IdP4")]
+        [InverseProperty("Messages")]
+        public virtual Professional? IdP4Navigation { get; set; }
     }
 }

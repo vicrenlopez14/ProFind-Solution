@@ -69,22 +69,9 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.CreatePage
 
                 var file = await PickFileHelper.PickImage();
 
-<<<<<<< HEAD
                 if (file != null)
-=======
-            }
-
-            public async void loadUsefulThings()
-            {
-                ranks = (List<Rank>)await new Rank().ListObjectAsync();
-
-                foreach (var rank in ranks)
->>>>>>> Daniel-Rama2
                 {
-                    SelectedPicture_tbk.Text = file.Name;
-                    imageBytes = await file.ToByteArrayAsync();
 
-                    SelectedPicture_pp.ProfilePicture = imageBytes.ToBitmapImage();
                 }
             }
             catch (Exception ex)
@@ -97,6 +84,20 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.CreatePage
                 PictureSelection_btn.IsChecked = false;
             }
         }
+        public async void loadUsefulThings()
+        {
+            ranks = (List<Rank>)await APIConnection.GetConnection.GetRanksAsync();
+
+            foreach (var rank in ranks)
+            {
+                SelectedPicture_tbk.Text = file.Name;
+                imageBytes = await file.ToByteArrayAsync();
+
+                SelectedPicture_pp.ProfilePicture = imageBytes.ToBitmapImage();
+            }
+        }
+
+
 
         private void Name_tb_TextChanged(object sender, TextChangedEventArgs e)
         {

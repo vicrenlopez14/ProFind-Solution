@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 namespace WebService.Models.Generated
 {
     [Table("proposalnotification")]
-    [Index("IdC4", Name = "IdC4")]
-    [Index("IdP4", Name = "IdP4")]
-    [Index("IdPp1", Name = "IdPP1")]
+    [Index("IdC4", Name = "FK_ProposalNotification_Client")]
+    [Index("IdP4", Name = "FK_ProposalNotification_Professional")]
+    [Index("IdPp1", Name = "FK_ProposalNotification_Proposal")]
     public partial class Proposalnotification
     {
         [Key]
@@ -30,5 +30,15 @@ namespace WebService.Models.Generated
         public string? IdP4 { get; set; }
         [StringLength(21)]
         public string? IdC4 { get; set; }
+
+        [ForeignKey("IdC4")]
+        [InverseProperty("Proposalnotifications")]
+        public virtual Client? IdC4Navigation { get; set; }
+        [ForeignKey("IdP4")]
+        [InverseProperty("Proposalnotifications")]
+        public virtual Professional? IdP4Navigation { get; set; }
+        [ForeignKey("IdPp1")]
+        [InverseProperty("Proposalnotifications")]
+        public virtual Proposal? IdPp1Navigation { get; set; }
     }
 }

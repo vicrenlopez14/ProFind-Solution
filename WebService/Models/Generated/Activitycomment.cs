@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 namespace WebService.Models.Generated
 {
     [Table("activitycomment")]
-    [Index("IdA1", Name = "IdA1")]
-    [Index("IdC5", Name = "IdC5")]
-    [Index("IdP5", Name = "IdP5")]
+    [Index("IdA1", Name = "FK_ActivityComment_Activity")]
+    [Index("IdC5", Name = "FK_ActivityComment_Client")]
+    [Index("IdP5", Name = "FK_ActivityComment_Professional")]
     public partial class Activitycomment
     {
         [Key]
@@ -29,5 +29,15 @@ namespace WebService.Models.Generated
         public string? IdP5 { get; set; }
         [StringLength(21)]
         public string? IdC5 { get; set; }
+
+        [ForeignKey("IdA1")]
+        [InverseProperty("Activitycomments")]
+        public virtual Activity? IdA1Navigation { get; set; }
+        [ForeignKey("IdC5")]
+        [InverseProperty("Activitycomments")]
+        public virtual Client? IdC5Navigation { get; set; }
+        [ForeignKey("IdP5")]
+        [InverseProperty("Activitycomments")]
+        public virtual Professional? IdP5Navigation { get; set; }
     }
 }

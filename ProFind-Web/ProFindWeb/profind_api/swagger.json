@@ -1,0 +1,4973 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "WebService",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Activities": {
+      "get": {
+        "tags": [
+          "Activities"
+        ],
+        "operationId": "GetActivities",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Activity"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Activities"
+        ],
+        "operationId": "PostActivity",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Activity"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Activity"
+            }
+          }
+        }
+      }
+    },
+    "/api/Activities/{id}": {
+      "get": {
+        "tags": [
+          "Activities"
+        ],
+        "operationId": "GetActivity",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Activity"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Activities"
+        ],
+        "operationId": "PutActivity",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Activity"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Activities"
+        ],
+        "operationId": "DeleteActivity",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Activities/search": {
+      "get": {
+        "tags": [
+          "Activities"
+        ],
+        "operationId": "SearchActivities",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "projectId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "title",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Activity"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Activities/search/paginated": {
+      "get": {
+        "tags": [
+          "Activities"
+        ],
+        "operationId": "SearchActivitiesPaginated",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "projectId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Activity"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Activities/filter": {
+      "get": {
+        "tags": [
+          "Activities"
+        ],
+        "operationId": "FilterActivities",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "Year",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "Month",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "Day",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "DayOfWeek"
+          },
+          {
+            "in": "query",
+            "name": "DayOfYear",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "DayNumber",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "expectedBeginRel",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "Year",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "Month",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "Day",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "DayOfWeek"
+          },
+          {
+            "in": "query",
+            "name": "DayOfYear",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "DayNumber",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "expectedEndRel",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "idProject",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "idTag",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Activity"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Activities/paginated": {
+      "get": {
+        "tags": [
+          "Activities"
+        ],
+        "operationId": "GetActivitiesPaginated",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Activity"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Admins/Register": {
+      "post": {
+        "tags": [
+          "Admins"
+        ],
+        "operationId": "RegisterAdmin",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Admin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Admins/Login": {
+      "post": {
+        "tags": [
+          "Admins"
+        ],
+        "operationId": "LoginAdmin",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Admin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Admins": {
+      "get": {
+        "tags": [
+          "Admins"
+        ],
+        "operationId": "GetAdmins",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Admin"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Admins"
+        ],
+        "operationId": "PostAdmin",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Admin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Admin"
+            }
+          }
+        }
+      }
+    },
+    "/api/Admins/{id}": {
+      "get": {
+        "tags": [
+          "Admins"
+        ],
+        "operationId": "GetAdmin",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Admin"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Admins"
+        ],
+        "operationId": "PutAdmin",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Admin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Admins"
+        ],
+        "operationId": "DeleteAdmin",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Admins/search": {
+      "get": {
+        "tags": [
+          "Admins"
+        ],
+        "operationId": "SearchAdmins",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "idA",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "Name",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Admin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Admins/search/paginated": {
+      "get": {
+        "tags": [
+          "Admins"
+        ],
+        "operationId": "SearchAdmins",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "idA",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "Name",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Admin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Admins/filter": {
+      "get": {
+        "tags": [
+          "Admins"
+        ],
+        "operationId": "FilterAdmins",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "Name",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name1",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "idAdmin",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Admin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Admins/paginated": {
+      "get": {
+        "tags": [
+          "Admins"
+        ],
+        "operationId": "GetAdminsPaginated",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Admin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Clients/Register": {
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "RegisterClient",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Client"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Clients/Login": {
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "LoginClient",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Client"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Clients": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "GetClients",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Client"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "PostClient",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Client"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Client"
+            }
+          }
+        }
+      }
+    },
+    "/api/Clients/{id}": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "GetClient",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Client"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "PutClient",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Client"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "DeleteClient",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Clients/search": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "SearchCliens",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "IdC",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "Name",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Client"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Clients/search/paginated": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "SearchClient",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "idC",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "Name",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Client"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Clients/filter": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "FilterClients",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "Name",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "name1",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "idclien",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Client"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Clients/paginated": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "GetClientPaginated",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Client"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Departments": {
+      "get": {
+        "tags": [
+          "Departments"
+        ],
+        "operationId": "GetDepartments",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Department"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Departments"
+        ],
+        "operationId": "PostDepartment",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Department"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Department"
+            }
+          }
+        }
+      }
+    },
+    "/api/Departments/{id}": {
+      "get": {
+        "tags": [
+          "Departments"
+        ],
+        "operationId": "GetDepartment",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Department"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Departments"
+        ],
+        "operationId": "PutDepartment",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Department"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Departments"
+        ],
+        "operationId": "DeleteDepartment",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/LoginAdmin": {
+      "post": {
+        "tags": [
+          "LoginAdmin"
+        ],
+        "operationId": "Login",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AdminLogin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Messages": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "operationId": "GetMessages",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Message"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "operationId": "PostMessage",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/Messages/{id}": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "operationId": "GetMessage",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Messages"
+        ],
+        "operationId": "PutMessage",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Messages"
+        ],
+        "operationId": "DeleteMessage",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Notifications": {
+      "get": {
+        "tags": [
+          "Notifications"
+        ],
+        "operationId": "GetNotifications",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Notification"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Notifications"
+        ],
+        "operationId": "PostNotification",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Notification"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Notification"
+            }
+          }
+        }
+      }
+    },
+    "/api/Notifications/{id}": {
+      "get": {
+        "tags": [
+          "Notifications"
+        ],
+        "operationId": "GetNotification",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Notification"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Notifications"
+        ],
+        "operationId": "PutNotification",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Notification"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Notifications"
+        ],
+        "operationId": "DeleteNotification",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Professionals/Register": {
+      "post": {
+        "tags": [
+          "Professionals"
+        ],
+        "operationId": "RegisterProfessional",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Professional"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Professionals/Login": {
+      "post": {
+        "tags": [
+          "Professionals"
+        ],
+        "operationId": "LoginProfessional",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Professional"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Professionals": {
+      "get": {
+        "tags": [
+          "Professionals"
+        ],
+        "operationId": "GetProfessionals",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Professional"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Professionals"
+        ],
+        "operationId": "PostProfessional",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Professional"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Professional"
+            }
+          }
+        }
+      }
+    },
+    "/api/Professionals/{id}": {
+      "get": {
+        "tags": [
+          "Professionals"
+        ],
+        "operationId": "GetProfessional",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Professional"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Professionals"
+        ],
+        "operationId": "PutProfessional",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Professional"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Professionals"
+        ],
+        "operationId": "DeleteProfessional",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Professions": {
+      "get": {
+        "tags": [
+          "Professions"
+        ],
+        "operationId": "GetProfessions",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Profession"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Professions"
+        ],
+        "operationId": "PostProfession",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Profession"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Profession"
+            }
+          }
+        }
+      }
+    },
+    "/api/Professions/{id}": {
+      "get": {
+        "tags": [
+          "Professions"
+        ],
+        "operationId": "GetProfession",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Profession"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Professions"
+        ],
+        "operationId": "PutProfession",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Profession"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Professions"
+        ],
+        "operationId": "DeleteProfession",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Projectpays": {
+      "get": {
+        "tags": [
+          "Projectpays"
+        ],
+        "operationId": "GetProjectpays",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Projectpay"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Projectpays"
+        ],
+        "operationId": "PostProjectpay",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Projectpay"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Projectpay"
+            }
+          }
+        }
+      }
+    },
+    "/api/Projectpays/{id}": {
+      "get": {
+        "tags": [
+          "Projectpays"
+        ],
+        "operationId": "GetProjectpay",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Projectpay"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Projectpays"
+        ],
+        "operationId": "PutProjectpay",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Projectpay"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Projectpays"
+        ],
+        "operationId": "DeleteProjectpay",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Projects": {
+      "get": {
+        "tags": [
+          "Projects"
+        ],
+        "operationId": "GetProjects",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Project"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Projects"
+        ],
+        "operationId": "PostProject",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        }
+      }
+    },
+    "/api/Projects/{id}": {
+      "get": {
+        "tags": [
+          "Projects"
+        ],
+        "operationId": "GetProject",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Projects"
+        ],
+        "operationId": "PutProject",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Projects"
+        ],
+        "operationId": "DeleteProject",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Projectstatus": {
+      "get": {
+        "tags": [
+          "Projectstatus"
+        ],
+        "operationId": "GetProjectstatuses",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Projectstatus"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Projectstatus"
+        ],
+        "operationId": "PostProjectstatus",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Projectstatus"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Projectstatus"
+            }
+          }
+        }
+      }
+    },
+    "/api/Projectstatus/{id}": {
+      "get": {
+        "tags": [
+          "Projectstatus"
+        ],
+        "operationId": "GetProjectstatus",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Projectstatus"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Projectstatus"
+        ],
+        "operationId": "PutProjectstatus",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Projectstatus"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Projectstatus"
+        ],
+        "operationId": "DeleteProjectstatus",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Projecttemplates": {
+      "get": {
+        "tags": [
+          "Projecttemplates"
+        ],
+        "operationId": "GetProjecttemplates",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Projecttemplate"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Projecttemplates"
+        ],
+        "operationId": "PostProjecttemplate",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Projecttemplate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Projecttemplate"
+            }
+          }
+        }
+      }
+    },
+    "/api/Projecttemplates/{id}": {
+      "get": {
+        "tags": [
+          "Projecttemplates"
+        ],
+        "operationId": "GetProjecttemplate",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Projecttemplate"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Projecttemplates"
+        ],
+        "operationId": "PutProjecttemplate",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Projecttemplate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Projecttemplates"
+        ],
+        "operationId": "DeleteProjecttemplate",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Proposals": {
+      "get": {
+        "tags": [
+          "Proposals"
+        ],
+        "operationId": "GetProposals",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Proposal"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Proposals"
+        ],
+        "operationId": "PostProposal",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Proposal"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Proposal"
+            }
+          }
+        }
+      }
+    },
+    "/api/Proposals/{id}": {
+      "get": {
+        "tags": [
+          "Proposals"
+        ],
+        "operationId": "GetProposal",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Proposal"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Proposals"
+        ],
+        "operationId": "PutProposal",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Proposal"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Proposals"
+        ],
+        "operationId": "DeleteProposal",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Proposals/search": {
+      "get": {
+        "tags": [
+          "Proposals"
+        ],
+        "operationId": "SearchProposals",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "proposalsId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "titleProposals",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Proposal"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Proposals/search/paginated": {
+      "get": {
+        "tags": [
+          "Proposals"
+        ],
+        "operationId": "SearchProposalsPaginated",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "proposalsId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "titleProposals",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Proposal"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Proposals/filter": {
+      "get": {
+        "tags": [
+          "Proposals"
+        ],
+        "operationId": "FilterProposals",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "Year",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "Month",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "Day",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "DayOfWeek"
+          },
+          {
+            "in": "query",
+            "name": "DayOfYear",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "DayNumber",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "suggestedStarRel",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "Year",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "Month",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "Day",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "DayOfWeek"
+          },
+          {
+            "in": "query",
+            "name": "DayOfYear",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "DayNumber",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "suggestedEndRel",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "idProfessional",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "idClient",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Proposal"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Proposals/paginated": {
+      "get": {
+        "tags": [
+          "Proposals"
+        ],
+        "operationId": "GetProposalsPaginated",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Proposal"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Ranks": {
+      "get": {
+        "tags": [
+          "Ranks"
+        ],
+        "operationId": "GetRanks",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Rank"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Ranks"
+        ],
+        "operationId": "PostRank",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Rank"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Rank"
+            }
+          }
+        }
+      }
+    },
+    "/api/Ranks/{id}": {
+      "get": {
+        "tags": [
+          "Ranks"
+        ],
+        "operationId": "GetRank",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Rank"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Ranks"
+        ],
+        "operationId": "PutRank",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Rank"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Ranks"
+        ],
+        "operationId": "DeleteRank",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Ranks/search": {
+      "get": {
+        "tags": [
+          "Ranks"
+        ],
+        "operationId": "SearchRanks",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "nameRanks",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Rank"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Ranks/search/paginated": {
+      "get": {
+        "tags": [
+          "Ranks"
+        ],
+        "operationId": "SearchRanksPaginated",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "nameRanks",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Rank"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Ranks/filter": {
+      "get": {
+        "tags": [
+          "Ranks"
+        ],
+        "operationId": "FilterRanks",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "nameRanks",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "idR",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Rank"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Ranks/paginated": {
+      "get": {
+        "tags": [
+          "Ranks"
+        ],
+        "operationId": "GetRanksPaginated",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Rank"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Securityansweradmins": {
+      "get": {
+        "tags": [
+          "Securityansweradmins"
+        ],
+        "operationId": "GetSecurityansweradmins",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Securityansweradmin"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Securityansweradmins"
+        ],
+        "operationId": "PostSecurityansweradmin",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Securityansweradmin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Securityansweradmin"
+            }
+          }
+        }
+      }
+    },
+    "/api/Securityansweradmins/{id}": {
+      "get": {
+        "tags": [
+          "Securityansweradmins"
+        ],
+        "operationId": "GetSecurityansweradmin",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Securityansweradmin"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Securityansweradmins"
+        ],
+        "operationId": "PutSecurityansweradmin",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Securityansweradmin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Securityansweradmins"
+        ],
+        "operationId": "DeleteSecurityansweradmin",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Securityanswerclients": {
+      "get": {
+        "tags": [
+          "Securityanswerclients"
+        ],
+        "operationId": "GetSecurityanswerclients",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Securityanswerclient"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Securityanswerclients"
+        ],
+        "operationId": "PostSecurityanswerclient",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Securityanswerclient"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Securityanswerclient"
+            }
+          }
+        }
+      }
+    },
+    "/api/Securityanswerclients/{id}": {
+      "get": {
+        "tags": [
+          "Securityanswerclients"
+        ],
+        "operationId": "GetSecurityanswerclient",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Securityanswerclient"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Securityanswerclients"
+        ],
+        "operationId": "PutSecurityanswerclient",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Securityanswerclient"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Securityanswerclients"
+        ],
+        "operationId": "DeleteSecurityanswerclient",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Securityanswerprofessionals": {
+      "get": {
+        "tags": [
+          "Securityanswerprofessionals"
+        ],
+        "operationId": "GetSecurityanswerprofessionals",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Securityanswerprofessional"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Securityanswerprofessionals"
+        ],
+        "operationId": "PostSecurityanswerprofessional",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Securityanswerprofessional"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Securityanswerprofessional"
+            }
+          }
+        }
+      }
+    },
+    "/api/Securityanswerprofessionals/{id}": {
+      "get": {
+        "tags": [
+          "Securityanswerprofessionals"
+        ],
+        "operationId": "GetSecurityanswerprofessional",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Securityanswerprofessional"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Securityanswerprofessionals"
+        ],
+        "operationId": "PutSecurityanswerprofessional",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Securityanswerprofessional"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Securityanswerprofessionals"
+        ],
+        "operationId": "DeleteSecurityanswerprofessional",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Securityquestions": {
+      "get": {
+        "tags": [
+          "Securityquestions"
+        ],
+        "operationId": "GetSecurityquestions",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Securityquestion"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Securityquestions"
+        ],
+        "operationId": "PostSecurityquestion",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Securityquestion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Securityquestion"
+            }
+          }
+        }
+      }
+    },
+    "/api/Securityquestions/{id}": {
+      "get": {
+        "tags": [
+          "Securityquestions"
+        ],
+        "operationId": "GetSecurityquestion",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Securityquestion"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Securityquestions"
+        ],
+        "operationId": "PutSecurityquestion",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Securityquestion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Securityquestions"
+        ],
+        "operationId": "DeleteSecurityquestion",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Supporttickets": {
+      "get": {
+        "tags": [
+          "Supporttickets"
+        ],
+        "operationId": "GetSupporttickets",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Supportticket"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Supporttickets"
+        ],
+        "operationId": "PostSupportticket",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Supportticket"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Supportticket"
+            }
+          }
+        }
+      }
+    },
+    "/api/Supporttickets/{id}": {
+      "get": {
+        "tags": [
+          "Supporttickets"
+        ],
+        "operationId": "GetSupportticket",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Supportticket"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Supporttickets"
+        ],
+        "operationId": "PutSupportticket",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Supportticket"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Supporttickets"
+        ],
+        "operationId": "DeleteSupportticket",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Tags": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "operationId": "GetTags",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tag"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tags"
+        ],
+        "operationId": "PostTag",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Tag"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Tag"
+            }
+          }
+        }
+      }
+    },
+    "/api/Tags/{id}": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "operationId": "GetTag",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Tag"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Tags"
+        ],
+        "operationId": "PutTag",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Tag"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tags"
+        ],
+        "operationId": "DeleteTag",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Tags/search": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "operationId": "SearchTags",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "tagId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "nameTag",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tag"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Tags/search/paginated": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "operationId": "SearchTagPaginated",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "tagId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "nameTag",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tag"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Tags/filter": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "operationId": "FilterTags",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "idTag",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "nameTag",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tag"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Tags/paginated": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "operationId": "GetTagPaginated",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tag"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Tagtemplates": {
+      "get": {
+        "tags": [
+          "Tagtemplates"
+        ],
+        "operationId": "GetTagtemplates",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tagtemplate"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tagtemplates"
+        ],
+        "operationId": "PostTagtemplate",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Tagtemplate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Tagtemplate"
+            }
+          }
+        }
+      }
+    },
+    "/api/Tagtemplates/{id}": {
+      "get": {
+        "tags": [
+          "Tagtemplates"
+        ],
+        "operationId": "GetTagtemplate",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Tagtemplate"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Tagtemplates"
+        ],
+        "operationId": "PutTagtemplate",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Tagtemplate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tagtemplates"
+        ],
+        "operationId": "DeleteTagtemplate",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Activity": {
+      "type": "object",
+      "properties": {
+        "idA": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "titleA": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "descriptionA": {
+          "maxLength": 500,
+          "minLength": 0,
+          "type": "string"
+        },
+        "expectedBeginA": {
+          "$ref": "#/definitions/DateOnly"
+        },
+        "expectedEndA": {
+          "$ref": "#/definitions/DateOnly"
+        },
+        "pictureA": {
+          "format": "byte",
+          "type": "string"
+        },
+        "idPj1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idT1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Admin": {
+      "type": "object",
+      "properties": {
+        "idA": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "nameA": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "emailA": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "telA": {
+          "maxLength": 15,
+          "minLength": 0,
+          "type": "string"
+        },
+        "passwordA": {
+          "maxLength": 64,
+          "minLength": 0,
+          "type": "string"
+        },
+        "pictureA": {
+          "format": "byte",
+          "type": "string"
+        },
+        "idR1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "AdminLogin": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "Client": {
+      "type": "object",
+      "properties": {
+        "idC": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "nameC": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "emailC": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "passwordC": {
+          "maxLength": 64,
+          "minLength": 0,
+          "type": "string"
+        },
+        "pictureC": {
+          "format": "byte",
+          "type": "string"
+        }
+      }
+    },
+    "DateOnly": {
+      "type": "object",
+      "properties": {
+        "year": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "month": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "day": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "dayOfWeek": {
+          "$ref": "#/definitions/DayOfWeek"
+        },
+        "dayOfYear": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "dayNumber": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        }
+      }
+    },
+    "DayOfWeek": {
+      "format": "int32",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "type": "integer"
+    },
+    "Department": {
+      "type": "object",
+      "properties": {
+        "idDp": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nameDp": {
+          "maxLength": 30,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Message": {
+      "type": "object",
+      "properties": {
+        "idM": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "contentM": {
+          "maxLength": 500,
+          "minLength": 0,
+          "type": "string"
+        },
+        "imageM": {
+          "format": "byte",
+          "type": "string"
+        },
+        "documentM": {
+          "format": "byte",
+          "type": "string"
+        },
+        "locationM": {
+          "maxLength": 100,
+          "minLength": 0,
+          "type": "string"
+        },
+        "audioM": {
+          "format": "byte",
+          "type": "string"
+        },
+        "dateTimeM": {
+          "$ref": "#/definitions/DateOnly"
+        },
+        "idP4": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idC4": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Notification": {
+      "type": "object",
+      "properties": {
+        "idN": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "titleN": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "descriptionN": {
+          "maxLength": 500,
+          "minLength": 0,
+          "type": "string"
+        },
+        "dateTimeIssuedN": {
+          "$ref": "#/definitions/DateOnly"
+        },
+        "pictureN": {
+          "format": "byte",
+          "type": "string"
+        },
+        "idPj2": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Profession": {
+      "type": "object",
+      "properties": {
+        "idPfs": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "namePfs": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Professional": {
+      "type": "object",
+      "properties": {
+        "idP": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "nameP": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "dateBirthP": {
+          "$ref": "#/definitions/DateOnly"
+        },
+        "emailP": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "passwordP": {
+          "maxLength": 64,
+          "minLength": 0,
+          "type": "string"
+        },
+        "activeP": {
+          "type": "boolean"
+        },
+        "sexP": {
+          "type": "boolean"
+        },
+        "duip": {
+          "maxLength": 15,
+          "minLength": 0,
+          "type": "string"
+        },
+        "afpp": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "isssp": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "zipCodeP": {
+          "maxLength": 10,
+          "minLength": 0,
+          "type": "string"
+        },
+        "salaryP": {
+          "format": "float",
+          "type": "number"
+        },
+        "hiringDateP": {
+          "$ref": "#/definitions/DateOnly"
+        },
+        "pictureP": {
+          "format": "byte",
+          "type": "string"
+        },
+        "curriculumP": {
+          "format": "byte",
+          "type": "string"
+        },
+        "latitudeLocationP": {
+          "format": "double",
+          "type": "number"
+        },
+        "longitudeLocationP": {
+          "format": "double",
+          "type": "number"
+        },
+        "idPfs1": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idDp1": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idWdt1": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "Project": {
+      "type": "object",
+      "properties": {
+        "idPj": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "titlePj": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "descriptionPj": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "picturePj": {
+          "format": "byte",
+          "type": "string"
+        },
+        "totalPricePj": {
+          "format": "float",
+          "type": "number"
+        },
+        "idPs1": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idP1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idC1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Projectpay": {
+      "type": "object",
+      "properties": {
+        "idPpy": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "percentagePpy": {
+          "format": "float",
+          "type": "number"
+        },
+        "conceptPpy": {
+          "maxLength": 500,
+          "minLength": 0,
+          "type": "string"
+        },
+        "amountPpy": {
+          "format": "float",
+          "type": "number"
+        },
+        "currencyPpy": {
+          "maxLength": 3,
+          "minLength": 0,
+          "type": "string"
+        },
+        "hasLimitDatePpy": {
+          "type": "boolean"
+        },
+        "limitDatePpy": {
+          "$ref": "#/definitions/DateOnly"
+        },
+        "defaultAmountPpy": {
+          "format": "float",
+          "type": "number"
+        },
+        "payStatusPpy": {
+          "type": "string"
+        },
+        "idP3": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idC3": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idPj3": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Projectstatus": {
+      "type": "object",
+      "properties": {
+        "idPs": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "namePs": {
+          "maxLength": 20,
+          "minLength": 0,
+          "type": "string"
+        },
+        "descriptionPs": {
+          "maxLength": 150,
+          "minLength": 0,
+          "type": "string"
+        },
+        "colorPs": {
+          "maxLength": 6,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idPj3": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Projecttemplate": {
+      "type": "object",
+      "properties": {
+        "idPt": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "titlePt": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "descriptionPt": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "picturePt": {
+          "format": "byte",
+          "type": "string"
+        },
+        "totalPricePt": {
+          "format": "float",
+          "type": "number"
+        },
+        "saveTagsPt": {
+          "type": "boolean"
+        },
+        "saveProjectPaysPt": {
+          "type": "boolean"
+        },
+        "idP1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Proposal": {
+      "type": "object",
+      "properties": {
+        "idPp": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "titlePp": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "descriptionPp": {
+          "maxLength": 500,
+          "minLength": 0,
+          "type": "string"
+        },
+        "picturePp": {
+          "format": "byte",
+          "type": "string"
+        },
+        "suggestedStart": {
+          "$ref": "#/definitions/DateOnly"
+        },
+        "suggestedEnd": {
+          "$ref": "#/definitions/DateOnly"
+        },
+        "seen": {
+          "type": "boolean"
+        },
+        "revisionStatus": {
+          "type": "string"
+        },
+        "idP3": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idC3": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Rank": {
+      "type": "object",
+      "properties": {
+        "idR": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nameR": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Securityansweradmin": {
+      "type": "object",
+      "properties": {
+        "idSa": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "answerSa": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idSq1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idA1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Securityanswerclient": {
+      "type": "object",
+      "properties": {
+        "idSa": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "answerSa": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idSq1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idC1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Securityanswerprofessional": {
+      "type": "object",
+      "properties": {
+        "idSa": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "answerSa": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idSq1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idP1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Securityquestion": {
+      "type": "object",
+      "properties": {
+        "idSq": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "nameSq": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Supportticket": {
+      "type": "object",
+      "properties": {
+        "idSt": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "titleSt": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "contentSt": {
+          "maxLength": 500,
+          "minLength": 0,
+          "type": "string"
+        },
+        "imageSt": {
+          "format": "byte",
+          "type": "string"
+        },
+        "documentSt": {
+          "format": "byte",
+          "type": "string"
+        },
+        "locationSt": {
+          "maxLength": 100,
+          "minLength": 0,
+          "type": "string"
+        },
+        "audioSt": {
+          "format": "byte",
+          "type": "string"
+        },
+        "dateTimeSt": {
+          "$ref": "#/definitions/DateOnly"
+        },
+        "ticketStatusSt": {
+          "type": "string"
+        },
+        "suggestedActionSt": {
+          "type": "string"
+        },
+        "responseContentSt": {
+          "maxLength": 500,
+          "minLength": 0,
+          "type": "string"
+        },
+        "responseImageSt": {
+          "format": "byte",
+          "type": "string"
+        },
+        "responseDocumentSt": {
+          "format": "byte",
+          "type": "string"
+        },
+        "responseLocationSt": {
+          "maxLength": 100,
+          "minLength": 0,
+          "type": "string"
+        },
+        "responseAudioSt": {
+          "format": "byte",
+          "type": "string"
+        },
+        "idP5": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idC5": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idA2": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idPj4": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idAct1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idPp2": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "idPpy1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Tag": {
+      "type": "object",
+      "properties": {
+        "idT": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "nameT": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "colorT": {
+          "format": "byte",
+          "maxLength": 3,
+          "type": "string"
+        },
+        "idPj1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Tagtemplate": {
+      "type": "object",
+      "properties": {
+        "idTt": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        },
+        "nameTt": {
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "colorTt": {
+          "format": "byte",
+          "maxLength": 3,
+          "type": "string"
+        },
+        "idPt1": {
+          "maxLength": 21,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    }
+  }
+}

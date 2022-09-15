@@ -12,10 +12,12 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.NotificationNS.ReadPage
     /// </summary>
     public sealed partial class ReadPage : Page
     {
+        public ReadPage()
+        {
             this.InitializeComponent();
 
-        InitializeData();
-    }
+            InitializeData();
+        }
 
     private async void InitializeData()
     {
@@ -26,13 +28,13 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.NotificationNS.ReadPage
     {
         var notification = e.ClickedItem as Notification;
 
-        new InAppNavigationController().NavigateTo(typeof(UpdatePage.UpdatePage), notification);
-    }
+            new InAppNavigationController().NavigateTo(typeof(UpdatePage.UpdatePage), notification);
+        }
 
-    private void Add_btn_Click(object sender, RoutedEventArgs e)
-    {
-        new InAppNavigationController().NavigateTo(typeof(CreatePage.CreatePage));
-    }
+        private void Add_btn_Click(object sender, RoutedEventArgs e)
+        {
+            new InAppNavigationController().NavigateTo(typeof(CreatePage.CreatePage));
+        }
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
