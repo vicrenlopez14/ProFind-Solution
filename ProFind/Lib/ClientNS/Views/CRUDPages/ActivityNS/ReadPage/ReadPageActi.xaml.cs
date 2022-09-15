@@ -16,25 +16,21 @@ using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.Search_Pages
+namespace ProFind.Lib.ClientNS.Views.CRUDPages.ActivityNS.ReadPage
 {
     /// <summary>
     /// Una página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
     /// </summary>
-    public sealed partial class Search_Page_Clients : Page
+    public sealed partial class ReadPageActi : Page
     {
-        Client id = new Client();
-
-        public Search_Page_Clients()
+        public ReadPageActi()
         {
             this.InitializeComponent();
+            GetProjectsList();
         }
-
-        private async void Control2_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        public async void GetProjectsList()
         {
-            var Resul = await APIConnection.GetConnection.SearchClientAsync(id.IdC, Search_Client.text);
-
-            await APIConnection.GetConnection.GetAdminAsync(Resul);
+            Activities_lw.ItemsSource = await APIConnection.GetConnection.GetProjectsAsync();
         }
     }
 }

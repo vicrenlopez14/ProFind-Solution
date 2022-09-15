@@ -1,37 +1,33 @@
-﻿using System;
+﻿using Microsoft.UI.Xaml.Controls;
+using ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage;
+using ProFind.Lib.Global.Controllers;
+using ProFind.Lib.Global.Helpers;
+using ProFind.Lib.Global.Services;
+using ProFind.Lib.Global.Views;
+using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using Microsoft.UI.Xaml.Controls;
-using ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage;
-using ProFind.Lib.Global.Controllers;
-using ProFind.Lib.Global.Helpers;
-using ProFind.Lib.Global.Views;
-using ProFind.Lib.Global.Services;
 
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.CreatePage
+namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ActivityNS.CreatePage
 {
     /// <summary>
     /// Una página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
     /// </summary>
-    public sealed partial class CreatePage : Page
+    public sealed partial class CreatePageActivi : Page
     {
         private List<Rank> ranks = new List<Rank>();
-       
+        private byte[] imageBytes;
         private bool isFirstAdmin = false;
-
-        public CreatePage()
+        public CreatePageActivi()
         {
-
             this.InitializeComponent();
             loadUsefulThings();
-
         }
-
         public async void loadUsefulThings()
         {
             ranks = await APIConnection.GetConnection.GetRanksAsync() as List<Rank>;
@@ -69,19 +65,24 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.CreatePage
 
                 var file = await PickFileHelper.PickImage();
 
-
                 if (file != null)
                 {
+                    SelectedPicture_tbk.Text = file.Name;
+                    imageBytes = await file.ToByteArrayAsync();
 
+                    SelectedPicture_pp.ProfilePicture = imageBytes.ToBitmapImage();
                 }
-
             }
-            catch
+            catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Creation_pr.IsActive = false;
+                PictureSelection_btn.IsChecked = false;
             }
         }
-           
 
         private void Name_tb_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -93,9 +94,8 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.CreatePage
             try
             {
                 Creation_pr.IsActive = true;
-                byte[] da = toManipulate.PictureC = await (await PickFileHelper.PickImage()).ToByteArrayAsync();
 
-                var toCreateAdmin = new Admin(Name_tb.Text, Email_tb.Text, PhoneNumber_tb.Text, Password_pb.Password, "", da);
+                var toCreateAdmin = new Admin(Name_tb.Text, Email_tb.Text, PhoneNumber_tb.Text, Password_pb.Password, "", imageBytes);
                 toCreateAdmin.IdR1 = (Rank_cb.SelectedItem as Rank).IdR.ToString();
 
                 var result = await APIConnection.GetConnection.PostAdminAsync(toCreateAdmin);
@@ -130,6 +130,11 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.CreatePage
         private void GoToProfessionals(object sender, RoutedEventArgs e)
         {
             new GlobalNavigationController().NavigateTo(typeof(ProfessionalInformationAddition), isFirstAdmin);
+
+        }
+
+        private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        {
 
         }
     }
