@@ -467,6 +467,9 @@
     <Compile Include="Lib\ProfessionalNS\Views\CRUDPage\ClientNS\ListPage\List_myClients.xaml.cs">
       <DependentUpon>List_myClients.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\ProfessionalNS\Views\CRUDPage\ClientNS\SearchPage\SearchPageClient.xaml.cs">
+      <DependentUpon>SearchPageClient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\ProfessionalNS\Views\CRUDPage\CurriculumNS\CreatePage\CreateDialog.xaml.cs">
       <DependentUpon>CreateDialog.xaml</DependentUpon>
     </Compile>
@@ -1052,6 +1055,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Lib\ProfessionalNS\Views\CRUDPage\ClientNS\SearchPage\SearchPageClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Lib\ProfessionalNS\Views\CRUDPage\CurriculumNS\CreatePage\CreateDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1266,7 +1273,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Lib\AdminNS\Models\" />
-    <Folder Include="Lib\ProfessionalNS\Views\CRUDPage\ClientNS\SearchPage\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
