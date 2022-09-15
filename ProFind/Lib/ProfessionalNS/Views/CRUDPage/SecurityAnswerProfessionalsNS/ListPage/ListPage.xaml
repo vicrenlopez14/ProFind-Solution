@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ProFind.Lib.ProfessionalNS.Views.CRUDPage.SecurityAnswerProfessionalsNS.ListPage"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:models="using:ProFind.Lib.Global.Services"
     mc:Ignorable="d"
     Style="{StaticResource PageStyle}">
 
@@ -14,35 +14,30 @@
             <TextBlock Text="View your answers abour the questions security" Height="31" TextAlignment="Center"/>
         </StackPanel>
 
-        <StackPanel Margin="0,186,0,536" HorizontalAlignment="Center" Width="1087">
-            <StackPanel BorderBrush="Gray" BorderThickness="1" Orientation="Horizontal" Width="1000" Margin="0,0,0,20" Height="118">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Por qué el cielo es azul?" Margin="20,10,0,0" FontWeight="Bold" Width="787"/>
-                    <TextBlock Text="Porque así lo hizo Diosito" Margin="20,1,0,0" Width="787"/>
-
-                    <TextBlock Text="Por qué el cielo es azul?" Margin="20,10,0,0" FontWeight="Bold" Width="787"/>
-                    <TextBlock Text="Porque así lo hizo Diosito" Margin="20,1,0,0" Width="787"/>
-                </StackPanel>
-
-                <Button Name="btnUpdate" Content="Update" Margin="7,0,0,0" Style="{StaticResource AccentButtonStyle}"/>
-                <Button Name="btnDelete" Content="Delete" Margin="30,0,0,0" Style="{StaticResource AccentButtonStyle}"/>
-            </StackPanel>
-
-            <StackPanel Margin="0,50,0,0" HorizontalAlignment="Center">
-                <Button Name="btnBack" Content="Back" Width="100" Style="{StaticResource ButtonStyle}"/>
-            </StackPanel>
-        </StackPanel>
-
-        <!--<ListView
-            Name="QuestionsListView"
+        <ListView
+            Name="SecurityAnswerProfessionalListView"
             IsItemClickEnabled="True"
-            ItemClick="QuestionsListView_ItemClick"
+            ItemClick="SecurityAnswerProfessionalListView_ItemClick"
             SelectionMode="None">
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="">
+                <DataTemplate x:DataType="models:Securityanswerprofessional">
+                    <StackPanel Margin="0,186,0,536" HorizontalAlignment="Center" Width="1087">
+                        <StackPanel BorderBrush="Gray" BorderThickness="1" Orientation="Horizontal" Width="1000" Margin="0,0,0,20" Height="118">
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                <TextBlock Text="{x:Bind IdSqNavigation.NameSq}" Margin="20,10,0,0" FontWeight="Bold" Width="787"/>
+                                <TextBlock Text="{x:Bind AnswerSa}" Margin="20,1,0,0" Width="787"/>
+                            </StackPanel>
 
+                            <Button Name="btnUpdate" Content="Update" Margin="7,0,0,0" Style="{StaticResource AccentButtonStyle}" Click="btnUpdate_Click"/>
+                            <Button Name="btnDelete" Content="Delete" Margin="30,0,0,0" Style="{StaticResource AccentButtonStyle}" Click="btnDelete_Click"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,50,0,0" HorizontalAlignment="Center">
+                            <Button Name="btnBack" Content="Back" Width="100" Style="{StaticResource ButtonStyle}" Click="btnBack_Click"/>
+                        </StackPanel>
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>-->
+        </ListView>
     </Grid>
 </Page>

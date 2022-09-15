@@ -1,14 +1,13 @@
 ﻿<Page
-    x:Class="ProFind.Lib.ProfessionalNS.Views.CRUDPage.SecurityAnswerProfessionalsNS.CreatePage.CreatePage"
+    x:Class="ProFind.Lib.ProfessionalNS.Views.CRUDPage.SecurityAnswerProfessionalsNS.UpdatePage.UpdatePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ProFind.Lib.ProfessionalNS.Views.CRUDPage.SecurityAnswerProfessionalsNS.CreatePage"
+    xmlns:local="using:ProFind.Lib.ProfessionalNS.Views.CRUDPage.SecurityAnswerProfessionalsNS.UpdatePage"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:models="using:ProFind.Lib.Global.Services"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Style="{StaticResource PageStyle}">
-
-    <Grid>
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+   <Grid>
         <StackPanel Margin="0,52,0,850" HorizontalAlignment="Center" Width="752">
             <TextBlock Text="Security answer Professionals" Style="{StaticResource HeaderTextBlockStyle}" FontWeight="Bold" Width="646"/>
             <TextBlock Text="Answer the following questions, to improve your account security." TextAlignment="Center" Height="22"/>
@@ -27,7 +26,7 @@
                         <TextBox Header="{x:Bind IdSqNavigation.NameSq}" PlaceholderText="Type your answer" Margin="0,20,0,0" Height="70" Name="Answer2_tb" />
 
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,35,0,0" >
-                            <Button Name="btnSend" Content="Send" Margin="0,0,40,0" Style="{StaticResource AccentButtonStyle}"/>
+                            <Button Name="btnUpdate" Content="Update" Margin="0,0,40,0" Style="{StaticResource AccentButtonStyle}"/>
                             <Button Name="btnCancel" Content="Cancel" Style="{StaticResource AccentButtonStyle}"/>
                         </StackPanel>
                     </StackPanel>

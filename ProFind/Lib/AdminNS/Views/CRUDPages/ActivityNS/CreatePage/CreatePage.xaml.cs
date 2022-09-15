@@ -140,5 +140,10 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ActivityNS.CreatePage
         {
 
         }
+
+        private void Reset_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

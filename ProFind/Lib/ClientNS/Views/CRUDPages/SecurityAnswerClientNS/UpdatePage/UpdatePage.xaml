@@ -1,0 +1,37 @@
+﻿<Page
+    x:Class="ProFind.Lib.ClientNS.Views.CRUDPages.SecurityAnswerClientNS.UpdatePage.UpdatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProFind.Lib.ClientNS.Views.CRUDPages.SecurityAnswerClientNS.UpdatePage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <StackPanel Margin="0,52,0,850" HorizontalAlignment="Center" Width="576">
+            <TextBlock Text="Security answer Clients" Style="{StaticResource HeaderTextBlockStyle}" FontWeight="Bold" Width="512"/>
+            <TextBlock Text="Answer the following questions, to improve your account security." TextAlignment="Center" Height="22"/>
+        </StackPanel>
+
+        <ListView
+            Name="SecurityAnswerClientListView"
+            IsItemClickEnabled="True"
+            ItemClick="SecurityAnswerClientListView_ItemClick"
+            SelectionMode="None" IsSynchronizedWithCurrentItem="False">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:Securityanswerclient">
+                    <StackPanel Margin="0,187,0,475" HorizontalAlignment="Center" Width="602" BorderBrush="Gray" BorderThickness="1" Padding="30">
+                        <TextBlock Text="Answer the following questions." TextAlignment="Left" FontWeight="Medium"/>
+                        <TextBox Header="{x:Bind IdSq1Navigation.NameSq}" PlaceholderText="Type your answer" Margin="0,20,0,0" Height="70" Name="Answer1_tb"/>
+                        <TextBox Header="{x:Bind IdSq1Navigation.NameSq}" PlaceholderText="Type your answer" Margin="0,20,0,0" Height="70" Name="Answer2_tb" />
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,35,0,0" >
+                            <Button Name="btnUpdate" Content="Update" Margin="0,0,40,0" Style="{StaticResource AccentButtonStyle}" Click="Button_Click"/>
+                            <Button Name="btnCancel" Content="Cancel" Style="{StaticResource AccentButtonStyle}" Click="btnCancel_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

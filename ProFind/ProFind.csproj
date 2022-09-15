@@ -488,6 +488,9 @@
     <Compile Include="Lib\ClientNS\Views\CRUDPages\SecurityAnswerClientNS\ListPage\ListPage.xaml.cs">
       <DependentUpon>ListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\ClientNS\Views\CRUDPages\SecurityAnswerClientNS\UpdatePage\UpdatePage.xaml.cs">
+      <DependentUpon>UpdatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\ClientNS\Views\CRUDPages\TagNS\ListPage\ListDialog.xaml.cs">
       <DependentUpon>ListDialog.xaml</DependentUpon>
     </Compile>
@@ -650,6 +653,9 @@
     </Compile>
     <Compile Include="Lib\ProfessionalNS\Views\CRUDPage\SecurityAnswerProfessionalsNS\ListPage\ListPage.xaml.cs">
       <DependentUpon>ListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\ProfessionalNS\Views\CRUDPage\SecurityAnswerProfessionalsNS\UpdatePage\UpdatePage.xaml.cs">
+      <DependentUpon>UpdatePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\ProfessionalNS\Views\CRUDPage\TagNS\CreatePage\CreateDialog.xaml.cs">
       <DependentUpon>CreateDialog.xaml</DependentUpon>
@@ -985,6 +991,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Lib\ClientNS\Views\CRUDPages\SecurityAnswerClientNS\UpdatePage\UpdatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Lib\ClientNS\Views\CRUDPages\TagNS\ListPage\ListDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1166,6 +1176,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\ProfessionalNS\Views\CRUDPage\SecurityAnswerProfessionalsNS\ListPage\ListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\ProfessionalNS\Views\CRUDPage\SecurityAnswerProfessionalsNS\UpdatePage\UpdatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
