@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ProFind.Lib.AdminNS.Views.CRUDPages.SecurityQuestionNS.ReadPage"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:models="using:ProFind.Lib.Global.Services"
     mc:Ignorable="d"
     Style="{StaticResource PageStyle}">
 
@@ -12,31 +12,28 @@
         <StackPanel Margin="561,50,483,863">
             <TextBlock TextAlignment="Center" Text="Security questions" FontWeight="Bold"  Style="{StaticResource HeaderTextBlockStyle}" Width="432"/>
             <TextBlock Text="View the questions " Height="31" TextAlignment="Center"/>
-
         </StackPanel>
 
-        <StackPanel Margin="0,186,0,536" HorizontalAlignment="Center" Width="1087">
-            <StackPanel BorderBrush="Gray" BorderThickness="1" Orientation="Horizontal" Width="1000" Margin="0,0,0,20">
-                <TextBlock Text="Question example xd" Padding="20" Width="787"/>
-                <Button Name="btnUpdate" Content="Update" Margin="7,0,0,0" Style="{StaticResource AccentButtonStyle}"/>
-                <Button Name="btnDelete" Content="Delete" Margin="30,0,0,0" Style="{StaticResource AccentButtonStyle}"/>
-            </StackPanel>
-
-            <StackPanel Margin="0,50,0,0" HorizontalAlignment="Center">
-                <Button Name="btnBack" Content="Back" Width="100" Style="{StaticResource ButtonStyle}"/>
-            </StackPanel>
-        </StackPanel>
-
-        <!--<ListView
+        <ListView
             Name="QuestionsListView"
             IsItemClickEnabled="True"
             ItemClick="QuestionsListView_ItemClick"
             SelectionMode="None">
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="">
+                <DataTemplate x:DataType="models:Securityquestion">
+                    <StackPanel Margin="0,186,0,536" HorizontalAlignment="Center" Width="1087">
+                        <StackPanel BorderBrush="Gray" BorderThickness="1" Orientation="Horizontal" Width="1000" Margin="0,0,0,20">
+                            <TextBlock Text="{x:Bind NameSq}" Padding="20" Width="787"/>
+                            <Button Name="btnUpdate" Content="Update" Margin="7,0,0,0" Style="{StaticResource AccentButtonStyle}" Click="btnUpdate_Click"/>
+                            <Button Name="btnDelete" Content="Delete" Margin="30,0,0,0" Style="{StaticResource AccentButtonStyle}" Click="btnDelete_Click"/>
+                        </StackPanel>
 
+                        <StackPanel Margin="0,50,0,0" HorizontalAlignment="Center">
+                            <Button Name="btnBack" Content="Back" Width="100" Style="{StaticResource ButtonStyle}" Click="btnBack_Click"/>
+                        </StackPanel>
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>-->
+        </ListView>
     </Grid>
 </Page>

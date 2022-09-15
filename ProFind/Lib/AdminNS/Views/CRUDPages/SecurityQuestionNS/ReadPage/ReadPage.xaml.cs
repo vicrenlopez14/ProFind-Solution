@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ProFind.Lib.AdminNS.Controllers;
+using ProFind.Lib.Global.Controllers;
+using ProFind.Lib.Global.Services;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +25,32 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.SecurityQuestionNS.ReadPage
     /// </summary>
     public sealed partial class ReadPage : Page
     {
+        Securityquestion toManipulate = new Securityquestion();
+
         public ReadPage()
         {
             this.InitializeComponent();
+            InitializeData();   
+        }
+
+        private async void InitializeData()
+        {
+            QuestionsListView.ItemsSource = await APIConnection.GetConnection.GetSecurityquestionsAsync();
+        }
+
+        private async void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            new GlobalNavigationController().NavigateTo(typeof(Lib.AdminNS.Views.CRUDPages.SecurityQuestionNS.UpdatePage.UpdatePage));
+        }
+
+        private async void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            await APIConnection.GetConnection.DeleteSecurityquestionAsync(toManipulate.IdSq);
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            new InAppNavigationController().GoBack();
         }
     }
 }

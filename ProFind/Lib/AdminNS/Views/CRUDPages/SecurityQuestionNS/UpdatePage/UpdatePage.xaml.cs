@@ -16,22 +16,30 @@ using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace ProFind.Lib.AdminNS.Views.CRUDPages.SecurityAnswerProfessionalsNS.ReadPage
+namespace ProFind.Lib.AdminNS.Views.CRUDPages.SecurityQuestionNS.UpdatePage
 {
     /// <summary>
     /// Una página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
     /// </summary>
-    public sealed partial class ReadPage : Page
+    public sealed partial class UpdatePage : Page
     {
-        public ReadPage()
+        Securityquestion id = new Securityquestion();
+
+        public UpdatePage()
         {
             this.InitializeComponent();
-            InitializeData();
         }
 
-        private async void InitializeData()
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            SecurityAnswerProfessionalsListView.ItemsSource = await APIConnection.GetConnection.GetSecurityanswerprofessionalsAsync();
+            var toUpdapteQuestion = new Securityquestion(Question1_tb.Text, Question2_tb.Text);
+
+            await APIConnection.GetConnection.PostSecurityquestionAsync(id.IdSq, toUpdapteQuestion);
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

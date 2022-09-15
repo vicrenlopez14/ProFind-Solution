@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="ProFind.Lib.AdminNS.Views.CRUDPages.SecurityQuestionNS.UpdatePage.UpdatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProFind.Lib.AdminNS.Views.CRUDPages.SecurityQuestionNS.UpdatePage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Margin="610,50,0,852" HorizontalAlignment="Left" Width="310">
+            <TextBlock Text="Security Page" Style="{StaticResource HeaderTextBlockStyle}" FontWeight="Bold"/>
+            <TextBlock Text="Keep your account secure" TextAlignment="Center" Height="22"/>
+        </StackPanel>
+
+        <StackPanel Margin="0,187,0,502" HorizontalAlignment="Center" Width="602" BorderBrush="Gray" BorderThickness="1" Padding="30">
+            <TextBlock Text="Create some anwers for the account security." TextAlignment="Left" FontWeight="Medium"/>
+            <TextBox Header="Write the first question:" PlaceholderText="Question 1" Margin="0,20,0,0" Name="Question1_tb" />
+            <TextBox Header="Write the second question:" PlaceholderText="Question 2" Margin="0,20,0,0" Name="Question2_tb" />
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,35,0,0" >
+                <Button Name="btnUpdate" Content="Update" Margin="0,0,40,0" Style="{StaticResource AccentButtonStyle}" Click="Button_Click"/>
+                <Button Name="btnCancel" Content="Cancel" Style="{StaticResource AccentButtonStyle}" Click="btnCancel_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
