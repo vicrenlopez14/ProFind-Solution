@@ -38,7 +38,7 @@
                             HorizontalAlignment="Left"
                            
                            
-                            Content="Select a picture" />
+                            Content="Select a picture" Click="PictureSelection_btn_Click" />
                         <TextBlock
                             Name="SelectedPicture_tbk"
                             Margin="10,0,0,0"
@@ -46,18 +46,15 @@
                             No picture selected
                         </TextBlock>
                     </StackPanel>
-                    <TextBlock>
-                        Title
-                    </TextBlock>
                     <TextBox
                         x:Name="Title_tb"
                         Margin="0,30,0,0"
-                        PlaceholderText="Title"
+                        PlaceholderText="Title" TextChanged="Title_tb_TextChanged"
                          />
                     <TextBox
                         x:Name="Description_tb"
                         Margin="0,15,0,0"
-                        PlaceholderText="Description"
+                        PlaceholderText="Description" TextChanged="Description_tb_TextChanged"
                          />
                     <DatePicker
                         Name="ExpectedBegin_dp"
@@ -89,7 +86,7 @@
                             VerticalAlignment="Center"
                            
                             Content="Update"
-                            Style="{StaticResource AccentButtonStyle}" />
+                            Style="{StaticResource AccentButtonStyle}" Click="Update_btn_Click" />
                         <Button
                             x:Name="Reset_btn"
                             Width="100"
@@ -98,7 +95,7 @@
                             VerticalAlignment="Center"
                            
                             Content="Reset"
-                            Style="{StaticResource AccentButtonStyle}" />
+                            Style="{StaticResource AccentButtonStyle}" Click="Reset_btn_Click" />
                         <Button
                             x:Name="Delete_btn"
                             Width="100"
@@ -107,7 +104,7 @@
                             VerticalAlignment="Center"
                            
                             Content="Delete"
-                            Style="{StaticResource AccentButtonStyle}" />
+                            Style="{StaticResource AccentButtonStyle}" Click="Delete_btn_Click" />
                     </StackPanel>
 
 

@@ -1,0 +1,73 @@
+﻿<Page
+    x:Class="ProFind.Lib.AdminNS.Views.CRUDPages.ActivityNS.SearchPage.SearchPageActivi"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProFind.Lib.AdminNS.Views.CRUDPages.ActivityNS.SearchPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:services="using:ProFind.Lib.Global.Services"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="114*"/>
+        </Grid.RowDefinitions>
+        <AutoSuggestBox PlaceholderText="Search"
+        TextChanged="Control2_TextChanged"
+        QueryIcon="Find"
+        x:Name="Search_Client"
+        Margin="280,44,279,0" Height="34"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="375*"/>
+                <ColumnDefinition Width="254*"/>
+                <ColumnDefinition Width="121*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Clients" Style="{StaticResource HeaderTextBlockStyle}" Margin="80,39,670,49" RenderTransformOrigin="0.638,0.776"/>
+            <ListView Name="ClientListView" ItemClick="ClientListView_ItemClick" Grid.ColumnSpan="3" Margin="44,101,56,-857">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="services:Activity">
+                        <StackPanel Background="#F4FAE1" CornerRadius="15">
+                            <StackPanel
+                            Width="300"
+                            Height="27"
+                            Margin="-95,20,0,0">
+                                <TextBlock Height="25" Text="{Binding TitleA}" />
+                            </StackPanel>
+                            <Image
+                            Width="100"
+                            Height="100"
+                            Margin="-2,-30,570,10"
+                            Source="{Binding PictureA}" />
+
+                            <StackPanel
+                            Width="20"
+                            Height="22"
+                            Margin="-425,-250,0,-70">
+                                <SymbolIcon Symbol="Contact2" />
+                            </StackPanel>
+                            <StackPanel
+                            Width="340"
+                            Height="23"
+                            Margin="130,5">
+                                <TextBlock
+                                Height="23"
+                                Margin="-20,-190,3,-70"
+                                FontWeight="Bold"
+                                Text="Description:" />
+                            </StackPanel>
+                            <StackPanel
+                            Width="340"
+                            Height="20"
+                            Margin="-20,-190,3,-70">
+                                <TextBlock Height="31" Text="{Binding DescriptionA}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

@@ -20,9 +20,8 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.Search_Pages
 
         private async void Control2_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            var Resul = await APIConnection.GetConnection.SearchAdminsAsync(id.IdC, Search_Client.Text);
+            ClientListView.ItemsSource = await APIConnection.GetConnection.SearchClientAsync(id.IdC, Search_Client.Text);
 
-            await APIConnection.GetConnection.GetAdminAsync(id.IdC);
         }
     }
 }

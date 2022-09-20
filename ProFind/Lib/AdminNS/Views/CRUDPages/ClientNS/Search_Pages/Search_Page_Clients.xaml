@@ -13,18 +13,17 @@
             <RowDefinition Height="114*"/>
         </Grid.RowDefinitions>
         <AutoSuggestBox PlaceholderText="Search"
-        
+        TextChanged="Control2_TextChanged"
         QueryIcon="Find"
         x:Name="Search_Client"
-       
-       />
+        Margin="280,44,279,0" Height="34"/>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Text="Clients" Style="{StaticResource HeaderTextBlockStyle}" Margin="80,39,1268,903" RenderTransformOrigin="0.638,0.776"/>
-            <ListView Name="ClientListView">
+            <ListView Name="ClientListView"  Grid.ColumnSpan="2" Margin="50,118,84,-866">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="models1:Client">
                         <StackPanel CornerRadius="10" BorderThickness="1" BorderBrush="Black" Orientation="Horizontal" >

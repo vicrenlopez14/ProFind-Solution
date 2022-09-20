@@ -20,9 +20,9 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ActivityNS.CreatePage
     /// </summary>
     public sealed partial class CreatePage : Page
     {
-
+       
         private byte[] imageBytes;
-        Professional id2;
+        Professional id2; 
         private bool isFirstAdmin = false;
         Project id = new Project();
 
@@ -30,11 +30,11 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ActivityNS.CreatePage
         {
 
             this.InitializeComponent();
-
+            
 
         }
 
-
+       
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -42,7 +42,22 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ActivityNS.CreatePage
             isFirstAdmin = (bool)e.Parameter;
         }
 
-      
+        private void Hyperlink_Click(Windows.UI.Xaml.Documents.Hyperlink sender,
+            Windows.UI.Xaml.Documents.HyperlinkClickEventArgs args)
+        {
+            new GlobalNavigationController().NavigateTo(typeof(Clients_Login));
+        }
+
+        private void Button_Click_4(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            new GlobalNavigationController().NavigateTo(typeof(Lib.ProfessionalNS.Views.InitPage.InitPage));
+        }
+
+        private void Professionals_Login_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            new GlobalNavigationController().NavigateTo(typeof(Lib.ProfessionalNS.Views.InitPage.InitPage));
+        }
+
         private async void PictureSelection_btn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             try
@@ -72,46 +87,21 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ActivityNS.CreatePage
 
         private void Name_tb_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+           
         }
 
-
-       
-
-        private void ToggleThemeTeachingTip2_CloseButtonClick(TeachingTip sender, object args)
-        {
-
-        }
-
-        private void ToggleThemeTeachingTip2_Closed(TeachingTip sender, TeachingTipClosedEventArgs args)
-        {
-
-        }
-
-        
-
-        private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
-        {
-
-        }
-
-        private void Title_tb_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private async void Create_btn_Click_1(object sender, RoutedEventArgs e)
+        private async void Create_btn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             try
             {
                 Creation_pr.IsActive = true;
 
-                var toCreateAdmin = new Activity { IdA = "", TitleA = Title_tb.Text, DescriptionA = Description_tb.Text, ExpectedBeginA = ExpectedBegin_dp.Date, ExpectedEndA = ExpectedEnd_dp.Date, PictureA = imageBytes, IdPj1 = id.IdPj, };
-
+                var toCreateAdmin = new Activity { IdA = "", TitleA = Title_tb.Text, DescriptionA = Description_tb.Text, ExpectedBeginA = ExpectedBegin_dp.Date, ExpectedEndA = ExpectedEnd_dp.Date, PictureA = imageBytes, IdPj1 = id.IdPj,   };
+               
 
                 var result = await APIConnection.GetConnection.PostActivityAsync(toCreateAdmin);
+                new GlobalNavigationController().NavigateTo(typeof(ProFind.Lib.AdminNS.Views.CRUDPages.ActivityNS.ListPage.ListPage));
 
-                new GlobalNavigationController().NavigateTo(typeof(ProFind.Lib.ProfessionalNS.Views.CRUDPage.ActivityNS.ListPage.LisPageActivi));
 
             }
             catch (Exception ex)
@@ -122,6 +112,32 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ActivityNS.CreatePage
             {
                 Creation_pr.IsActive = false;
             }
+
+        }
+        private void ToggleThemeTeachingTip2_ActionButtonClick(TeachingTip sender, object args)
+        {
+            new GlobalNavigationController().NavigateTo(typeof(ProfessionalInformationAddition), isFirstAdmin);
+        }
+
+        private void ToggleThemeTeachingTip2_CloseButtonClick(TeachingTip sender, object args)
+        {
+
+        }
+
+        private void ToggleThemeTeachingTip2_Closed(TeachingTip sender, TeachingTipClosedEventArgs args)
+        {
+            
+        }
+
+        private void GoToProfessionals(object sender, RoutedEventArgs e)
+        {
+            new GlobalNavigationController().NavigateTo(typeof(ProfessionalInformationAddition), isFirstAdmin);
+
+        }
+
+        private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        {
+
         }
 
         private void Reset_btn_Click(object sender, RoutedEventArgs e)
@@ -129,69 +145,6 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ActivityNS.CreatePage
             Title_tb.Text = "";
             Description_tb.Text = ""; 
 
-        }
-
-        private void Title_tb_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
-        {
-            
-        }
-
-        private async void Create_btn_Click_1(object sender, RoutedEventArgs e)
-        {
-            bool ok = true;
-            if(!FieldsChecker.CheckRangeDate(ExpectedBegin_dp.Date, ExpectedEnd_dp.Date))
-            {
-                TtDates.IsOpen = true; ok = false;
-            }
-            if(Title_tb.Text.Length < 3)
-            {
-                TtTitle.IsOpen = true; ok = false;
-            }
-            if(Description_tb.Text.Length < 3)
-            {
-                TtDescription.IsOpen = true; ok = false;
-            }
-
-            if (ok)
-            {
-                try
-                {
-                    Creation_pr.IsActive = true;
-
-                    var toCreateAdmin = new Activity { IdA = "", TitleA = Title_tb.Text, DescriptionA = Description_tb.Text, ExpectedBeginA = ExpectedBegin_dp.Date, ExpectedEndA = ExpectedEnd_dp.Date, PictureA = imageBytes, IdPj1 = id.IdPj, };
-
-
-                    var result = await APIConnection.GetConnection.PostActivityAsync(toCreateAdmin);
-
-
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                finally
-                {
-                    Creation_pr.IsActive = false;
-                }
-            }
-            
-        }
-
-        private void Title_tb_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
-        }
-
-        private void Update_btn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Reset_btn_Click(object sender, RoutedEventArgs e)
-        {
-            Title_tb.Text = "";
-            Description_tb.Text = "";
-            ExpectedBegin_dp.
         }
     }
 }
