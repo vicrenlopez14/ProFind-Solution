@@ -163,7 +163,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.CreatePage
 
         private void Name_tb_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
-            if (FieldsChecker.OnlyLetters(e)) e.Handled = true;
+            if (FieldsChecker.OnlyFloats(e,Name_tb.Text)) e.Handled = true;
             else e.Handled = false;
         }
     }
