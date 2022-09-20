@@ -145,7 +145,7 @@ public class ProfessionalsController : ControllerBase
     }
 
     [HttpGet("filter/")]
-    public async Task<ActionResult<IEnumerable<Professional>>> SearchProfessionals([FromQuery] string? professionId,
+    public async Task<ActionResult<IEnumerable<Professional>>> FilterProfessionals([FromQuery] string? professionId,
         [FromQuery] string? departmentId,
         [FromQuery] string? name)
     {
@@ -163,21 +163,6 @@ public class ProfessionalsController : ControllerBase
         return result;
     }
 
-    [HttpGet("search/")]
-    public async Task<ActionResult<IEnumerable<Professional>>> SearchProfessionals([FromQuery] string name)
-    {
-        if(name.Length == 0)
-        {
-            return await GetProfessionals();
-        }
-        else
-        {
-            var result = await (from prof in _context.Professionals where (prof.NameP.Contains(name)) select prof).ToListAsync();
-            if (result.Any() == false) return NotFound();
-            else return result;
-        }
-
-    }
 
     // DELETE: api/Professionals/5
     [HttpDelete("{id}")]
