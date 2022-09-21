@@ -14,15 +14,17 @@
             <ColumnDefinition Width="43*" />
         </Grid.ColumnDefinitions>
         <Button Style="{StaticResource AccentButtonStyle}" Content="Search CLient" Grid.Column="1" Margin="484,27,0,0" VerticalAlignment="Top" Click="Button_Click_1" />
-        <TextBlock
+        <StackPanel Orientation="Horizontal" Margin="20,20,0,928">
+            <SymbolIcon Symbol="ContactInfo" Margin="0,0,10,0"/>
+            <TextBlock
                         Grid.Column="0"
-                        Margin="20,20,0,928"
                         HorizontalAlignment="Left"
                         RenderTransformOrigin="0.638,0.776"
                         Style="{StaticResource SubheaderTextBlockStyle}"
                         Text="List CLients" Grid.ColumnSpan="2" Width="1095"
             
             />
+        </StackPanel>
 
 
         <ListView Name="Activities_lw"  Grid.ColumnSpan="2" Margin="31,94,31,52">

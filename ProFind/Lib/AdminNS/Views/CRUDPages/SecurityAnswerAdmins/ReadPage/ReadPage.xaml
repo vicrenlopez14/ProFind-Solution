@@ -9,9 +9,12 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel Margin="561,50,483,863">
-            <TextBlock TextAlignment="Center" Text="Security answer" FontWeight="Bold"  Style="{StaticResource HeaderTextBlockStyle}" Width="432"/>
-            <TextBlock Text="View your answers abour the questions security" Height="31" TextAlignment="Center"/>
+        <StackPanel HorizontalAlignment="Center" Margin="0,50,0,855" Width="387">
+            <StackPanel Orientation="Horizontal" Height="63">
+                <SymbolIcon Symbol="Admin" Margin="0,0,10,0"/>
+                <TextBlock Text="Security answer" FontWeight="Bold"  Style="{StaticResource HeaderTextBlockStyle}" Width="432" Height="67"/>
+            </StackPanel>
+            <TextBlock Text="View your answers about the questions security" Height="31" HorizontalAlignment="Center"/>
         </StackPanel>
 
         <ListView

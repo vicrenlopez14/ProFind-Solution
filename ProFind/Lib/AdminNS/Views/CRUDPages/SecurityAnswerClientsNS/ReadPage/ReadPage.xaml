@@ -10,7 +10,10 @@
 
     <Grid>
         <StackPanel VerticalAlignment="Top" Height="99" Margin="0,50,0,0">
-            <TextBlock TextAlignment="Center" Text="Security answer - Professionals" Style="{StaticResource HeaderTextBlockStyle}" FontWeight="Bold"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <SymbolIcon Symbol="Comment" Margin="0,0,10,0"/>
+                <TextBlock TextAlignment="Center" Text="Security answer - Professionals" Style="{StaticResource HeaderTextBlockStyle}" FontWeight="Bold"/>
+            </StackPanel>
             <TextBlock Text="View customer feedback" TextAlignment="Center"/>
         </StackPanel>
 

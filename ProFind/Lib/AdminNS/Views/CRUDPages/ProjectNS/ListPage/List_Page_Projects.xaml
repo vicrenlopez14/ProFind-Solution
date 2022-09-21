@@ -22,13 +22,18 @@
                         <ColumnDefinition Width="0.9*" />
                         <ColumnDefinition Width="0.1*" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="List"/>
+                        <TextBlock
                         Grid.Column="0"
                         Margin="20"
                         HorizontalAlignment="Left"
                         RenderTransformOrigin="0.638,0.776"
                         Style="{StaticResource SubheaderTextBlockStyle}"
-                        Text="Created projects" />
+                        Text="Projects list" FontWeight="Bold" />
+                    </StackPanel>
+       
                 </Grid>
                 <ListView
                     Name="ProjectsListView"

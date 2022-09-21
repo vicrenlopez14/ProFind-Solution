@@ -11,13 +11,16 @@
         <ScrollViewer Grid.Column="1">
             <Grid>
                 <StackPanel Padding="100" Orientation="Vertical">
-                    <TextBlock
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="Sync" Margin="0,0,10,0"/>
+                        <TextBlock
                         FontWeight="Bold"
                         Style="{StaticResource HeaderTextBlockStyle}"
-                        Text="Creation" />
+                        Text="Update or delete" />
+                    </StackPanel>
 
                     <TextBlock>
-                        Update and Delete a  Profession.
+                        Update and delete a rank.
                     </TextBlock>
                     <StackPanel
                         Grid.Column="0"
@@ -47,7 +50,7 @@
                     <Button
                         x:Name="Delete_btn"
                         Width="100"
-                        Margin="0,50,0,0"
+                        Margin="0,30,0,0"
                         HorizontalAlignment="Center"
                        
                         Content="Create"

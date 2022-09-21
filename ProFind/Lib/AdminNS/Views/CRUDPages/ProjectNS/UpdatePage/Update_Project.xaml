@@ -13,12 +13,16 @@
             <ScrollViewer Grid.Column="1">
                 <Grid>
                     <StackPanel Padding="100" Orientation="Vertical">
-                        <TextBlock
-                        FontWeight="Bold"
-                        Style="{StaticResource HeaderTextBlockStyle}"
-                        Text="Creation" />
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Sync" Margin="0,0,10,0"/>
+                            <TextBlock
+                            FontWeight="Bold"
+                            Style="{StaticResource HeaderTextBlockStyle}"
+                            Text="Update or delete" />
+                        </StackPanel>
+                    
                         <TextBlock>
-                        Create a new project from zero.
+                        Update or create a project.
                         </TextBlock>
                         <Image
                         Name="SelectedPicture_pp"

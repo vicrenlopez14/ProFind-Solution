@@ -9,8 +9,11 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel Margin="610,50,0,852" HorizontalAlignment="Left" Width="310">
-            <TextBlock Text="Security Page" Style="{StaticResource HeaderTextBlockStyle}" FontWeight="Bold"/>
+        <StackPanel Margin="0,50,0,852" HorizontalAlignment="Center" Width="602">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <SymbolIcon Symbol="Admin" Margin="0,0,10,0"/>
+                <TextBlock Text="Security questions" Style="{StaticResource HeaderTextBlockStyle}" FontWeight="Bold"/>
+            </StackPanel>
             <TextBlock Text="Keep your account secure" TextAlignment="Center" Height="22"/>
         </StackPanel>
 

@@ -24,13 +24,17 @@
                         <ColumnDefinition Width="0.9*" />
                         <ColumnDefinition Width="0.1*" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="BrowsePhotos"/>
+                        <TextBlock
                         Grid.Column="0"
-                        Margin="20"
                         HorizontalAlignment="Left"
+                        Margin="10"
                         RenderTransformOrigin="0.638,0.776"
                         Style="{StaticResource SubheaderTextBlockStyle}"
-                        Text="Created projects" />
+                        Text="Created projects" FontWeight="Bold" />
+                    </StackPanel>
                     <Button
                         Grid.Column="1"
                         HorizontalAlignment="Center"

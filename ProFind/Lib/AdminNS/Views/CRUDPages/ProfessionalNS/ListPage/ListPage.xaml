@@ -9,11 +9,16 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*" />
             <ColumnDefinition Width="0.5*" />
         </Grid.ColumnDefinitions>
+        
+        <StackPanel Orientation="Horizontal" Margin="20,15,0,929" VerticalAlignment="Center">
+            <SymbolIcon Symbol="ContactInfo" Margin="0,0,10,0"/>
+            <TextBlock Text="Professionals list" Style="{StaticResource HeaderTextBlockStyle}"/>
+        </StackPanel>
+
         <ListView
             Name="ProfessionalsListView" ItemClick="ProjectsActiveListView_ItemClick"
            

@@ -16,11 +16,15 @@
                 Margin="20"
                 Padding="20"
                 Orientation="Vertical">
-                <TextBlock
-                    Margin="20"
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Symbol="List"/>
+                    <TextBlock
+                    Margin="10"
                     RenderTransformOrigin="0.638,0.776"
                     Style="{StaticResource SubheaderTextBlockStyle}"
-                    Text="Registered administrators" />
+                    Text="Project status list" FontWeight="Bold" />
+                </StackPanel>
+           
                 <ListView
                     Name="ProjectsListView"
                     IsItemClickEnabled="True"

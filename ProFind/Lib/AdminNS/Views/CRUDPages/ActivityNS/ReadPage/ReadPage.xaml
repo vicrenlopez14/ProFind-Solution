@@ -12,15 +12,18 @@
         <ScrollViewer Grid.Column="1">
             <Grid>
                 <StackPanel Padding="100" Orientation="Vertical">
-                    <TextBlock
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="BrowsePhotos" Margin="0,0,10,0"/>
+                        <TextBlock
                         Name="PageTitle"
-                        d:Text="Title of the activity"
+                        d:Text="Activities"
                         FontWeight="Bold"
                         Style="{StaticResource HeaderTextBlockStyle}"
                         Text="{x:Bind ModelActivity.TitleA}" />
+                    </StackPanel>
 
                     <TextBlock Name="PageSubtitle" Style="{StaticResource CaptionTextBlockStyle}">
-                        Title
+                        Visualize your activities
                     </TextBlock>
                     <Image
                         Name="SelectedPicture_pp"

@@ -13,16 +13,18 @@
             <ColumnDefinition Width="43*" />
         </Grid.ColumnDefinitions>
         <Button Style="{StaticResource AccentButtonStyle}" Content="Add Admin" Grid.Column="1" Margin="484,27,0,0" VerticalAlignment="Top" Click="Button_Click_1" />
-        <TextBlock
+        <StackPanel Orientation="Horizontal" Margin="31,20,0,928">
+            <SymbolIcon Symbol="People" Margin="0,0,10,0"/>
+            <TextBlock
                         Grid.Column="0"
-                        Margin="20,20,0,928"
                         HorizontalAlignment="Left"
                         RenderTransformOrigin="0.638,0.776"
                         Style="{StaticResource SubheaderTextBlockStyle}"
-                        Text="Activity" Grid.ColumnSpan="2" Width="1087"
+                        Text="Administrator" 
+                        Grid.ColumnSpan="2" Width="1087"
             
             />
-
+        </StackPanel>
 
         <ListView Name="AdminsListView"  Grid.ColumnSpan="2" Margin="31,94,31,52">
             <ListView.ItemTemplate>

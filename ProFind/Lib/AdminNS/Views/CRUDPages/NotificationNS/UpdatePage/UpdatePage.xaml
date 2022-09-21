@@ -14,10 +14,13 @@
                 <StackPanel Padding="100" Orientation="Vertical">
                     <Grid>
                         <StackPanel Orientation="Vertical">
-                            <TextBlock
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Sync" Margin="0,0,10,0"/>
+                                <TextBlock
                                 FontWeight="Bold"
                                 Style="{StaticResource HeaderTextBlockStyle}"
-                                Text="Update" />
+                                Text="Notifications update " />
+                            </StackPanel>
                             <TextBlock>
                                 Keep your data up to date.
                             </TextBlock>

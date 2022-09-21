@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel Margin="561,50,483,863">
+        <StackPanel HorizontalAlignment="Center" Margin="0,66,0,838">
             <TextBlock TextAlignment="Center" Text="Security questions" FontWeight="Bold"  Style="{StaticResource HeaderTextBlockStyle}" Width="432"/>
             <TextBlock Text="View the questions " Height="31" TextAlignment="Center"/>
         </StackPanel>

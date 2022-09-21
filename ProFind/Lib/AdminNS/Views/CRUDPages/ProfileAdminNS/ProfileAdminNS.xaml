@@ -10,13 +10,16 @@
 
     <Grid>
         
-        <StackPanel Margin="0,10,0,891" Padding="20">
-            <TextBlock 
+        <StackPanel Margin="0,10,0,870" Padding="20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="69">
+                <SymbolIcon Symbol="Contact2" Margin="0,0,10,0"/>
+                <TextBlock 
                 Text="Profile" 
                 Style="{StaticResource HeaderTextBlockStyle}" 
                 FontWeight="Bold"
                 TextAlignment="Center"/>
-            <TextBlock Text="Administrator" TextAlignment="Center"/>
+            </StackPanel>
+            <TextBlock Text="Administrator" TextAlignment="Center" Margin="0,-10,0,0"/>
         </StackPanel>
 
         <ListView

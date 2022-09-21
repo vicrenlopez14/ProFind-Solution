@@ -24,7 +24,10 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Grid.Row="0" Orientation="Vertical">
-                        <TextBlock Margin="0,0,0,30" Style="{StaticResource SubheaderTextBlockStyle}"><Run Text="See, Update or Delete"/></TextBlock>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,30">
+                            <SymbolIcon Symbol="Sync" Margin="0,0,10,0"/>
+                            <TextBlock Style="{StaticResource SubheaderTextBlockStyle}"><Run Text="See, Update or Delete"/></TextBlock>
+                        </StackPanel>
                         <Image
                             x:Name="Picture_img"
                             Width="100"

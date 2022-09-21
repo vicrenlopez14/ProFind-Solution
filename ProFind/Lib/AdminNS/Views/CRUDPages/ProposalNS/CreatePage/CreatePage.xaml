@@ -12,11 +12,15 @@
         <ScrollViewer Grid.Column="1">
             <Grid>
                 <StackPanel Padding="100" Orientation="Vertical">
-                    <TextBlock
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="Edit" Margin="0,0,10,0"/>
+                        <TextBlock
                         Name="PageTitle"
                         FontWeight="Bold"
                         Style="{StaticResource HeaderTextBlockStyle}"
                         Text="Submit" />
+                    </StackPanel>
+
                     <TextBlock Name="PageSubtitle">
                         Create a work proposal, and then send it to your desired professional.
                     </TextBlock>

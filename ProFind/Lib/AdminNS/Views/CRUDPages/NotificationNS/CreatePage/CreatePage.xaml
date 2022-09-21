@@ -13,10 +13,13 @@
             <ScrollViewer Grid.Column="1">
                 <Grid>
                     <StackPanel Padding="100" Orientation="Vertical">
-                        <TextBlock
-                        FontWeight="Bold"
-                        Style="{StaticResource HeaderTextBlockStyle}"
-                        Text="Creation" />
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Edit" Margin="0,0,10,0"/>
+                            <TextBlock
+                            FontWeight="Bold"
+                            Style="{StaticResource HeaderTextBlockStyle}"
+                            Text="Creation" />
+                        </StackPanel>
 
                         <TextBlock>
                         Create a new notification.
