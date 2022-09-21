@@ -10,8 +10,8 @@
 
     <Grid Margin="0,0,0,10">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0">
-            <TextBlock Text="Enter your recovery code that was sent to your email" FontSize="30"></TextBlock>
-            <TextBlock Text="If you're email wasn't valid you won't get anything" HorizontalAlignment="Center" FontSize="20"></TextBlock>
+            <TextBlock x:Uid="ProfessionalCodeVerificationEnterYour" Text="Enter your recovery code that was sent to your email" FontSize="30"></TextBlock>
+            <TextBlock x:Uid="ProfessionalCodeVerificationIfYour" Text="If you're email wasn't valid you won't get anything" HorizontalAlignment="Center" FontSize="20"></TextBlock>
 
             <TextBox x:Name="Code_tb" Margin="50 20 50 0"></TextBox>
 
@@ -21,14 +21,15 @@
                     <ColumnDefinition Width="0.5*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column ="0" HorizontalAlignment="Center">
-                    <Button Content="Cancel" Height="41" Width="109" Click="Button_Click"></Button>
+                    <Button x:Uid="ProfessionalCodeVerificationCancel" Content="Cancel" Height="41" Width="109" Click="Button_Click"></Button>
                 </StackPanel>
                 <StackPanel Grid.Column ="1" HorizontalAlignment="Center">
-                    <Button Content="Submit" Height="41" Width="109" Click="Button_Click_1" Name="Submit_btn"></Button>
+                    <Button x:Uid="ProfessionalCodeVerificationSubmit" Content="Submit" Height="41" Width="109" Click="Button_Click_1" Name="Submit_btn"></Button>
                 </StackPanel>
             </Grid>
             <muxc:TeachingTip x:Name="ToggleThemeTeachingTip1"
                     Target="{x:Bind Code_tb}"
+                    x:Uid="ProfessionalCodeVerificationerror"
                     Title="Error"
                     Subtitle="Invalid Code">
                 <muxc:TeachingTip.IconSource>

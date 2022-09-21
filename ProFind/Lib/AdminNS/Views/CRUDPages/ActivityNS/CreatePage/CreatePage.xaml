@@ -13,6 +13,7 @@
             <Grid>
                 <StackPanel Padding="100" Orientation="Vertical">
                     <TextBlock
+                        x:Uid="CreationAdminCreatePage"
                         Name="PageTitle"
                         FontWeight="Bold"
                         Style="{StaticResource HeaderTextBlockStyle}"

@@ -1029,4 +1029,166 @@ Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Ma
   <data name="YouAreInTheLoginForProfessionalInitPage.TextBlock" xml:space="preserve">
     <value>Estás en la página de inicio de sesión para Profesionales</value>
   </data>
+  <data name="AdmindPasswordChangeEmailAuth.Text" xml:space="preserve">
+    <value>La autenticidad del correo electrónico fue verificada, por favor proporcione nuevas credenciales para su cuenta</value>
+  </data>
+  <data name="AdminPasswordCahngeConfirm" xml:space="preserve">
+    <value>Confirma tu nueva contraseña</value>
+  </data>
+  <data name="AdminPasswordCancel2.Content" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="AdminPasswordChangeChangePassword.Text" xml:space="preserve">
+    <value>Cambiar tu contraseña</value>
+  </data>
+  <data name="AdminPasswordChangeConfrimPassword.Text" xml:space="preserve">
+    <value>Confirmar Contraseña:</value>
+  </data>
+  <data name="AdminPasswordChangePasswordChange.Text" xml:space="preserve">
+    <value>Contraseña:</value>
+  </data>
+  <data name="AdminPasswordChangeType.PlaceholderText" xml:space="preserve">
+    <value>Escribe una nueva contraseña</value>
+  </data>
+  <data name="AdminRecoverPassword1.Text" xml:space="preserve">
+    <value>Introduzca el código de recuperación que se le envió a su correo electrónico</value>
+  </data>
+  <data name="AdminRecoverPassword2.Text" xml:space="preserve">
+    <value>Si tu correo electrónico no es válido no recibirás nada</value>
+  </data>
+  <data name="AdminRecoverPasswordCancel.Content" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="AdminRecoverPasswordError.Subtitle" xml:space="preserve">
+    <value>Código Invalido</value>
+  </data>
+  <data name="AdminRecoverPasswordError.Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="AdminRecoverPasswordSubmit.Content" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="AdminSendEmailEnterEmail.Text" xml:space="preserve">
+    <value>Introduzca su correo electrónico para enviar un código de recuperación de su contraseña</value>
+  </data>
+  <data name="AdminSendEmailError.Subtitle" xml:space="preserve">
+    <value>Email invalido</value>
+  </data>
+  <data name="AdminSendEmailError.Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="AdminSendEmailSend.Content" xml:space="preserve">
+    <value>Enviar Email</value>
+  </data>
+  <data name="ChangePasswordAdmin.Content" xml:space="preserve">
+    <value>Cambiar Contraseña</value>
+  </data>
+  <data name="ClientsCodeVerificationCancel.Content" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="ClientsCodeVerificationEnter.Text" xml:space="preserve">
+    <value>Introduzca el código de recuperación que se le envió a su correo electrónico</value>
+  </data>
+  <data name="ClientsCodeVerificationError.Subtitle" xml:space="preserve">
+    <value>Código Invalido</value>
+  </data>
+  <data name="ClientsCodeVerificationError.Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ClientsCodeVerificationSubmit." xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="ClientsCodeVerificatonIfYou.Text" xml:space="preserve">
+    <value>Si tu correo electrónico no es válido no recibirás nada</value>
+  </data>
+  <data name="ClientsPasswordCahngePassword.Text" xml:space="preserve">
+    <value>Contraseña:</value>
+  </data>
+  <data name="ClientsPasswordChangeCancel.Content" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="ClientsPasswordChangeChangePassword.Content" xml:space="preserve">
+    <value>Cambiar Contraseña</value>
+  </data>
+  <data name="ClientsPasswordChangeChangeYour.Text" xml:space="preserve">
+    <value>Cambiar tu contraseña</value>
+  </data>
+  <data name="ClientsPasswordChangeConfirm.PlaceholderText" xml:space="preserve">
+    <value>Confirma tu nueva contraseña</value>
+  </data>
+  <data name="ClientsPasswordChangeConfirmPassword.Text" xml:space="preserve">
+    <value>Confirmar Contraseña:</value>
+  </data>
+  <data name="ClientsPasswordChangeEmailAuth.Text" xml:space="preserve">
+    <value>La autenticidad del correo electrónico fue verificada, por favor proporcione nuevas credenciales para su cuenta</value>
+  </data>
+  <data name="ClientsPasswordChangeType.PlaceholderText" xml:space="preserve">
+    <value>Escribe una nueva contraseña</value>
+  </data>
+  <data name="ClientsSendEmailEnterYour.Text" xml:space="preserve">
+    <value>Introduzca su correo electrónico para enviar un código de recuperación de su contraseña</value>
+  </data>
+  <data name="ClientsSendEmailError.Subtitle" xml:space="preserve">
+    <value>Email invalido</value>
+  </data>
+  <data name="ClientsSendEmailError.Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ClientsSendEmailSend.Content" xml:space="preserve">
+    <value>Enviar Email</value>
+  </data>
+  <data name="ProfessionalCodeVerificationCancel.Content" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="ProfessionalCodeVerificationEnterYour.Text" xml:space="preserve">
+    <value>Introduzca el código de recuperación que se le envió a su correo electrónico</value>
+  </data>
+  <data name="ProfessionalCodeVerificationerror.Subtitle" xml:space="preserve">
+    <value>Código Invalido</value>
+  </data>
+  <data name="ProfessionalCodeVerificationerror.Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ProfessionalCodeVerificationIfYour.Text" xml:space="preserve">
+    <value>Si tu correo electrónico no es válido no recibirás nada</value>
+  </data>
+  <data name="ProfessionalCodeVerificationSubmit.Content" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="ProfessionalPasswordChanfeEmailAuth.Text" xml:space="preserve">
+    <value>La autenticidad del correo electrónico fue verificada, por favor proporcione nuevas credenciales para su cuenta</value>
+  </data>
+  <data name="ProfessionalPasswordChangeCancel.Content" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="ProfessionalPasswordChangeChange.Text" xml:space="preserve">
+    <value>Cambiar Contraseña</value>
+  </data>
+  <data name="ProfessionalPasswordChangeChangePassword.Content" xml:space="preserve">
+    <value>Cambiar Contraseña</value>
+  </data>
+  <data name="ProfessionalPasswordChangeConfirm.PlaceholderText" xml:space="preserve">
+    <value>Confirma tu nueva contraseña</value>
+  </data>
+  <data name="ProfessionalPasswordChangeConfirmPassword.Text" xml:space="preserve">
+    <value>Confirmar Contraseña:</value>
+  </data>
+  <data name="ProfessionalPasswordChangePassword.Text" xml:space="preserve">
+    <value>Contraseña:</value>
+  </data>
+  <data name="ProfessionalPasswordCHangeType.PlaceholderText" xml:space="preserve">
+    <value>Escribe una nueva contraseña</value>
+  </data>
+  <data name="ProfessionalSendEmailEnterYour.Text" xml:space="preserve">
+    <value>Introduzca su correo electrónico para enviar un código de recuperación de su contraseña</value>
+  </data>
+  <data name="ProfessionalSendEmailError.Subtitle" xml:space="preserve">
+    <value>Email invalido</value>
+  </data>
+  <data name="ProfessionalSendEmailError.Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ProfessionalSendEmailSendEMail.Content" xml:space="preserve">
+    <value>Enviar Email</value>
+  </data>
 </root>
