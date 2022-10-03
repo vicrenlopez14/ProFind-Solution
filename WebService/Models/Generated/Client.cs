@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebService.Models.Generated
 {
-    [Table("clients")]
+    [Table("client")]
     public partial class Client
     {
         public Client()
@@ -14,6 +14,7 @@ namespace WebService.Models.Generated
             Changepasswordcodes = new HashSet<Changepasswordcode>();
             Projects = new HashSet<Project>();
             Proposals = new HashSet<Proposal>();
+            Threadids = new HashSet<Threadid>();
         }
 
         [Key]
@@ -28,6 +29,8 @@ namespace WebService.Models.Generated
         [Column(TypeName = "datetime")]
         public DateTime? RegistrationDateC { get; set; }
         public string? PictureC { get; set; }
+        [StringLength(255)]
+        public string? CommunicationIdC { get; set; }
 
         [InverseProperty("IdC1Navigation")]
         public virtual ICollection<Changepasswordcode> Changepasswordcodes { get; set; }
@@ -35,5 +38,7 @@ namespace WebService.Models.Generated
         public virtual ICollection<Project> Projects { get; set; }
         [InverseProperty("IdC3Navigation")]
         public virtual ICollection<Proposal> Proposals { get; set; }
+        [InverseProperty("IdCNavigation")]
+        public virtual ICollection<Threadid> Threadids { get; set; }
     }
 }

@@ -28,6 +28,7 @@ namespace WebService.Data
         public virtual DbSet<Proposal> Proposals { get; set; } = null!;
         public virtual DbSet<Rank> Ranks { get; set; } = null!;
         public virtual DbSet<Tag> Tags { get; set; } = null!;
+        public virtual DbSet<Threadid> Threadids { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -238,6 +239,28 @@ namespace WebService.Data
                     .HasForeignKey(d => d.IdPj1)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_Tag_Project");
+            });
+
+            modelBuilder.Entity<Threadid>(entity =>
+            {
+                entity.HasKey(e => e.IdT)
+                    .HasName("PRIMARY");
+
+                entity.Property(e => e.IdC).IsFixedLength();
+
+                entity.Property(e => e.IdP).IsFixedLength();
+
+                entity.HasOne(d => d.IdCNavigation)
+                    .WithMany(p => p.Threadids)
+                    .HasForeignKey(d => d.IdC)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_ThreadIds_Client");
+
+                entity.HasOne(d => d.IdPNavigation)
+                    .WithMany(p => p.Threadids)
+                    .HasForeignKey(d => d.IdP)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_ThreadIds_Professional");
             });
 
             OnModelCreatingPartial(modelBuilder);

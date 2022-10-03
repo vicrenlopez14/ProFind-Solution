@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebService.Models.Generated
 {
-    [Table("changepasswordcodes")]
+    [Table("changepasswordcode")]
     [Index("IdA1", Name = "FK_Admin_ChangePasswordCode")]
     [Index("IdC1", Name = "FK_Client_ChangePasswordCode")]
     [Index("IdP1", Name = "FK_Professional_ChangePasswordCode")]

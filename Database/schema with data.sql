@@ -20,7 +20,8 @@ CREATE TABLE Client
     EmailC            VARCHAR(255),
     PasswordC         CHAR(64),
     RegistrationDateC DATETIME,
-    PictureC          LONGTEXT
+    PictureC          LONGTEXT,
+    CommunicationIdC  VARCHAR(255)
 );
 
 SELECT *
@@ -47,14 +48,15 @@ FROM `Rank`;
 ###########################################
 CREATE TABLE Admin
 (
-    IdA           CHAR(21) PRIMARY KEY,
-    NameA         VARCHAR(50),
-    EmailA        VARCHAR(255) UNIQUE,
-    TelA          VARCHAR(15),
-    PasswordA     CHAR(64),
-    PictureA      LONGTEXT,
-    CreationDateA DATETIME,
-    IdR1          INT,
+    IdA              CHAR(21) PRIMARY KEY,
+    NameA            VARCHAR(50),
+    EmailA           VARCHAR(255) UNIQUE,
+    TelA             VARCHAR(15),
+    PasswordA        CHAR(64),
+    PictureA         LONGTEXT,
+    CreationDateA    DATETIME,
+    IdR1             INT,
+    CommunicationIdA VARCHAR(255),
     FULLTEXT (NameA, EmailA, TelA),
     CONSTRAINT FK_Admin_Rank FOREIGN KEY (IdR1) REFERENCES `Rank` (IdR) ON DELETE CASCADE
 );
@@ -108,24 +110,25 @@ FROM Profession;
 ################################################
 CREATE TABLE Professional
 (
-    IdP               CHAR(21) PRIMARY KEY,
-    NameP             CHAR(50),
-    DateBirthP        DATETIME,
-    EmailP            CHAR(255),
-    PasswordP         CHAR(64),
-    ActiveP           BOOLEAN,
-    PhoneP            CHAR(15),
-    SexP              BOOLEAN,
-    DUIP              VARCHAR(15),
-    AFPP              VARCHAR(50),
-    ISSSP             VARCHAR(50),
-    ZipCodeP          VARCHAR(10),
-    SalaryP           FLOAT,
-    HiringDateP       DATETIME,
-    PictureP          LONGTEXT,
-    CurriculumP       LONGBLOB,
-    IdPFS1            INT,
-    IdDP1             INT,
+    IdP              CHAR(21) PRIMARY KEY,
+    NameP            CHAR(50),
+    DateBirthP       DATETIME,
+    EmailP           CHAR(255),
+    PasswordP        CHAR(64),
+    ActiveP          BOOLEAN,
+    PhoneP           CHAR(15),
+    SexP             BOOLEAN,
+    DUIP             VARCHAR(15),
+    AFPP             VARCHAR(50),
+    ISSSP            VARCHAR(50),
+    ZipCodeP         VARCHAR(10),
+    SalaryP          FLOAT,
+    HiringDateP      DATETIME,
+    PictureP         LONGTEXT,
+    CurriculumP      LONGBLOB,
+    CommunicationIdP VARCHAR(255),
+    IdPFS1           INT,
+    IdDP1            INT,
     CONSTRAINT FK_Professional_Profession FOREIGN KEY (IdPFS1) REFERENCES Profession (IdPFS) ON DELETE CASCADE,
     CONSTRAINT FK_Professional_Department FOREIGN KEY (IdDP1) REFERENCES Department (IdDP) ON DELETE CASCADE
 );
@@ -191,9 +194,9 @@ CREATE TABLE Notification
 ################################################
 CREATE TABLE Tag
 (
-    IdT    CHAR(21) PRIMARY KEY,
-    NameT  VARCHAR(50),
-    IdPJ1  CHAR(21),
+    IdT   CHAR(21) PRIMARY KEY,
+    NameT VARCHAR(50),
+    IdPJ1 CHAR(21),
     CONSTRAINT FK_Tag_Project FOREIGN KEY (IdPJ1) REFERENCES Project (IdPJ) ON DELETE CASCADE
 );
 
@@ -214,4 +217,15 @@ CREATE TABLE Proposal
     CONSTRAINT FK_Proposal_Client FOREIGN KEY (IdC3) REFERENCES Client (IdC) ON DELETE CASCADE
 );
 
-SELECT * FROM Proposal;
+SELECT *
+FROM Proposal;
+
+################################################
+CREATE TABLE ThreadIds
+(
+    IdT VARCHAR(255) PRIMARY KEY,
+    IdC CHAR(21),
+    IdP CHAR(21),
+    CONSTRAINT FK_ThreadIds_Client FOREIGN KEY (IdC) REFERENCES Client (IdC) ON DELETE CASCADE,
+    CONSTRAINT FK_ThreadIds_Professional FOREIGN KEY (IdP) REFERENCES Professional (IdP) ON DELETE CASCADE
+);

@@ -31,6 +31,7 @@ namespace WebService.Controllers
             {
                 professional.AssignId();
                 professional.PasswordP = ShaOperations.ShaPassword(professional.PasswordP);
+                professional.CommunicationIdP = TokensGeneratorIssuer.GenerateCommunicationId();
 
                 _context.Add(professional);
                 await _context.SaveChangesAsync();
@@ -268,6 +269,8 @@ namespace WebService.Controllers
         {
             professional.AssignId();
             professional.PasswordP = ShaOperations.ShaPassword(professional.PasswordP);
+            professional.CommunicationIdP = TokensGeneratorIssuer.GenerateCommunicationId();
+
             _context.Professionals.Add(professional);
             try
             {

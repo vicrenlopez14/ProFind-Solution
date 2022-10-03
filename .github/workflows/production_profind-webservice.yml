@@ -5,7 +5,7 @@ name: Build and deploy ASP.Net Core app to Azure Web App - profind-webservice
 on:
   push:
     branches:
-      - Production
+      - master
   workflow_dispatch:
 
 jobs:

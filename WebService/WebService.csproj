@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <PackageReference Include="Azure.Communication.Email" Version="1.0.0-beta.1" />
+    <PackageReference Include="Azure.Communication.Identity" Version="1.0.0" />
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.9">
       <PrivateAssets>all</PrivateAssets>
@@ -40,10 +41,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2-beta2" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Reports\" />
   </ItemGroup>
 
 </Project>

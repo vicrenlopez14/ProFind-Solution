@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebService.Models.Generated
 {
-    [Table("admins")]
+    [Table("admin")]
     [Index("EmailA", Name = "EmailA", IsUnique = true)]
     [Index("IdR1", Name = "FK_Admin_Rank")]
     public partial class Admin
@@ -31,6 +31,8 @@ namespace WebService.Models.Generated
         public DateTime? CreationDateA { get; set; }
         [Column(TypeName = "int(11)")]
         public int? IdR1 { get; set; }
+        [StringLength(255)]
+        public string? CommunicationIdA { get; set; }
 
         [ForeignKey("IdR1")]
         [InverseProperty("Admins")]

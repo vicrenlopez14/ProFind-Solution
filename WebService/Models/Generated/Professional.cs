@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebService.Models.Generated
 {
-    [Table("professionals")]
+    [Table("professional")]
     [Index("IdDp1", Name = "FK_Professional_Department")]
     [Index("IdPfs1", Name = "FK_Professional_Profession")]
     public partial class Professional
@@ -17,6 +17,7 @@ namespace WebService.Models.Generated
             Notifications = new HashSet<Notification>();
             Projects = new HashSet<Project>();
             Proposals = new HashSet<Proposal>();
+            Threadids = new HashSet<Threadid>();
         }
 
         [Key]
@@ -50,6 +51,8 @@ namespace WebService.Models.Generated
         public DateTime? HiringDateP { get; set; }
         public string? PictureP { get; set; }
         public byte[]? CurriculumP { get; set; }
+        [StringLength(255)]
+        public string? CommunicationIdP { get; set; }
         [Column("IdPFS1", TypeName = "int(11)")]
         public int? IdPfs1 { get; set; }
         [Column("IdDP1", TypeName = "int(11)")]
@@ -69,5 +72,7 @@ namespace WebService.Models.Generated
         public virtual ICollection<Project> Projects { get; set; }
         [InverseProperty("IdP3Navigation")]
         public virtual ICollection<Proposal> Proposals { get; set; }
+        [InverseProperty("IdPNavigation")]
+        public virtual ICollection<Threadid> Threadids { get; set; }
     }
 }
