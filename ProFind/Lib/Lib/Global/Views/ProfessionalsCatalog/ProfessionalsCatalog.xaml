@@ -1,0 +1,195 @@
+﻿<Page
+    x:Class="ProFind.Lib.Global.Views.ProfessionalsCatalog.ProfessionalsCatalog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProFind.Lib.Global.Views.ProfessionalsCatalog"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:controls="using:Microsoft.UI.Xaml.Controls" 
+    xmlns:services="using:ProFind.Lib.Global.Services"
+    mc:Ignorable="d"
+    Style="{StaticResource PageStyle}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="0.7*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+
+            <Grid Name="SelectedProfessionSection_sp" HorizontalAlignment="Left" Margin="0 25 0 0" Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel  Grid.Column="1" Background="{StaticResource LuminousAcrylicBrush}" d:Background="Transparent" FocusVisualPrimaryThickness="2" FocusVisualSecondaryThickness="1" FocusVisualMargin="-3" FocusVisualPrimaryBrush="{StaticResource SystemControlFocusVisualPrimaryBrush}" FocusVisualSecondaryBrush="{StaticResource SystemControlFocusVisualSecondaryBrush}">
+                    <TextBlock Text="Selected profession" Style="{StaticResource DetailBodyBaseMediumStyle}"/>
+                    <TextBlock Name="SelectedProfessionName" d:Text="Automotive services" Style="{StaticResource SubheaderTextBlockStyle}"/>
+                </StackPanel>
+            </Grid>
+            <Grid Name="SelectedProfessionalSection_sp" HorizontalAlignment="Left" Margin="0 25 0 0" Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Name="ProfessionalImage_img" d:Source="Assets/400x400-logo.png"></Image>
+                <StackPanel  Grid.Column="1" Background="{StaticResource LuminousAcrylicBrush}" d:Background="Transparent" FocusVisualPrimaryThickness="2" FocusVisualSecondaryThickness="1" FocusVisualMargin="-3" FocusVisualPrimaryBrush="{StaticResource SystemControlFocusVisualPrimaryBrush}" FocusVisualSecondaryBrush="{StaticResource SystemControlFocusVisualSecondaryBrush}">
+                    <TextBlock Text="Selected professional" Style="{StaticResource DetailBodyBaseMediumStyle}"/>
+                    <TextBlock Name="ProfessionalName_tb" d:Text="Carlos Burgos" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Profession: " Margin="0 0 15 0" FontWeight="Bold"/>
+                        <TextBlock x:Name="ProfessionalProfession_tb" d:Text="Automotive services" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Department: " Margin="0 0 15 0" FontWeight="Bold"/>
+                        <TextBlock x:Name="ProfessionalDepartment_tb" d:Text="Cabañas" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="In ProFind since: " Margin="0 0 15 0" FontWeight="Bold"/>
+                        <TextBlock x:Name="ProfessionalHiringDate_tb" d:Text="19/09/2022" />
+                    </StackPanel>
+                    <HyperlinkButton Name="ViewCurriculum_btn" Content="View curriculum" Margin="0 10 0 0" Click="ViewCurriculum_btn_Click"/>
+                    <TextBlock/>
+                </StackPanel>
+            </Grid>
+
+            <TextBlock Text="Take action" Style="{StaticResource DetailBodyBaseMediumStyle}"/>
+            <Button Name="MakeAProposal_btn" IsEnabled="False" Style="{StaticResource AccentButtonStyle}" Margin=" 0 5 0 0">Make a proposal</Button>
+
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.9*"/>
+                <RowDefinition Height="0.1*"/>
+            </Grid.RowDefinitions>
+            <FlipView Grid.Row="0" x:Name="StepsFlipView_fv" SelectedIndex="0" CanDrag="False" >
+                <Grid Name="Step1_g">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                        <TextBlock d:Text="What type of Professional are you looking for?" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"/>
+                        <ListView Name="ProfessionsListView" Margin="0 50 0 0" ItemClick="ProfessionsListView_ItemClick" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+    ScrollViewer.HorizontalScrollMode="Enabled"                  
+    ScrollViewer.VerticalScrollMode="Disabled">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="services:Profession">
+                                    <Button Width="200" Height="100"
+            FocusVisualPrimaryThickness="2"
+          FocusVisualSecondaryThickness="1"
+          FocusVisualMargin="-3"
+          FocusVisualPrimaryBrush="{StaticResource SystemControlFocusVisualPrimaryBrush}"
+          FocusVisualSecondaryBrush="{StaticResource SystemControlFocusVisualSecondaryBrush}">
+                                        <StackPanel>
+                                            <TextBlock Text="{x:Bind NamePfs}" Style="{StaticResource DetailBodyBaseMediumStyle}"/>
+                                        </StackPanel>
+                                    </Button>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                </Grid>
+                <Grid Name="Step2_g">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.15*"/>
+                        <RowDefinition Height="0.8*"/>
+                        <RowDefinition Height="0.1*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Vertical">
+                        <TextBlock d:Text="Here the list of professionals availabe for the profession you selected" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.8*"/>
+                                <ColumnDefinition Width="0.2*"/>
+                            </Grid.ColumnDefinitions>
+                            <AutoSuggestBox Grid.Column="0" Name="SearchBox_asb" Header="Full name" Margin="30 10" PlaceholderText="Carlos Bur..." TextChanged="Control2_TextChanged" QueryIcon="Find" VerticalAlignment="Center"/>
+                            <ComboBox Grid.Column="1" Name="DepartmentSelection_cb" Header="Department" VerticalAlignment="Center" Width="200" PlaceholderText="Any" SelectionChanged="DepartmentSelection_cb_SelectionChanged"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
+                        <Grid Margin="0 25 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                        <ListView Name="ProfessionalsListViewCol1" ItemClick="ProfessionalsListViewCol1_ItemClick" SelectionMode="Single">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="services:Professional">
+                                    <Button Width="400" Height="200"
+                                            FocusVisualPrimaryThickness="2"
+                                            FocusVisualSecondaryThickness="1"
+                                            FocusVisualMargin="-3"
+                                            FocusVisualPrimaryBrush="{StaticResource SystemControlFocusVisualPrimaryBrush}"
+                                            FocusVisualSecondaryBrush="{StaticResource SystemControlFocusVisualSecondaryBrush}">
+                                        <Grid HorizontalAlignment="Left" Padding="10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.4*"/>
+                                                <ColumnDefinition Width="0.6*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Name="ProfessionalImage_img" Source="{Binding PictureP}" d:Source="Assets/400x400-logo.png"></Image>
+                                            <StackPanel Width="500" Background="{StaticResource LuminousAcrylicBrush}" d:Background="Transparent" FocusVisualPrimaryThickness="2" FocusVisualSecondaryThickness="1" FocusVisualMargin="-3" FocusVisualPrimaryBrush="{StaticResource SystemControlFocusVisualPrimaryBrush}" FocusVisualSecondaryBrush="{StaticResource SystemControlFocusVisualSecondaryBrush}">
+                                                <TextBlock Text="Selected professional" Style="{StaticResource DetailBodyBaseMediumStyle}"/>
+                                                <TextBlock Name="ProfessionalName_tb" Text="{x:Bind NameP}" d:Text="Carlos Burgos" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="Department: " Margin="0 0 15 0" FontWeight="Bold"/>
+                                                    <TextBlock x:Name="ProfessionalDepartment_tb" d:Text="Cabañas" Text="{x:Bind IdDp1Navigation.NameDp}"/>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="In ProFind since: " Margin="0 0 15 0" FontWeight="Bold"/>
+                                                    <TextBlock x:Name="ProfessionalHiringDate_tb" d:Text="19/09/2022" Text="{x:Bind HiringDateP.ToString()}"/>
+                                                </StackPanel>
+                                                <TextBlock/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Button>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <ListView Name="ProfessionalsListViewCol2" ItemClick="ProfessionalsListViewCol1_ItemClick" SelectionMode="Single">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="services:Professional">
+                                    <Button Width="400" Height="200"
+                                            FocusVisualPrimaryThickness="2"
+                                            FocusVisualSecondaryThickness="1"
+                                            FocusVisualMargin="-3"
+                                            FocusVisualPrimaryBrush="{StaticResource SystemControlFocusVisualPrimaryBrush}"
+                                            FocusVisualSecondaryBrush="{StaticResource SystemControlFocusVisualSecondaryBrush}">
+                                        <Grid HorizontalAlignment="Left" Padding="10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.4*"/>
+                                                <ColumnDefinition Width="0.6*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Name="ProfessionalImage_img" Source="{Binding PictureP}" d:Source="Assets/400x400-logo.png"></Image>
+                                            <StackPanel Width="500" Background="{StaticResource LuminousAcrylicBrush}" d:Background="Transparent" FocusVisualPrimaryThickness="2" FocusVisualSecondaryThickness="1" FocusVisualMargin="-3" FocusVisualPrimaryBrush="{StaticResource SystemControlFocusVisualPrimaryBrush}" FocusVisualSecondaryBrush="{StaticResource SystemControlFocusVisualSecondaryBrush}">
+                                                <TextBlock Text="Selected professional" Style="{StaticResource DetailBodyBaseMediumStyle}"/>
+                                                <TextBlock Name="ProfessionalName_tb" Text="{x:Bind NameP}" d:Text="Carlos Burgos" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="Department: " Margin="0 0 15 0" FontWeight="Bold"/>
+                                                    <TextBlock x:Name="ProfessionalDepartment_tb" d:Text="Cabañas" Text="{x:Bind IdDp1Navigation.NameDp}"/>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="In ProFind since: " Margin="0 0 15 0" FontWeight="Bold"/>
+                                                    <TextBlock x:Name="ProfessionalHiringDate_tb" d:Text="19/09/2022" Text="{x:Bind HiringDateP.ToString()}"/>
+                                                </StackPanel>
+                                                <TextBlock/>
+                                            </StackPanel>
+                                        </Grid>
+
+                                    </Button>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                    <Button Grid.Row="2" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Center" Click="Button_Click">Back to Profession selection</Button>
+                </Grid>
+                <Grid Name="Step3_g"></Grid>
+            </FlipView>
+            <controls:PipsPager x:Name="FlipViewPipsPager"
+            HorizontalAlignment="Center"
+            Margin="0, 12, 0, 0"
+            NumberOfPages="2"
+            Grid.Row="1"
+            SelectedPageIndex="{x:Bind Path=StepsFlipView_fv.SelectedIndex, Mode=TwoWay}" />
+        </Grid>
+
+    </Grid>
+</Page>

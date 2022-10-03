@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="ProFind.Lib.ProfessionalNS.Views.Operations.PasswordChangePage.CodeVerification"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProFind.Lib.ProfessionalNS.Views.Operations.PasswordChangePage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    Style="{StaticResource PageStyle}">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"  Padding="30" CornerRadius="30" Height="244">
+            <TextBlock Style="{StaticResource TitleTextBlockStyle}" FontWeight="SemiBold" Text="Enter your recovery code that was sent to your email"></TextBlock>
+            <TextBlock Text="If your email wasn't valid you won't get anything" HorizontalAlignment="Center" Style="{StaticResource DetailBodyBaseMediumStyle}" SelectionChanged="TextBlock_SelectionChanged"></TextBlock>
+
+            <TextBox x:Name="Code_tb" Margin="50 20 50 20"></TextBox>
+
+            <Grid VerticalAlignment="Center" Margin="0 20 0 0 ">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column ="0" HorizontalAlignment="Right">
+                    <Button Margin="0 0 20 0" Style="{StaticResource AccentButtonStyle}" Content="Cancel" Height="37" Width="99" Click="Button_Click"></Button>
+                </StackPanel>
+                <StackPanel Grid.Column ="1" HorizontalAlignment="Left">
+                    <Button Margin="20 0 0 0" Style="{StaticResource AccentButtonStyle}" Content="Submit" Height="37" Width="97" Click="Button_Click_1" Name="Submit_btn"></Button>
+                </StackPanel>
+            </Grid>
+            <muxc:TeachingTip x:Name="ToggleThemeTeachingTip1"
+                    Target="{x:Bind Code_tb}"
+                    Title="Error"
+                    Subtitle="Invalid Code">
+                <muxc:TeachingTip.IconSource>
+                    <muxc:SymbolIconSource Symbol="Refresh" />
+                </muxc:TeachingTip.IconSource>
+            </muxc:TeachingTip>
+        </StackPanel>
+    </Grid>
+</Page>

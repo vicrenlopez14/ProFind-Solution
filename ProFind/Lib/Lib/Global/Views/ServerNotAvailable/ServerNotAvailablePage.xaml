@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="ProFind.Lib.Global.Views.ServerNotAvailable.ServerNotAvailablePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ProFind.Lib.Global.Views.ServerNotAvailable"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    Style="{StaticResource PageStyle}"
+    mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+            <TextBlock HorizontalAlignment="Center" Style="{StaticResource HeaderTextBlockStyle}">Ooops!</TextBlock>
+            <TextBlock HorizontalAlignment="Center" Style="{StaticResource SubheaderTextBlockStyle}">There are problems to establish communication with the server.</TextBlock>
+            <RichTextBlock
+                HorizontalAlignment="Center"
+                SelectionHighlightColor="Green"
+                Style="{StaticResource BaseRichTextBlockStyle}">
+                <Paragraph>
+                    Please check your internet connection and contact the developers on<Hyperlink>support@profind.com</Hyperlink>
+                </Paragraph>
+            </RichTextBlock>
+            <muxc:ProgressRing
+                Name="Connection_pr"
+                Width="50"
+                Height="50"
+                Margin="0,50" />
+        </StackPanel>
+    </Grid>
+</Page>

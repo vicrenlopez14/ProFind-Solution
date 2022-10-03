@@ -1,0 +1,128 @@
+﻿<Page
+    x:Class="ProFind.Lib.AdminNS.Views.CRUDPages.ProposalNS.CreatePage.CreatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProFind.Lib.AdminNS.Views.CRUDPages.ProposalNS.CreatePage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:muxc="using:Microsoft.UI.Xaml.Controls" xmlns:services="using:ProFind.Lib.Global.Services"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <ScrollViewer Grid.Column="1">
+            <Grid>
+                <StackPanel Padding="100" Orientation="Vertical">
+                    <TextBlock
+                        Name="PageTitle"
+                        FontWeight="Bold"
+                        Style="{StaticResource HeaderTextBlockStyle}"
+                        Text="Submit" />
+                    <TextBlock Name="PageSubtitle">
+                        Create a work proposal, and then send it to your desired professional.
+                    </TextBlock>
+                    <Pivot Margin="0 25 0 0">
+                        <PivotItem Header="Information">
+                            <StackPanel Orientation="Vertical">
+                                <Image
+                        Name="SelectedPicture_pp"
+                        Width="100"
+                        Height="100"
+                        Margin="0,30,0,0" />
+                                <StackPanel
+                        Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                                    <ToggleButton
+                            x:Name="PictureSelection_btn"
+                            Grid.Column="0"
+                            Width="150"
+                            HorizontalAlignment="Left"
+                            Content="Select a picture" />
+                                    <TextBlock
+                            Name="SelectedPicture_tbk"
+                            Margin="10,0,0,0"
+                            VerticalAlignment="Center">
+                            No picture selected
+                                    </TextBlock>
+                                </StackPanel>
+                                <TextBox
+                        x:Name="Title_tb"
+                        Margin="0,30,0,0"
+                        PlaceholderText="Title"
+                         />
+                                <TextBox
+                        x:Name="Description_tb"
+                        Margin="0,15,0,0"
+                        PlaceholderText="Description"
+                         />
+                                <StackPanel Orientation="Horizontal">
+                                    <CalendarDatePicker
+                        Name="SuggestedBegin_dp"
+                        Margin="0,15,15,0"
+                       
+                        Header="Suggested begin" />
+                                    <CalendarDatePicker
+                        Name="SuggestedEnd_dp"
+                        Margin="15,15,0,0"
+                        Header="Suggested end" />
+                                </StackPanel>
+                            </StackPanel>
+                        </PivotItem>
+                        <PivotItem Header="People">
+                            <Grid HorizontalAlignment="Left" Margin="0 25 0 0" Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.4*"/>
+                                    <ColumnDefinition Width="0.6*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Name="ProfessionalImage_img" d:Source="Assets/400x400-logo.png"></Image>
+                                <StackPanel Width="500" Background="{StaticResource LuminousAcrylicBrush}" d:Background="Transparent" FocusVisualPrimaryThickness="2" FocusVisualSecondaryThickness="1" FocusVisualMargin="-3" FocusVisualPrimaryBrush="{StaticResource SystemControlFocusVisualPrimaryBrush}" FocusVisualSecondaryBrush="{StaticResource SystemControlFocusVisualSecondaryBrush}"><TextBlock Text="Selected professional" Style="{StaticResource DetailBodyBaseMediumStyle}"/>
+                                    <TextBlock Name="ProfessionalName_tb" d:Text="Carlos Burgos" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Profession: " Margin="0 0 15 0" FontWeight="Bold"/>
+                                        <TextBlock x:Name="ProfessionalProfession_tb" d:Text="Automotive services" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Department: " Margin="0 0 15 0" FontWeight="Bold"/>
+                                        <TextBlock x:Name="ProfessionalDepartment_tb" d:Text="Cabañas" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="In ProFind since: " Margin="0 0 15 0" FontWeight="Bold"/>
+                                        <TextBlock x:Name="ProfessionalHiringDate_tb" d:Text="19/09/2022" />
+                                    </StackPanel>
+                                    <HyperlinkButton Name="ViewCurriculum_btn" Content="View curriculum" Margin="0 10 0 0" Click="ViewCurriculum_btn_Click"/>
+                                    <TextBlock/>
+                                </StackPanel>
+                            </Grid>
+                        </PivotItem>
+                    </Pivot>
+                    <Grid Margin="0,10,0,0" VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*" />
+                            <ColumnDefinition Width="0.3*" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button
+                            x:Name="Create_btn"
+                            Width="100"
+                            Margin="0 0 15 0"
+                            Content="Send"
+                            Style="{StaticResource AccentButtonStyle}" Click="Create_btn_Click" />
+                        <Button
+                            x:Name="Cancel_btn"
+                            Width="100"
+                            Margin="15 0 0 0"
+                            Content="Cancel"
+                            Style="{StaticResource AccentButtonStyle}" Click="Cancel_btn_Click" />
+                    </StackPanel>
+                    <muxc:ProgressRing
+                        x:Name="Creation_pr"
+                        Margin="0,20,0,0"
+                        IsActive="False" />
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+    </Grid>
+
+</Page>

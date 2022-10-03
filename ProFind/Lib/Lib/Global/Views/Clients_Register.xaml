@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="ProFind.Lib.Global.Views.Clients_Register"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProFind.Lib.Global.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    Style="{StaticResource PageStyle}">
+
+    <Grid>
+        <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/Assets/init_page_background.jpg" Stretch="Fill" />
+        <Rectangle Fill="{ThemeResource SystemChromeAltLowColor}" Opacity="0.5" Stretch="Fill"/>
+        <TextBlock Style="{ThemeResource HeaderTextBlockStyle}" HorizontalAlignment="Center" Margin="0,150,0,0" Foreground="White" TextWrapping="Wrap" Text="Welcome" VerticalAlignment="Top"/>
+        <TextBox Name="mail_tb" HorizontalAlignment="Center" Margin="0,274,0,0" TextWrapping="Wrap" PlaceholderText="Type your email" VerticalAlignment="Top" Width="300"/>
+        <PasswordBox Name="pass_tb" HorizontalAlignment="Center" Margin="0,363,0,0" PlaceholderText="Choose a password" VerticalAlignment="Top" Width="300"/>
+        <PasswordBox Name="confirm_tb" HorizontalAlignment="Center" Margin="0,405,0,0" PlaceholderText="Confirm password" VerticalAlignment="Top" Width="300"/>
+        <Button Content="Register" HorizontalAlignment="Center"  Margin="0,463,0,0" VerticalAlignment="Top"/>
+        <TextBlock Name="warning_tb" HorizontalAlignment="Center" Margin="0,242,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="name_tb" HorizontalAlignment="Center" Margin="0,319,0,0" TextWrapping="Wrap" PlaceholderText="Write your name" VerticalAlignment="Top" Width="300"/>
+    </Grid>
+</Page>

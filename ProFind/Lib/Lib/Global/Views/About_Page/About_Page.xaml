@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="ProFind.Lib.Global.Views.About_Page.About_Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProFind.Lib.Global.Views.About_Page"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Style="{StaticResource PageStyle}">
+
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" Height="344" Margin="64,68,0,0" Stroke="Black" VerticalAlignment="Top" Width="1032" Fill="Salmon" FocusVisualPrimaryBrush="White"/>
+        <Rectangle HorizontalAlignment="Left" Height="344" Margin="1096,68,0,0" Stroke="Black" VerticalAlignment="Top" Width="306"/>
+        <TextBox HorizontalAlignment="Left" Margin="1160,201,0,725" TextWrapping="Wrap" Text="ProFind" Width="190" FontSize="48" RenderTransformOrigin="0.521,0.486" UseLayoutRounding="False" d:LayoutRounding="Auto" BorderBrush="#66FFFFFF">
+            <TextBox.RenderTransform>
+                <CompositeTransform Rotation="90.087" TranslateX="-2.96" TranslateY="5.028"/>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox HorizontalAlignment="Left" Height="240" Margin="86,120,0,0" TextWrapping="Wrap" Text="&quot;ProFind&quot; is a software that is aimed at making the temporary hiring of professionals by individuals more efficient and comfortable, making the monitoring by the client of the situation that their processes have with the hired professionals easier and faster." VerticalAlignment="Top" Width="956" FontSize="35" Background="Salmon" FocusVisualPrimaryBrush="White" SelectionHighlightColorWhenNotFocused="Salmon" BorderBrush="Salmon"/>
+        <Rectangle HorizontalAlignment="Left" Height="344" Margin="64,500,0,0" Stroke="Black" VerticalAlignment="Top" Width="306"/>
+        <TextBox HorizontalAlignment="Left" Margin="88,617,0,309" TextWrapping="Wrap" Text="About Us" Width="232" FontSize="48" RenderTransformOrigin="0.521,0.486" UseLayoutRounding="False" d:LayoutRounding="Auto" BorderBrush="#66FFFFFF">
+            <TextBox.RenderTransform>
+                <CompositeTransform Rotation="-89.21" TranslateX="-2.96" TranslateY="5.028"/>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Rectangle HorizontalAlignment="Left" Height="344" Margin="370,500,0,0" Stroke="Black" VerticalAlignment="Top" Width="1032" Fill="#FF795465" FocusVisualPrimaryBrush="White"/>
+        <TextBox HorizontalAlignment="Left" Height="240" Margin="408,552,0,0" TextWrapping="Wrap" Text="We are a company, we seek to facilitate and make it easier to hire professionals in less time and more safely, so we can help people who need our services." VerticalAlignment="Top" Width="956" FontSize="40" Background="#FF795465" FocusVisualPrimaryBrush="White" SelectionHighlightColorWhenNotFocused="#FF795465" BorderBrush="#FF795465"/>
+    </Grid>
+</Page>

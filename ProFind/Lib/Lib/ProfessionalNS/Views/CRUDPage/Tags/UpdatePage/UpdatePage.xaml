@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="ProFind.Lib.ProfessionalNS.Views.CRUDPage.Tags.UpdatePage.UpdatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProFind.Lib.ProfessionalNS.Views.CRUDPage.Tags.UpdatePage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid>
+            <ScrollViewer Grid.Column="1">
+                <Grid>
+                    <StackPanel Padding="100" Orientation="Vertical">
+                        <TextBlock
+                        FontWeight="Bold"
+                        Style="{StaticResource HeaderTextBlockStyle}"
+                        Text="To update" />
+
+                        <TextBlock>
+                        To update a  Tags.
+                        </TextBlock>
+                        <StackPanel
+                        Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"/>
+                        <TextBox
+                        x:Name="Name_tb"
+                        Margin="0,30,0,0"
+                        PlaceholderText="Name"  TextChanged="Name_tb_TextChanged"
+                         />
+
+                        <Grid Margin="0,10,0,0" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.7*" />
+                                <ColumnDefinition Width="0.3*" />
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+
+                        <Button
+                        x:Name="Create_btn"
+                        Width="100"
+                        Margin="0,50,0,0"
+                        HorizontalAlignment="Center"
+                        Click="Create_btn_Click_1"
+                        Content="To Update"
+                        Style="{StaticResource AccentButtonStyle}" />
+
+                        <d:ProgressRing
+                        x:Name="Creation_pr"
+                        Margin="0,20,0,0"
+                        IsActive="False" />
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+
+    </Grid>
+</Page>

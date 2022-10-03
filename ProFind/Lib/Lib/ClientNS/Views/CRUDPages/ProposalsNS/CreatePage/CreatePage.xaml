@@ -1,0 +1,137 @@
+﻿<Page
+    x:Class="ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.CreatePage.CreatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.CreatePage"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <Grid>
+        <ScrollViewer Grid.Column="1">
+            <Grid>
+                <StackPanel Padding="100" Orientation="Vertical">
+                    <TextBlock
+                        Name="PageTitle"
+                        FontWeight="Bold"
+                        Style="{StaticResource HeaderTextBlockStyle}"
+                        Text="Creation" />
+                    <TextBlock Name="PageSubtitle">
+                        Create a new Proposal.
+                    </TextBlock>
+                    <muxc:PersonPicture
+                        Name="SelectedPicture_pp"
+                        Width="100"
+                        Height="100"
+                        Margin="0,30,0,0" />
+                    <StackPanel
+                        Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <ToggleButton
+                            x:Name="PictureSelection_btn"
+                            Grid.Column="0"
+                            Width="150"
+                            HorizontalAlignment="Left"
+                            Checked="PictureSelection_btn_Checked"
+                            Click="PictureSelection_btn_Click"
+                            Content="Select a picture" />
+                        <TextBlock
+                            Name="SelectedPicture_tbk"
+                            Margin="10,0,0,0"
+                            VerticalAlignment="Center">
+                            No picture selected
+                        </TextBlock>
+                    </StackPanel>
+                    <TextBox
+                        x:Name="Title_tb"
+                        Margin="0,30,0,0"
+                        Header="Title"
+                        KeyDown="Title_tb_KeyDown"
+                        PlaceholderText="Title"
+                        TextChanged="Title_tb_TextChanged" />
+                    <TextBox
+                        x:Name="Description_tb"
+                        Margin="0,15,0,0"
+                        Header="Description"
+                        KeyDown="Description_tb_KeyDown"
+                        PlaceholderText="Description"
+                        TextChanged="Description_tb_TextChanged"
+                        TextWrapping="Wrap" />
+                    <DatePicker
+                        Name="ExpectedBegin_dp"
+                        Margin="0,15,0,0"
+                        Header="Expected beginning" />
+                    <DatePicker
+                        Name="Theend"
+                        Margin="0,15,0,0"
+                        Header="Expected end" />
+
+                    <Grid Margin="0,10,0,0" VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*" />
+                            <ColumnDefinition Width="0.3*" />
+                        </Grid.ColumnDefinitions>
+
+
+                    </Grid>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Button
+                            x:Name="Create_btn"
+                            Width="100"
+                            Margin="50"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Click="Create_btn_Click_1"
+                            Content="Create"
+                            Style="{StaticResource AccentButtonStyle}" />
+                        <Button
+                            x:Name="Reset_btn"
+                            Width="100"
+                            Margin="50,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Click="Reset_btn_Click"
+                            Content="Reset"
+                            Style="{StaticResource AccentButtonStyle}" />
+                    </StackPanel>
+
+                    <d:ProgressRing
+                        x:Name="Creation_pr"
+                        Margin="0,20,0,0"
+                        IsActive="False" />
+                    <muxc:TeachingTip
+                        x:Name="TtDates"
+                        Title="Invalid Dates"
+                        Subtitle="The begin date have to be lower or equal than the end date and greater or equal than today"
+                        Target="{x:Bind}">
+                        <muxc:TeachingTip.IconSource>
+                            <muxc:SymbolIconSource Symbol="Refresh" />
+                        </muxc:TeachingTip.IconSource>
+                    </muxc:TeachingTip>
+                    <muxc:TeachingTip
+                        x:Name="TtTitle"
+                        Title="Invalid Title"
+                        Subtitle="The title has to be of at least 3 characters"
+                        Target="{x:Bind Title_tb}">
+                        <muxc:TeachingTip.IconSource>
+                            <muxc:SymbolIconSource Symbol="Refresh" />
+                        </muxc:TeachingTip.IconSource>
+                    </muxc:TeachingTip>
+                    <muxc:TeachingTip
+                        x:Name="TtDescription"
+                        Title="Invalid Description"
+                        Subtitle="The description has to be of at least 3 characters"
+                        Target="{x:Bind Description_tb}">
+                        <muxc:TeachingTip.IconSource>
+                            <muxc:SymbolIconSource Symbol="Refresh" />
+                        </muxc:TeachingTip.IconSource>
+                    </muxc:TeachingTip>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+    </Grid>
+</Page>

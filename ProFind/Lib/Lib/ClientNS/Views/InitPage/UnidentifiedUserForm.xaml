@@ -1,0 +1,21 @@
+﻿<UserControl
+    x:Class="ProFind.Lib.ClientNS.Views.InitPage.UnidentifiedUserForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProFind.Lib.Global.Views.InitPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="150"
+    d:DesignWidth="320">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="Introduce tu correo electrónico" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" FocusVisualPrimaryBrush="White" Foreground="White"/>
+        <TextBox/>
+        <Button HorizontalAlignment="Center" Content="Continuar" Margin="0,105,0,0" VerticalAlignment="Top" IsEnabled="True" Foreground="White">
+            <Button.Background>
+                <AcrylicBrush TintColor="#CC133EAE"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</UserControl>
