@@ -28,7 +28,7 @@ namespace ProFind.Lib.Global.Services
                 };
 
             var client = new HttpClient(handler);
-            client.BaseAddress = new Uri("http://localhost:5073");
+            client.BaseAddress = new Uri("http://api.profind.work");
 
             _service = new WebServiceClient(client);
         }

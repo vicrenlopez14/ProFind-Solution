@@ -59,11 +59,7 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.ListPage
         {
             new InAppNavigationController().NavigateTo(typeof(ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.CreatePage.CreatePage));
         }
-
-     
-        
-
-     
+         
 
         private async void Delete_Click_1(object sender, RoutedEventArgs e)
         {

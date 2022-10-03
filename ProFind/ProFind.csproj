@@ -18,8 +18,9 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-    <PackageCertificateThumbprint>047A4AC3E31737FFEF8EFB3FF114684752602BCD</PackageCertificateThumbprint>
-    <PackageCertificateKeyFile>ProFind_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>6CAA3A3424C680218E8C5C19888DD12A24FA1D83</PackageCertificateThumbprint>
+    <PackageCertificateKeyFile>
+    </PackageCertificateKeyFile>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
@@ -28,6 +29,7 @@
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <AppInstallerUri>https://www.vicrenlopez.com</AppInstallerUri>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+    <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -199,6 +201,7 @@
     <Content Include="Lib\ProfessionalNS\Controllers\Dummy.txt" />
     <Content Include="Lib\ProfessionalNS\Services\Dummy.txt" />
     <Content Include="Lib\ProfessionalNS\ViewModels\Dummy.txt" />
+    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -262,12 +265,6 @@
     <PackageReference Include="System.Reactive">
       <Version>5.0.0</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\en-us\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\es-sv\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
