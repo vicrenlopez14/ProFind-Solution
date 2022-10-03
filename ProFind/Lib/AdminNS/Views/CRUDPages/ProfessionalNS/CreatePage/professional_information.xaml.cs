@@ -237,55 +237,6 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
             }
 
 
-            if (FieldsChecker.CheckName(FirstName1_tbx.Text))
-            {
-                var dialog = new MessageDialog("The name must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (!FieldsChecker.CheckEmail(Email.Text))
-            {
-                var dialog = new MessageDialog("The email must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (!FieldsChecker.CheckDateDown(Nacimiento.Date))
-            {
-                var dialog = new MessageDialog("The birth date must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (FieldsChecker.OnlyFloats(Salario.Text))
-            {
-                var dialog = new MessageDialog("The salary must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (FieldsChecker.OnlyInts(Afp.Text))
-            {
-                var dialog = new MessageDialog("The Afp must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (FieldsChecker.OnlyInts(CodigoPostal.Text))
-            {
-                var dialog = new MessageDialog("The Code Postal must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (FieldsChecker.OnlyLetters(position.Text))
-            {
-                var dialog = new MessageDialog("The Position must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (!FieldsChecker.CheckPassword(passwordBox.Password))
-            {
-                var dialog = new MessageDialog("The password must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-
 
         }
 
