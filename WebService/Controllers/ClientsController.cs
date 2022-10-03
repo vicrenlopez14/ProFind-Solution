@@ -30,6 +30,7 @@ public class ClientsController : ControllerBase
             client.AssignId();
             client.PasswordC = ShaOperations.ShaPassword(client.PasswordC);
             client.RegistrationDateC = DateTime.Now;
+            client.CommunicationIdC = TokensGeneratorIssuer.GenerateCommunicationId();
             _context.Add(client);
             await _context.SaveChangesAsync();
             return Ok(client);
@@ -248,6 +249,8 @@ public class ClientsController : ControllerBase
         client.AssignId();
         client.PasswordC = Utils.ShaOperations.ShaPassword(client.PasswordC);
         client.RegistrationDateC = DateTime.Now;
+        client.CommunicationIdC = TokensGeneratorIssuer.GenerateCommunicationId();
+
         _context.Clients.Add(client);
         try
         {

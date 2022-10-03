@@ -14,7 +14,6 @@ namespace WebService.Controllers;
 public class AdminsController : ControllerBase
 {
     private readonly ProFindContext _context;
-
     public AdminsController(ProFindContext context)
     {
         _context = context;
@@ -29,6 +28,7 @@ public class AdminsController : ControllerBase
         {
             admin.AssignId();
             admin.PasswordA = ShaOperations.ShaPassword(admin.PasswordA);
+            admin.CommunicationIdA = TokensGeneratorIssuer.GenerateCommunicationId();
 
             _context.Add(admin);
             await _context.SaveChangesAsync();
@@ -239,6 +239,7 @@ public class AdminsController : ControllerBase
 
         admin.AssignId();
         admin.PasswordA = ShaOperations.ShaPassword(admin.PasswordA);
+        admin.CommunicationIdA = TokensGeneratorIssuer.GenerateCommunicationId();
         admin.CreationDateA = DateTime.Now;
 
         _context.Admins.Add(admin);

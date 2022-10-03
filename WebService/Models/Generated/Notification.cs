@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebService.Models.Generated
 {
-    [Table("notifications")]
+    [Table("notification")]
     [Index("IdP1", Name = "FK_Notification_Professional")]
     [Index("IdPj2", Name = "FK_Notification_Project")]
     public partial class Notification
