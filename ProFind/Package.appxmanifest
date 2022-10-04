@@ -9,13 +9,13 @@
   <Identity
     Name="48812Group4Studios.1417560AD0F0A"
     Publisher="CN=9F62C16C-CF13-48F6-8786-5976D8B95E26"
-    Version="1.0.9.0" />
+    Version="1.0.14.0" />
 
-  <mp:PhoneIdentity PhoneProductId="8876f9da-c3ba-42bb-9763-df8d4ef20640" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="3f0a6c50-aa2c-4c9c-a0ec-de5aae7db895" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>ProFind - Seek. Hire. Work.</DisplayName>
-    <PublisherDisplayName>CN=Group4Studios</PublisherDisplayName>
+    <PublisherDisplayName>Group4Studios</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 

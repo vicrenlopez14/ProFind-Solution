@@ -22,13 +22,10 @@ namespace ProFind.Lib.Global.Services
             var handler = new HttpClientHandler();
             handler.ClientCertificateOptions = ClientCertificateOption.Manual;
             handler.ServerCertificateCustomValidationCallback =
-                (httpRequestMessage, cert, cetChain, policyErrors) =>
-                {
-                    return true;
-                };
+                (httpRequestMessage, cert, cetChain, policyErrors) => true;
 
             var client = new HttpClient(handler);
-            client.BaseAddress = new Uri("http://api.profind.work");
+            client.BaseAddress = new Uri("http://localhost:5073");
 
             _service = new WebServiceClient(client);
         }

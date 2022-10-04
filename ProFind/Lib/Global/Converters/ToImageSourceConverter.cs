@@ -2,9 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
-using Nito.AsyncEx.Synchronous;
 using ProFind.Lib.Global.Helpers;
-using Nito.AsyncEx;
 
 namespace ProFind.Lib.Global.Converters
 {

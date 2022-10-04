@@ -42,6 +42,7 @@ namespace ProFind
                 dialog.ShowAsync();
                 System.Diagnostics.Debug.WriteLine(e.Exception);
             };
+            
         }
 
         protected override void OnActivated(IActivatedEventArgs args)
@@ -129,33 +130,41 @@ namespace ProFind
                     // Cuando no se restaura la pila de navegación, navegar a la primera página,
                     // configurando la nueva página pasándole la información requerida como
                     //parámetro de navegación
-
-                    var admins = (await APIConnection.GetConnection.GetAdminsAsync());
-                    var areThereAdmins = admins == null ? false : admins.Count() > 0;
-
                     try
                     {
-                        if (areThereAdmins)
+                        var admins = (await APIConnection.GetConnection.GetAdminsAsync());
+                        var areThereAdmins = admins == null ? false : admins.Count() > 0;
+
+                        try
                         {
-                            //rootFrame.Navigate(typeof(Lib.ClientNS.Views.InitPage.InitPage), e.Arguments);
-                            new GlobalNavigationController().Init(rootFrame, typeof(Lib.ClientNS.Views.InitPage.InitPage));
+                            if (areThereAdmins)
+                            {
+                                //rootFrame.Navigate(typeof(Lib.ClientNS.Views.InitPage.InitPage), e.Arguments);
+                                new GlobalNavigationController().Init(rootFrame, typeof(Lib.ClientNS.Views.InitPage.InitPage));
+
+                            }
+                            else
+                            {
+                                //rootFrame.Navigate(typeof(FirstUsePage), e.Arguments);
+                                new GlobalNavigationController().Init(rootFrame, typeof(FirstUsePage));
+                            }
+                        }
+                        catch (NetworkInformationException)
+                        {
+
+                            new GlobalNavigationController().Init(rootFrame, typeof(ServerNotAvailablePage));
 
                         }
-                        else
-                        {
-                            //rootFrame.Navigate(typeof(FirstUsePage), e.Arguments);
-                            new GlobalNavigationController().Init(rootFrame, typeof(FirstUsePage));
-                        }
+
+
                     }
-                    catch (NetworkInformationException)
+                    catch (Exception ex)
                     {
-
                         new GlobalNavigationController().Init(rootFrame, typeof(ServerNotAvailablePage));
 
-                    }
-                }
-                // Asegurarse de que la ventana actual está activa.
-                Window.Current.Activate();
+                    }                    }
+                    // Asegurarse de que la ventana actual está activa.
+                    Window.Current.Activate();
             }
         }
 

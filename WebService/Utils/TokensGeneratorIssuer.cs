@@ -1,4 +1,5 @@
 using Azure.Communication;
+using Azure.Communication.Chat;
 using WebService.Models.Generated;
 
 namespace WebService.Utils;
@@ -40,5 +41,12 @@ public class TokensGeneratorIssuer
             ExpiresOn = tokenResponse.Value.ExpiresOn,
             EndPointUri = ENDPOINTURI
         };
+    }
+
+    // Create chat client
+    public static ChatClient CreateChatClient(string token)
+    {
+        var credential = new CommunicationTokenCredential(token);
+        return new ChatClient(new Uri(ENDPOINTURI), credential);
     }
 }

@@ -17,11 +17,11 @@
                 <ResourceDictionary Source="/Styles/Image.xaml" />
                 <ResourceDictionary Source="/Styles/Page.xaml" />
                 <ResourceDictionary Source="/Styles/Button.xaml" />
-                <ResourceDictionary Source="/Styles/Converters.xaml"/>
+                <ResourceDictionary Source="/Styles/Converters.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        
+
     </Application.Resources>
 </Application>
 

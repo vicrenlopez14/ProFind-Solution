@@ -13,65 +13,67 @@ USE ProFind;
 
 ################################################
 
-CREATE TABLE Clients
+CREATE TABLE Client
 (
     IdC               CHAR(21) PRIMARY KEY,
     NameC             VARCHAR(50),
     EmailC            VARCHAR(255),
     PasswordC         CHAR(64),
     RegistrationDateC DATETIME,
-    PictureC          LONGTEXT
+    PictureC          LONGTEXT,
+    CommunicationIdC  VARCHAR(255)
 );
 
 SELECT *
-FROM Clients;
+FROM Client;
 
-DESCRIBE Clients;
+DESCRIBE Client;
 
 ###########################################
-CREATE TABLE Ranks
+CREATE TABLE `Rank`
 (
     IdR   INT AUTO_INCREMENT PRIMARY KEY,
     NameR VARCHAR(50) UNIQUE
 );
 
-DESCRIBE Ranks;
+DESCRIBE `Rank`;
 
-INSERT INTO Ranks (NameR)
+INSERT INTO `Rank` (NameR)
 VALUES ('Principal'),
        ('Administrator');
 
 SELECT *
-FROM Ranks;
+FROM `Rank`;
 
 ###########################################
-CREATE TABLE Admins
+CREATE TABLE Admin
 (
-    IdA           CHAR(21) PRIMARY KEY,
-    NameA         VARCHAR(50),
-    EmailA        VARCHAR(255) UNIQUE,
-    TelA          VARCHAR(15),
-    PasswordA     CHAR(64),
-    PictureA      LONGTEXT,
-    CreationDateA DATETIME,
-    IdR1          INT,
+    IdA              CHAR(21) PRIMARY KEY,
+    NameA            VARCHAR(50),
+    EmailA           VARCHAR(255) UNIQUE,
+    TelA             VARCHAR(15),
+    PasswordA        CHAR(64),
+    PictureA         LONGTEXT,
+    CreationDateA    DATETIME,
+    IdR1             INT,
+    CommunicationIdA VARCHAR(255),
     FULLTEXT (NameA, EmailA, TelA),
-    CONSTRAINT FK_Admin_Rank FOREIGN KEY (IdR1) REFERENCES Ranks (IdR) ON DELETE CASCADE
+    CONSTRAINT FK_Admin_Rank FOREIGN KEY (IdR1) REFERENCES `Rank` (IdR) ON DELETE CASCADE
 );
 
-DESCRIBE Admins;
+DESCRIBE Admin;
 
 SELECT *
-FROM Admins;
+FROM Admin;
 
 ################################################
-CREATE TABLE Departments
+CREATE TABLE Department
 (
     IdDP   INT AUTO_INCREMENT PRIMARY KEY,
     NameDP VARCHAR(30)
 );
 
-INSERT INTO Departments (NameDP)
+INSERT INTO Department (NameDP)
 VALUES ('Ahuachapán'),
        ('Cabañas'),
        ('Chalatenango'),
@@ -88,55 +90,56 @@ VALUES ('Ahuachapán'),
        ('Usulután');
 
 SELECT *
-FROM Departments;
+FROM Department;
 
 ################################################
-CREATE TABLE Professions
+CREATE TABLE Profession
 (
     IdPFS   INT AUTO_INCREMENT PRIMARY KEY,
     NamePFS VARCHAR(50)
 );
 
-INSERT INTO Professions (NamePFS)
+INSERT INTO Profession (NamePFS)
 VALUES ('Law firm'),
        ('Automotive services'),
        ('General medicine');
 
 SELECT *
-FROM Professions;
+FROM Profession;
 
 ################################################
-CREATE TABLE Professionals
+CREATE TABLE Professional
 (
-    IdP               CHAR(21) PRIMARY KEY,
-    NameP             CHAR(50),
-    DateBirthP        DATETIME,
-    EmailP            CHAR(255),
-    PasswordP         CHAR(64),
-    ActiveP           BOOLEAN,
-    PhoneP            CHAR(15),
-    SexP              BOOLEAN,
-    DUIP              VARCHAR(15),
-    AFPP              VARCHAR(50),
-    ISSSP             VARCHAR(50),
-    ZipCodeP          VARCHAR(10),
-    SalaryP           FLOAT,
-    HiringDateP       DATETIME,
-    PictureP          LONGTEXT,
-    CurriculumP       LONGBLOB,
-    IdPFS1            INT,
-    IdDP1             INT,
-    CONSTRAINT FK_Professional_Profession FOREIGN KEY (IdPFS1) REFERENCES Professions (IdPFS) ON DELETE CASCADE,
-    CONSTRAINT FK_Professional_Department FOREIGN KEY (IdDP1) REFERENCES Departments (IdDP) ON DELETE CASCADE
+    IdP              CHAR(21) PRIMARY KEY,
+    NameP            CHAR(50),
+    DateBirthP       DATETIME,
+    EmailP           CHAR(255),
+    PasswordP        CHAR(64),
+    ActiveP          BOOLEAN,
+    PhoneP           CHAR(15),
+    SexP             BOOLEAN,
+    DUIP             VARCHAR(15),
+    AFPP             VARCHAR(50),
+    ISSSP            VARCHAR(50),
+    ZipCodeP         VARCHAR(10),
+    SalaryP          FLOAT,
+    HiringDateP      DATETIME,
+    PictureP         LONGTEXT,
+    CurriculumP      LONGBLOB,
+    CommunicationIdP VARCHAR(255),
+    IdPFS1           INT,
+    IdDP1            INT,
+    CONSTRAINT FK_Professional_Profession FOREIGN KEY (IdPFS1) REFERENCES Profession (IdPFS) ON DELETE CASCADE,
+    CONSTRAINT FK_Professional_Department FOREIGN KEY (IdDP1) REFERENCES Department (IdDP) ON DELETE CASCADE
 );
 
 SELECT *
-FROM Professionals;
+FROM Professional;
 
 ###############################################
 
 # Change password codes
-CREATE TABLE ChangePasswordCodes
+CREATE TABLE ChangePasswordCode
 (
     IdCPC    CHAR(21) PRIMARY KEY,
     CodeCPC  CHAR(4),
@@ -144,13 +147,13 @@ CREATE TABLE ChangePasswordCodes
     IdC1     CHAR(21),
     IdA1     CHAR(21),
     IdP1     CHAR(21),
-    CONSTRAINT FK_Client_ChangePasswordCode FOREIGN KEY (IdC1) REFERENCES Clients (IdC) ON DELETE CASCADE,
-    CONSTRAINT FK_Admin_ChangePasswordCode FOREIGN KEY (IdA1) REFERENCES Admins (IdA) ON DELETE CASCADE,
-    CONSTRAINT FK_Professional_ChangePasswordCode FOREIGN KEY (IdP1) REFERENCES Professionals (IdP) ON DELETE CASCADE
+    CONSTRAINT FK_Client_ChangePasswordCode FOREIGN KEY (IdC1) REFERENCES Client (IdC) ON DELETE CASCADE,
+    CONSTRAINT FK_Admin_ChangePasswordCode FOREIGN KEY (IdA1) REFERENCES Admin (IdA) ON DELETE CASCADE,
+    CONSTRAINT FK_Professional_ChangePasswordCode FOREIGN KEY (IdP1) REFERENCES Professional (IdP) ON DELETE CASCADE
 );
 
 ###############################################
-CREATE TABLE Projects
+CREATE TABLE Project
 (
     IdPJ          CHAR(21) PRIMARY KEY,
     TitlePJ       VARCHAR(50),
@@ -165,17 +168,17 @@ CREATE TABLE Projects
     TagDurationPJ INT,
     IdP1          CHAR(21),
     IdC1          CHAR(21),
-    CONSTRAINT FK_Project_Professional FOREIGN KEY (IdP1) REFERENCES Professionals (IdP) ON DELETE CASCADE,
-    CONSTRAINT FK_Project_Client FOREIGN KEY (IdC1) REFERENCES Clients (IdC) ON DELETE CASCADE
+    CONSTRAINT FK_Project_Professional FOREIGN KEY (IdP1) REFERENCES Professional (IdP) ON DELETE CASCADE,
+    CONSTRAINT FK_Project_Client FOREIGN KEY (IdC1) REFERENCES Client (IdC) ON DELETE CASCADE
 );
 
-DESCRIBE Projects;
+DESCRIBE Project;
 
 SELECT *
-FROM Projects;
+FROM Project;
 
 ###############################################
-CREATE TABLE Notifications
+CREATE TABLE Notification
 (
     IdN             CHAR(21) PRIMARY KEY,
     TitleN          VARCHAR(50),
@@ -184,21 +187,21 @@ CREATE TABLE Notifications
     PictureN        LONGTEXT,
     IdP1            CHAR(21),
     IdPJ2           CHAR(21),
-    CONSTRAINT FK_Notification_Project FOREIGN KEY (IdPJ2) REFERENCES Projects (IdPJ) ON DELETE CASCADE,
-    CONSTRAINT FK_Notification_Professional FOREIGN KEY (IdP1) REFERENCES Professionals (IdP) ON DELETE CASCADE
+    CONSTRAINT FK_Notification_Project FOREIGN KEY (IdPJ2) REFERENCES Project (IdPJ) ON DELETE CASCADE,
+    CONSTRAINT FK_Notification_Professional FOREIGN KEY (IdP1) REFERENCES Professional (IdP) ON DELETE CASCADE
 );
 
 ################################################
-CREATE TABLE Tags
+CREATE TABLE Tag
 (
-    IdT    CHAR(21) PRIMARY KEY,
-    NameT  VARCHAR(50),
-    IdPJ1  CHAR(21),
-    CONSTRAINT FK_Tag_Project FOREIGN KEY (IdPJ1) REFERENCES Projects (IdPJ) ON DELETE CASCADE
+    IdT   CHAR(21) PRIMARY KEY,
+    NameT VARCHAR(50),
+    IdPJ1 CHAR(21),
+    CONSTRAINT FK_Tag_Project FOREIGN KEY (IdPJ1) REFERENCES Project (IdPJ) ON DELETE CASCADE
 );
 
 ################################################
-CREATE TABLE Proposals
+CREATE TABLE Proposal
 (
     IdPP           CHAR(21) PRIMARY KEY,
     TitlePP        VARCHAR(50),
@@ -210,8 +213,19 @@ CREATE TABLE Proposals
     Accepted       BOOLEAN,
     IdP3           CHAR(21),
     IdC3           CHAR(21),
-    CONSTRAINT FK_Proposal_Professional FOREIGN KEY (IdP3) REFERENCES Professionals (IdP) ON DELETE CASCADE,
-    CONSTRAINT FK_Proposal_Client FOREIGN KEY (IdC3) REFERENCES Clients (IdC) ON DELETE CASCADE
+    CONSTRAINT FK_Proposal_Professional FOREIGN KEY (IdP3) REFERENCES Professional (IdP) ON DELETE CASCADE,
+    CONSTRAINT FK_Proposal_Client FOREIGN KEY (IdC3) REFERENCES Client (IdC) ON DELETE CASCADE
 );
 
-SELECT * FROM Proposals;
+SELECT *
+FROM Proposal;
+
+################################################
+CREATE TABLE ThreadIds
+(
+    IdT VARCHAR(255) PRIMARY KEY,
+    IdC CHAR(21),
+    IdP CHAR(21),
+    CONSTRAINT FK_ThreadIds_Client FOREIGN KEY (IdC) REFERENCES Client (IdC) ON DELETE CASCADE,
+    CONSTRAINT FK_ThreadIds_Professional FOREIGN KEY (IdP) REFERENCES Professional (IdP) ON DELETE CASCADE
+);
