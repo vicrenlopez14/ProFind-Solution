@@ -15,7 +15,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.Main_Page
         static Dictionary<string, Type> DefinedPagesDictionary = new Dictionary<string, Type>()
         {
             {"ProjectsOverview_Page_Professionals", typeof(CRUDPage.ProjectNS.ReadPage.ReadPage) },
-            {"Projects_Page_Professionals", typeof(CRUDPage.ProjectNS.ReadPage.ReadPage) },
+            {"Projects_Page_Professionals", typeof(CRUDPage.ProjectNS.ListPage.List_Page_Projects) },
             {"Clients_Page_Professionals", typeof(CRUDPage.ClientNS.ListPage.ListPageClient) },
             {"GeneralNotifications_Page_Professionals", typeof(CRUDPage.NotificationNS.CreatePage.CreatePage)},
             {"ProposalNotifications_Page_Professionals", typeof(CRUDPage.ProposalNS.ReadPage.ReadPage) },

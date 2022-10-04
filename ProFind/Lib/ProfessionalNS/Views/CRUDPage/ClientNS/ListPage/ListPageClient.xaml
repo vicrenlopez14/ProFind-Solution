@@ -9,76 +9,75 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Padding="30">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2" />
-            <RowDefinition Height="0.8" />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Vertical">
-            <TextBlock
-                Width="1138"
-                Margin="20,20,0,928"
-                HorizontalAlignment="Center"
-                RenderTransformOrigin="0.638,0.776"
-                Style="{StaticResource SubheaderTextBlockStyle}"
-                Text="Clients list" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="49*" />
+            <ColumnDefinition Width="47*"/>
+            <ColumnDefinition Width="24*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" Grid.ColumnSpan="3" Margin="-22,22,-20,240">
+
             <SearchBox
                 Width="1417"
                 Height="30"
                 PlaceholderText="Search"
                 QueryChanged="SearchBox_QueryChanged" />
-        </StackPanel>
-        <ListView Name="Clients_lw" Grid.Row="1">
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="services:Client">
-                    <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.3*" />
-                                <ColumnDefinition Width="0.7*" />
-                            </Grid.ColumnDefinitions>
-                            <StackPanel Grid.Column="0" Orientation="Vertical">
-                                <Image
+
+            <ListView Name="Clients_lw" Grid.Row="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="services:Client">
+                        <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.3*" />
+                                    <ColumnDefinition Width="0.7*" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0" Orientation="Vertical">
+                                    <Image
                                     Width="100"
                                     Height="100"
                                     Source="{Binding PictureC, Converter={StaticResource ImageModelConverter}}" />
-                            </StackPanel>
-                            <StackPanel
+                                </StackPanel>
+                                <StackPanel
                                 Grid.Column="1"
                                 Padding="0,30"
                                 Orientation="Vertical">
-                                <StackPanel>
-                                    <TextBlock
+                                    <StackPanel>
+                                        <TextBlock
                                         Height="25"
                                         Style="{StaticResource ListTitleStyle}"
                                         Text="Client" />
-                                </StackPanel>
-                                <StackPanel />
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontWeight="Bold" Text="Name:" />
-                                    <TextBlock
+                                    </StackPanel>
+                                    <StackPanel />
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock FontWeight="Bold" Text="Name:" />
+                                        <TextBlock
                                         Height="31"
                                         Margin="10,0,0,0"
                                         Text="{Binding NameC}" />
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontWeight="Bold" Text="E-mail:" />
-                                    <TextBlock
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock FontWeight="Bold" Text="E-mail:" />
+                                        <TextBlock
                                         Height="31"
                                         Margin="10,0,0,0"
                                         Text="{Binding EmailC}" />
-                                </StackPanel>
-                                <StackPanel
+                                    </StackPanel>
+                                    <StackPanel
                                     Grid.Column="1"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center" />
-                            </StackPanel>
-                        </Grid>
-                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
 
-                </DataTemplate>
-            </ListView.ItemTemplate>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
 
-        </ListView>
+            </ListView>
+        </StackPanel>
     </Grid>
 </Page>

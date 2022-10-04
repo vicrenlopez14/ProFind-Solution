@@ -64,7 +64,6 @@
                                 <ColumnDefinition Width="0.5*"/>
                             </Grid.ColumnDefinitions>
                             <CheckBox Grid.Column="0" Name="IsPaid_cbx" Content="Is paid"></CheckBox>
-                            <ComboBox Grid.Column="1" Name="TagDuration_cb" Header="Tag - Duration of the project"/>
                         </Grid>
                         <Grid Margin="0,10,0,0" VerticalAlignment="Center">
                             <Grid.ColumnDefinitions>
