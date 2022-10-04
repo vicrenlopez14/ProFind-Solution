@@ -33,6 +33,7 @@
             </CommandBar.SecondaryCommands>
         </CommandBar>
         <StackPanel Orientation="Vertical" Grid.ColumnSpan="3" Margin="-22,22,-20,240">
+            <SearchBox PlaceholderText="Search" QueryChanged="SearchBox_QueryChanged" Height="30" Width="1417" />
             <ListView  Name="Activities_lw">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="services:Client">
@@ -79,7 +80,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <SearchBox PlaceholderText="Search" QueryChanged="SearchBox_QueryChanged" Height="30" Width="1417" />
+           
         </StackPanel>
 
     </Grid>
