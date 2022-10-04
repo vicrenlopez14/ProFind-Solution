@@ -31,6 +31,6 @@ public class ShaOperations
     public static string GenerateUID()
     {
         // UID by nanoid
-        return Guid.NewGuid().ToString();
+        return Nanoid.Nanoid.Generate();
     }
 }
