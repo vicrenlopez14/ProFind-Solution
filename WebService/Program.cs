@@ -1,13 +1,7 @@
-using System.Net;
 using System.Text.Json.Serialization;
-using Azure.Communication.Email;
 using Microsoft.AspNetCore.HttpLogging;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using WebService.Data;
 
@@ -28,7 +22,6 @@ builder.Services.AddSwaggerGen(c =>
     c.CustomOperationIds(description =>
         description.TryGetMethodInfo(out var methodInfo) ? methodInfo.Name : null);
 });
-builder.Services.AddRazorPages();
 
 builder.Services.AddControllersWithViews()
     .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
@@ -69,7 +62,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.MapRazorPages();
 
 app.Run();
