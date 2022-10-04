@@ -6,6 +6,7 @@ using ProFind.Lib.Global.Controllers;
 using ProFind.Lib.ProfessionalNS.Controllers;
 using ProFind.Lib.ClientNS.Controllers;
 using System.Linq;
+using System.Collections.Generic;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,18 +28,30 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage
         public async void GetProjectsList()
 
         {
-            
-            var loggedClient = LoggedClientStore.LoggedClient;
-            var relatedProf = (from Project in loggedClient.Projects
-                               where Project.IdC1 == loggedClient.IdC
-                               select Project.IdP1Navigation).ToList();
 
-            ProfessionalsListView.ItemsSource = relatedProf;
+            var loggedClient = LoggedClientStore.LoggedClient;
+
+            // Major lists
+            var projects = await APIConnection.GetConnection.GetProjectsAsync();
+            var clients = await APIConnection.GetConnection.GetProfessionalsAsync();
+
+            // Projects where loggedProfessional is related
+            var relatedProjects = projects.Where(p => p.IdC1 == loggedClient.IdC).ToList();
+
+            // Notifications where loggedProfessional is related through a project
+            var relateProfessional = new List<Professional>();
+            foreach (var project in projects)
+            {
+                var relatedProfessionalForThisProject = clients.Where(n => n.IdP == project.IdP1).ToList();
+                relateProfessional.AddRange(relatedProfessionalForThisProject);
+            }
+
+            ProfessionalsListView.ItemsSource = relateProfessional.Distinct().ToList();
         }
 
         private void Control2_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            // Only the professionals related to this client
+           
             var loggedClient = LoggedClientStore.LoggedClient;
             var relatedProf = (from Project in loggedClient.Projects
                                where Project.IdC1 == loggedClient.IdC
@@ -52,9 +65,40 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage
             new InAppNavigationController().NavigateTo(typeof(ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.SearchPage.SearchPageP));
         }
 
-        private void SearchBox_QueryChanged(SearchBox sender, SearchBoxQueryChangedEventArgs args)
+        private async void SearchBox_QueryChanged(SearchBox sender, SearchBoxQueryChangedEventArgs args)
         {
 
+            var loggedClient = LoggedClientStore.LoggedClient;
+
+            // Major lists
+            var projects = await APIConnection.GetConnection.GetProjectsAsync();
+            var clients = await APIConnection.GetConnection.GetProfessionalsAsync();
+
+            // Projects where loggedProfessional is related
+            var relatedProjects = projects.Where(p => p.IdC1 == loggedClient.IdC).ToList();
+
+            // Notifications where loggedProfessional is related through a project
+            var relateProfessional = new List<Professional>();
+            foreach (var project in projects)
+            {
+                var relatedProfessionalForThisProject = clients.Where(n => n.IdP == project.IdP1).ToList();
+                relateProfessional.AddRange(relatedProfessionalForThisProject);
+            }
+
+            var filteredList = relateProfessional.Distinct().ToList();
+
+
+            if (string.IsNullOrEmpty(sender.QueryText))
+            {
+                ProfessionalsListView.ItemsSource = null;
+                ProfessionalsListView.ItemsSource = filteredList;
+                return;
+            }
+
+            var newList = filteredList.Where(x => x.NameP.Contains(sender.QueryText));
+
+            ProfessionalsListView.ItemsSource = null;
+            ProfessionalsListView.ItemsSource = newList;
         }
     }
 }
