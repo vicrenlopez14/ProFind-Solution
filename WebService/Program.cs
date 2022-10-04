@@ -23,7 +23,7 @@ builder.Services.AddSwaggerGen(c =>
         description.TryGetMethodInfo(out var methodInfo) ? methodInfo.Name : null);
 });
 
-builder.Services.AddControllersWithViews()
+builder.Services.AddControllers()
     .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 
