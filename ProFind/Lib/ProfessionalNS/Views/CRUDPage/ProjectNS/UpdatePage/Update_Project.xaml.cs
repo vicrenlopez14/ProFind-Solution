@@ -24,7 +24,6 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.UpdatePage
         public Update_Project()
         {
             this.InitializeComponent();
-            Cargar();
             AddEvents();
         }
         private void AddEvents()
@@ -46,6 +45,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.UpdatePage
             }
 
             toManipulate = e.Parameter as Project;
+            Cargar();
         }
 
         private async void Cargar()
@@ -55,56 +55,19 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.UpdatePage
             Description_tb.Text = toManipulate.DescriptionPj;
             TotalPrice_tb.Text = toManipulate.TotalPricePj.ToString();
             IsPaid_cbx.IsChecked = toManipulate.IsPaidPj;
-            TagDuration_cb.SelectedIndex = toManipulate.TagDurationPj ?? 0;
+           SelectedPicture_pp.ProfilePicture = await toManipulate.PicturePj.FromBase64String();
+            imageString = toManipulate.PicturePj;
+          
         }
 
         private async void Update_btn_Click(object sender, RoutedEventArgs e)
         {
-            if (!FieldsChecker.CheckName(Title_tb.Text))
-            {
-
-                var dialog = new MessageDialog("The Title must be valid");
-                await dialog.ShowAsync();
-                return;
-            }
-            else if (!FieldsChecker.OnlyLetters(Description_tb.Text))
-            {
-                var dialog = new MessageDialog("The description must be valid");
-                await dialog.ShowAsync();
-                return;
-            }
-
-            try
-            {
-                var ToUpdateProject = new Project { TitlePj = Title_tb.Text, DescriptionPj = Description_tb.Text, PicturePj = imageString, TotalPricePj = int.Parse(TotalPrice_tb.Text), IdP1 = toManipulate.IdP1, IdC1 = toManipulate.IdC1, IsPaidPj = IsPaid_cbx.IsChecked };
-
-                await APIConnection.GetConnection.PutProjectAsync(toManipulate.IdPj, ToUpdateProject);
-
-                var dialog = new MessageDialog("Project updated successfully.");
-                await dialog.ShowAsync();
-            }
-            catch (ProFindServicesException ex)
-            {
-                if (ex.StatusCode >= 200 && ex.StatusCode <= 205)
-                {
-                    var dialog = new MessageDialog("Project updated successfully.");
-                    await dialog.ShowAsync();
-                }
-                else
-                {
-                    var dialog = new MessageDialog("There was an error, try again later.");
-                    await dialog.ShowAsync();
-                }
-            }
-            finally
-            {
-                new InAppNavigationController().NavigateTo(typeof(ReadPage.ReadPage));
-            }
+          
         }
 
         private async void Delete_btn_Click(object sender, RoutedEventArgs e)
         {
-            await APIConnection.GetConnection.DeleteProjectAsync(toManipulate.IdPj);
+            
         }
         private async void PictureSelection_btn_Checked(object sender, RoutedEventArgs e)
         {
@@ -162,39 +125,69 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.UpdatePage
 
         private async void PictureSelection_btn_Click_1(object sender, RoutedEventArgs e)
         {
-            try
-            {
 
-
-                var file = await PickFileHelper.PickImage();
-
-                if (file != null)
+                try
                 {
-                    SelectedPicture_tbk.Text = file.Name;
-                    imageString = await file.ToBase64StringAsync();
-                    SelectedPicture_pp.ProfilePicture = await toManipulate.PicturePj.FromBase64String();
+                    imageString = await (await PickFileHelper.PickImage()).ToBase64StringAsync();
+                    SelectedPicture_pp.ProfilePicture = await imageString.FromBase64String();
 
                 }
-            }
-            catch (Exception ex)
+                catch
+                {
+                    // Message dialog
+                    var dialog = new MessageDialog("Error while picking image.");
+                    await dialog.ShowAsync();
+                }
+            
+        }
+
+        private async void Delete_btn_Click_1(object sender, RoutedEventArgs e)
+        {
+            await APIConnection.GetConnection.DeleteProjectAsync(toManipulate.IdPj);
+        }
+
+        private async void Update_btn_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (!FieldsChecker.CheckName(Title_tb.Text))
             {
-                Console.WriteLine(ex.Message);
+
+                var dialog = new MessageDialog("The Title must be valid");
+                await dialog.ShowAsync();
+                return;
+            }
+            else if (!FieldsChecker.OnlyLetters(Description_tb.Text))
+            {
+                var dialog = new MessageDialog("The description must be valid");
+                await dialog.ShowAsync();
+                return;
+            }
+
+            try
+            {
+                var ToUpdateProject = new Project { IdPj = toManipulate.IdPj, TitlePj = Title_tb.Text, DescriptionPj = Description_tb.Text, PicturePj = imageString, TotalPricePj = int.Parse(TotalPrice_tb.Text), IdP1 = toManipulate.IdP1, IdC1 = toManipulate.IdC1, IsPaidPj = IsPaid_cbx.IsChecked };
+
+                await APIConnection.GetConnection.PutProjectAsync(toManipulate.IdPj, ToUpdateProject);
+
+                var dialog = new MessageDialog("Project updated successfully.");
+                await dialog.ShowAsync();
+            }
+            catch (ProFindServicesException ex)
+            {
+                if (ex.StatusCode >= 200 && ex.StatusCode <= 205)
+                {
+                    var dialog = new MessageDialog("Project updated successfully.");
+                    await dialog.ShowAsync();
+                }
+                else
+                {
+                    var dialog = new MessageDialog("There was an error, try again later.");
+                    await dialog.ShowAsync();
+                }
             }
             finally
             {
-
-                PictureSelection_btn.IsChecked = false;
+                new InAppNavigationController().NavigateTo(typeof(ReadPage.ReadPage));
             }
-        }
-
-        private void Delete_btn_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Update_btn_Click_1(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

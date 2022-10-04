@@ -16,29 +16,38 @@ namespace ProFind.Lib.Global.Services
 {
     public class ProFindChatClient
     {
+        private string professionalId, clientId;
         private string _threadId;
         private ChatClient _client;
         private ChatThreadClient _chatThreadClient;
         private AsyncPageable<ChatThreadItem> _threadsOfLoggedUser;
 
-        public ProFindChatClient()
+        public ProFindChatClient(string professionalId, string clientId)
         {
-
+            this.professionalId = professionalId;
+            this.clientId = clientId;
         }
 
-        public async void StartChatWith()
+        public async void StartChat()
         {
-            string communicationId = GetLoggedUserId();
+            // Fetch the communication id for the logged user, professional-and-client-agnostic
+            string communicationId = GetLoggedUserCommunicationId();
 
+            // Fetch tokens and related info
             var info = await APIConnection.GetConnection.GetChatAccessInfoAsync(communicationId);
 
+            // Get the thread id for the chat between these two users
+            _threadId = await APIConnection.GetConnection.GetThreadIdForChatAsync(token: info.Token, professionalId: professionalId, clientId: clientId);
+
+            // Create the chat client connection
             _client = new ChatClient(new Uri(info.EndPointUri), new Azure.Communication.CommunicationTokenCredential(info.Token));
 
-            CreateChatThread();
+            // Create the THREAD connection
+            _chatThreadClient = _client.GetChatThreadClient(threadId: _threadId);
         }
 
         #region Extractors
-        private static string GetLoggedUserId()
+        private static string GetLoggedUserCommunicationId()
         {
             var communicationId = "";
 
@@ -85,32 +94,6 @@ namespace ProFind.Lib.Global.Services
         }
         #endregion
 
-        public async void CreateChatThread()
-        {
-            (string displayName, string communicationId) = GetLoggedUserIdAndDisplayName();
-
-            var chatParticipant = new ChatParticipant(identifier: new CommunicationUserIdentifier(id: communicationId))
-            {
-                DisplayName = displayName
-            };
-
-            CreateChatThreadResult createChatThreadResult = await _client.CreateChatThreadAsync(topic: $"Chat with {displayName}", participants: new List<ChatParticipant> { chatParticipant });
-            ChatThreadClient chatThreadClient = _client.GetChatThreadClient(threadId: createChatThreadResult.ChatThread.Id);
-            _threadId = chatThreadClient.Id;
-        }
-
-
-
-        public void GetChatThreadClient()
-        {
-            _chatThreadClient = _client.GetChatThreadClient(threadId: _threadId);
-        }
-
-        public void ListChatThreads()
-        {
-            _threadsOfLoggedUser = _client.GetChatThreadsAsync();
-           
-        }
 
         public async Task<bool> SendMessage(string text)
         {

@@ -33,7 +33,7 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage
                                where Project.IdC1 == loggedClient.IdC
                                select Project.IdP1Navigation).ToList();
 
-            DashboardProfessionalsActiveListView.ItemsSource = relatedProf;
+            ProfessionalsListView.ItemsSource = relatedProf;
         }
 
         private void Control2_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
@@ -44,7 +44,7 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage
                                where Project.IdC1 == loggedClient.IdC
                                select Project.IdP1Navigation).Where(p => p.NameP.Contains(sender.Text)).ToList();
 
-            DashboardProfessionalsActiveListView.ItemsSource = relatedProf;
+            ProfessionalsListView.ItemsSource = relatedProf;
         }
 
         private void Button_Click_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -52,13 +52,9 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage
             new InAppNavigationController().NavigateTo(typeof(ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.SearchPage.SearchPageP));
         }
 
-        private void DashboardProfessionalsActiveListView_ItemClick(object sender, ItemClickEventArgs e)
+        private void SearchBox_QueryChanged(SearchBox sender, SearchBoxQueryChangedEventArgs args)
         {
-            Professional selectedProfessional = e.ClickedItem as Professional;
 
-            new InAppNavigationController().NavigateTo(typeof(ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage.ReadPage), selectedProfessional);
         }
-
-       
     }
 }

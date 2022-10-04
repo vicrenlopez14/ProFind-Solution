@@ -180,6 +180,25 @@ public class ClientsController : ControllerBase
         return client;
     }
 
+    [HttpGet("GetByCommunicationId/{email}")]
+    public async Task<ActionResult<Client>> GeClientByCommunicationId(string communicationId)
+    {
+        if (_context.Clients == null)
+        {
+            return NotFound();
+        }
+
+        var client =
+            await _context.Clients.FirstOrDefaultAsync(a => a.CommunicationIdC == communicationId);
+
+        if (client == null)
+        {
+            return NotFound();
+        }
+
+        return client;
+    }
+
     // Change password
     // POST: api/Clients/ChangePassword
     [HttpPost("ChangePassword")]

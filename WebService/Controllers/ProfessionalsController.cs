@@ -79,6 +79,25 @@ namespace WebService.Controllers
             return professional;
         }
 
+        [HttpGet("GetByCommunicationId/{email}")]
+        public async Task<ActionResult<Professional>> GetProfessionalByCommunicationId(string communicationId)
+        {
+            if (_context.Professionals == null)
+            {
+                return NotFound();
+            }
+
+            var professional =
+                await _context.Professionals.FirstOrDefaultAsync(a => a.CommunicationIdP == communicationId);
+
+            if (professional == null)
+            {
+                return NotFound();
+            }
+
+            return professional;
+        }
+
         // Change password
         [HttpPut("ChangePassword")]
         public async Task<IActionResult> ChangePassword(string email, string password)

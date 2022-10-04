@@ -87,7 +87,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
             }
         }
 
-        private void AutoComplete()
+        private async void AutoComplete()
         {
             FirstName1_tbx.Text = ToManipulateProfessional.NameP;
             if (ToManipulateProfessional.IdPfs1 == 1) profession_cbx.SelectedIndex = 0;
@@ -105,15 +105,18 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
             Salario.Text = ToManipulateProfessional.SalaryP.ToString();
             Nacimiento.Date = (DateTimeOffset)ToManipulateProfessional.DateBirthP;
             FirstName1_tbx.Text = ToManipulateProfessional.NameP;
-
+            ProfilePicture_pp.ProfilePicture = await ToManipulateProfessional.PictureP.FromBase64String();
+            imageString = ToManipulateProfessional.PictureP;
+           
         }
 
         private async void btnExaminar_Click_1(object sender, RoutedEventArgs e)
         {
             try
-            {
-                imageString = await (await PickFileHelper.PickImage()).ToBase64StringAsync();
-                ProfilePicture_pp.ProfilePicture = await imageString.FromBase64String();
+            { 
+                    imageString = await (await PickFileHelper.PickImage()).ToBase64StringAsync();
+                    ProfilePicture_pp.ProfilePicture = await imageString.FromBase64String();
+      
             }
             catch
             {
@@ -232,53 +235,56 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
                     await dialog.ShowAsync();
                     return;
                 }
-                if (!FieldsChecker.CheckPassword(passwordBox.Password))
-                {
-                    var dialog = new MessageDialog("The password must be valid.");
-                    await dialog.ShowAsync();
-                    return;
-                }
+              
+                
                 if (string.IsNullOrEmpty(ToManipulateProfessional.PasswordP) && !string.IsNullOrEmpty(passwordBox.Password))
                 {
+
                     if (!FieldsChecker.CheckPassword(passwordBox.Password))
                     {
                         var dialog = new MessageDialog("The password must be valid.");
                         await dialog.ShowAsync();
                         return;
                     }
-
                     ChangeThePassword = true;
                 }
 
                 try
                 {
-                    var toCreateProfessions = new Professional
-                    {
-                        IdP = ToManipulateProfessional.IdP,
-                        NameP = FirstName1_tbx.Text,
-                        EmailP = Email.Text,
-                        Afpp = Afp.Text,
-                        Isssp = SeguroSocial.Text,
-                        Duip = Dui.Text,
-                        DateBirthP = (DateTimeOffset)Nacimiento.Date,
-                        SalaryP = int.Parse(Salario.Text),
-                        SexP = true,
-                        PasswordP = (string.IsNullOrEmpty(passwordBox.Password) ? ToManipulateProfessional.PasswordP : passwordBox.Password),
-                        ActiveP = Sexo.SelectedValue == "Male" ? true : false,
-                        CurriculumP = curriculumBytes,
-                        PhoneP = Phone_nb.Text,
-                        PictureP = imageString,
-                        IdDp1 = (departamento.SelectedItem as Department).IdDp,
-                        IdPfs1 = (profession_cbx.SelectedItem as Profession).IdPfs,
-                        ZipCodeP = CodigoPostal.Text,
-                        HiringDateP = (DateTimeOffset)FechadeIngreso.Date,
-                    };
 
 
-                    await APIConnection.GetConnection.PutProfessionalAsync(ToManipulateProfessional.IdP, toCreateProfessions);
+                    ToManipulateProfessional.IdP = ToManipulateProfessional.IdP;
+                   ToManipulateProfessional.NameP =  FirstName1_tbx.Text;
+                    ToManipulateProfessional.EmailP = Email.Text;
+                    ToManipulateProfessional.Afpp = Afp.Text;
+                    ToManipulateProfessional.Isssp = SeguroSocial.Text;
+                    ToManipulateProfessional.Duip = Dui.Text;
+                    ToManipulateProfessional.DateBirthP = (DateTimeOffset)Nacimiento.Date;
+                    ToManipulateProfessional.SalaryP = int.Parse(Salario.Text);
+                    ToManipulateProfessional.ActiveP = true;
+
+                    ToManipulateProfessional.SexP = Sexo.SelectedValue == "Male" ? true : false;
+                    ToManipulateProfessional.CurriculumP = curriculumBytes;
+                    ToManipulateProfessional.PhoneP = Phone_nb.Text;
+               
+                    ToManipulateProfessional.PictureP = imageString;
+                    ToManipulateProfessional.IdDp1 = (departamento.SelectedItem as Department).IdDp;
+                    ToManipulateProfessional.IdPfs1 = (profession_cbx.SelectedItem as Profession).IdPfs;
+                    ToManipulateProfessional.ZipCodeP = CodigoPostal.Text;
+                    ToManipulateProfessional.HiringDateP = (DateTimeOffset)FechadeIngreso.Date;
+                    ToManipulateProfessional.PasswordP = ToManipulateProfessional.PasswordP;
+                   
+                  
+
+
+
+                    if (passwordBox.Password.Length > 0) ToManipulateProfessional.PasswordP = passwordBox.Password;
+                    
+                    await APIConnection.GetConnection.PutProfessionalAsync(ToManipulateProfessional.IdP, ToManipulateProfessional);
+
+
                     if (ChangeThePassword)
-                        await APIConnection.GetConnection.ChangePasswordAsync(ToManipulateProfessional.EmailP, passwordBox.Password);
-                    // Success message dialog
+                        await APIConnection.GetConnection.ChangePasswordAdminsAsync(ToManipulateProfessional.EmailP, passwordBox.Password);
                     var dialog = new MessageDialog("The Professional has been updated successfully");
                     await dialog.ShowAsync();
                 }

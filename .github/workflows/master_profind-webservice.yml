@@ -2,6 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
 name: Build and deploy ASP.Net Core app to Azure Web App - profind-webservice
+
 on:
   push:
     branches:
@@ -54,5 +55,5 @@ jobs:
         with:
           app-name: 'profind-webservice'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_09C321EFFB1F4A67B49C1AAF0568BC11 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BC432D051354437D95EE91D8EC842FA4 }}
           package: .

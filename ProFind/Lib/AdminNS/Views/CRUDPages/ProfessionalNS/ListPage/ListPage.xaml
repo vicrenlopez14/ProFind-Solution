@@ -45,10 +45,10 @@
                     </AppBarButton>
                 </CommandBar.SecondaryCommands>
             </CommandBar>
-            <SearchBox PlaceholderText="Search" QueryChanged="SearchBox_QueryChanged" />
+            
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Vertical">
-
+            <SearchBox PlaceholderText="Search" QueryChanged="SearchBox_QueryChanged" />
             <ListView Name="ProfessionalsListView" ItemClick="ProjectsActiveListView_ItemClick">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="services:Professional">
@@ -59,10 +59,10 @@
                                     <ColumnDefinition Width="0.7*" />
                                 </Grid.ColumnDefinitions>
                                 <StackPanel Grid.Column="0" Orientation="Vertical">
-                                    <Image
+                                    <PersonPicture
                                         Width="100"
                                         Height="100"
-                                        Source="{Binding PictureP, Converter={StaticResource ImageModelConverter}}" />
+                                        ProfilePicture="{Binding PictureP, Converter={StaticResource ImageModelConverter}}" />
                                 </StackPanel>
                                 <StackPanel
                                     Grid.Column="1"
