@@ -48,7 +48,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProposalNS.Accept_or_Deny
 
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
             if (e.Parameter != null)
@@ -57,6 +57,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProposalNS.Accept_or_Deny
             }
             Title_tb.Text = InComingProposal.TitlePp;
             Description_tb.Text = InComingProposal.DescriptionPp;
+            SelectedPicture_pp.ProfilePicture = await InComingProposal.PicturePp.FromBase64String();
         }
 
         private async void Cargar()
