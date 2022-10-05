@@ -118,7 +118,9 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ClientNS.ListPage
 
         }
 
-        private async void Clients_lw_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        
+
+        private async void Clients_lw_DoubleTapped_1(object sender, DoubleTappedRoutedEventArgs e)
         {
             if (Clients_lw.SelectedItem != null)
             {

@@ -23,7 +23,7 @@
                 QueryChanged="SearchBox_QueryChanged" />
         </StackPanel>
 
-        <ListView Name="Clients_lw" Grid.Row="1">
+        <ListView Name="Clients_lw" Grid.Row="1" DoubleTapped="Clients_lw_DoubleTapped_1">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="services:Client">
                         <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
