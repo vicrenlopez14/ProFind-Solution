@@ -5,48 +5,42 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProposalNS.ReadPage"
     xmlns:services="using:ProFind.Lib.Global.Services"
-    Style="{StaticResource PageStyle}">
+     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Padding="30">
         <Grid.RowDefinitions>
-            <RowDefinition />
+            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.8*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="49*" />
-            <ColumnDefinition Width="47*" />
-            <ColumnDefinition Width="24*" />
-        </Grid.ColumnDefinitions>
-        <CommandBar
+        <StackPanel Grid.Row="0">
+            <CommandBar
             Grid.ColumnSpan="3"
             Margin="-22,-30,-30,0"
             Background="Transparent"
             DefaultLabelPosition="Right"
             IsOpen="False">
-            <AppBarButton
+                <AppBarButton
                 Click="Delete_Click_1"
                 Icon="Accept"
                 Label="To accept" />
 
-            <AppBarButton
+                <AppBarButton
                 Click="Add_Click_1"
                 Icon="Cancel"
                 Label="Deny " />
 
 
-            <CommandBar.SecondaryCommands>
-                <AppBarButton Icon="Setting" Label="Settings">
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Key="I" Modifiers="Control" />
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
-            </CommandBar.SecondaryCommands>
-        </CommandBar>
-        <StackPanel
-            Grid.ColumnSpan="3"
-            Margin="-22,22,-20,240"
-            Orientation="Vertical">
-            <ScrollViewer>
-                <ListView Name="Activities_lw">
+                <CommandBar.SecondaryCommands>
+                    <AppBarButton Icon="Setting" Label="Settings">
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Key="I" Modifiers="Control" />
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
+                </CommandBar.SecondaryCommands>
+            </CommandBar>
+        </StackPanel>
+
+        <ListView Name="Activities_lw" Grid.Row="1">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="services:Proposal">
                             <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
@@ -96,9 +90,8 @@
 
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
+        </ListView>
 
-            </ScrollViewer>
-        </StackPanel>
+           
     </Grid>
 </Page>

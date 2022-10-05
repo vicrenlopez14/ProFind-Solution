@@ -136,7 +136,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ListPage
 
         private async void GenerateReport_btn_Click(object sender, RoutedEventArgs e)
         {
-            URLOpenerUtil.OpenURL(@"https://localhost:7119/Report/RegisteredAdmins");
+            URLOpenerUtil.OpenURL(@"https://reporter.profind.work/Report/RegisteredAdmins");
         }
 
 

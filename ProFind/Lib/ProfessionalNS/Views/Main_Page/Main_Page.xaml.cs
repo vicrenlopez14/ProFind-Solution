@@ -14,10 +14,9 @@ namespace ProFind.Lib.ProfessionalNS.Views.Main_Page
     {
         static Dictionary<string, Type> DefinedPagesDictionary = new Dictionary<string, Type>()
         {
-            {"ProjectsOverview_Page_Professionals", typeof(CRUDPage.ProjectNS.ReadPage.ReadPage) },
-            {"Projects_Page_Professionals", typeof(CRUDPage.ProjectNS.ListPage.List_Page_Projects) },
+            {"ProjectsOverview_Page_Professionals", typeof(CRUDPage.ProjectNS.ListPage.List_Page_Projects) },
             {"Clients_Page_Professionals", typeof(CRUDPage.ClientNS.ListPage.ListPageClient) },
-            {"GeneralNotifications_Page_Professionals", typeof(CRUDPage.NotificationNS.CreatePage.CreatePage)},
+            {"Projecttype_Page", typeof(CRUDPage.ProposalNS.ReadPage.ReadPage)},
             {"ProposalNotifications_Page_Professionals", typeof(CRUDPage.ProposalNS.ReadPage.ReadPage) },
             {"Preferences_Page", typeof(Preferences_Page) },
             {"About_Page",typeof(About_Page) },
@@ -65,7 +64,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.Main_Page
             }
             catch
             {
-                new InAppNavigationController().NavigateTo(DefinedPagesDictionary["Projects_Page_Professionals"]);
+                new InAppNavigationController().NavigateTo(DefinedPagesDictionary["Projecttype_Page"]);
             }
         }
 
@@ -75,7 +74,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.Main_Page
 
         private void Page_Loaded_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            new InAppNavigationController().NavigateTo(DefinedPagesDictionary["Projects_Page_Professionals"]);
+            new InAppNavigationController().NavigateTo(DefinedPagesDictionary["ProjectsOverview_Page_Professionals"]);
         }
     }
 }
