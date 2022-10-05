@@ -55,7 +55,8 @@ namespace ProFind.Lib.Global.Helpers
             text = text.ToLower().Normalize(System.Text.NormalizationForm.FormD);
             foreach (char character in text)
             {
-                if ((character >= 'a' && character <= 'z') || character == ' ') continue;
+                if ((character >= 'a' && character <= 'z') || character == ' ' ||
+                    ((character >= 160 && character <= 163) || character == 130 )) continue;
                 return false;
             }
             return true;

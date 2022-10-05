@@ -20,9 +20,7 @@
             <AppBarButton Icon="Add" Label="Add" Click="AddProjects"/>
             <AppBarButton Icon="Edit" Label="Edit" Click="UpdateProject"/>
             <AppBarButton Icon="Delete" Label="Delete" Click="DeleteProject"/>
-            <AppBarButton Icon=" Accept" Label=" Add Activity" Click="AppBarButton_Click"/>
-            <AppBarButton Icon="ContactInfo" Label=" Add Tag" Click="TagCreate"/>
-            <AppBarButton Icon="CellPhone" Label=" Add Notification" Click="NotificationCreate"/>
+            
             <CommandBar.SecondaryCommands>
                 <AppBarButton Icon="Setting" Label="Settings">
                     <AppBarButton.KeyboardAccelerators>
