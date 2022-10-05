@@ -19,13 +19,20 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.CurriculumNS.ReadPage
                 return;
             }
 
-            PDFPreviewControl.LoadDocument(document);
+            try
+            {
+                PDFPreviewControl.LoadDocument(document);
+            } catch {
+                Hide();
+                return;
+            }
+
         }
 
         private static async void ShowNullAlert()
         {
             // Message dialog
-          
+
         }
 
         private async void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
