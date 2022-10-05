@@ -8,9 +8,10 @@
     xmlns:my="using:Syncfusion.Windows.PdfViewer"
     Title="Curriculum Previewer"
     Width="500"
-    Height="500"
+    Height="700"
     DefaultButton="Primary"
     IsSecondaryButtonEnabled="False"
+    Loaded="ContentDialog_Loaded"
     PrimaryButtonText="Ok"
     mc:Ignorable="d">
 
@@ -19,10 +20,13 @@
         Height="500"
         HorizontalAlignment="Center">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.05*" />
+
             <ColumnDefinition Width="0.8*" />
-            <ColumnDefinition Width="0.05*" />
+
         </Grid.ColumnDefinitions>
-        <my:SfPdfViewerControl Name="PDFPreviewControl" Grid.Column="1" />
+        <my:SfPdfViewerControl
+            Name="PDFPreviewControl"
+            Grid.Column="0"
+            Height="500" />
     </Grid>
 </ContentDialog>

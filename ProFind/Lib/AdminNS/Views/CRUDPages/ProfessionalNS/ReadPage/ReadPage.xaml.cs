@@ -289,7 +289,14 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage
                 return;
             }
 
-            await new Lib.AdminNS.Views.CRUDPages.CurriculumNS.ReadPage.ReadDialog(ToManipulateProfessional.CurriculumP.ToPdfLoadedDocument()).ShowAsync();
+            
+            try
+            {
+                await new Lib.AdminNS.Views.CRUDPages.CurriculumNS.ReadPage.ReadDialog(ToManipulateProfessional.CurriculumP.ToPdfLoadedDocument()).ShowAsync();
+            } catch
+            {
+
+            }
         }
     }
 }
