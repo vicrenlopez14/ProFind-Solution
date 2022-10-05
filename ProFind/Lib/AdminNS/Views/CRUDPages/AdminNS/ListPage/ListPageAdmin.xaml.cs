@@ -75,14 +75,21 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ListPage
 
         private async void Delete_Click_1(object sender, RoutedEventArgs e)
         {
-            if ((AdminsListView.ItemsSource as List<Admin>).Count > 1)
-            {
+            
                 try
                 {
-                    var obj = AdminsListView.SelectedItem as Admin;
-                    await APIConnection.GetConnection.DeleteAdminAsync(obj.IdA);
-                    var dialog = new MessageDialog("Admin deleted successfully.");
-                    await dialog.ShowAsync();
+                    if (AdminsListView.SelectedItem != null)
+                    {
+                        var obj = AdminsListView.SelectedItem as Admin;
+                        await APIConnection.GetConnection.DeleteAdminAsync(obj.IdA);
+                        var dialog = new MessageDialog("Admin deleted successfully.");
+                        await dialog.ShowAsync();
+                    }
+                    else
+                    {
+                        var dialog = new MessageDialog("You have to select an admin.");
+                        await dialog.ShowAsync();
+                    }
                 }
                 catch (ProFindServicesException ex)
                 {
@@ -101,14 +108,8 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ListPage
                 {
                     GetAdminsList();
                 }
-            }
-            else
-            {
-                {
-                    var dialog = new MessageDialog("You can't delete the last admin.");
-                    await dialog.ShowAsync();
-                }
-            }
+           
+            
         }
 
         private async void Update_Click_1(object sender, RoutedEventArgs e)
@@ -138,6 +139,22 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ListPage
             URLOpenerUtil.OpenURL(@"https://reporter.profind.work/Report/RegisteredAdmins");
         }
 
+
+        private async void AdminsListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            if (AdminsListView.SelectedItem != null)
+            {
+                var obj = AdminsListView.SelectedItem as Admin;
+                new InAppNavigationController().NavigateTo(typeof(ReadPage.ReadPage), obj);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a Admin.");
+                await dialog.ShowAsync();
+
+            }
+        }
     }
 }
 

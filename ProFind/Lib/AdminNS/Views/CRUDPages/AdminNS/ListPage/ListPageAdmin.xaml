@@ -11,12 +11,13 @@
 
     <Grid Padding="30">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.15*" />
-            <RowDefinition Height="0.85*" />
+            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.8*" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <CommandBar
-                HorizontalAlignment="Left"
+                Grid.ColumnSpan="3"
+                Margin="-22,-30,-30,0"
                 Background="Transparent"
                 DefaultLabelPosition="Right"
                 IsOpen="False">
@@ -45,8 +46,8 @@
             </CommandBar>
             <SearchBox PlaceholderText="Search" QueryChanged="SearchBox_QueryChanged" />
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Vertical">
-            <ListView Name="AdminsListView">
+
+        <ListView Name="AdminsListView" Grid.Row="1" DoubleTapped="AdminsListView_DoubleTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="services:Admin">
                         <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
@@ -96,6 +97,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackPanel>
+
     </Grid>
 </Page>

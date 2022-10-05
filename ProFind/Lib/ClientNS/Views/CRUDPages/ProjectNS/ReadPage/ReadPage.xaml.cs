@@ -79,11 +79,20 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProjectNS.ReadPage
 
             try
             {
-                var selectedProject = AdminsListView.SelectedItem as Project;
-                await APIConnection.GetConnection.DeleteProjectAsync(selectedProject.IdPj);
+                if (AdminsListView.SelectedItem != null)
+                {
+                    var selectedProject = AdminsListView.SelectedItem as Project;
+                    await APIConnection.GetConnection.DeleteProjectAsync(selectedProject.IdPj);
 
-                var dialog = new MessageDialog("Project deleted successfully.");
-                await dialog.ShowAsync();
+                    var dialog = new MessageDialog("Project deleted successfully.");
+                    await dialog.ShowAsync();
+                }
+                else
+                {
+
+                    var dialog = new MessageDialog("You have to select a Project.");
+                    await dialog.ShowAsync();
+                }
             }
             catch (ProFindServicesException ex)
             {

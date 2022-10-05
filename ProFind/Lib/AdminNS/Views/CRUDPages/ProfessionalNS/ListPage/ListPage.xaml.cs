@@ -62,10 +62,20 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ListPage
         {
             try
             {
-                var obj = ProfessionalsListView.SelectedItem as Professional;
-                await APIConnection.GetConnection.DeleteProfessionalAsync(obj.IdP);
-                var dialog = new MessageDialog("Professional has been deleted");
-                await dialog.ShowAsync();
+                if (ProfessionalsListView.SelectedItem != null)
+                {
+                    var obj = ProfessionalsListView.SelectedItem as Professional;
+                    await APIConnection.GetConnection.DeleteProfessionalAsync(obj.IdP);
+                    var dialog = new MessageDialog("Professional has been deleted");
+                    await dialog.ShowAsync();
+                }
+                else
+                {
+                    // Validation content dialog
+                    var dialog = new MessageDialog("You have to select a Professional.");
+                    await dialog.ShowAsync();
+
+                }
 
             }
             catch (ProFindServicesException ex)
@@ -111,6 +121,22 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ListPage
         private void AppBarButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             URLOpenerUtil.OpenURL(@"https://localhost:7119/Report/RegisteredProfessionals");
+        }
+
+        private async void ProfessionalsListView_DoubleTapped(object sender, Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs e)
+        {
+            if (ProfessionalsListView.SelectedItem != null)
+            {
+                var selectedProfessional = ProfessionalsListView.SelectedItem as Professional;
+                new InAppNavigationController().NavigateTo(typeof(Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage.ReadPage), selectedProfessional);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a Professional.");
+                await dialog.ShowAsync();
+
+            }
         }
     }
 }

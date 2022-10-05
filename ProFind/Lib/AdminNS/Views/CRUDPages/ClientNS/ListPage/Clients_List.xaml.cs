@@ -58,10 +58,20 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.ListPage
         {
             try
             {
-                var obj = Activities_lw.SelectedItem as Client;
-                await APIConnection.GetConnection.DeleteClientAsync(obj.IdC);
-                var dialog = new MessageDialog("Client deleted successfully.");
-                await dialog.ShowAsync();
+                if (Activities_lw.SelectedItem != null)
+                {
+                    var obj = Activities_lw.SelectedItem as Client;
+                    await APIConnection.GetConnection.DeleteClientAsync(obj.IdC);
+                    var dialog = new MessageDialog("Client deleted successfully.");
+                    await dialog.ShowAsync();
+                }
+                else
+                {
+                    // Validation content dialog
+                    var dialog = new MessageDialog("You have to select a client.");
+                    await dialog.ShowAsync();
+
+                }
             }
             catch (ProFindServicesException ex)
             {
@@ -109,6 +119,23 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.ListPage
         private void AppBarButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             URLOpenerUtil.OpenURL(@"https://localhost:7119/Report/RegisteredClients");
+        }
+
+        private async void Activities_lw_DoubleTapped(object sender, Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs e)
+        {
+            if (Activities_lw.SelectedItem != null)
+            {
+                Client selectedClient = Activities_lw.SelectedItem as Client;
+
+                new InAppNavigationController().NavigateTo(typeof(Lib.AdminNS.Views.CRUDPages.ClientNS.ReadPage.ReadPage), selectedClient);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a client.");
+                await dialog.ShowAsync();
+
+            }
         }
     }
 }

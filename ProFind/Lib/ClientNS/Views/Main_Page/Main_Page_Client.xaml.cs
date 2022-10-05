@@ -30,7 +30,7 @@ namespace ProFind.Lib.ClientNS.Views.Main_Page
             {"GeneralNotifications_Page_Clients", typeof(Lib.ClientNS.Views.CRUDPages.NotificationNS.ReadPage.ReadPage) },
             {"ProposalNotifications_Page_Clients", typeof(Lib.ClientNS.Views.CRUDPages.NotificationNS.ReadPage.ReadPage) },
             {"ProjectsOverview_Page", typeof(Lib.ClientNS.Views.CRUDPages.ProjectNS.ReadPage.ReadPage) },
-            {"Projecttype_Page", typeof(Lib.ClientNS.Views.CRUDPages.NotificationNS.ReadPage.ReadPage) },
+            {"Projecttype_Page", typeof(Lib.ClientNS.Views.CRUDPages.ProposalsNS.ListPage.ListPAge) },
             {"Preferences_Page", typeof(Preferences_Page) },
             {"About_Page",typeof(About_Page) },
             {"", typeof(CRUDPages.ProjectNS.ReadPage.ReadPage) }

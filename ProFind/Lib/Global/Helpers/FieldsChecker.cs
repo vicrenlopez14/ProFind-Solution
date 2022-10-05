@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using Windows.System;
+using Windows.UI.Popups;
 
 namespace ProFind.Lib.Global.Helpers
 {
@@ -52,11 +53,12 @@ namespace ProFind.Lib.Global.Helpers
 
         public static bool CheckName(string text)
         {
-            text = text.ToLower().Normalize(System.Text.NormalizationForm.FormD);
+            text = text.ToLower();
+            Console.WriteLine(text);
             foreach (char character in text)
             {
-                if ((character >= 'a' && character <= 'z') || character == ' ' ||
-                    ((character >= 160 && character <= 163) || character == 130 )) continue;
+                if ((character >= 'a' && character <= 'z') || character == ' ') continue;
+                if (((character >= 'á' && character <= 'ú') || character == 'é')) continue;
                 return false;
             }
             return true;

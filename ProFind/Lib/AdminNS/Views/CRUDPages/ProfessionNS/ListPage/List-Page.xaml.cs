@@ -33,10 +33,20 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.ListPage
         {
             try
             {
-                var obj = (ProfessionalsListView.SelectedItem as Profession);
-                await APIConnection.GetConnection.DeleteProfessionAsync(obj.IdPfs.GetValueOrDefault());
-                var dialog = new MessageDialog("The profession has been deleted.");
-                await dialog.ShowAsync();
+                if (ProfessionalsListView.SelectedItem != null)
+                {
+                    var obj = (ProfessionalsListView.SelectedItem as Profession);
+                    await APIConnection.GetConnection.DeleteProfessionAsync(obj.IdPfs.GetValueOrDefault());
+                    var dialog = new MessageDialog("The profession has been deleted.");
+                    await dialog.ShowAsync();
+                }
+                else
+                {
+                    // Validation content dialog
+                    var dialog = new MessageDialog("You have to select a Profession.");
+                    await dialog.ShowAsync();
+
+                }
             }
             catch (ProFindServicesException ex)
             {
