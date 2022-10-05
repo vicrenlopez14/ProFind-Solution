@@ -238,7 +238,6 @@ namespace ProFind.Lib.ClientNS.Views.Operations.CallReceivedPage
                     remoteParticipantDictionary.TryAdd(remoteParticipantMRI, remoteParticipant);
                     await AddVideoStreams(remoteParticipant.VideoStreams);
                     remoteParticipant.OnVideoStreamsUpdated += Call_OnVideoStreamsUpdated;
-
                 }
                 if (call.RemoteParticipants.Count > 0)
                 {

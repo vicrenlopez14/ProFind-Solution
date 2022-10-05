@@ -30,7 +30,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.Operations.CallReceivedPage
     /// </summary>
     public sealed partial class CallReceivedPage : Page
     {
-        CallClient callProfessional;
+        CallClient callClient;
         CallAgent callAgent;
         Call call;
         DeviceManager deviceManager;
@@ -40,7 +40,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.Operations.CallReceivedPage
 
         private bool IsMicOn = false;
         private bool IsCameraOn = false;
-        private Professional professionalWhoWillCall;
+        private Client clientWhoWillCall;
 
 
         public CallReceivedPage()
@@ -52,12 +52,12 @@ namespace ProFind.Lib.ProfessionalNS.Views.Operations.CallReceivedPage
         {
             base.OnNavigatedTo(e);
 
-            if (e.Parameter.GetType() == typeof(Professional))
+            if (e.Parameter.GetType() == typeof(Client))
             {
-                professionalWhoWillCall = (Professional)e.Parameter;
+                clientWhoWillCall = (Client)e.Parameter;
 
-                LoggedUserName_tb.Text = professionalWhoWillCall.NameP;
-                LoggedUser_pp.ProfilePicture = await professionalWhoWillCall.PictureP.FromBase64String();
+                LoggedUserName_tb.Text = clientWhoWillCall.NameC;
+                LoggedUser_pp.ProfilePicture = await clientWhoWillCall.PictureC.FromBase64String();
             }
             else
             {

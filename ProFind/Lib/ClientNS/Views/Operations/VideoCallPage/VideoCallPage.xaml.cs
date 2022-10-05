@@ -134,8 +134,9 @@ namespace ProFind.Lib.ClientNS.Views.Operations.VideoCallPage
 
             StartCallOptions startCallOptions = new StartCallOptions();
             startCallOptions.VideoOptions = new VideoOptions(localVideoStream);
-            ICommunicationIdentifier[] callees = new ICommunicationIdentifier[1]
+            ICommunicationIdentifier[] callees = new ICommunicationIdentifier[2]
             {
+                new CommunicationUserIdentifier(LoggedClientStore.LoggedClient.CommunicationIdC),
         new CommunicationUserIdentifier(professionalToCall.CommunicationIdP)
             };
 

@@ -22,6 +22,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using CommunicationUserIdentifier = Azure.WinRT.Communication.CommunicationUserIdentifier;
+using ProFind.Lib.ClientNS.Controllers;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -34,23 +35,22 @@ namespace ProFind.Lib.ProfessionalNS.Views.Operations.VideoCallPage
     {
         private bool IsMicOn = false;
         private bool IsCameraOn = false;
-        private Professional professionalToCall;
+        private Client clientToCall;
 
         public VideoCallPage()
         {
             this.InitializeComponent();
-
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
-            if (e.Parameter.GetType() == typeof(Professional))
+            if (e.Parameter.GetType() == typeof(Client))
             {
-                professionalToCall = (Professional)e.Parameter;
-                LoggedUserName_tb.Text = professionalToCall.NameP;
-                LoggedUser_pp.ProfilePicture = await professionalToCall.PictureP.FromBase64String();
+                clientToCall = (Client)e.Parameter;
+                LoggedUserName_tb.Text = clientToCall.NameC;
+                LoggedUser_pp.ProfilePicture = await clientToCall.PictureC.FromBase64String();
             }
             else
             {
@@ -68,17 +68,17 @@ namespace ProFind.Lib.ProfessionalNS.Views.Operations.VideoCallPage
             var token = await APIConnection.GetConnection.GetChatAccessInfoAsync(communicationId);
 
             // Initialize call agent and Device Manager
-            var callProfessional = new CallClient();
-            deviceManager = await callProfessional.GetDeviceManager();
+            var callClient = new CallClient();
+            deviceManager = await callClient.GetDeviceManager();
 
             Azure.WinRT.Communication.CommunicationTokenCredential tokenCredential = new Azure.WinRT.Communication.CommunicationTokenCredential(token.Token);
 
             CallAgentOptions callAgentOptions = new CallAgentOptions()
             {
-                DisplayName = LoggedProfessionalStore.LoggedProfessional.NameP
+                DisplayName = LoggedProfessionalStore.LoggedProfessional.CommunicationIdP
             };
 
-            callAgent = await callProfessional.CreateCallAgent(tokenCredential, callAgentOptions);
+            callAgent = await callClient.CreateCallAgent(tokenCredential, callAgentOptions);
             callAgent.OnCallsUpdated += Agent_OnCallsUpdate;
             callAgent.OnIncomingCall += Agent_OnIncomingCall;
         }
@@ -134,9 +134,10 @@ namespace ProFind.Lib.ProfessionalNS.Views.Operations.VideoCallPage
 
             StartCallOptions startCallOptions = new StartCallOptions();
             startCallOptions.VideoOptions = new VideoOptions(localVideoStream);
-            ICommunicationIdentifier[] callees = new ICommunicationIdentifier[1]
+            ICommunicationIdentifier[] callees = new ICommunicationIdentifier[2]
             {
-        new CommunicationUserIdentifier(professionalToCall.CommunicationIdP)
+                new CommunicationUserIdentifier(LoggedProfessionalStore.LoggedProfessional.CommunicationIdP),
+        new CommunicationUserIdentifier(clientToCall.CommunicationIdC)
             };
 
             call = await callAgent.StartCallAsync(callees, startCallOptions);
