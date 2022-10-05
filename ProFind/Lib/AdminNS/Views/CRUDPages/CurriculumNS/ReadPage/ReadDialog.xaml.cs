@@ -11,13 +11,13 @@ using System.Reflection.Metadata;
 namespace ProFind.Lib.AdminNS.Views.CRUDPages.CurriculumNS.ReadPage
 {
     public sealed partial class ReadDialog : ContentDialog
-        
-    {
-        PdfLoadedDocument document;
-        public ReadDialog(PdfLoadedDocument document)
-        {
-            this.document = document;
 
+    {
+        byte[] pdfBytes;
+        PdfLoadedDocument document;
+        public ReadDialog(byte[] documentBytes)
+        {
+            this.pdfBytes = documentBytes;
         }
 
         
@@ -27,15 +27,20 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.CurriculumNS.ReadPage
 
         }
 
-        private async void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        private async void ContentDialog_PrimaryButtonClick_1(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
         }
 
-        private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        private void ContentDialog_SecondaryButtonClick_1(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
         }
 
         private void ContentDialog_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+           
+        }
+
+        private void ContentDialog_Loaded_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             if (document == null)
             {
@@ -45,7 +50,8 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.CurriculumNS.ReadPage
 
             try
             {
-                PDFPreviewControl.LoadDocument(document);
+                document = new PdfLoadedDocument(pdfBytes);
+                PDFPreview.LoadDocument(document);
             }
             catch (Exception ex)
             {

@@ -6,27 +6,22 @@
     xmlns:local="using:ProFind.Lib.ProfessionalNS.Views.CRUDPages.CurriculumNS.ReadPage"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:my="using:Syncfusion.Windows.PdfViewer"
-    Title="Curriculum Previewer"
-    Width="500"
-    Height="700"
-    DefaultButton="Primary"
-    IsSecondaryButtonEnabled="False"
-    Loaded="ContentDialog_Loaded"
-    PrimaryButtonText="Ok"
-    mc:Ignorable="d">
+    Title="Curriculum reviewing"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick_1"
+    PrimaryButtonText="Confirm"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick_1"
+    SecondaryButtonText="Cancel"
+    mc:Ignorable="d" Loaded="ContentDialog_Loaded_1">
 
-    <Grid
-        Width="500"
-        Height="500"
-        HorizontalAlignment="Center">
+    <Grid Width="500" HorizontalAlignment="Center">
         <Grid.ColumnDefinitions>
-
+            <ColumnDefinition Width="0.1*" />
             <ColumnDefinition Width="0.8*" />
-
+            <ColumnDefinition Width="0.1*" />
         </Grid.ColumnDefinitions>
         <my:SfPdfViewerControl
-            Name="PDFPreviewControl"
+            Name="PDFPreview"
             Grid.Column="0"
-            Height="500" />
+            Height="400" />
     </Grid>
 </ContentDialog>

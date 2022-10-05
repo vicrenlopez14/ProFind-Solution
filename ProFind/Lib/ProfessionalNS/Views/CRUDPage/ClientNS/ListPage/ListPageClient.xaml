@@ -14,13 +14,21 @@
             <RowDefinition Height="0.2*" />
             <RowDefinition Height="0.8*" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-
-            <SearchBox
-                Width="1417"
-                Height="30"
-                PlaceholderText="Search"
-                QueryChanged="SearchBox_QueryChanged" />
+        <StackPanel Grid.Row="0" Orientation="Vertical">
+            <SearchBox PlaceholderText="Search" QueryChanged="SearchBox_QueryChanged" />
+            <CommandBar
+                Background="Transparent"
+                DefaultLabelPosition="Right"
+                IsOpen="False">
+                <AppBarButton
+                    Click="WaitForCall"
+                    Icon="PhoneBook"
+                    Label="Wait for them call" />
+                <AppBarButton
+                    Click="CallAProfessional"
+                    Icon="Phone"
+                    Label="Call" />
+            </CommandBar>
         </StackPanel>
 
         <ListView Name="Clients_lw" Grid.Row="1" DoubleTapped="Clients_lw_DoubleTapped_1">

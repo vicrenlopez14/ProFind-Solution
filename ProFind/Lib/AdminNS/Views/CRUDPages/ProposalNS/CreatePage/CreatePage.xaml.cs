@@ -77,7 +77,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProposalNS.CreatePage
 
         private async void ViewCurriculum_btn_Click(object sender, RoutedEventArgs e)
         {
-            await new CurriculumNS.ReadPage.ReadDialog(SelectedProfessional.CurriculumP.ToPdfLoadedDocument()).ShowAsync();
+            await new CurriculumNS.ReadPage.ReadDialog(SelectedProfessional.CurriculumP).ShowAsync();
         }
 
         private async void Create_btn_Click(object sender, RoutedEventArgs e)

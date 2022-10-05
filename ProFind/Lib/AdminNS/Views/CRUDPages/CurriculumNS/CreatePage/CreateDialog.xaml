@@ -7,9 +7,7 @@
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:my="using:Syncfusion.Windows.PdfViewer"
     Title="Curriculum uploading"
-    
     PrimaryButtonText="Confirm"
-    
     SecondaryButtonText="Cancel"
     mc:Ignorable="d" PrimaryButtonClick="ContentDialog_PrimaryButtonClick_1" SecondaryButtonClick="ContentDialog_SecondaryButtonClick_1">
 

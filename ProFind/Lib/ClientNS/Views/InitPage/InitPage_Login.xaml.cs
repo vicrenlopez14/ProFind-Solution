@@ -60,7 +60,6 @@ namespace ProFind.Lib.ClientNS.Views.InitPage
         private void Hyperlink_Click_1(Windows.UI.Xaml.Documents.Hyperlink sender, Windows.UI.Xaml.Documents.HyperlinkClickEventArgs args)
         {
             new GlobalNavigationController().NavigateTo(typeof(Lib.ClientNS.Views.InitPage.InitPage));
-
         }
 
         private async void Button_Click_1(object sender, RoutedEventArgs e)
@@ -110,6 +109,12 @@ namespace ProFind.Lib.ClientNS.Views.InitPage
 
                 Console.WriteLine(ex.Message);
             }
+
+        }
+
+        private void ForgotPassword(Windows.UI.Xaml.Documents.Hyperlink sender, Windows.UI.Xaml.Documents.HyperlinkClickEventArgs args)
+        {
+            new GlobalNavigationController().NavigateTo(typeof(Lib.ClientNS.Views.Operations.PasswordChangePage.SendEmailPage));
 
         }
     }

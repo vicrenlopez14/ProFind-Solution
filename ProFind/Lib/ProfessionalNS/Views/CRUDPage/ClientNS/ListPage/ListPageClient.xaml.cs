@@ -135,5 +135,37 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ClientNS.ListPage
 
             }
         }
+
+        private async void WaitForCall(object sender, RoutedEventArgs e)
+        {
+            if (Clients_lw.SelectedItem != null)
+            {
+                var selectedClient = Clients_lw.SelectedItem as Professional;
+                new InAppNavigationController().NavigateTo(typeof(Lib.ClientNS.Views.Operations.CallReceivedPage.CallReceivedPage), selectedClient);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a Client.");
+                await dialog.ShowAsync();
+            }
+        }
+
+        private async void CallAProfessional(object sender, RoutedEventArgs e)
+        {
+            if (Clients_lw.SelectedItem != null)
+            {
+                var selectedClient = Clients_lw.SelectedItem as Professional;
+                new InAppNavigationController().NavigateTo(typeof(Lib.ClientNS.Views.Operations.VideoCallPage.VideoCallPage), selectedClient);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a Client.");
+                await dialog.ShowAsync();
+            }
+        }
+
+      
     }
 }

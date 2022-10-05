@@ -129,6 +129,9 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ListPage
             {
                 var selectedProfessional = ProfessionalsListView.SelectedItem as Professional;
                 new InAppNavigationController().NavigateTo(typeof(Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage.ReadPage), selectedProfessional);
+                // Validation content dialog
+                //var dialog = new MessageDialog("temporary disabled");
+                //await dialog.ShowAsync();
             }
             else
             {

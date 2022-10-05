@@ -231,6 +231,9 @@
     <PackageReference Include="Microsoft.Rest.ClientRuntime">
       <Version>2.3.24</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp">
+      <Version>7.1.2</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls.DataGrid">
       <Version>7.1.2</Version>
     </PackageReference>
@@ -374,6 +377,9 @@
     <Compile Include="Lib\ClientNS\Controllers\LoggedClientStore.cs" />
     <Compile Include="Lib\ClientNS\Views\CRUDPages\CatalogNS\CatalogList\CatalogList.xaml.cs">
       <DependentUpon>CatalogList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\ClientNS\Views\CRUDPages\CatalogNS\CatalogV2\CatalogV2.xaml.cs">
+      <DependentUpon>CatalogV2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\ClientNS\Views\CRUDPages\NotificationNS\ReadPage\ReadPage.xaml.cs">
       <DependentUpon>ReadPage.xaml</DependentUpon>
@@ -570,6 +576,9 @@
     <Compile Include="Lib\ProfessionalNS\Views\Main_Page\Main_Page.xaml.cs">
       <DependentUpon>Main_Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\ProfessionalNS\Views\Operations\CallReceivedPage\CallReceivedPage.xaml.cs">
+      <DependentUpon>CallReceivedPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\ProfessionalNS\Views\Operations\PasswordChangePage\CodeVerification.xaml.cs">
       <DependentUpon>CodeVerification.xaml</DependentUpon>
     </Compile>
@@ -578,6 +587,9 @@
     </Compile>
     <Compile Include="Lib\ProfessionalNS\Views\Operations\PasswordChangePage\SendEmailPage.xaml.cs">
       <DependentUpon>SendEmailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\ProfessionalNS\Views\Operations\VideoCallPage\VideoCallPage.xaml.cs">
+      <DependentUpon>VideoCallPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -734,6 +746,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\ClientNS\Views\CRUDPages\CatalogNS\CatalogList\CatalogList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\ClientNS\Views\CRUDPages\CatalogNS\CatalogV2\CatalogV2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -957,6 +973,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Lib\ProfessionalNS\Views\Operations\CallReceivedPage\CallReceivedPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Lib\ProfessionalNS\Views\Operations\PasswordChangePage\CodeVerification.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -966,6 +986,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\ProfessionalNS\Views\Operations\PasswordChangePage\SendEmailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Lib\ProfessionalNS\Views\Operations\VideoCallPage\VideoCallPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -80,16 +80,6 @@ public class ClientsController : ControllerBase
             var clientFromDb = await _context.Clients.FirstOrDefaultAsync(a => a.EmailC == email);
             if (clientFromDb != null)
             {
-                // Make any other code for this user invalid
-                var otherCodes =
-                    await _context.Changepasswordcodes.Where(c => c.IdC1 == clientFromDb.IdC).ToListAsync();
-
-                foreach (var otherCode in otherCodes)
-                {
-                    otherCode.ValidCpc = false;
-                    _context.Update(otherCode);
-                }
-
                 // Creation of the code to be sent to the user
                 // Random code with 4 digits
                 var random = new Random();

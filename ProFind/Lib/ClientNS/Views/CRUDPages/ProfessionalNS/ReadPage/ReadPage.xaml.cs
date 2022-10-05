@@ -31,6 +31,10 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage
 
         {
 
+            
+
+
+
             var loggedClient = LoggedClientStore.LoggedClient;
 
             // Major lists
@@ -53,7 +57,7 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage
 
         private void Control2_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-           
+
             var loggedClient = LoggedClientStore.LoggedClient;
             var relatedProf = (from Project in loggedClient.Projects
                                where Project.IdC1 == loggedClient.IdC
@@ -113,9 +117,39 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage
             else
             {
                 // Validation content dialog
-                var dialog = new MessageDialog("You have to select a Project.");
+                var dialog = new MessageDialog("You have to select a Professional.");
                 await dialog.ShowAsync();
 
+            }
+        }
+
+        private async void WaitForCall(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            if (ProfessionalsListView.SelectedItem != null)
+            {
+                var selectedProfessional = ProfessionalsListView.SelectedItem as Professional;
+                new InAppNavigationController().NavigateTo(typeof(Lib.ClientNS.Views.Operations.CallReceivedPage.CallReceivedPage), selectedProfessional);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a Professional.");
+                await dialog.ShowAsync();
+            }
+        }
+
+        private async void CallAProfessional(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            if (ProfessionalsListView.SelectedItem != null)
+            {
+                var selectedProfessional = ProfessionalsListView.SelectedItem as Professional;
+                new InAppNavigationController().NavigateTo(typeof(Lib.ClientNS.Views.Operations.VideoCallPage.VideoCallPage), selectedProfessional);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a Professional.");
+                await dialog.ShowAsync();
             }
         }
     }

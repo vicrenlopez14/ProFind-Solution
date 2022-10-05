@@ -49,11 +49,6 @@
                             Already have an account?<Hyperlink Click="Hyperlink_Click_1">Log in to your account</Hyperlink>
                         </Paragraph>
                     </RichTextBlock>
-                    <RichTextBlock  SelectionHighlightColor="Green">
-                        <Paragraph>
-                            Forgot password?<Hyperlink Click="Hyperlink_Click_2">Click here</Hyperlink>
-                        </Paragraph>
-                    </RichTextBlock>
                     <TextBox
                         x:Name="Name_tb"
                         Margin="0,30,0,0"

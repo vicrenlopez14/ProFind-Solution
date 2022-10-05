@@ -15,84 +15,92 @@
             <RowDefinition Height="0.8*" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <CommandBar  Grid.ColumnSpan="3"
+            <CommandBar
+                Grid.ColumnSpan="3"
                 Margin="-22,-30,-30,0"
                 Background="Transparent"
                 DefaultLabelPosition="Right"
                 IsOpen="False">
 
-                <AppBarButton Icon="Add" Label="Add Proposal " Click="Add_Click_1"/>
+                <AppBarButton
+                    Click="Add_Click_1"
+                    Icon="Add"
+                    Label="Add Proposal " />
 
 
 
                 <CommandBar.SecondaryCommands>
-                    <AppBarButton Icon="Setting"  Label="Settings">
+                    <AppBarButton Icon="Setting" Label="Settings">
                         <AppBarButton.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Control" Key="I" />
+                            <KeyboardAccelerator Key="I" Modifiers="Control" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
                 </CommandBar.SecondaryCommands>
             </CommandBar>
             <SearchBox PlaceholderText="Search" QueryChanged="SearchBox_QueryChanged" />
         </StackPanel>
-        
-          
 
-            <ListView
-            Name="ProfessionalsListView" Grid.Row="1"
-          
-            ItemClick="ProjectsActiveListView_ItemClick" DoubleTapped="ProfessionalsListView_DoubleTapped">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="services:Professional">
-                        <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="0.3*" />
-                                    <ColumnDefinition Width="0.7*" />
-                                </Grid.ColumnDefinitions>
-                                <StackPanel Grid.Column="0" Orientation="Vertical">
-                                    <Image
+
+
+        <ListView
+            Name="ProfessionalsListView"
+            Grid.Row="1"
+            DoubleTapped="ProfessionalsListView_DoubleTapped"
+            ItemClick="ProjectsActiveListView_ItemClick">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="services:Professional">
+                    <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.3*" />
+                                <ColumnDefinition Width="0.7*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Orientation="Vertical">
+                                <Image
                                     Width="100"
                                     Height="100"
                                     Source="{Binding PictureP, Converter={StaticResource ImageModelConverter}}" />
-                                </StackPanel>
-                                <StackPanel
+                            </StackPanel>
+                            <StackPanel
                                 Grid.Column="1"
                                 Padding="0,30"
                                 Orientation="Vertical">
-                                    <StackPanel>
-                                        <TextBlock
-                                        Height="25"
-                                        Style="{StaticResource ListTitleStyle}"
-                                        Text="Profession" />
-                                    </StackPanel>
-                                    <StackPanel />
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontWeight="Bold" Text="Name:" />
-                                        <TextBlock
+                                <StackPanel Orientation="Horizontal">
+
+                                    <TextBlock FontWeight="Bold" Text="Profession:" />
+
+                                    <TextBlock
+                                        Height="31"
+                                        Margin="10,0,0,0"
+                                        Text="{Binding IdPfs1Navigation.NamePfs}" />
+                                </StackPanel>
+                                <StackPanel />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Name:" />
+                                    <TextBlock
                                         Height="31"
                                         Margin="10,0,0,0"
                                         Text="{Binding NameP}" />
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontWeight="Bold" Text="E-mail" />
-                                        <TextBlock
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="E-mail" />
+                                    <TextBlock
                                         Height="31"
                                         Margin="10,0,0,0"
                                         Text="{Binding EmailP}" />
-                                    </StackPanel>
-                                    <StackPanel
+                                </StackPanel>
+                                <StackPanel
                                     Grid.Column="1"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center" />
-                                </StackPanel>
-                            </Grid>
-                        </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
 
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-     
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
 
     </Grid>
 </Page>

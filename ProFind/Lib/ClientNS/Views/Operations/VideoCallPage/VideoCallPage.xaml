@@ -21,15 +21,25 @@
 
             <StackPanel Grid.Row="0">
 
+
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                     <PersonPicture x:Name="LoggedUser_pp" Width="50" />
-                    <TextBlock
-                        Name="LoggedUserName_tb"
-                        Margin="10,0,0,0"
-                        VerticalAlignment="Center"
-                        d:Text="Víctor López"
-                        FontWeight="Bold"
-                        Style="{StaticResource DetailBodyStyle}" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Name="LoggedUserName_tb"
+                            Margin="10,0,0,0"
+                            VerticalAlignment="Center"
+                            d:Text="Víctor López"
+                            FontWeight="Bold"
+                            Style="{StaticResource DetailBodyStyle}" />
+                        <TextBlock
+                            Name="Status"
+                            Margin="15,0,0,0"
+                            VerticalAlignment="Center">
+                            Calling...
+                        </TextBlock>
+                    </StackPanel>
+
                 </StackPanel>
                 <CommandBar
                     HorizontalAlignment="Center"

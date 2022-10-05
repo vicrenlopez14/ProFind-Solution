@@ -90,11 +90,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage
         private async void AutoComplete()
         {
             FirstName1_tbx.Text = ToManipulateProfessional.NameP;
-            if (ToManipulateProfessional.IdPfs1 == 1) profession_cbx.SelectedIndex = 0;
-
-            if (ToManipulateProfessional.IdPfs1 == 2) profession_cbx.SelectedIndex = 2;
-
-            if (ToManipulateProfessional.IdPfs1 == 3) profession_cbx.SelectedIndex = 3;
+            profession_cbx.SelectedItem = ToManipulateProfessional.IdPfs1Navigation;
 
 
             departamento.SelectedIndex = (ToManipulateProfessional.IdDp1 == null ? 0 : (int)ToManipulateProfessional.IdDp1);
@@ -300,7 +296,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage
             
             try
             {
-                await new Lib.AdminNS.Views.CRUDPages.CurriculumNS.ReadPage.ReadDialog(ToManipulateProfessional.CurriculumP.ToPdfLoadedDocument()).ShowAsync();
+                await new Lib.AdminNS.Views.CRUDPages.CurriculumNS.ReadPage.ReadDialog(ToManipulateProfessional.CurriculumP).ShowAsync();
             } catch
             {
 

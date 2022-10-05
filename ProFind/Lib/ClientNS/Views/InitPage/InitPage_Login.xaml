@@ -38,7 +38,7 @@
                     <RichTextBlock SelectionHighlightColor="Green">
                         <Paragraph>
                             Forgot password?
-                            <Hyperlink Click="Hyperlink_Click_1">Click here</Hyperlink>
+                            <Hyperlink Click="ForgotPassword">Click here</Hyperlink>
                         </Paragraph>
                     </RichTextBlock>
                     <TextBox

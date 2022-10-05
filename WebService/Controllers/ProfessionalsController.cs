@@ -128,16 +128,6 @@ namespace WebService.Controllers
                 var professionalFromDb = await _context.Professionals.FirstOrDefaultAsync(a => a.EmailP == email);
                 if (professionalFromDb != null)
                 {
-                    // Make any other code for this user invalid
-                    var otherCodes =
-                        await _context.Changepasswordcodes.Where(c => c.IdC1 == professionalFromDb.IdP).ToListAsync();
-
-                    foreach (var otherCode in otherCodes)
-                    {
-                        otherCode.ValidCpc = false;
-                        _context.Update(otherCode);
-                    }
-
                     // Creation of the code to be sent to the user
                     // Random code with 4 digits
                     var random = new Random();

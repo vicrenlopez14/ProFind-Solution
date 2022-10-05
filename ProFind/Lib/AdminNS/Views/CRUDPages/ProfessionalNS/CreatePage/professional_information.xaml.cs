@@ -168,7 +168,9 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
-            if (!FieldsChecker.OnlyInts(Afp.Text) || !FieldsChecker.CheckAfp(Afp.Text))
+            var textCheck = !FieldsChecker.OnlyInts(Afp.Text);
+            var afpCheck = !FieldsChecker.CheckAfp(Afp.Text);
+            if (textCheck || afpCheck)
             {
                 var dialog = new MessageDialog("The Afp must be valid.");
                 await dialog.ShowAsync();

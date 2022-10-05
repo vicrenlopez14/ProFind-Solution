@@ -94,6 +94,15 @@ namespace ProFind.Lib.ClientNS.Views.Operations.VideoCallPage
                     await AddVideoStreams(remoteParticipant.VideoStreams);
                     remoteParticipant.OnVideoStreamsUpdated += Call_OnVideoStreamsUpdated;
                 }
+
+                if (call.RemoteParticipants.Count > 0)
+                {
+                    Status.Text = "Connected";
+                }
+                else
+                {
+                    Status.Text = "Calling";
+                }
             }
         }
 
@@ -266,7 +275,7 @@ namespace ProFind.Lib.ClientNS.Views.Operations.VideoCallPage
         Call call;
         DeviceManager deviceManager;
         LocalVideoStream[] localVideoStream;
-        Dictionary<String, RemoteParticipant> remoteParticipantDictionary;
+        Dictionary<String, RemoteParticipant> remoteParticipantDictionary = new Dictionary<string, RemoteParticipant>();
 
         private async void Micro_Click_1(object sender, RoutedEventArgs e)
         {

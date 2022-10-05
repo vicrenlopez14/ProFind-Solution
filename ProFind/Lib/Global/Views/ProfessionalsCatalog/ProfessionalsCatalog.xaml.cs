@@ -153,7 +153,7 @@ namespace ProFind.Lib.Global.Views.ProfessionalsCatalog
 
         private async void ViewCurriculum_btn_Click(object sender, RoutedEventArgs e)
         {
-            await new Lib.AdminNS.Views.CRUDPages.CurriculumNS.ReadPage.ReadDialog(SelectedProfessional.CurriculumP.ToPdfLoadedDocument()).ShowAsync();
+            await new Lib.AdminNS.Views.CRUDPages.CurriculumNS.ReadPage.ReadDialog(SelectedProfessional.CurriculumP).ShowAsync();
         }
     }
 }

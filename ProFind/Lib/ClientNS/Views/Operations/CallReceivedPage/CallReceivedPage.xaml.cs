@@ -1,5 +1,6 @@
 ﻿using Azure.Communication.Calling;
 using ProFind.Lib.AdminNS.Controllers;
+using ProFind.Lib.ClientNS.Controllers;
 using ProFind.Lib.Global.Helpers;
 using ProFind.Lib.Global.Services;
 using System;
@@ -9,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using Windows.Devices.Enumeration;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -33,12 +35,12 @@ namespace ProFind.Lib.ClientNS.Views.Operations.CallReceivedPage
         Call call;
         DeviceManager deviceManager;
         LocalVideoStream[] localVideoStream;
-        Dictionary<String, RemoteParticipant> remoteParticipantDictionary;
-        private IncomingCall _incomingCall;
+        Dictionary<String, RemoteParticipant> remoteParticipantDictionary = new Dictionary<string, RemoteParticipant>();
+
 
         private bool IsMicOn = false;
         private bool IsCameraOn = false;
-        private Professional professionalWhoCalled;
+        private Professional professionalWhoWillCall;
 
 
         public CallReceivedPage()
@@ -50,20 +52,42 @@ namespace ProFind.Lib.ClientNS.Views.Operations.CallReceivedPage
         {
             base.OnNavigatedTo(e);
 
-            if (e.Parameter.GetType() == typeof((Professional, IncomingCall)))
+            if (e.Parameter.GetType() == typeof(Professional))
             {
-                (professionalWhoCalled, _incomingCall) = ((Professional, IncomingCall))e.Parameter;
+                professionalWhoWillCall = (Professional)e.Parameter;
 
-                LoggedUserName_tb.Text = professionalWhoCalled.NameP;
-                LoggedUser_pp.ProfilePicture = await professionalWhoCalled.PictureP.FromBase64String();
-
-                Agent_OnIncomingCall(null, _incomingCall);
+                LoggedUserName_tb.Text = professionalWhoWillCall.NameP;
+                LoggedUser_pp.ProfilePicture = await professionalWhoWillCall.PictureP.FromBase64String();
             }
             else
             {
                 new InAppNavigationController().GoBack();
                 return;
             }
+
+            await InitCallAgentAndDeviceManager();
+
+        }
+
+        private async Task InitCallAgentAndDeviceManager()
+        {
+            var communicationId = LoggedClientStore.LoggedClient.CommunicationIdC;
+            var token = await APIConnection.GetConnection.GetChatAccessInfoAsync(communicationId);
+
+            // Initialize call agent and Device Manager
+            var callClient = new CallClient();
+            deviceManager = await callClient.GetDeviceManager();
+
+            Azure.WinRT.Communication.CommunicationTokenCredential tokenCredential = new Azure.WinRT.Communication.CommunicationTokenCredential(token.Token);
+
+            CallAgentOptions callAgentOptions = new CallAgentOptions()
+            {
+                DisplayName = LoggedClientStore.LoggedClient.NameC
+            };
+
+            callAgent = await callClient.CreateCallAgent(tokenCredential, callAgentOptions);
+            callAgent.OnCallsUpdated += Agent_OnCallsUpdate;
+            callAgent.OnIncomingCall += Agent_OnIncomingCall;
         }
 
         private async void Agent_OnIncomingCall(object sender, IncomingCall incomingcall)
@@ -93,11 +117,11 @@ namespace ProFind.Lib.ClientNS.Views.Operations.CallReceivedPage
             call = await incomingcall.AcceptAsync(acceptCallOptions);
             call.OnRemoteParticipantsUpdated += Call_OnRemoteParticipantsUpdated;
             call.OnStateChanged += Call_OnStateChanged;
-            
+
             IsMicOn = true;
             IsCameraOn = true;
-        } 
-        
+        }
+
         private async void Call_OnStateChanged(object sender, PropertyChangedEventArgs args)
         {
             switch (((Call)sender).State)
@@ -203,6 +227,31 @@ namespace ProFind.Lib.ClientNS.Views.Operations.CallReceivedPage
             IsMicOn = !IsMicOn;
         }
 
+
+        private async void Agent_OnCallsUpdate(object sender, CallsUpdatedEventArgs args)
+        {
+            foreach (var call in args.AddedCalls)
+            {
+                foreach (var remoteParticipant in call.RemoteParticipants)
+                {
+                    String remoteParticipantMRI = remoteParticipant.Identifier.ToString();
+                    remoteParticipantDictionary.TryAdd(remoteParticipantMRI, remoteParticipant);
+                    await AddVideoStreams(remoteParticipant.VideoStreams);
+                    remoteParticipant.OnVideoStreamsUpdated += Call_OnVideoStreamsUpdated;
+
+                }
+                if (call.RemoteParticipants.Count > 0)
+                {
+                    Status.Text = "Connected";
+                }
+                else
+                {
+                    Status.Text = "Waiting for them call...";
+
+                }
+
+            }
+        }
         private async void Camera_Click_1(object sender, RoutedEventArgs e)
         {
             if (IsCameraOn)
@@ -224,7 +273,9 @@ namespace ProFind.Lib.ClientNS.Views.Operations.CallReceivedPage
             await call.HangUpAsync(hangUpOptions);
         }
 
+        private void Status_SelectionChanged(object sender, RoutedEventArgs e)
+        {
 
-
+        }
     }
 }
