@@ -96,6 +96,10 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage
 
             if (ToManipulateProfessional.IdPfs1 == 3) profession_cbx.SelectedIndex = 3;
 
+
+            departamento.SelectedIndex = (ToManipulateProfessional.IdDp1 == null ? 0 : (int)ToManipulateProfessional.IdDp1);
+            Phone_nb.Text = ToManipulateProfessional.PhoneP;
+
             Afp.Text = ToManipulateProfessional.Afpp;
             SeguroSocial.Text = ToManipulateProfessional.Isssp;
             Dui.Text = ToManipulateProfessional.Duip;
@@ -118,6 +122,10 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage
             Salario.IsEnabled = false;
             Nacimiento.IsEnabled = false;
             profession_cbx.IsEnabled = false;
+            Sexo.IsEnabled = false;
+            departamento.IsEnabled = false;
+            Phone_nb.IsEnabled = false;
+
            
 
         }

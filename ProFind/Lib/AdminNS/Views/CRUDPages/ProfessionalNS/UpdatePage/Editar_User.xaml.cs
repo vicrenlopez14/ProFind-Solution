@@ -96,6 +96,9 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
 
             if (ToManipulateProfessional.IdPfs1 == 3) profession_cbx.SelectedIndex = 3;
 
+            departamento.SelectedIndex = (ToManipulateProfessional.IdDp1 == null ? 0 : (int)ToManipulateProfessional.IdDp1);
+            Phone_nb.Text = ToManipulateProfessional.PhoneP;
+
             Afp.Text = ToManipulateProfessional.Afpp;
             SeguroSocial.Text = ToManipulateProfessional.Isssp;
             Dui.Text = ToManipulateProfessional.Duip;
@@ -217,7 +220,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
                     await dialog.ShowAsync();
                     return;
                 }
-                if (!FieldsChecker.OnlyInts(Afp.Text))
+                if (!FieldsChecker.OnlyInts(Afp.Text) || !FieldsChecker.CheckAfp(Afp.Text))
                 {
                     var dialog = new MessageDialog("The Afp must be valid.");
                     await dialog.ShowAsync();
@@ -229,14 +232,14 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
                     await dialog.ShowAsync();
                     return;
                 }
-                if (!FieldsChecker.OnlyLetters(position.Text))
+                if (!FieldsChecker.OnlyInts(SeguroSocial.Text) || !FieldsChecker.CheckIsss(SeguroSocial.Text))
                 {
-                    var dialog = new MessageDialog("The Position must be valid.");
+                    var dialog = new MessageDialog("The Isss must be valid.");
                     await dialog.ShowAsync();
                     return;
                 }
-              
-                
+
+
                 if (string.IsNullOrEmpty(ToManipulateProfessional.PasswordP) && !string.IsNullOrEmpty(passwordBox.Password))
                 {
 

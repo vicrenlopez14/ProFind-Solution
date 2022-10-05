@@ -46,7 +46,6 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
             Afp.OnEnterNextField();
             Dui.OnEnterNextField();
             SeguroSocial.OnEnterNextField();
-            position.OnEnterNextField();
             CodigoPostal.OnEnterNextField();
             Email.OnEnterNextField();
             Salario.OnEnterNextField();
@@ -169,7 +168,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
-            if (!FieldsChecker.OnlyInts(Afp.Text))
+            if (!FieldsChecker.OnlyInts(Afp.Text) || !FieldsChecker.CheckAfp(Afp.Text))
             {
                 var dialog = new MessageDialog("The Afp must be valid.");
                 await dialog.ShowAsync();
@@ -181,15 +180,27 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
-            if (!FieldsChecker.OnlyLetters(position.Text))
-            {
-                var dialog = new MessageDialog("The Position must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
             if (!FieldsChecker.CheckPassword(passwordBox.Password))
             {
                 var dialog = new MessageDialog("The password must be valid.");
+                await dialog.ShowAsync();
+                return;
+            }
+            if (!FieldsChecker.CheckPhoneNumber(Phone_nb.Text))
+            {
+                var dialog = new MessageDialog("The phone number must be valid.");
+                await dialog.ShowAsync();
+                return;
+            }
+            if(curriculumBytes == null)
+            {
+                var dialog = new MessageDialog("The curriculum must be valid.");
+                await dialog.ShowAsync();
+                return;
+            }
+            if (!FieldsChecker.OnlyInts(SeguroSocial.Text) || !FieldsChecker.CheckIsss(SeguroSocial.Text))
+            {
+                var dialog = new MessageDialog("The Isss must be valid.");
                 await dialog.ShowAsync();
                 return;
             }

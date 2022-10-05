@@ -107,6 +107,15 @@ namespace ProFind.Lib.Global.Helpers
             else return false;
         }
 
+        public static bool CheckAfp (string afp)
+        {
+            return afp.Length == 12;
+        }
+
+        public static bool CheckIsss (string isss)
+        {
+            return isss.Length == 9;
+        }
 
         public static bool CheckPhoneNumber(string phone)
         {
