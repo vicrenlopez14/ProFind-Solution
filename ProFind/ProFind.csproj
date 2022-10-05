@@ -18,9 +18,8 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-    <PackageCertificateThumbprint>6CAA3A3424C680218E8C5C19888DD12A24FA1D83</PackageCertificateThumbprint>
-    <PackageCertificateKeyFile>
-    </PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>0668076B03B7255CD580C12B79B4B8BD4C032AE0</PackageCertificateThumbprint>
+    <PackageCertificateKeyFile>ProFind_TemporaryKey.pfx</PackageCertificateKeyFile>
     <GenerateAppInstallerFile>True</GenerateAppInstallerFile>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
@@ -267,6 +266,9 @@
     <Compile Include="Lib\AdminNS\Views\CRUDPages\AdminNS\ListPage\ListPageAdmin.xaml.cs">
       <DependentUpon>ListPageAdmin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\AdminNS\ReadPage\ReadPage.xaml.cs">
+      <DependentUpon>ReadPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\AdminNS\SearchPage\search-admin.xaml.cs">
       <DependentUpon>search-admin.xaml</DependentUpon>
     </Compile>
@@ -278,6 +280,9 @@
     </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ClientNS\ListPage\Clients_List.xaml.cs">
       <DependentUpon>Clients_List.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\ClientNS\ReadPage\ReadPage.xaml.cs">
+      <DependentUpon>ReadPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ClientNS\Search_Pages\Search_Page_Clients.xaml.cs">
       <DependentUpon>Search_Page_Clients.xaml</DependentUpon>
@@ -582,6 +587,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Lib\AdminNS\Views\CRUDPages\AdminNS\ReadPage\ReadPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Lib\AdminNS\Views\CRUDPages\AdminNS\SearchPage\search-admin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -595,6 +604,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\AdminNS\Views\CRUDPages\ClientNS\ListPage\Clients_List.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\AdminNS\Views\CRUDPages\ClientNS\ReadPage\ReadPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

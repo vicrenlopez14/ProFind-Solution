@@ -51,7 +51,7 @@
                 QueryChanged="SearchBox_QueryChanged" />
         </StackPanel>
 
-        <ListView Name="Activities_lw" Grid.Row="1">
+        <ListView Name="Activities_lw" Grid.Row="1" DoubleTapped="Activities_lw_DoubleTapped">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="services:Client">
                     <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">

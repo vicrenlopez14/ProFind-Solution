@@ -45,7 +45,7 @@
             </CommandBar>
             <SearchBox PlaceholderText="Search" QueryChanged="SearchBox_QueryChanged" />
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Vertical">
+        <StackPanel Grid.Row="1" Orientation="Vertical" DoubleTapped="StackPanel_DoubleTapped">
             <ListView Name="AdminsListView">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="services:Admin">
