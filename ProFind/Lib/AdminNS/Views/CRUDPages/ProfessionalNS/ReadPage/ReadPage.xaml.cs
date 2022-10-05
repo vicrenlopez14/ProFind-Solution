@@ -35,7 +35,6 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage
         public ReadPage()
         {
             this.InitializeComponent();
-            loadUsefulThings();
             AddEvents();
         }
 
@@ -92,9 +91,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage
             FirstName1_tbx.Text = ToManipulateProfessional.NameP;
             if (ToManipulateProfessional.IdPfs1 == 1) profession_cbx.SelectedIndex = 0;
 
-            if (ToManipulateProfessional.IdPfs1 == 2) profession_cbx.SelectedIndex = 2;
+            if (ToManipulateProfessional.IdPfs1 == 2) profession_cbx.SelectedIndex = 1;
 
-            if (ToManipulateProfessional.IdPfs1 == 3) profession_cbx.SelectedIndex = 3;
+            if (ToManipulateProfessional.IdPfs1 == 3) profession_cbx.SelectedIndex = 2;
+
+            departamento.SelectedIndex = (ToManipulateProfessional.IdDp1 == null ? 0 : (int)ToManipulateProfessional.IdDp1 - 1);
+            Phone_nb.Text = ToManipulateProfessional.PhoneP;
 
             Afp.Text = ToManipulateProfessional.Afpp;
             SeguroSocial.Text = ToManipulateProfessional.Isssp;
@@ -118,6 +120,10 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage
             Salario.IsEnabled = false;
             Nacimiento.IsEnabled = false;
             profession_cbx.IsEnabled = false;
+            Sexo.IsEnabled = false;
+            departamento.IsEnabled = false;
+            Phone_nb.IsEnabled = false;
+
            
 
         }
@@ -280,9 +286,23 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage
 
         }
 
-        private void SelectCurriculum_Click_2(object sender, RoutedEventArgs e)
+        private async void SelectCurriculum_Click_2(object sender, RoutedEventArgs e)
         {
+            if (ToManipulateProfessional.CurriculumP == null)
+            {
+                var a = new MessageDialog("This professional hasn't attached a curriculum vitae");
+                await a.ShowAsync();
+                return;
+            }
 
+            
+            try
+            {
+                await new Lib.AdminNS.Views.CRUDPages.CurriculumNS.ReadPage.ReadDialog(ToManipulateProfessional.CurriculumP.ToPdfLoadedDocument()).ShowAsync();
+            } catch
+            {
+
+            }
         }
     }
 }

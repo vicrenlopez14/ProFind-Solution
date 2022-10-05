@@ -9,6 +9,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -110,6 +111,29 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ClientNS.ListPage
 
             Clients_lw.ItemsSource = null;
             Clients_lw.ItemsSource = newList;
+        }
+
+        private void StackPanel_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+
+        }
+
+        
+
+        private async void Clients_lw_DoubleTapped_1(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            if (Clients_lw.SelectedItem != null)
+            {
+                var selectedProject = Clients_lw.SelectedItem as Professional;
+                new InAppNavigationController().NavigateTo(typeof(Lib.AdminNS.Views.CRUDPages.ClientNS.ReadPage.ReadPage), selectedProject);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a Project.");
+                await dialog.ShowAsync();
+
+            }
         }
     }
 }

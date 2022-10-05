@@ -7,6 +7,8 @@ using ProFind.Lib.ProfessionalNS.Controllers;
 using ProFind.Lib.ClientNS.Controllers;
 using System.Linq;
 using System.Collections.Generic;
+using Windows.UI.Popups;
+using System;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -99,6 +101,22 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage
 
             ProfessionalsListView.ItemsSource = null;
             ProfessionalsListView.ItemsSource = newList;
+        }
+
+        private async void ProfessionalsListView_DoubleTapped(object sender, Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs e)
+        {
+            if (ProfessionalsListView.SelectedItem != null)
+            {
+                var selectedProject = ProfessionalsListView.SelectedItem as Professional;
+                new InAppNavigationController().NavigateTo(typeof(Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage.ReadPage), selectedProject);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a Project.");
+                await dialog.ShowAsync();
+
+            }
         }
     }
 }

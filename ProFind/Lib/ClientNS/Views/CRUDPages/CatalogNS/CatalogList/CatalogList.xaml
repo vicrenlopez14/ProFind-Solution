@@ -41,7 +41,7 @@
             <ListView
             Name="ProfessionalsListView" Grid.Row="1"
           
-            ItemClick="ProjectsActiveListView_ItemClick">
+            ItemClick="ProjectsActiveListView_ItemClick" DoubleTapped="ProfessionalsListView_DoubleTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="services:Professional">
                         <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">

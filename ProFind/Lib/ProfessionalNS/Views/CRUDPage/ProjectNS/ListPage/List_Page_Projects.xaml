@@ -35,7 +35,7 @@
             <ListView
                     Grid.Row="1"
                     Name="ProjectsListView"
-                    IsItemClickEnabled="True"
+                    IsItemClickEnabled="True" DoubleTapped="ProjectsListView_DoubleTapped"
                    
                    >
                 <ListView.ItemTemplate>

@@ -143,5 +143,21 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.CatalogNS.CatalogList
             ProfessionalsListView.ItemsSource = null;
             ProfessionalsListView.ItemsSource = newList;
         }
+
+        private async void ProfessionalsListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            if (ProfessionalsListView.SelectedItem != null)
+            {
+                var selectedProject = ProfessionalsListView.SelectedItem as Professional;
+                new InAppNavigationController().NavigateTo(typeof(Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage.ReadPage), selectedProject);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a Project.");
+                await dialog.ShowAsync();
+
+            }
+        }
     }
 }
