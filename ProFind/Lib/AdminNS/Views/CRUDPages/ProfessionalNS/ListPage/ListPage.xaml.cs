@@ -120,7 +120,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ListPage
 
         private void AppBarButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            URLOpenerUtil.OpenURL(@"https://localhost:7119/Report/RegisteredProfessionals");
+            URLOpenerUtil.OpenURL(@"https://reporter.profind.work/Report/RegisteredProfessionals");
         }
 
         private async void ProfessionalsListView_DoubleTapped(object sender, Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs e)
