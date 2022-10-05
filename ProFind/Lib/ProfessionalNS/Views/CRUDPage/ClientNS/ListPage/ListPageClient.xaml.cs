@@ -140,7 +140,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ClientNS.ListPage
         {
             if (Clients_lw.SelectedItem != null)
             {
-                var selectedClient = Clients_lw.SelectedItem as Professional;
+                var selectedClient = Clients_lw.SelectedItem as Client;
                 new InAppNavigationController().NavigateTo(typeof(Lib.ClientNS.Views.Operations.CallReceivedPage.CallReceivedPage), selectedClient);
             }
             else
@@ -155,7 +155,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ClientNS.ListPage
         {
             if (Clients_lw.SelectedItem != null)
             {
-                var selectedClient = Clients_lw.SelectedItem as Professional;
+                var selectedClient = Clients_lw.SelectedItem as Client;
                 new InAppNavigationController().NavigateTo(typeof(Lib.ClientNS.Views.Operations.VideoCallPage.VideoCallPage), selectedClient);
             }
             else
