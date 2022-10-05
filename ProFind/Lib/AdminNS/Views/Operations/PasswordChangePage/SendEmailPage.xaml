@@ -9,12 +9,14 @@
     Style="{StaticResource PageStyle}">
    
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="850"  Padding="30" CornerRadius="30" Height="222">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="850"  Padding="30" CornerRadius="30" Height="252">
             <TextBlock TextAlignment="Center" Text="Enter your email to send a recovery code for your password" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
 
             <TextBox x:Name="Email_tb" Margin="50 20 50 15" Width="406"></TextBox>
 
             <Button  Style="{StaticResource AccentButtonStyle}" Content="Send Email" Click="Button_Click" Margin="0 20 0 0" HorizontalAlignment="Center" Height="34" Width="164"></Button>
+            <Button  Style="{StaticResource AccentButtonStyle}" Content="Back" Click="Button_back" Margin="0 20 0 0" HorizontalAlignment="Center" Height="34" Width="164"></Button>
+
         </StackPanel>
         
         <muxc:TeachingTip x:Name="ToggleThemeTeachingTip1"
