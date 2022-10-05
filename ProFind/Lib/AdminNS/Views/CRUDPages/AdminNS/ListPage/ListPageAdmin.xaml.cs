@@ -139,7 +139,8 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ListPage
             URLOpenerUtil.OpenURL(@"https://localhost:7119/Report/RegisteredAdmins");
         }
 
-        private async void StackPanel_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+
+        private async void AdminsListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
             if (AdminsListView.SelectedItem != null)
             {
