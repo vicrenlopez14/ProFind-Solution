@@ -27,18 +27,6 @@ builder.Services.AddControllers()
     .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 
-builder.Services.AddHttpLogging(logging =>
-{
-    // Customize HTTP logging.
-    logging.LoggingFields = HttpLoggingFields.All;
-    logging.RequestHeaders.Add("My-Request-Header");
-    logging.ResponseHeaders.Add("My-Response-Header");
-    logging.MediaTypeOptions.AddText("application/javascript");
-    logging.RequestBodyLogLimit = 4096;
-    logging.ResponseBodyLogLimit = 4096;
-});
-
-
 var app = builder.Build();
 
 app.UseHttpLogging();

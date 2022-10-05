@@ -2,6 +2,8 @@
 using ProFind.Lib.Global.Services;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Parsing;
+using Windows.UI.Popups;
+using System;
 
 // The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -11,9 +13,27 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.CurriculumNS.ReadPage
     {
         public ReadDialog(PdfLoadedDocument document)
         {
-            PDFPreviewControl.LoadDocument(document);
+            if (document == null)
+            {
+                Hide();
+                return;
+            }
+
+            try
+            {
+                PDFPreviewControl.LoadDocument(document);
+            } catch {
+                Hide();
+                return;
+            }
+
         }
 
+        private static async void ShowNullAlert()
+        {
+            // Message dialog
+
+        }
 
         private async void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
