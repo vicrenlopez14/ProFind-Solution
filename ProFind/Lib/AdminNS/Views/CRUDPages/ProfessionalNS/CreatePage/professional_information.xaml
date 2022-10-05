@@ -180,19 +180,7 @@
                                     VerticalAlignment="Top"
                                     Header="Birth date"
                                     KeyDown="Nacimiento_KeyDown" />
-                                <TextBox
-                                    Name="position"
-                                    Margin="0,15,0,0"
-                                    d:LayoutRounding="Auto"
-                                    Header="Position in the company"
-                                    KeyDown="position_KeyDown"
-                                    PlaceholderText="Position"
-                                    RenderTransformOrigin="0.5,0.5"
-                                    UseLayoutRounding="False">
-                                    <TextBox.RenderTransform>
-                                        <CompositeTransform Rotation="-0.195" />
-                                    </TextBox.RenderTransform>
-                                </TextBox>
+                                
                             </StackPanel>
                             <StackPanel Grid.Column="1" Orientation="Vertical">
                                 <ComboBox
