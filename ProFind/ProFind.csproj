@@ -436,6 +436,7 @@
     <Compile Include="Lib\Global\Controllers\IViewNavigator.cs" />
     <Compile Include="Lib\Global\Converters\AsyncConverter.cs" />
     <Compile Include="Lib\Global\Converters\ImageModelConverter.cs" />
+    <Compile Include="Lib\Global\Converters\TagDurationReadable.cs" />
     <Compile Include="Lib\Global\Converters\ToImageSourceConverter.cs" />
     <Compile Include="Lib\Global\Helpers\ByteToBitmapImageExtension.cs" />
     <Compile Include="Lib\Global\Helpers\Connection.cs" />

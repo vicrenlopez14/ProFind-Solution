@@ -61,7 +61,7 @@
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock FontWeight="Bold" Text="Tag - Duration:" />
-                                        <TextBlock Margin="10 0 0 0" Height="31" Text="{Binding TagDurationPj}" />
+                                    <TextBlock Margin="10 0 0 0" Height="31" Text="{Binding TagDurationPj, Converter={StaticResource TagDurationReadable}}" />
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock FontWeight="Bold" Text="Professional:" />
