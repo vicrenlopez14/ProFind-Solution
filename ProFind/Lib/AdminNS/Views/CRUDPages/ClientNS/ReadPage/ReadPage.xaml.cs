@@ -50,7 +50,8 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.ReadPage
             Name1_tbx.Text = toManipulateClient.NameC;
             Email_tbx.Text = toManipulateClient.EmailC;
             Picture_img.ProfilePicture = await toManipulateClient.PictureC.FromBase64String();
-
+            Name1_tbx.IsEnabled = false;
+            Email_tbx.IsEnabled = false;
         }
 
         private void AddEvents()

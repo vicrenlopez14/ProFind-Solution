@@ -53,6 +53,9 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ReadPage
             Email_tbx.Text = toManipulate.EmailA;
             Phone_tbx.Text = toManipulate.TelA;
             Picture_img.ProfilePicture = await toManipulate.PictureA.FromBase64String();
+            FirstName1_tbx.IsEnabled = false;
+            Email_tbx.IsEnabled = false;
+            Phone_tbx.IsEnabled = false;
 
         }
 
