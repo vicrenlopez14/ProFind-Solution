@@ -63,11 +63,20 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.ListPage
         {
             try
             {
-                var selectedProject = ProjectsListView.SelectedItem as Project;
-                await APIConnection.GetConnection.DeleteProjectAsync(selectedProject.IdPj);
+                if (ProjectsListView.SelectedItem != null)
+                {
+                    var selectedProject = ProjectsListView.SelectedItem as Project;
+                    await APIConnection.GetConnection.DeleteProjectAsync(selectedProject.IdPj);
 
-                var dialog = new MessageDialog("Project deleted successfully.");
-                await dialog.ShowAsync();
+                    var dialog = new MessageDialog("Project deleted successfully.");
+                    await dialog.ShowAsync();
+                }
+                else
+                {
+
+                    var dialog = new MessageDialog("You have to select a Project.");
+                    await dialog.ShowAsync();
+                }
             }
             catch (ProFindServicesException ex)
             {
@@ -120,6 +129,22 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.ListPage
             {
                 var dialog = new MessageDialog("You have to select a Project.");
                 await dialog.ShowAsync();
+            }
+        }
+
+        private async void ProjectsListView_DoubleTapped(object sender, Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs e)
+        {
+            if (ProjectsListView.SelectedItem != null)
+            {
+                var selectedProject = ProjectsListView.SelectedItem as Project;
+                new InAppNavigationController().NavigateTo(typeof(Lib.AdminNS.Views.CRUDPages.ProjectNS.ReadItemPage.ReadItemPage), selectedProject);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a Project.");
+                await dialog.ShowAsync();
+
             }
         }
     }

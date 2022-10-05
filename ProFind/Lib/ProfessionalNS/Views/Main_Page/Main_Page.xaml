@@ -56,12 +56,7 @@
                     <muxc:NavigationViewItem.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE710;" />
                     </muxc:NavigationViewItem.Icon>
-                    <muxc:NavigationViewItem.MenuItems>
-                        <muxc:NavigationViewItem
-                            Content="Projects"
-                            Icon="Calendar"
-                            Tag="Projects_Page_Professionals" />
-                    </muxc:NavigationViewItem.MenuItems>
+                    
                 </muxc:NavigationViewItem>
                 <!--  People  -->
                 <muxc:NavigationViewItem
@@ -69,31 +64,11 @@
                     Icon="People"
                     Tag="Clients_Page_Professionals" />
                 <!--  Notification center  -->
-                <muxc:NavigationViewItem Content="Notification center" Tag="Projecttype_Page">
+                <muxc:NavigationViewItem Content="Proposals" Tag="Projecttype_Page">
                     <muxc:NavigationViewItem.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE7E7;" />
                     </muxc:NavigationViewItem.Icon>
-                    <muxc:NavigationViewItem.MenuItems>
-                        <muxc:NavigationViewItem
-                            Content="General"
-                            Tag="GeneralNotifications_Page_Professionals"
-                            Visibility="Collapsed">
-                            <muxc:NavigationViewItem.InfoBadge>
-                                <muxc:InfoBadge
-                                    x:Name="Projects_ib"
-                                    Opacity="1"
-                                    Value="0" />
-                            </muxc:NavigationViewItem.InfoBadge>
-                        </muxc:NavigationViewItem>
-                        <muxc:NavigationViewItem Content="Proposals" Tag="ProposalNotifications_Page_Professionals">
-                            <muxc:NavigationViewItem.InfoBadge>
-                                <muxc:InfoBadge
-                                    x:Name="Proposals_ib"
-                                    Opacity="1"
-                                    Value="0" />
-                            </muxc:NavigationViewItem.InfoBadge>
-                        </muxc:NavigationViewItem>
-                    </muxc:NavigationViewItem.MenuItems>
+                   
                 </muxc:NavigationViewItem>
 
             </muxc:NavigationView.MenuItems>

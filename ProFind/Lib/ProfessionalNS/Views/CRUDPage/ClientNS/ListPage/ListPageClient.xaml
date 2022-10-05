@@ -11,22 +11,19 @@
 
     <Grid Padding="30">
         <Grid.RowDefinitions>
-            <RowDefinition />
+            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.8*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="49*" />
-            <ColumnDefinition Width="47*"/>
-            <ColumnDefinition Width="24*" />
-        </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Vertical" Grid.ColumnSpan="3" Margin="-22,22,-20,240">
+        <StackPanel Grid.Row="0">
 
             <SearchBox
                 Width="1417"
                 Height="30"
                 PlaceholderText="Search"
                 QueryChanged="SearchBox_QueryChanged" />
+        </StackPanel>
 
-            <ListView Name="Clients_lw" Grid.Row="1">
+        <ListView Name="Clients_lw" Grid.Row="1" DoubleTapped="Clients_lw_DoubleTapped_1">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="services:Client">
                         <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
@@ -78,6 +75,6 @@
                 </ListView.ItemTemplate>
 
             </ListView>
-        </StackPanel>
+     
     </Grid>
 </Page>

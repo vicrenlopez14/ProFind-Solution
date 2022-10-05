@@ -9,31 +9,33 @@
 
     <Grid Padding="30">
         <Grid.RowDefinitions>
-            <RowDefinition />
+            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.8*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="49*" />
-            <ColumnDefinition Width="47*"/>
-            <ColumnDefinition Width="24*" />
-        </Grid.ColumnDefinitions>
-        <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" Grid.ColumnSpan="3" Margin="-22,-30,-30,0">
-            <AppBarButton Icon="Add" Label="Add" Click="AddProjects"/>
-            <AppBarButton Icon="Edit" Label="Edit" Click="UpdateProject"/>
-            <AppBarButton Icon="Delete" Label="Delete" Click="DeleteProject"/>
-            
-            <CommandBar.SecondaryCommands>
-                <AppBarButton Icon="Setting" Label="Settings">
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="I" />
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
-            </CommandBar.SecondaryCommands>
-        </CommandBar>
-        <StackPanel Orientation="Vertical" Grid.ColumnSpan="3" Margin="-22,22,-20,240">
+        <StackPanel Grid.Row="0">
+            <CommandBar  Grid.ColumnSpan="3"
+                Margin="-22,-30,-30,0"
+                Background="Transparent"
+                DefaultLabelPosition="Right"
+                IsOpen="False">
+               
+                <AppBarButton Icon="Edit" Label="Edit" Click="UpdateProject"/>
+                <AppBarButton Icon="Delete" Label="Delete" Click="DeleteProject"/>
+
+                <CommandBar.SecondaryCommands>
+                    <AppBarButton Icon="Setting" Label="Settings">
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="I" />
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
+                </CommandBar.SecondaryCommands>
+            </CommandBar>
+        </StackPanel>
+       
             <ListView
-                    
+                    Grid.Row="1"
                     Name="ProjectsListView"
-                    IsItemClickEnabled="True"
+                    IsItemClickEnabled="True" DoubleTapped="ProjectsListView_DoubleTapped"
                    
                    >
                 <ListView.ItemTemplate>
@@ -81,6 +83,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackPanel>
+        
     </Grid>
 </Page>
