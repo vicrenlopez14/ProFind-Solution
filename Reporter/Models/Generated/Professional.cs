@@ -17,6 +17,7 @@ namespace Reporter.Models.Generated
             Notifications = new HashSet<Notification>();
             Projects = new HashSet<Project>();
             Proposals = new HashSet<Proposal>();
+            Threadids = new HashSet<Threadid>();
         }
 
         [Key]
@@ -50,6 +51,8 @@ namespace Reporter.Models.Generated
         public DateTime? HiringDateP { get; set; }
         public string? PictureP { get; set; }
         public byte[]? CurriculumP { get; set; }
+        [StringLength(255)]
+        public string? CommunicationIdP { get; set; }
         [Column("IdPFS1", TypeName = "int(11)")]
         public int? IdPfs1 { get; set; }
         [Column("IdDP1", TypeName = "int(11)")]
@@ -69,5 +72,7 @@ namespace Reporter.Models.Generated
         public virtual ICollection<Project> Projects { get; set; }
         [InverseProperty("IdP3Navigation")]
         public virtual ICollection<Proposal> Proposals { get; set; }
+        [InverseProperty("IdPNavigation")]
+        public virtual ICollection<Threadid> Threadids { get; set; }
     }
 }

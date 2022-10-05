@@ -65,10 +65,22 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.ListPage
         {
             try
             {
-                var obj = Activities_lw.SelectedItem as Proposal;
-                await APIConnection.GetConnection.DeleteProposalAsync(obj.IdPp);
-                var dialog = new MessageDialog("Proposal deleted successfully.");
-                await dialog.ShowAsync();
+                if (Activities_lw.SelectedItem != null)
+                {
+                    var obj = Activities_lw.SelectedItem as Proposal;
+                    await APIConnection.GetConnection.DeleteProposalAsync(obj.IdPp);
+                    var dialog = new MessageDialog("Proposal deleted successfully.");
+                    await dialog.ShowAsync();
+
+                }
+                else
+                {
+                    // Validation content dialog
+                    var dialog = new MessageDialog("You have to select a Proposal.");
+                    await dialog.ShowAsync();
+
+                }
+
             }
             catch (ProFindServicesException ex)
             {
@@ -82,6 +94,10 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.ListPage
                     var dialog = new MessageDialog("You have to select an Proposal.");
                     await dialog.ShowAsync();
                 }
+            }
+            finally
+            {
+                InitializeData();
             }
         }
 

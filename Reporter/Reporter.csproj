@@ -24,19 +24,4 @@
     <PackageReference Include="RotativaCore" Version="4.1.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\Rotativa" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="WkHtmlToPdf\wkhtmltoimage.exe">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="WkHtmlToPdf\wkhtmltopdf.exe">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
-
 </Project>

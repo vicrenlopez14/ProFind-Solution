@@ -42,10 +42,20 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.RankNS.ListPage
 
             try
             {
-                var obj = Ranks_lw.SelectedItem as Rank;
-                await APIConnection.GetConnection.DeleteRankAsync(obj.IdR.GetValueOrDefault());
-                var dialog = new MessageDialog("The rank has been deleted");
-                await dialog.ShowAsync();
+                if (Ranks_lw.SelectedItem != null)
+                {
+                    var obj = Ranks_lw.SelectedItem as Rank;
+                    await APIConnection.GetConnection.DeleteRankAsync(obj.IdR.GetValueOrDefault());
+                    var dialog = new MessageDialog("The rank has been deleted");
+                    await dialog.ShowAsync();
+                }
+                else
+                {
+                    // Validation content dialog
+                    var dialog = new MessageDialog("You have to select a Ranks.");
+                    await dialog.ShowAsync();
+
+                }
             }
             catch (ProFindServicesException ex)
             {
