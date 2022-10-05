@@ -31,6 +31,8 @@ namespace Reporter.Models.Generated
         public DateTime? CreationDateA { get; set; }
         [Column(TypeName = "int(11)")]
         public int? IdR1 { get; set; }
+        [StringLength(255)]
+        public string? CommunicationIdA { get; set; }
 
         [ForeignKey("IdR1")]
         [InverseProperty("Admins")]

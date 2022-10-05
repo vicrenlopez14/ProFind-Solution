@@ -94,7 +94,6 @@ namespace ProFind.Lib.Global.Services
         }
         #endregion
 
-
         public async Task<bool> SendMessage(string text)
         {
             SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
