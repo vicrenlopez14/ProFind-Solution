@@ -118,7 +118,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.ReadPage
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            URLOpenerUtil.OpenURL(@"https://localhost:7119/Report/CreatedProjects");
+            URLOpenerUtil.OpenURL(@"https://reporter.profind.work/Report/CreatedProjects");
 
         }
     }
