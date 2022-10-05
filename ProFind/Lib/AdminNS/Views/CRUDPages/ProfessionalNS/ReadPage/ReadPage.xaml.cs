@@ -35,7 +35,6 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage
         public ReadPage()
         {
             this.InitializeComponent();
-            loadUsefulThings();
             AddEvents();
         }
 
@@ -92,12 +91,11 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage
             FirstName1_tbx.Text = ToManipulateProfessional.NameP;
             if (ToManipulateProfessional.IdPfs1 == 1) profession_cbx.SelectedIndex = 0;
 
-            if (ToManipulateProfessional.IdPfs1 == 2) profession_cbx.SelectedIndex = 2;
+            if (ToManipulateProfessional.IdPfs1 == 2) profession_cbx.SelectedIndex = 1;
 
-            if (ToManipulateProfessional.IdPfs1 == 3) profession_cbx.SelectedIndex = 3;
+            if (ToManipulateProfessional.IdPfs1 == 3) profession_cbx.SelectedIndex = 2;
 
-
-            departamento.SelectedIndex = (ToManipulateProfessional.IdDp1 == null ? 0 : (int)ToManipulateProfessional.IdDp1);
+            departamento.SelectedIndex = (ToManipulateProfessional.IdDp1 == null ? 0 : (int)ToManipulateProfessional.IdDp1 - 1);
             Phone_nb.Text = ToManipulateProfessional.PhoneP;
 
             Afp.Text = ToManipulateProfessional.Afpp;
