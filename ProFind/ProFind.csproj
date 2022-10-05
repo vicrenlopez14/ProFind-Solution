@@ -323,6 +323,9 @@
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProfileAdminNS\ProfileAdminNS.xaml.cs">
       <DependentUpon>ProfileAdminNS.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\ReadItemPage\ReadItemPage.xaml.cs">
+      <DependentUpon>ReadItemPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\ReadPage\ReadPage.xaml.cs">
       <DependentUpon>ReadPage.xaml</DependentUpon>
     </Compile>
@@ -663,6 +666,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\AdminNS\Views\CRUDPages\ProfileAdminNS\ProfileAdminNS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\AdminNS\Views\CRUDPages\ProjectNS\ReadItemPage\ReadItemPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
