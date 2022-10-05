@@ -280,9 +280,9 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage
 
         }
 
-        private void SelectCurriculum_Click_2(object sender, RoutedEventArgs e)
+        private async void SelectCurriculum_Click_2(object sender, RoutedEventArgs e)
         {
-
+            await new Lib.AdminNS.Views.CRUDPages.CurriculumNS.ReadPage.ReadDialog(ToManipulateProfessional.CurriculumP.ToPdfLoadedDocument()).ShowAsync();
         }
     }
 }
