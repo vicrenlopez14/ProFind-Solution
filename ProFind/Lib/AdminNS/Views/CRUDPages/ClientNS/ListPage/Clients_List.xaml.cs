@@ -118,7 +118,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.ListPage
 
         private void AppBarButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            URLOpenerUtil.OpenURL(@"https://localhost:7119/Report/RegisteredClients");
+            URLOpenerUtil.OpenURL(@"https://reporter.profind.work/Report/RegisteredClients");
         }
 
         private async void Activities_lw_DoubleTapped(object sender, Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs e)
