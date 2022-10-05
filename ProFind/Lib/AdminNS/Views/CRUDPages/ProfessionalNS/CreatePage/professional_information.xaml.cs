@@ -224,8 +224,8 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
                     PhoneP = Phone_nb.Text,
                     ActiveP = Sexo.SelectedValue == "Male",
                     PictureP = imageString,
-                    IdDp1 = (departamento.SelectedItem as Department).IdDp,
-                    IdPfs1 = (profession_cbx.SelectedItem as Profession).IdPfs,
+                    IdDp1 = departamento.SelectedIndex + 1,
+                    IdPfs1 = profession_cbx.SelectedIndex + 1,
                     ZipCodeP = CodigoPostal.Text,
                     CurriculumP = curriculumBytes,
                     HiringDateP = FechadeIngreso.Date

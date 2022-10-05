@@ -35,7 +35,6 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage
         public ReadPage()
         {
             this.InitializeComponent();
-            loadUsefulThings();
             AddEvents();
         }
 

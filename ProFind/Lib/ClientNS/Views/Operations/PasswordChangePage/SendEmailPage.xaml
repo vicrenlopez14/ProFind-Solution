@@ -15,6 +15,8 @@
             <TextBox x:Name="Email_tb" Margin="50 20 50 20"></TextBox>
 
             <Button Style="{StaticResource AccentButtonStyle}" Content="Send Email" Click="Button_Click" Margin="0 20 0 0" HorizontalAlignment="Center" Height="31" Width="188"></Button>
+            <Button Style="{StaticResource AccentButtonStyle}" Content="Back" Click="Button_Back" Margin="0 20 0 0" HorizontalAlignment="Center" Height="31" Width="188"></Button>
+
         </StackPanel>
         <muxc:TeachingTip x:Name="ToggleThemeTeachingTip1"
             Target="{x:Bind Email_tb}"

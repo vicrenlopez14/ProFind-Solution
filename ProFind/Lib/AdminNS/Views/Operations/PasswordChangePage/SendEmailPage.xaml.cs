@@ -61,5 +61,10 @@ namespace ProFind.Lib.AdminNS.Views.Operations.PasswordChangePage
 
 
         }
+
+        private void Button_back(object sender, RoutedEventArgs e)
+        {
+            new GlobalNavigationController().NavigateTo(typeof(Views.Int_Page.Int_Page));
+        }
     }
 }
