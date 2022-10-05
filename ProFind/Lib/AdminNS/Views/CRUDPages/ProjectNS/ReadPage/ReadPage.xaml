@@ -39,7 +39,7 @@
          
             <ListView
             Name="ProjectsListView"
-            SelectionChanged="ProjectsListView_SelectionChanged_1" Grid.Row="1">
+            SelectionChanged="ProjectsListView_SelectionChanged_1" Grid.Row="1" DoubleTapped="ProjectsListView_DoubleTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="services:Project">
                         <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">

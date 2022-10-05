@@ -136,9 +136,25 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ListPage
 
         private async void GenerateReport_btn_Click(object sender, RoutedEventArgs e)
         {
-            URLOpenerUtil.OpenURL(@"https://localhost:7119/Report/RegisteredAdmins");
+            URLOpenerUtil.OpenURL(@"https://reporter.profind.work/Report/RegisteredAdmins");
         }
 
+
+        private async void AdminsListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            if (AdminsListView.SelectedItem != null)
+            {
+                var obj = AdminsListView.SelectedItem as Admin;
+                new InAppNavigationController().NavigateTo(typeof(ReadPage.ReadPage), obj);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a Admin.");
+                await dialog.ShowAsync();
+
+            }
+        }
     }
 }
 

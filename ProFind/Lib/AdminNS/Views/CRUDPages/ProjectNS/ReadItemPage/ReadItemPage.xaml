@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.UpdatePage.Update_Project"
+    x:Class="ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.ReadItemPage.ReadItemPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -13,37 +13,14 @@
             <ScrollViewer Grid.Column="1">
                 <Grid>
                     <StackPanel Padding="100" Orientation="Vertical">
-                        <TextBlock
-                            FontWeight="Bold"
-                            Style="{StaticResource HeaderTextBlockStyle}"
-                            Text="Update" />
-                        <TextBlock>
-                            Update an existant project.
-                        </TextBlock>
+                        
+                       
                         <muxc:PersonPicture
                             Name="SelectedPicture_pp"
                             Width="100"
                             Height="100"
                             Margin="0,30,0,0" />
-                        <StackPanel
-                            Grid.Column="0"
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal">
-                            <ToggleButton
-                                x:Name="PictureSelection_btn"
-                                Grid.Column="0"
-                                Width="150"
-                                HorizontalAlignment="Left"
-                                Checked="PictureSelection_btn_Checked_1"
-                                Click="PictureSelection_btn_Click_1"
-                                Content="Select a picture" />
-                            <TextBlock
-                                Name="SelectedPicture_tbk"
-                                Margin="10,0,0,0"
-                                VerticalAlignment="Center">
-                                No picture selected
-                            </TextBlock>
-                        </StackPanel>
+                        
                         <TextBox
                             x:Name="Title_tb"
                             Margin="0,30,0,0"
@@ -81,22 +58,7 @@
                             </Grid.ColumnDefinitions>
                         </Grid>
 
-                        <Button
-                            x:Name="Delete_btn"
-                            Width="100"
-                            Margin="0,50,0,0"
-                            HorizontalAlignment="Center"
-                            Click="Delete_btn_Click_1"
-                            Content="Delete"
-                            Style="{StaticResource AccentButtonStyle}" />
-                        <Button
-                            x:Name="Update_btn"
-                            Width="100"
-                            Margin="0,50,0,0"
-                            HorizontalAlignment="Center"
-                            Click="Update_btn_Click_1"
-                            Content="Update"
-                            Style="{StaticResource AccentButtonStyle}" />
+                        
                         <Button
                             x:Name="Back_btn"
                             Width="100"
@@ -105,7 +67,6 @@
                             Click="Update_btn_Click_2"
                             Content="Cancel"
                             Style="{StaticResource AccentButtonStyle}" />
-
                         <d:ProgressRing
                             x:Name="Creation_pr"
                             Margin="0,20,0,0"

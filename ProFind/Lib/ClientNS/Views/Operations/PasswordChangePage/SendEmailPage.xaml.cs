@@ -43,6 +43,7 @@ namespace ProFind.Lib.ClientNS.Views.Operations.PasswordChangePage
             try
             {
                 await APIConnection.GetConnection.SendRecoveryEmailClientsAsync(email);
+                new GlobalNavigationController().NavigateTo(typeof(CodeVerification), email);
             }
             catch (ProFindServicesException ex)
             {
@@ -54,11 +55,6 @@ namespace ProFind.Lib.ClientNS.Views.Operations.PasswordChangePage
                 {
                     new GlobalNavigationController().NavigateTo(typeof(CodeVerification), email);
                 }
-            }
-            finally
-            {
-                new GlobalNavigationController().NavigateTo(typeof(CodeVerification), email);
-
             }
         }
     }

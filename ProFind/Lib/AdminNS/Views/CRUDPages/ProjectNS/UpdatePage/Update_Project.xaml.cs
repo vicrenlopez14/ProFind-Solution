@@ -238,5 +238,10 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.UpdatePage
                 PictureSelection_btn.IsChecked = false;
             }
         }
+
+        private void Update_btn_Click_2(object sender, RoutedEventArgs e)
+        {
+            new InAppNavigationController().NavigateTo(typeof(ReadPage.ReadPage));
+        }
     }
 }

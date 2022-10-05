@@ -63,11 +63,6 @@ namespace ProFind.Lib.ProfessionalNS.Views.Operations.PasswordChangePage
                     ToggleThemeTeachingTip1.IsOpen = true;
                 }
             }
-            finally
-            {
-                new GlobalNavigationController().NavigateTo(typeof(PasswordChangePage), email);
-
-            }
         }
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)

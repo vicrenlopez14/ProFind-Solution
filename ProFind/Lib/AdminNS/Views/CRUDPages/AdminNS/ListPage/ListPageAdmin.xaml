@@ -47,7 +47,7 @@
             <SearchBox PlaceholderText="Search" QueryChanged="SearchBox_QueryChanged" />
         </StackPanel>
 
-        <ListView Name="AdminsListView" Grid.Row="1">
+        <ListView Name="AdminsListView" Grid.Row="1" DoubleTapped="AdminsListView_DoubleTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="services:Admin">
                         <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">

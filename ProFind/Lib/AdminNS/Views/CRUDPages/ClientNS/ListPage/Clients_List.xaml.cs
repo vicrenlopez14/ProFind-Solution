@@ -120,5 +120,22 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.ListPage
         {
             URLOpenerUtil.OpenURL(@"https://localhost:7119/Report/RegisteredClients");
         }
+
+        private async void Activities_lw_DoubleTapped(object sender, Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs e)
+        {
+            if (Activities_lw.SelectedItem != null)
+            {
+                Client selectedClient = Activities_lw.SelectedItem as Client;
+
+                new InAppNavigationController().NavigateTo(typeof(Lib.AdminNS.Views.CRUDPages.ClientNS.ReadPage.ReadPage), selectedClient);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a client.");
+                await dialog.ShowAsync();
+
+            }
+        }
     }
 }

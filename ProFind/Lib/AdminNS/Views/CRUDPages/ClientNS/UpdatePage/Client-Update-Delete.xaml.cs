@@ -98,12 +98,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.UpdatePage
 
         private void Email_tbx_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
-            if (FieldsChecker.CheckEmail(Email_tbx.Text))
-            {
-                e.Handled = true;
-                toManipulateClient.EmailC = Email_tbx.Text;
-            }
-            else e.Handled = false;
+            
         }
 
         private void Phone_tbx_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
