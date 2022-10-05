@@ -186,7 +186,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.UpdatePage
             }
             finally
             {
-                new InAppNavigationController().NavigateTo(typeof(ReadPage.ReadPage));
+                new InAppNavigationController().NavigateTo(typeof(ListPage.List_Page_Projects));
             }
         }
     }
