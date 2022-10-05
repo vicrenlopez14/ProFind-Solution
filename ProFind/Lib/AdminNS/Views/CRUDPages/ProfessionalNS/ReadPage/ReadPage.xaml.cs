@@ -282,6 +282,13 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage
 
         private async void SelectCurriculum_Click_2(object sender, RoutedEventArgs e)
         {
+            if (ToManipulateProfessional.CurriculumP == null)
+            {
+                var a = new MessageDialog("This professional hasn't attached a curriculum vitae");
+                await a.ShowAsync();
+                return;
+            }
+
             await new Lib.AdminNS.Views.CRUDPages.CurriculumNS.ReadPage.ReadDialog(ToManipulateProfessional.CurriculumP.ToPdfLoadedDocument()).ShowAsync();
         }
     }

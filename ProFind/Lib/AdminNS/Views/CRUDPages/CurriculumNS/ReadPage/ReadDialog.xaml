@@ -7,9 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:my="using:Syncfusion.Windows.PdfViewer"
     Title="Curriculum Previewer"
+    Width="500"
+    Height="500"
     DefaultButton="Primary"
     IsSecondaryButtonEnabled="False"
-    
     PrimaryButtonText="Ok"
     mc:Ignorable="d">
 

@@ -78,7 +78,6 @@ namespace ProFind.Lib.Global.Helpers
             if (file == null)
             {
                 // Content dialog
-                new MessageDialog("No PDF has been loaded").ShowAsync();
                 return null;
             }
 
