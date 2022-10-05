@@ -33,7 +33,7 @@
             <ListView
                     
                     Name="ProjectsListView"
-                    IsItemClickEnabled="True"
+                    IsItemClickEnabled="True" DoubleTapped="ProjectsListView_DoubleTapped"
                    
                    >
                 <ListView.ItemTemplate>

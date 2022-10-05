@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Popups;
 using System;
+using System.Threading.Tasks;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -110,6 +111,24 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProjectNS.ReadPage
             finally
             {
                 InitializeData();
+            }
+        }
+
+        
+
+        private async void AdminsListView_DoubleTapped(object sender, Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs e)
+        {
+            if (AdminsListView.SelectedItem != null)
+            {
+                var selectedProject = AdminsListView.SelectedItem as Project;
+                new InAppNavigationController().NavigateTo(typeof(Lib.AdminNS.Views.CRUDPages.ProjectNS.ReadItemPage.ReadItemPage), selectedProject);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a Project.");
+                await dialog.ShowAsync();
+
             }
         }
     }

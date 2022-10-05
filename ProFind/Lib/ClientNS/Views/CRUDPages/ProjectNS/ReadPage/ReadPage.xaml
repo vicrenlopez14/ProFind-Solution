@@ -36,7 +36,7 @@
             <ListView
                     Grid.Row="1"
                     Name="AdminsListView"
-                    IsItemClickEnabled="True"
+                    IsItemClickEnabled="True" DoubleTapped="AdminsListView_DoubleTapped"
                   >
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="models1:Project">

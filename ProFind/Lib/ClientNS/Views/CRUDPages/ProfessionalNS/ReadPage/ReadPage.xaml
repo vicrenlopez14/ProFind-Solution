@@ -14,7 +14,7 @@
         <StackPanel Grid.Row="0">
             <SearchBox PlaceholderText="Search" QueryChanged="SearchBox_QueryChanged" />
         </StackPanel>
-        <ListView Name="ProfessionalsListView" Grid.Row="1" >
+        <ListView Name="ProfessionalsListView" Grid.Row="1" DoubleTapped="ProfessionalsListView_DoubleTapped" >
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="models11:Professional">
                         <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">

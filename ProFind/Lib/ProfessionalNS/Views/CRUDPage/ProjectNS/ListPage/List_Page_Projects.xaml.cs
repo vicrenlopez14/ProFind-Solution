@@ -122,5 +122,21 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.ListPage
                 await dialog.ShowAsync();
             }
         }
+
+        private async void ProjectsListView_DoubleTapped(object sender, Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs e)
+        {
+            if (ProjectsListView.SelectedItem != null)
+            {
+                var selectedProject = ProjectsListView.SelectedItem as Project;
+                new InAppNavigationController().NavigateTo(typeof(Lib.AdminNS.Views.CRUDPages.ProjectNS.ReadItemPage.ReadItemPage), selectedProject);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a Project.");
+                await dialog.ShowAsync();
+
+            }
+        }
     }
 }
