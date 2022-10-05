@@ -11,14 +11,14 @@
     <Grid  Padding="30">
 
         <Grid.RowDefinitions>
-            <RowDefinition />
+            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.8*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="49*" />
-            <ColumnDefinition Width="47*"/>
-            <ColumnDefinition Width="24*" />
-        </Grid.ColumnDefinitions>
-        <CommandBar Background="Transparent"  IsOpen="False" DefaultLabelPosition="Right" Grid.ColumnSpan="3" Margin="-22,-30,-30,0">
+        <CommandBar  Grid.ColumnSpan="3"
+                Margin="-22,-30,-30,0"
+                Background="Transparent"
+                DefaultLabelPosition="Right"
+                IsOpen="False">
             <AppBarButton Icon="Delete" Label="Delete" Click="Delete_Click_1"/>
             
             <AppBarButton Icon="Add" Label="Add " Click="Add_Click_1"/>
@@ -32,10 +32,10 @@
                 </AppBarButton>
             </CommandBar.SecondaryCommands>
         </CommandBar>
-        <StackPanel Orientation="Vertical" Grid.ColumnSpan="3" Margin="-22,22,-20,240">
-            <SearchBox PlaceholderText="Search" />
+       
+        
 
-            <ListView Name="ProfessionalsListView" >
+        <ListView Name="ProfessionalsListView"   Grid.Row="1">
                 <ListView.ItemTemplate>
 
                     <DataTemplate x:DataType="services:Profession">
@@ -81,6 +81,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackPanel>
+   
     </Grid>
 </Page>

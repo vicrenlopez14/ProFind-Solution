@@ -68,7 +68,7 @@
                     Icon="People"
                     Tag="Professionals_Page_Clients" />
                 <!--  Notification center  -->
-                <muxc:NavigationViewItem Content="Notification center" Tag="Projecttype_Page">
+                <muxc:NavigationViewItem Content="Proposals" Tag="Projecttype_Page">
                     <muxc:NavigationViewItem.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE7E7;" />
                     </muxc:NavigationViewItem.Icon>

@@ -54,12 +54,19 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.CatalogNS.CatalogList
             new InAppNavigationController().NavigateTo(typeof(Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage.ProfessionalInformationAddition));
         }
 
-        private void CreateProposalBtn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async void CreateProposalBtn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             if (ProfessionalsListView.SelectedItem != null)
             {
                 var selectedProfessional = ProfessionalsListView.SelectedItem as Professional;
                 new InAppNavigationController().NavigateTo(typeof(Lib.ClientNS.Views.CRUDPages.ProposalsNS.CreatePage.CreatePage), selectedProfessional);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a Profession.");
+                await dialog.ShowAsync();
+
             }
 
 
@@ -103,13 +110,38 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.CatalogNS.CatalogList
             }
         }
 
-        private void Add_Click_1(object sender, RoutedEventArgs e)
+        private async void Add_Click_1(object sender, RoutedEventArgs e)
         {
             if (ProfessionalsListView.SelectedItem != null)
             {
                 var selectedProfessional = ProfessionalsListView.SelectedItem as Professional;
                 new InAppNavigationController().NavigateTo(typeof(Lib.ClientNS.Views.CRUDPages.ProposalsNS.CreatePage.CreatePage), selectedProfessional);
             }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a Profession.");
+                await dialog.ShowAsync();
+
+            }
+        }
+
+        private async void SearchBox_QueryChanged(SearchBox sender, SearchBoxQueryChangedEventArgs args)
+        {
+
+            var allList = await APIConnection.GetConnection.GetProfessionalsAsync();
+
+            if (string.IsNullOrEmpty(sender.QueryText))
+            {
+                ProfessionalsListView.ItemsSource = null;
+                ProfessionalsListView.ItemsSource = allList;
+                return;
+            }
+
+            var newList = allList.Where(x => x.NameP.Contains(sender.QueryText));
+
+            ProfessionalsListView.ItemsSource = null;
+            ProfessionalsListView.ItemsSource = newList;
         }
     }
 }

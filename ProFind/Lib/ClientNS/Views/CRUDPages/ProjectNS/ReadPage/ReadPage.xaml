@@ -8,31 +8,33 @@
 
     <Grid Padding="30">
         <Grid.RowDefinitions>
-            <RowDefinition />
+            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.8*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="49*" />
-            <ColumnDefinition Width="47*"/>
-            <ColumnDefinition Width="24*" />
-        </Grid.ColumnDefinitions>
-        <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" Grid.ColumnSpan="3" Margin="-22,-30,-30,0">
+        <StackPanel Grid.Row="0">
+            <CommandBar Grid.ColumnSpan="3"
+                Margin="-22,-30,-30,0"
+                Background="Transparent"
+                DefaultLabelPosition="Right"
+                IsOpen="False">
 
-            <AppBarButton Icon="Add" Label="To accept " Click="Add_Click_1" Visibility="Collapsed" />
-            <AppBarButton Icon="Delete" Label="Decline " Click="Decline_Click_1"/>
+                <AppBarButton Icon="Add" Label="To accept " Click="Add_Click_1" Visibility="Collapsed" />
+                <AppBarButton Icon="Delete" Label="Decline " Click="Decline_Click_1"/>
 
 
 
-            <CommandBar.SecondaryCommands>
-                <AppBarButton Icon="Setting"  Label="Settings">
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="I" />
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
-            </CommandBar.SecondaryCommands>
-        </CommandBar>
-        <StackPanel Orientation="Vertical" Grid.ColumnSpan="3" Margin="-22,22,-20,240">
+                <CommandBar.SecondaryCommands>
+                    <AppBarButton Icon="Setting"  Label="Settings">
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="I" />
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
+                </CommandBar.SecondaryCommands>
+            </CommandBar>
+        </StackPanel>
+    
             <ListView
-                   
+                    Grid.Row="1"
                     Name="AdminsListView"
                     IsItemClickEnabled="True"
                   >
@@ -77,6 +79,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackPanel>
+      
     </Grid>
 </Page>

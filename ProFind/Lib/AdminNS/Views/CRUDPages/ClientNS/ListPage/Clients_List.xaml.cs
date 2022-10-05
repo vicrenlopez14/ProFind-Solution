@@ -58,10 +58,20 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.ListPage
         {
             try
             {
-                var obj = Activities_lw.SelectedItem as Client;
-                await APIConnection.GetConnection.DeleteClientAsync(obj.IdC);
-                var dialog = new MessageDialog("Client deleted successfully.");
-                await dialog.ShowAsync();
+                if (Activities_lw.SelectedItem != null)
+                {
+                    var obj = Activities_lw.SelectedItem as Client;
+                    await APIConnection.GetConnection.DeleteClientAsync(obj.IdC);
+                    var dialog = new MessageDialog("Client deleted successfully.");
+                    await dialog.ShowAsync();
+                }
+                else
+                {
+                    // Validation content dialog
+                    var dialog = new MessageDialog("You have to select a client.");
+                    await dialog.ShowAsync();
+
+                }
             }
             catch (ProFindServicesException ex)
             {
