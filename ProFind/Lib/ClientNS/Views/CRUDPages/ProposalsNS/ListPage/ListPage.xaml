@@ -61,18 +61,18 @@
                                 </StackPanel>
                                 <StackPanel />
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontWeight="Bold" Text="Name:" />
+                                    <TextBlock FontWeight="Bold" Text="Description:" />
                                     <TextBlock
                                         Height="31"
                                         Margin="10,0,0,0"
                                         Text="{Binding DescriptionPp}" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontWeight="Bold" Text="E-mail" />
+                                    <TextBlock FontWeight="Bold" Text="Email:" />
                                     <TextBlock
                                         Height="31"
                                         Margin="10,0,0,0"
-                                        Text="" />
+                                        Text="{x:Bind IdP3Navigation.EmailP}" />
                                 </StackPanel>
                                 <StackPanel
                                     Grid.Column="1"
