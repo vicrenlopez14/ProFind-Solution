@@ -61,6 +61,8 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProposalNS.Accept_or_Deny
             Description_tb.Text = InComingProposal.DescriptionPp;
             SelectedPicture_pp.ProfilePicture = await InComingProposal.PicturePp.FromBase64String();
             TimeRequired_cb.ItemsSource = await APIConnection.GetConnection.GetTimerequiredsAsync();
+            ExpectedBegin_dp.Date = InComingProposal.SuggestedStart.Value;
+            Theend.Date = InComingProposal.SuggestedEnd.Value;
             TimeRequired_cb.SelectedIndex = 0;
         }
 
@@ -129,7 +131,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProposalNS.Accept_or_Deny
             try
             {
                 var LoggendPro = LoggedProfessionalStore.LoggedProfessional;
-                var toCreateProject = new Project { IdPj = "", PicturePj = imageString, TitlePj = Title_tb.Text, DescriptionPj = Description_tb.Text, TotalPricePj = int.Parse(TotalPrice_tb.Text), TimeRequiredTr1 = (TimeRequired_cb.SelectedItem as Timerequired).IdTr, IdP1 = LoggendPro.IdP, IdC1 = InComingProposal.IdC3 };
+                var toCreateProject = new Project { IdPj = "", PicturePj = imageString, TitlePj = Title_tb.Text, DescriptionPj = Description_tb.Text, TotalPricePj = int.Parse(TotalPrice_tb.Text), TimeRequiredTr1 = (TimeRequired_cb.SelectedItem as Timerequired).IdTr, IdP1 = LoggendPro.IdP, IdC1 = InComingProposal.IdC3, StartDate = ExpectedBegin_dp.Date.DateTime, EndDate = Theend.Date.DateTime };
                 var result = await APIConnection.GetConnection.PostProjectAsync(toCreateProject);
                 var dialog = new MessageDialog("The proposal was accepted and project created.");
                 await dialog.ShowAsync();

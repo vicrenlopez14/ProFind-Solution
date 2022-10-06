@@ -60,6 +60,14 @@
                             Margin="0,15,0,0"
                             KeyDown="TotalPrice_tb_KeyDown"
                             PlaceholderText="Total price" />
+                        <DatePicker
+                            Name="ExpectedBegin_dp"
+                            Margin="0,15,0,0"
+                            Header="Expected beginning" />
+                        <DatePicker
+                            Name="Theend"
+                            Margin="0,15,0,0"
+                            Header="Expected end" />
                         <ComboBox
                             x:Name="TimeRequired_cb"
                             Margin="0,15,0,0"

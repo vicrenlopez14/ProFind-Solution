@@ -44,6 +44,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.CreatePage
         private async void Cargar()
         {
             TimeRequired_cb.ItemsSource = await APIConnection.GetConnection.GetTimerequiredsAsync();
+            TimeRequired_cb.SelectedIndex = 0;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

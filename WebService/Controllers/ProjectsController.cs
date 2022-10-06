@@ -39,11 +39,12 @@ public class ProjectsController : ControllerBase
             return NotFound();
         }
 
-        return await _context.Projects.Where(x => x.IdP1 == id).Include(x => x.IdP1Navigation).Include(x => x.IdC1Navigation)
+        return await _context.Projects.Distinct().Where(x => x.IdP1 == id).Include(x => x.IdP1Navigation)
+            .Include(x => x.IdC1Navigation)
             .Include(x => x.TimeRequiredTr1Navigation).ToListAsync();
     }
-    
-    
+
+
     // projects of a client
     [HttpGet("client/{id}")]
     public async Task<ActionResult<IEnumerable<Project>>> GetProjectsOfClient(string id)
@@ -53,10 +54,11 @@ public class ProjectsController : ControllerBase
             return NotFound();
         }
 
-        return await _context.Projects.Where(x => x.IdC1 == id).Include(x => x.IdP1Navigation).Include(x => x.IdC1Navigation)
+        return await _context.Projects.Distinct().Where(x => x.IdC1 == id).Include(x => x.IdP1Navigation)
+            .Include(x => x.IdC1Navigation)
             .Include(x => x.TimeRequiredTr1Navigation).ToListAsync();
     }
-    
+
     // GET: api/Projects/5
     [HttpGet("{id}")]
     public async Task<ActionResult<Project>> GetProject(string id)
@@ -84,6 +86,18 @@ public class ProjectsController : ControllerBase
         if (id != project.IdPj)
         {
             return BadRequest();
+        }
+
+        // Check that startdate is not in the past
+        if (project.StartDate < DateTime.Now)
+        {
+            return Problem("Start date is in the past.");
+        }
+
+        // Check that enddate is not in the past and is equal or greater than startdate
+        if (project.EndDate < DateTime.Now || project.EndDate < project.StartDate)
+        {
+            return Problem("End date is in the past or is before the start date.");
         }
 
         _context.Entry(project).State = EntityState.Modified;
@@ -115,6 +129,18 @@ public class ProjectsController : ControllerBase
         if (_context.Projects == null)
         {
             return Problem("Entity set 'ProFindContext.Projects'  is null.");
+        }
+
+        // Check that startdate is not in the past
+        if (project.StartDate < DateTime.Now)
+        {
+            return Problem("Start date is in the past.");
+        }
+
+        // Check that enddate is not in the past and is equal or greater than startdate
+        if (project.EndDate < DateTime.Now || project.EndDate < project.StartDate)
+        {
+            return Problem("End date is in the past or is before the start date.");
         }
 
         project.AssignId();

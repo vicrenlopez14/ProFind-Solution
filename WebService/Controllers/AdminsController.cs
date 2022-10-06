@@ -14,6 +14,7 @@ namespace WebService.Controllers;
 public class AdminsController : ControllerBase
 {
     private readonly ProFindContext _context;
+
     public AdminsController(ProFindContext context)
     {
         _context = context;
@@ -79,7 +80,7 @@ public class AdminsController : ControllerBase
                     ValidCpc = true, // Made invalid once the code is used
                 });
                 await _context.SaveChangesAsync();
-                
+
                 // Send email
                 EmailContent emailContent = new EmailContent("Password recovery");
                 emailContent.Html =
@@ -202,8 +203,33 @@ public class AdminsController : ControllerBase
             return BadRequest();
         }
 
+        // Check if the email is already in use
+        var adminFromDb = await _context.Admins.FirstOrDefaultAsync(a => a.EmailA == admin.EmailA);
+        if (adminFromDb != null)
+        {
+            return Problem("The email is already in use.");
+        }
+
+        // Check that name doesnt contain numbers
+        if (!Utils.DataIntegrityValidations.CheckText(admin.NameA))
+        {
+            return Problem("The name cannot contain numbers.");
+        }
+
+        // Check email format
+        if (!Utils.DataIntegrityValidations.CheckEmail(admin.EmailA))
+        {
+            return Problem("The email format is not valid.");
+        }
+        
         if (admin.PasswordA.Length < 50)
         {
+            // Check that the new password is not the same
+            if (adminFromDb.PasswordA == ShaOperations.ShaPassword(admin.PasswordA))
+            {
+                return Problem("The new password cannot be the same as the old one.");
+            }
+            
             admin.PasswordA = ShaOperations.ShaPassword(admin.PasswordA);
         }
 
@@ -236,6 +262,25 @@ public class AdminsController : ControllerBase
         if (_context.Admins == null)
         {
             return Problem("Entity set 'ProFindContext.Admins'  is null.");
+        }
+
+        // Check if the email is already in use
+        var adminFromDb = await _context.Admins.FirstOrDefaultAsync(a => a.EmailA == admin.EmailA);
+        if (adminFromDb != null)
+        {
+            return Problem("The email is already in use.");
+        }
+
+        // Check that name doesnt contain numbers
+        if (admin.NameA.Any(char.IsDigit))
+        {
+            return Problem("The name cannot contain numbers.");
+        }
+
+        // Check email format
+        if (!Utils.DataIntegrityValidations.CheckEmail(admin.EmailA))
+        {
+            return Problem("The email format is not valid.");
         }
 
         admin.AssignId();
