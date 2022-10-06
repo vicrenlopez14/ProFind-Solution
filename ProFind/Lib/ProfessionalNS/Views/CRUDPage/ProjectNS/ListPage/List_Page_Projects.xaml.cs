@@ -39,7 +39,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.ListPage
 
         }
 
-     
+
 
         private async void AppBarButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
@@ -99,23 +99,22 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.ListPage
 
         private async void UpdateProject(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-                if (ProjectsListView.SelectedItem != null)
-                {
-                    var obj = ProjectsListView.SelectedItem as Project;
-                    new InAppNavigationController().NavigateTo(typeof(ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.UpdatePage.Update_Project), obj);
-                }
-                else
-                {
+            if (ProjectsListView.SelectedItem != null)
+            {
+                var obj = ProjectsListView.SelectedItem as Project;
+                new InAppNavigationController().NavigateTo(typeof(ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.UpdatePage.Update_Project), obj);
+            }
+            else
+            {
 
-                    var dialog = new MessageDialog("You have to select a Project.");
-                    await dialog.ShowAsync();
-                }
+                var dialog = new MessageDialog("You have to select a Project.");
+                await dialog.ShowAsync();
+            }
 
         }
 
         private async void TagCreate(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-                new InAppNavigationController().NavigateTo(typeof(ProFind.Lib.ProfessionalNS.Views.CRUDPage.Tags.CreatePage.CreatePage));
         }
 
         private async void NotificationCreate(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -123,7 +122,6 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.ListPage
             try
             {
                 var obj = ProjectsListView.SelectedItem as Project;
-                new InAppNavigationController().NavigateTo(typeof(ProFind.Lib.ProfessionalNS.Views.CRUDPage.NotificationNS.CreatePage.CreatePage), obj);
             }
             catch
             {

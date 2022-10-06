@@ -132,7 +132,7 @@ namespace ProFind
                     //parámetro de navegación
                     try
                     {
-                        var admins = (await APIConnection.GetConnection.GetAdminsAsync());
+                        var admins = await APIConnection.GetConnection.GetAdminsAsync();
                         var areThereAdmins = admins == null ? false : admins.Count() > 0;
 
                         try

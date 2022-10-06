@@ -57,12 +57,13 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.UpdatePage
 
         private async void Cargar()
         {
+            TimeRequired_cb.ItemsSource = await APIConnection.GetConnection.GetTimerequiredsAsync();
+            
             SelectedPicture_pp.ProfilePicture = await toManipulate.PicturePj.FromBase64String();
             Title_tb.Text = toManipulate.TitlePj;
             Description_tb.Text = toManipulate.DescriptionPj;
             TotalPrice_tb.Text = toManipulate.TotalPricePj.ToString();
-            IsPaid_cbx.IsChecked = toManipulate.IsPaidPj;
-            TagDuration_cb.SelectedIndex = toManipulate.TagDurationPj ?? 0;
+            TimeRequired_cb.SelectedItem = toManipulate.TimeRequiredTr1Navigation;
         }
 
         private async void PictureSelection_btn_Checked(object sender, RoutedEventArgs e)
@@ -181,7 +182,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.UpdatePage
 
             try
             {
-                var ToUpdateProject = new Project { IdPj = "", TitlePj = Title_tb.Text, DescriptionPj = Description_tb.Text, PicturePj = imageString, TotalPricePj = int.Parse(TotalPrice_tb.Text), IdP1 = toManipulate.IdP1, IdC1 = toManipulate.IdC1, IsPaidPj = IsPaid_cbx.IsChecked };
+                var ToUpdateProject = new Project { IdPj = "", TitlePj = Title_tb.Text, DescriptionPj = Description_tb.Text, PicturePj = imageString, TotalPricePj = int.Parse(TotalPrice_tb.Text), IdP1 = toManipulate.IdP1, IdC1 = toManipulate.IdC1, };
 
                 await APIConnection.GetConnection.PutProjectAsync(toManipulate.IdPj, ToUpdateProject);
 
@@ -217,7 +218,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.UpdatePage
                     SelectedPicture_tbk.Text = selectedImage.Name;
 
                     imageString = await selectedImage.ToBase64StringAsync();
-     
+
 
                     toManipulate.PicturePj = imageString;
                     SelectedPicture_pp.ProfilePicture = await imageString.FromBase64String();

@@ -20,6 +20,13 @@ namespace Reporter.Models.Generated
         [Column("NamePFS")]
         [StringLength(50)]
         public string? NamePfs { get; set; }
+        [Column("DescriptionPFS")]
+        [StringLength(255)]
+        public string? DescriptionPfs { get; set; }
+        [Column("PicturePFS")]
+        public string? PicturePfs { get; set; }
+        [Column("BannerPFS")]
+        public string? BannerPfs { get; set; }
 
         [InverseProperty("IdPfs1Navigation")]
         public virtual ICollection<Professional> Professionals { get; set; }

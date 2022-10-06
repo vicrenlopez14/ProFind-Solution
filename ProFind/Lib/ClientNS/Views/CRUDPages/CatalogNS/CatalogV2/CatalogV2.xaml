@@ -20,9 +20,11 @@
             <ListView
                 Name="Professions_lw"
                 HorizontalAlignment="Center"
+                IsItemClickEnabled="True"
                 ScrollViewer.HorizontalScrollBarVisibility="Auto"
                 ScrollViewer.HorizontalScrollMode="Enabled"
-                ScrollViewer.IsHorizontalRailEnabled="True">
+                ScrollViewer.IsHorizontalRailEnabled="True"
+                SelectionMode="Single">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="services:Profession">
                         <StackPanel
@@ -30,12 +32,13 @@
                             Height="300"
                             Orientation="Vertical">
                             <Image Source="https://cdn.pixabay.com/photo/2017/03/27/11/19/welding-2178127_960_720.jpg" />
-                            <TextBlock Text="{x:Bind NamePfs}" />
+                            <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Text="{x:Bind NamePfs}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
+            <ListView />
+
         </StackPanel>
     </Grid>
 </Page>

@@ -5,7 +5,6 @@
         public Notification()
         {
         }
-        
-        public override string ToString() => TitleN;
+
     }
 }

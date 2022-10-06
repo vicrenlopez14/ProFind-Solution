@@ -13,14 +13,14 @@
             <ScrollViewer Grid.Column="1">
                 <Grid>
                     <StackPanel Padding="100" Orientation="Vertical">
-                        
-                       
+
+
                         <muxc:PersonPicture
                             Name="SelectedPicture_pp"
                             Width="100"
                             Height="100"
                             Margin="0,30,0,0" />
-                        
+
                         <TextBox
                             x:Name="Title_tb"
                             Margin="0,30,0,0"
@@ -42,12 +42,8 @@
                                 <ColumnDefinition Width="0.5*" />
                                 <ColumnDefinition Width="0.5*" />
                             </Grid.ColumnDefinitions>
-                            <CheckBox
-                                Name="IsPaid_cbx"
-                                Grid.Column="0"
-                                Content="Is paid" />
                             <ComboBox
-                                Name="TagDuration_cb"
+                                Name="TimeRequired_cb"
                                 Grid.Column="1"
                                 Header="Tag - Duration of the project" />
                         </Grid>
@@ -58,7 +54,7 @@
                             </Grid.ColumnDefinitions>
                         </Grid>
 
-                        
+
                         <Button
                             x:Name="Back_btn"
                             Width="100"

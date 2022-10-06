@@ -61,14 +61,13 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.ReadItemPage
             Title_tb.Text = toManipulate.TitlePj;
             Description_tb.Text = toManipulate.DescriptionPj;
             TotalPrice_tb.Text = toManipulate.TotalPricePj.ToString();
-            IsPaid_cbx.IsChecked = toManipulate.IsPaidPj;
-            TagDuration_cb.SelectedIndex = toManipulate.TagDurationPj ?? 0;
+            TimeRequired_cb.ItemsSource = await APIConnection.GetConnection.GetTimerequiredsAsync();
+
 
             Title_tb.IsEnabled = false;
             Description_tb.IsEnabled = false;
             TotalPrice_tb.IsEnabled = false;
-            IsPaid_cbx.IsEnabled = false;
-            TagDuration_cb.IsEnabled = false;
+            TimeRequired_cb.IsEnabled = false;
         }
 
 
@@ -121,9 +120,9 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.ReadItemPage
 
         }
 
-        
 
-        
+
+
 
         private void Update_btn_Click_2(object sender, RoutedEventArgs e)
         {

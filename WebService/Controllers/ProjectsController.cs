@@ -26,7 +26,8 @@ public class ProjectsController : ControllerBase
             return NotFound();
         }
 
-        return await _context.Projects.Include(x => x.IdP1Navigation).Include(x => x.IdC1Navigation).ToListAsync();
+        return await _context.Projects.Include(x => x.IdP1Navigation).Include(x => x.IdC1Navigation)
+            .Include(x => x.TimeRequiredTr1Navigation).ToListAsync();
     }
 
     // GET: api/Projects/5

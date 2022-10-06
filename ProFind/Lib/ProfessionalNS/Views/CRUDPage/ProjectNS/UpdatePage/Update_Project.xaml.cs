@@ -50,24 +50,23 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.UpdatePage
 
         private async void Cargar()
         {
-            
+
             Title_tb.Text = toManipulate.TitlePj;
             Description_tb.Text = toManipulate.DescriptionPj;
             TotalPrice_tb.Text = toManipulate.TotalPricePj.ToString();
-            IsPaid_cbx.IsChecked = toManipulate.IsPaidPj;
-           SelectedPicture_pp.ProfilePicture = await toManipulate.PicturePj.FromBase64String();
+            SelectedPicture_pp.ProfilePicture = await toManipulate.PicturePj.FromBase64String();
             imageString = toManipulate.PicturePj;
-          
+
         }
 
         private async void Update_btn_Click(object sender, RoutedEventArgs e)
         {
-          
+
         }
 
         private async void Delete_btn_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
         private async void PictureSelection_btn_Checked(object sender, RoutedEventArgs e)
         {
@@ -120,25 +119,25 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.UpdatePage
 
         private void TotalPrice_tb_KeyDown(object sender, KeyRoutedEventArgs e)
         {
-           
+
         }
 
         private async void PictureSelection_btn_Click_1(object sender, RoutedEventArgs e)
         {
 
-                try
-                {
-                    imageString = await (await PickFileHelper.PickImage()).ToBase64StringAsync();
-                    SelectedPicture_pp.ProfilePicture = await imageString.FromBase64String();
+            try
+            {
+                imageString = await (await PickFileHelper.PickImage()).ToBase64StringAsync();
+                SelectedPicture_pp.ProfilePicture = await imageString.FromBase64String();
 
-                }
-                catch
-                {
-                    // Message dialog
-                    var dialog = new MessageDialog("Error while picking image.");
-                    await dialog.ShowAsync();
-                }
-            
+            }
+            catch
+            {
+                // Message dialog
+                var dialog = new MessageDialog("Error while picking image.");
+                await dialog.ShowAsync();
+            }
+
         }
 
         private async void Delete_btn_Click_1(object sender, RoutedEventArgs e)
@@ -164,7 +163,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.UpdatePage
 
             try
             {
-                var ToUpdateProject = new Project { IdPj = toManipulate.IdPj, TitlePj = Title_tb.Text, DescriptionPj = Description_tb.Text, PicturePj = imageString, TotalPricePj = int.Parse(TotalPrice_tb.Text), IdP1 = toManipulate.IdP1, IdC1 = toManipulate.IdC1, IsPaidPj = IsPaid_cbx.IsChecked };
+                var ToUpdateProject = new Project { IdPj = toManipulate.IdPj, TitlePj = Title_tb.Text, DescriptionPj = Description_tb.Text, PicturePj = imageString, TotalPricePj = int.Parse(TotalPrice_tb.Text), IdP1 = toManipulate.IdP1, IdC1 = toManipulate.IdC1 };
 
                 await APIConnection.GetConnection.PutProjectAsync(toManipulate.IdPj, ToUpdateProject);
 

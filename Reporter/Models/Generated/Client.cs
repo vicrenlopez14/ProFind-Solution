@@ -14,6 +14,7 @@ namespace Reporter.Models.Generated
             Changepasswordcodes = new HashSet<Changepasswordcode>();
             Projects = new HashSet<Project>();
             Proposals = new HashSet<Proposal>();
+            Ratings = new HashSet<Rating>();
             Threadids = new HashSet<Threadid>();
         }
 
@@ -38,6 +39,8 @@ namespace Reporter.Models.Generated
         public virtual ICollection<Project> Projects { get; set; }
         [InverseProperty("IdC3Navigation")]
         public virtual ICollection<Proposal> Proposals { get; set; }
+        [InverseProperty("IdC1Navigation")]
+        public virtual ICollection<Rating> Ratings { get; set; }
         [InverseProperty("IdCNavigation")]
         public virtual ICollection<Threadid> Threadids { get; set; }
     }

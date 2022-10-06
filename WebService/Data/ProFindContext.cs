@@ -21,14 +21,16 @@ namespace WebService.Data
         public virtual DbSet<Changepasswordcode> Changepasswordcodes { get; set; } = null!;
         public virtual DbSet<Client> Clients { get; set; } = null!;
         public virtual DbSet<Department> Departments { get; set; } = null!;
-        public virtual DbSet<Notification> Notifications { get; set; } = null!;
+        public virtual DbSet<Graphicpreference> Graphicpreferences { get; set; } = null!;
+        public virtual DbSet<Priceandconditionsproposal> Priceandconditionsproposals { get; set; } = null!;
         public virtual DbSet<Profession> Professions { get; set; } = null!;
         public virtual DbSet<Professional> Professionals { get; set; } = null!;
         public virtual DbSet<Project> Projects { get; set; } = null!;
         public virtual DbSet<Proposal> Proposals { get; set; } = null!;
         public virtual DbSet<Rank> Ranks { get; set; } = null!;
-        public virtual DbSet<Tag> Tags { get; set; } = null!;
+        public virtual DbSet<Rating> Ratings { get; set; } = null!;
         public virtual DbSet<Threadid> Threadids { get; set; } = null!;
+        public virtual DbSet<Timerequired> Timerequireds { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -113,28 +115,28 @@ namespace WebService.Data
                     .HasName("PRIMARY");
             });
 
-            modelBuilder.Entity<Notification>(entity =>
+            modelBuilder.Entity<Graphicpreference>(entity =>
             {
-                entity.HasKey(e => e.IdN)
+                entity.HasKey(e => e.IdPrf)
+                    .HasName("PRIMARY");
+            });
+
+            modelBuilder.Entity<Priceandconditionsproposal>(entity =>
+            {
+                entity.HasKey(e => e.IdPcp)
                     .HasName("PRIMARY");
 
-                entity.Property(e => e.IdN).IsFixedLength();
+                entity.Property(e => e.IdPcp).IsFixedLength();
 
-                entity.Property(e => e.IdP1).IsFixedLength();
+                entity.Property(e => e.IdPj1).IsFixedLength();
 
-                entity.Property(e => e.IdPj2).IsFixedLength();
+                entity.Property(e => e.IdPp1).IsFixedLength();
 
-                entity.HasOne(d => d.IdP1Navigation)
-                    .WithMany(p => p.Notifications)
-                    .HasForeignKey(d => d.IdP1)
+                entity.HasOne(d => d.IdPp1Navigation)
+                    .WithMany(p => p.Priceandconditionsproposals)
+                    .HasForeignKey(d => d.IdPp1)
                     .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK_Notification_Professional");
-
-                entity.HasOne(d => d.IdPj2Navigation)
-                    .WithMany(p => p.Notifications)
-                    .HasForeignKey(d => d.IdPj2)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK_Notification_Project");
+                    .HasConstraintName("FK_PriceAndConditionsProposal_Proposal");
             });
 
             modelBuilder.Entity<Profession>(entity =>
@@ -193,6 +195,12 @@ namespace WebService.Data
                     .HasForeignKey(d => d.IdP1)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_Project_Professional");
+
+                entity.HasOne(d => d.TimeRequiredTr1Navigation)
+                    .WithMany(p => p.Projects)
+                    .HasForeignKey(d => d.TimeRequiredTr1)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_TimeRequired_Project");
             });
 
             modelBuilder.Entity<Proposal>(entity =>
@@ -225,20 +233,28 @@ namespace WebService.Data
                     .HasName("PRIMARY");
             });
 
-            modelBuilder.Entity<Tag>(entity =>
+            modelBuilder.Entity<Rating>(entity =>
             {
-                entity.HasKey(e => e.IdT)
+                entity.HasKey(e => e.IdRt)
                     .HasName("PRIMARY");
 
-                entity.Property(e => e.IdT).IsFixedLength();
+                entity.Property(e => e.IdRt).IsFixedLength();
 
-                entity.Property(e => e.IdPj1).IsFixedLength();
+                entity.Property(e => e.IdC1).IsFixedLength();
 
-                entity.HasOne(d => d.IdPj1Navigation)
-                    .WithMany(p => p.Tags)
-                    .HasForeignKey(d => d.IdPj1)
+                entity.Property(e => e.IdP1).IsFixedLength();
+
+                entity.HasOne(d => d.IdC1Navigation)
+                    .WithMany(p => p.Ratings)
+                    .HasForeignKey(d => d.IdC1)
                     .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK_Tag_Project");
+                    .HasConstraintName("FK_Rating_Client");
+
+                entity.HasOne(d => d.IdP1Navigation)
+                    .WithMany(p => p.Ratings)
+                    .HasForeignKey(d => d.IdP1)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_Rating_Professional");
             });
 
             modelBuilder.Entity<Threadid>(entity =>
@@ -261,6 +277,12 @@ namespace WebService.Data
                     .HasForeignKey(d => d.IdP)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_ThreadIds_Professional");
+            });
+
+            modelBuilder.Entity<Timerequired>(entity =>
+            {
+                entity.HasKey(e => e.IdTr)
+                    .HasName("PRIMARY");
             });
 
             OnModelCreatingPartial(modelBuilder);

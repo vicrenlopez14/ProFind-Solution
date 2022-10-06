@@ -70,7 +70,7 @@
                                 Grid.Column="0"
                                 Content="Is paid" />
                             <ComboBox
-                                Name="TagDuration_cb"
+                                Name="TimeRequired_cb"
                                 Grid.Column="1"
                                 Header="Tag - Duration of the project" />
                         </Grid>

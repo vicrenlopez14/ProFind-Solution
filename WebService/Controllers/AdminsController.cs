@@ -78,7 +78,8 @@ public class AdminsController : ControllerBase
                     IdA1 = adminFromDb.IdA, // Id of the admin
                     ValidCpc = true, // Made invalid once the code is used
                 });
-
+                await _context.SaveChangesAsync();
+                
                 // Send email
                 EmailContent emailContent = new EmailContent("Password recovery");
                 emailContent.Html =

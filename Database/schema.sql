@@ -95,14 +95,17 @@ FROM Department;
 ################################################
 CREATE TABLE Profession
 (
-    IdPFS   INT AUTO_INCREMENT PRIMARY KEY,
-    NamePFS VARCHAR(50)
+    IdPFS          INT AUTO_INCREMENT PRIMARY KEY,
+    NamePFS        VARCHAR(50),
+    DescriptionPFS VARCHAR(255),
+    PicturePFS     LONGTEXT,
+    BannerPFS      LONGTEXT
 );
 
-INSERT INTO Profession (NamePFS)
-VALUES ('Law firm'),
-       ('Automotive services'),
-       ('General medicine');
+# INSERT INTO Profession (NamePFS)
+# VALUES ('Law firm'),
+#        ('Automotive services'),
+#        ('General medicine');
 
 SELECT *
 FROM Profession;
@@ -113,6 +116,7 @@ CREATE TABLE Professional
     IdP              CHAR(21) PRIMARY KEY,
     NameP            CHAR(50),
     DateBirthP       DATETIME,
+    MottoP           TEXT,
     EmailP           CHAR(255),
     PasswordP        CHAR(64),
     ActiveP          BOOLEAN,
@@ -152,24 +156,35 @@ CREATE TABLE ChangePasswordCode
     CONSTRAINT FK_Professional_ChangePasswordCode FOREIGN KEY (IdP1) REFERENCES Professional (IdP) ON DELETE CASCADE
 );
 
+SELECT *
+FROM ChangePasswordCode;
+
+################################################
+# Duration of a project
+CREATE TABLE TimeRequired
+(
+    IdTR   INT AUTO_INCREMENT PRIMARY KEY,
+    NameTR VARCHAR(50)
+);
+
 ###############################################
 CREATE TABLE Project
 (
-    IdPJ          CHAR(21) PRIMARY KEY,
-    TitlePJ       VARCHAR(50),
-    DescriptionPJ VARCHAR(50),
-    PicturePJ     LONGTEXT,
-    StartDate     DATETIME,
-    EndDate       DATETIME,
-    TotalPricePJ  FLOAT,
-    IsPaidPJ      BOOLEAN,
-    IsActive      BOOLEAN,
-    Completed     BOOLEAN,
-    TagDurationPJ INT,
-    IdP1          CHAR(21),
-    IdC1          CHAR(21),
+    IdPJ            CHAR(21) PRIMARY KEY,
+    TitlePJ         VARCHAR(50),
+    DescriptionPJ   VARCHAR(150),
+    PicturePJ       LONGTEXT,
+    StartDate       DATETIME,
+    EndDate         DATETIME,
+    TotalPricePJ    FLOAT,
+    IsActive        BOOLEAN,
+    Completed       BOOLEAN,
+    IdP1            CHAR(21),
+    IdC1            CHAR(21),
+    TimeRequiredTR1 INT,
     CONSTRAINT FK_Project_Professional FOREIGN KEY (IdP1) REFERENCES Professional (IdP) ON DELETE CASCADE,
-    CONSTRAINT FK_Project_Client FOREIGN KEY (IdC1) REFERENCES Client (IdC) ON DELETE CASCADE
+    CONSTRAINT FK_Project_Client FOREIGN KEY (IdC1) REFERENCES Client (IdC) ON DELETE CASCADE,
+    CONSTRAINT FK_TimeRequired_Project FOREIGN KEY (TimeRequiredTR1) REFERENCES TimeRequired (IdTR) ON DELETE CASCADE
 );
 
 DESCRIBE Project;
@@ -177,48 +192,40 @@ DESCRIBE Project;
 SELECT *
 FROM Project;
 
-###############################################
-CREATE TABLE Notification
-(
-    IdN             CHAR(21) PRIMARY KEY,
-    TitleN          VARCHAR(50),
-    DescriptionN    VARCHAR(500),
-    DateTimeIssuedN DATETIME,
-    PictureN        LONGTEXT,
-    IdP1            CHAR(21),
-    IdPJ2           CHAR(21),
-    CONSTRAINT FK_Notification_Project FOREIGN KEY (IdPJ2) REFERENCES Project (IdPJ) ON DELETE CASCADE,
-    CONSTRAINT FK_Notification_Professional FOREIGN KEY (IdP1) REFERENCES Professional (IdP) ON DELETE CASCADE
-);
-
-################################################
-CREATE TABLE Tag
-(
-    IdT   CHAR(21) PRIMARY KEY,
-    NameT VARCHAR(50),
-    IdPJ1 CHAR(21),
-    CONSTRAINT FK_Tag_Project FOREIGN KEY (IdPJ1) REFERENCES Project (IdPJ) ON DELETE CASCADE
-);
-
 ################################################
 CREATE TABLE Proposal
 (
-    IdPP           CHAR(21) PRIMARY KEY,
-    TitlePP        VARCHAR(50),
-    DescriptionPP  VARCHAR(500),
-    PicturePP      LONGTEXT,
-    SuggestedStart DATETIME,
-    SuggestedEnd   DATETIME,
-    Seen           BOOLEAN,
-    Accepted       BOOLEAN,
-    IdP3           CHAR(21),
-    IdC3           CHAR(21),
+    IdPP                  CHAR(21) PRIMARY KEY,
+    TitlePP               VARCHAR(50),
+    DescriptionPP         VARCHAR(500),
+    PicturePP             LONGTEXT,
+    SuggestedStart        DATETIME,
+    SuggestedEnd          DATETIME,
+    ReferenceIllustration LONGTEXT,
+    ReferenceAudio        LONGTEXT,
+    ReferenceFile         LONGTEXT,
+    LatitudePP            FLOAT,
+    LongitudePP           FLOAT,
+    IdP3                  CHAR(21),
+    IdC3                  CHAR(21),
     CONSTRAINT FK_Proposal_Professional FOREIGN KEY (IdP3) REFERENCES Professional (IdP) ON DELETE CASCADE,
     CONSTRAINT FK_Proposal_Client FOREIGN KEY (IdC3) REFERENCES Client (IdC) ON DELETE CASCADE
 );
 
 SELECT *
 FROM Proposal;
+
+################################################
+# Price and conditions proposal
+CREATE TABLE PriceAndConditionsProposal
+(
+    IdPCP         CHAR(21) PRIMARY KEY,
+    PricePCP      FLOAT,
+    ConditionsPCP VARCHAR(500),
+    IdPP1         CHAR(21),
+    IdPJ1         CHAR(21),
+    CONSTRAINT FK_PriceAndConditionsProposal_Proposal FOREIGN KEY (IdPP1) REFERENCES Proposal (IdPP) ON DELETE CASCADE
+);
 
 ################################################
 CREATE TABLE ThreadIds
@@ -228,4 +235,29 @@ CREATE TABLE ThreadIds
     IdP CHAR(21),
     CONSTRAINT FK_ThreadIds_Client FOREIGN KEY (IdC) REFERENCES Client (IdC) ON DELETE CASCADE,
     CONSTRAINT FK_ThreadIds_Professional FOREIGN KEY (IdP) REFERENCES Professional (IdP) ON DELETE CASCADE
+);
+
+
+
+################################################
+CREATE TABLE GraphicPreference
+(
+    IdPRF          VARCHAR(255) PRIMARY KEY,
+    NamePRF        VARCHAR(50),
+    DescriptionPRF VARCHAR(255),
+    PicturePRF     LONGTEXT,
+    BannerPRF      LONGTEXT
+);
+
+################################################
+#Professional ratings
+CREATE TABLE Rating
+(
+    IdRT      CHAR(21) PRIMARY KEY,
+    RatingRT  FLOAT,
+    CommentRT VARCHAR(500),
+    IdP1      CHAR(21),
+    IdC1      CHAR(21),
+    CONSTRAINT FK_Rating_Professional FOREIGN KEY (IdP1) REFERENCES Professional (IdP) ON DELETE CASCADE,
+    CONSTRAINT FK_Rating_Client FOREIGN KEY (IdC1) REFERENCES Client (IdC) ON DELETE CASCADE
 );

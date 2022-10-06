@@ -29,7 +29,7 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.CreatePage
     public sealed partial class CreatePage : Page
     {
         private string imageString;
-        
+
         Professional IdP;
         public CreatePage()
         {
@@ -40,7 +40,7 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.CreatePage
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            if(e.Parameter != null)
+            if (e.Parameter != null)
             {
                 IdP = (Professional)e.Parameter;
             }
@@ -49,7 +49,7 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.CreatePage
         {
             try
             {
-              
+
 
                 var file = await PickFileHelper.PickImage();
 
@@ -67,7 +67,7 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.CreatePage
             }
             finally
             {
-                
+
                 PictureSelection_btn.IsChecked = false;
             }
         }
@@ -100,7 +100,7 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.CreatePage
             {
 
                 var loggendClient = LoggedClientStore.LoggedClient;
-                var toCreatProposals = new Proposal { IdPp = "", TitlePp = Title_tb.Text, DescriptionPp = Description_tb.Text, SuggestedStart = (DateTimeOffset)ExpectedBegin_dp.Date, SuggestedEnd = (DateTimeOffset)Theend.Date, PicturePp = imageString, Seen = false, IdC3 = loggendClient.IdC, IdP3 = IdP.IdP };
+                var toCreatProposals = new Proposal { IdPp = "", TitlePp = Title_tb.Text, DescriptionPp = Description_tb.Text, SuggestedStart = (DateTimeOffset)ExpectedBegin_dp.Date, SuggestedEnd = (DateTimeOffset)Theend.Date, PicturePp = imageString, IdC3 = loggendClient.IdC, IdP3 = IdP.IdP };
 
 
 
@@ -113,7 +113,7 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.CreatePage
             }
             catch (ProFindServicesException ex)
             {
-                if(ex.StatusCode>=200 && ex.StatusCode <= 205)
+                if (ex.StatusCode >= 200 && ex.StatusCode <= 205)
                 {
                     var dialog = new MessageDialog("Proposal already sent.");
                     await dialog.ShowAsync();
@@ -126,7 +126,7 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.CreatePage
             }
             finally
             {
-              new InAppNavigationController().NavigateTo(typeof(ProFind.Lib.ClientNS.Views.CRUDPages.CatalogNS.CatalogList.CatalogList));
+                new InAppNavigationController().NavigateTo(typeof(ProFind.Lib.ClientNS.Views.CRUDPages.CatalogNS.CatalogList.CatalogList));
             }
         }
 

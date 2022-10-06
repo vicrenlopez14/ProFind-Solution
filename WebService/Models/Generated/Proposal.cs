@@ -11,6 +11,11 @@ namespace WebService.Models.Generated
     [Index("IdP3", Name = "FK_Proposal_Professional")]
     public partial class Proposal
     {
+        public Proposal()
+        {
+            Priceandconditionsproposals = new HashSet<Priceandconditionsproposal>();
+        }
+
         [Key]
         [Column("IdPP")]
         [StringLength(21)]
@@ -27,8 +32,13 @@ namespace WebService.Models.Generated
         public DateTime? SuggestedStart { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? SuggestedEnd { get; set; }
-        public bool? Seen { get; set; }
-        public bool? Accepted { get; set; }
+        public string? ReferenceIllustration { get; set; }
+        public string? ReferenceAudio { get; set; }
+        public string? ReferenceFile { get; set; }
+        [Column("LatitudePP")]
+        public float? LatitudePp { get; set; }
+        [Column("LongitudePP")]
+        public float? LongitudePp { get; set; }
         [StringLength(21)]
         public string? IdP3 { get; set; }
         [StringLength(21)]
@@ -40,5 +50,7 @@ namespace WebService.Models.Generated
         [ForeignKey("IdP3")]
         [InverseProperty("Proposals")]
         public virtual Professional? IdP3Navigation { get; set; }
+        [InverseProperty("IdPp1Navigation")]
+        public virtual ICollection<Priceandconditionsproposal> Priceandconditionsproposals { get; set; }
     }
 }

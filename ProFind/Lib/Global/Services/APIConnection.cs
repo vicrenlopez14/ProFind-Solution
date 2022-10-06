@@ -19,15 +19,31 @@ namespace ProFind.Lib.Global.Services
         }
         public static void Init()
         {
+            //bool useLocalhost = true;
+
+            //if (useLocalhost)
+            //{
             //var handler = new HttpClientHandler();
             //handler.ClientCertificateOptions = ClientCertificateOption.Manual;
             //handler.ServerCertificateCustomValidationCallback =
             //    (httpRequestMessage, cert, cetChain, policyErrors) => true;
 
+
+            //var client = new HttpClient();
+            //client.BaseAddress = new Uri("https://127.0.0.1:7073");
+
+            //_service = new WebServiceClient(client);
+            //}
+            //else
+            //{
             var client = new HttpClient();
             client.BaseAddress = new Uri("https://api.profind.work");
 
             _service = new WebServiceClient(client);
+            //}
+
+
+
         }
     }
 }

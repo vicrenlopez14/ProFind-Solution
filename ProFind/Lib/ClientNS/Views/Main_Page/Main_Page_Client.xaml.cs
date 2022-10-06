@@ -24,11 +24,10 @@ namespace ProFind.Lib.ClientNS.Views.Main_Page
         static Dictionary<string, Type> DefinedPagesDictionary = new Dictionary<string, Type>()
         {
             {"Projects_Page_Clients", typeof(Lib.ClientNS.Views.CRUDPages.ProjectNS.ReadPage.ReadPage) },
-            {"Notifications_Page", typeof(Lib.ClientNS.Views.CRUDPages.NotificationNS.ReadPage.ReadPage) },
             {"Catalog_Page", typeof(Lib.ClientNS.Views.CRUDPages.CatalogNS.CatalogList.CatalogList) },
             {"Professionals_Page_Clients", typeof(Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage.ReadPage) },
-            {"GeneralNotifications_Page_Clients", typeof(Lib.ClientNS.Views.CRUDPages.NotificationNS.ReadPage.ReadPage) },
-            {"ProposalNotifications_Page_Clients", typeof(Lib.ClientNS.Views.CRUDPages.NotificationNS.ReadPage.ReadPage) },
+            {"GeneralNotifications_Page_Clients", typeof(Lib.ClientNS.Views.CRUDPages.ProposalsNS.ListPage.ListPAge) },
+            {"ProposalNotifications_Page_Clients", typeof(Lib.ClientNS.Views.CRUDPages.ProposalsNS.ListPage.ListPAge) },
             {"ProjectsOverview_Page", typeof(Lib.ClientNS.Views.CRUDPages.ProjectNS.ReadPage.ReadPage) },
             {"Projecttype_Page", typeof(Lib.ClientNS.Views.CRUDPages.ProposalsNS.ListPage.ListPAge) },
             {"Preferences_Page", typeof(Preferences_Page) },

@@ -138,6 +138,8 @@ namespace WebService.Controllers
                         IdP1 = professionalFromDb.IdP, // Id of the admin
                         ValidCpc = true, // Made invalid once the code is used
                     });
+                    await _context.SaveChangesAsync();
+
 
                     // Send email
                     EmailContent emailContent = new EmailContent("Password recovery");

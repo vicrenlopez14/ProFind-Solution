@@ -36,12 +36,14 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.CreatePage
             Description_tb.OnEnterNextField();
             TotalPrice_tb.OnEnterNextField();
 
+
+
         }
 
 
         private async void Cargar()
         {
-
+            TimeRequired_cb.ItemsSource = await APIConnection.GetConnection.GetTimerequiredsAsync();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -63,7 +65,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.CreatePage
 
         private async void Create_btn_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
 
@@ -128,7 +130,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.CreatePage
 
         private void TotalPrice_tb_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
-            
+
         }
 
         private async void Create_btn_Click_1(object sender, RoutedEventArgs e)
@@ -147,7 +149,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.CreatePage
             }
             try
             {
-                var toCreateProject = new Project { IdPj = "", TitlePj = Title_tb.Text, DescriptionPj = Description_tb.Text, PicturePj = imageString, TotalPricePj = int.Parse(TotalPrice_tb.Text), IdP1 = SourceProposal.IdP3, IdC1 = SourceProposal.IdC3, TagDurationPj = TagDuration_cbx.SelectedIndex };
+                var toCreateProject = new Project { IdPj = "", TitlePj = Title_tb.Text, DescriptionPj = Description_tb.Text, PicturePj = imageString, TotalPricePj = int.Parse(TotalPrice_tb.Text), IdP1 = SourceProposal.IdP3, IdC1 = SourceProposal.IdC3, TimeRequiredTr1 = (TimeRequired_cb.SelectedItem as Timerequired).IdTr };
 
                 var result = await APIConnection.GetConnection.PostProjectAsync(toCreateProject);
 

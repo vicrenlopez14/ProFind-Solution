@@ -1,0 +1,45 @@
+﻿<ContentDialog
+    x:Class="ProFind.Lib.ClientNS.Views.CRUDPages.RatingNS.CreateDialog.CreateDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ProFind.Lib.ClientNS.Views.CRUDPages.RatingNS.CreateDialog"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    Title="Rate a professional"
+    d:Title="Rate Carlos Burgos"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    PrimaryButtonText="Submit"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    SecondaryButtonText="Cancel"
+    mc:Ignorable="d" Loaded="ContentDialog_Loaded">
+
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <TextBlock
+                Margin="0,0,0,15"
+                d:Text="Talk other users about your experience with Carlos Burgos"
+                Style="{StaticResource DetailBodyBaseMediumStyle}">
+                Talk other users about your experience with this Professional...
+            </TextBlock>
+            <TextBox
+                Name="Experience_tb"
+                AcceptsReturn="True"
+                Header="Comment"
+                PlaceholderText="My experience..."
+                TextWrapping="Wrap" />
+
+            <TextBlock
+                Margin="0,15,0,0"
+                d:Text="How would you qualify Carlos Burgos in a 1-to-5 scale?"
+                Style="{StaticResource DetailBodyBaseMediumStyle}">
+                How would you qualify this Professional in a 1-to-5 scale?
+            </TextBlock>
+            <muxc:RatingControl
+                Name="Qualify_rc"
+                HorizontalAlignment="Left"
+                PlaceholderValue="1" />
+
+        </StackPanel>
+    </Grid>
+</ContentDialog>

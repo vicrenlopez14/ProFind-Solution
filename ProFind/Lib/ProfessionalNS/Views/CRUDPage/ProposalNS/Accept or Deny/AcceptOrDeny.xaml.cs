@@ -32,6 +32,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProposalNS.Accept_or_Deny
         Professional Id;
         Proposal Denegada;
 
+
         private Proposal InComingProposal;
 
 
@@ -55,9 +56,11 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProposalNS.Accept_or_Deny
             {
                 InComingProposal = (Proposal)e.Parameter;
             }
+            imageString = InComingProposal.PicturePp;
             Title_tb.Text = InComingProposal.TitlePp;
             Description_tb.Text = InComingProposal.DescriptionPp;
             SelectedPicture_pp.ProfilePicture = await InComingProposal.PicturePp.FromBase64String();
+            TimeRequired_cb.ItemsSource = await APIConnection.GetConnection.GetTimerequiredsAsync();
         }
 
         private async void Cargar()
@@ -80,6 +83,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProposalNS.Accept_or_Deny
                     imageString = await file.ToBase64StringAsync();
                     SelectedPicture_tbk.Text = file.Name;
                     SelectedPicture_pp.ProfilePicture = await imageString.FromBase64String();
+
                 }
             }
             catch (Exception ex)
@@ -124,8 +128,8 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProposalNS.Accept_or_Deny
             try
             {
                 var LoggendPro = LoggedProfessionalStore.LoggedProfessional;
-                var toCreateClien = new Project { IdPj = "", TitlePj = Title_tb.Text, DescriptionPj = Description_tb.Text, PicturePj = imageString, TotalPricePj = int.Parse(TotalPrice_tb.Text), IsPaidPj = false, TagDurationPj = Tag_cb.SelectedIndex, IdP1 = LoggendPro.IdP, IdC1 = InComingProposal.IdC3 };
-                var result = await APIConnection.GetConnection.PostProjectAsync(toCreateClien);
+                var toCreateProject = new Project { IdPj = "", PicturePj = imageString, TitlePj = Title_tb.Text, DescriptionPj = Description_tb.Text, TotalPricePj = int.Parse(TotalPrice_tb.Text), TimeRequiredTr1 = (TimeRequired_cb.SelectedItem as Timerequired).IdTr, IdP1 = LoggendPro.IdP, IdC1 = InComingProposal.IdC3 };
+                var result = await APIConnection.GetConnection.PostProjectAsync(toCreateProject);
                 var dialog = new MessageDialog("The proposal was accepted and project created.");
                 await dialog.ShowAsync();
                 DeleteProposal();
@@ -146,7 +150,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProposalNS.Accept_or_Deny
             }
             finally
             {
-                
+
             }
         }
 

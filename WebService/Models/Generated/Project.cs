@@ -9,14 +9,9 @@ namespace WebService.Models.Generated
     [Table("project")]
     [Index("IdC1", Name = "FK_Project_Client")]
     [Index("IdP1", Name = "FK_Project_Professional")]
+    [Index("TimeRequiredTr1", Name = "FK_TimeRequired_Project")]
     public partial class Project
     {
-        public Project()
-        {
-            Notifications = new HashSet<Notification>();
-            Tags = new HashSet<Tag>();
-        }
-
         [Key]
         [Column("IdPJ")]
         [StringLength(21)]
@@ -25,7 +20,7 @@ namespace WebService.Models.Generated
         [StringLength(50)]
         public string? TitlePj { get; set; }
         [Column("DescriptionPJ")]
-        [StringLength(50)]
+        [StringLength(150)]
         public string? DescriptionPj { get; set; }
         [Column("PicturePJ")]
         public string? PicturePj { get; set; }
@@ -35,16 +30,14 @@ namespace WebService.Models.Generated
         public DateTime? EndDate { get; set; }
         [Column("TotalPricePJ")]
         public float? TotalPricePj { get; set; }
-        [Column("IsPaidPJ")]
-        public bool? IsPaidPj { get; set; }
         public bool? IsActive { get; set; }
         public bool? Completed { get; set; }
-        [Column("TagDurationPJ", TypeName = "int(11)")]
-        public int? TagDurationPj { get; set; }
         [StringLength(21)]
         public string? IdP1 { get; set; }
         [StringLength(21)]
         public string? IdC1 { get; set; }
+        [Column("TimeRequiredTR1", TypeName = "int(11)")]
+        public int? TimeRequiredTr1 { get; set; }
 
         [ForeignKey("IdC1")]
         [InverseProperty("Projects")]
@@ -52,9 +45,8 @@ namespace WebService.Models.Generated
         [ForeignKey("IdP1")]
         [InverseProperty("Projects")]
         public virtual Professional? IdP1Navigation { get; set; }
-        [InverseProperty("IdPj2Navigation")]
-        public virtual ICollection<Notification> Notifications { get; set; }
-        [InverseProperty("IdPj1Navigation")]
-        public virtual ICollection<Tag> Tags { get; set; }
+        [ForeignKey("TimeRequiredTr1")]
+        [InverseProperty("Projects")]
+        public virtual Timerequired? TimeRequiredTr1Navigation { get; set; }
     }
 }

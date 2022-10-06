@@ -14,9 +14,9 @@ namespace Reporter.Models.Generated
         public Professional()
         {
             Changepasswordcodes = new HashSet<Changepasswordcode>();
-            Notifications = new HashSet<Notification>();
             Projects = new HashSet<Project>();
             Proposals = new HashSet<Proposal>();
+            Ratings = new HashSet<Rating>();
             Threadids = new HashSet<Threadid>();
         }
 
@@ -27,6 +27,8 @@ namespace Reporter.Models.Generated
         public string? NameP { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? DateBirthP { get; set; }
+        [Column(TypeName = "text")]
+        public string? MottoP { get; set; }
         [StringLength(255)]
         public string? EmailP { get; set; }
         [StringLength(64)]
@@ -67,11 +69,11 @@ namespace Reporter.Models.Generated
         [InverseProperty("IdP1Navigation")]
         public virtual ICollection<Changepasswordcode> Changepasswordcodes { get; set; }
         [InverseProperty("IdP1Navigation")]
-        public virtual ICollection<Notification> Notifications { get; set; }
-        [InverseProperty("IdP1Navigation")]
         public virtual ICollection<Project> Projects { get; set; }
         [InverseProperty("IdP3Navigation")]
         public virtual ICollection<Proposal> Proposals { get; set; }
+        [InverseProperty("IdP1Navigation")]
+        public virtual ICollection<Rating> Ratings { get; set; }
         [InverseProperty("IdPNavigation")]
         public virtual ICollection<Threadid> Threadids { get; set; }
     }
