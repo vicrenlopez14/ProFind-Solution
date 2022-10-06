@@ -53,9 +53,7 @@
         <th scope="col">Start Date</th>
         <th scope="col">End Date</th>
         <th scope="col">Total Price</th>
-        <th scope="col">Is paid</th>
-        <th scope="col">¿Marked as complete?</th>
-        <th scope="col">Tag - Duration</th>
+        <th scope="col">Required time</th>
         <th scope="col">Professional</th>
         <th scope="col">Client</th>
     </tr>
@@ -72,8 +70,7 @@
             <td>@project.StartDate.Value.Date.ToString()</td>
             <td>@project.EndDate.Value.Date.ToString()</td>
             <td>@project.TotalPricePj.Value.ToString()</td>
-            <td>@project.IsPaidPj.Value ? "Yes" : "No"</td>
-            <td>@project.TagDurationPj.ToString()</td>
+            <td>@project.TimeRequiredTr1Navigation.NameTr.ToString()</td>
             <td>@project.IdP1Navigation.NameP</td>
             <td>@project.IdC1Navigation.NameC</td>
         </tr>
