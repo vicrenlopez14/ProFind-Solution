@@ -165,19 +165,8 @@ public class ProposalsController : ControllerBase
         {
             return BadRequest();
         }
-        
-        // Check that startdate is not in the past
-        if (proposal.SuggestedStart < DateTime.Now)
-        {
-            return Problem("Suggested start date is in the past.");
-        }
-        
-        // Check that enddate is not in the past and is equal or greater than startdate
-        if (proposal.SuggestedEnd < DateTime.Now || proposal.SuggestedEnd < proposal.SuggestedStart)
-        {
-            return Problem("Suggested end date is in the past or is before the start date.");
-        }
-        
+    
+       
         _context.Entry(proposal).State = EntityState.Modified;
 
         try
@@ -209,19 +198,6 @@ public class ProposalsController : ControllerBase
             return Problem("Entity set 'ProFindContext.Proposals'  is null.");
         }
 
-        // Check that startdate is not in the past
-        if (proposal.SuggestedStart < DateTime.Now)
-        {
-            return Problem("Suggested start date is in the past.");
-        }
-        
-        // Check that enddate is not in the past and is equal or greater than startdate
-        if (proposal.SuggestedEnd < DateTime.Now || proposal.SuggestedEnd < proposal.SuggestedStart)
-        {
-            return Problem("Suggested end date is in the past or is before the start date.");
-        }
-        
-        
         proposal.AssignId();
         _context.Proposals.Add(proposal);
         try

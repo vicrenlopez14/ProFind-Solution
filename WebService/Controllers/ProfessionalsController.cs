@@ -250,31 +250,8 @@ namespace WebService.Controllers
                 return BadRequest();
             }
             
-            // Check if the email is already in use
-            var emailFromDb = await _context.Professionals.FirstOrDefaultAsync(a => a.EmailP == professional.EmailP);
-            if (emailFromDb != null && emailFromDb.IdP != id)
-            {
-                return BadRequest("The email is already in use.");
-            }
-            // Check that name doesnt contain numbers
-            if (!Utils.DataIntegrityValidations.CheckText(professional.NameP))
-            {
-                return BadRequest("The name cannot contain numbers.");
-            }
-            // Check email format
-            if (!Utils.DataIntegrityValidations.CheckEmail(professional.EmailP))
-            {
-                return BadRequest("The email is not in a valid format.");
-            }
-
-
             if (professional.PasswordP.Length < 50)
             {
-            // Check that the new password is not the same
-                if (professional.PasswordP == ShaOperations.ShaPassword(professional.PasswordP))
-                {
-                    return Problem("New password cannot be the same as the old one.");
-                }
 
                 professional.PasswordP = ShaOperations.ShaPassword(professional.PasswordP);
             }
@@ -310,24 +287,7 @@ namespace WebService.Controllers
             {
                 return Problem("Entity set 'ProFindContext.Professionals'  is null.");
             }
-            // Check if the email is already in use
-            var emailFromDb = await _context.Professionals.FirstOrDefaultAsync(a => a.EmailP == professional.EmailP);
-            if (emailFromDb != null)
-            {
-                return BadRequest("The email is already in use.");
-            }
-            
-            // Check that name doesnt contain numbers
-            if (!Utils.DataIntegrityValidations.CheckText(professional.NameP))
-            {
-                return BadRequest("The name cannot contain numbers.");
-            }
-            // Check email format
-            if (!Utils.DataIntegrityValidations.CheckEmail(professional.EmailP))
-            {
-                return BadRequest("The email is not in a valid format.");
-            }
-            
+          
             professional.AssignId();
             professional.PasswordP = ShaOperations.ShaPassword(professional.PasswordP);
             professional.CommunicationIdP = TokensGeneratorIssuer.GenerateCommunicationId();

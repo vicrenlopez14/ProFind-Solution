@@ -86,18 +86,6 @@ public class ProjectsController : ControllerBase
             return BadRequest();
         }
 
-        // Check that startdate is not in the past
-        if (project.StartDate < DateTime.Now)
-        {
-            return Problem("Start date is in the past.");
-        }
-
-        // Check that enddate is not in the past and is equal or greater than startdate
-        if (project.EndDate < DateTime.Now || project.EndDate < project.StartDate)
-        {
-            return Problem("End date is in the past or is before the start date.");
-        }
-
         _context.Entry(project).State = EntityState.Modified;
 
         try
@@ -127,18 +115,6 @@ public class ProjectsController : ControllerBase
         if (_context.Projects == null)
         {
             return Problem("Entity set 'ProFindContext.Projects'  is null.");
-        }
-
-        // Check that startdate is not in the past
-        if (project.StartDate < DateTime.Now)
-        {
-            return Problem("Start date is in the past.");
-        }
-
-        // Check that enddate is not in the past and is equal or greater than startdate
-        if (project.EndDate < DateTime.Now || project.EndDate < project.StartDate)
-        {
-            return Problem("End date is in the past or is before the start date.");
         }
 
         project.AssignId();
