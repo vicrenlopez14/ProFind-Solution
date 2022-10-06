@@ -12,47 +12,54 @@ namespace WebService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TagsController : ControllerBase
+    public class RatingsController : ControllerBase
     {
         private readonly ProFindContext _context;
 
-        public TagsController(ProFindContext context)
+        public RatingsController(ProFindContext context)
         {
             _context = context;
         }
 
-        // GET: api/Tags
+        // GET: api/Ratings
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Tag>>> GetTags()
+        public async Task<ActionResult<IEnumerable<Rating>>> GetRatings()
         {
-            return await _context.Tags.ToListAsync();
+            return await _context.Ratings.Include(x => x.IdC1Navigation).ToListAsync();
         }
 
-        // GET: api/Tags/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Tag>> GetTag(string id)
+        // Get ratings of a professional
+        [HttpGet("professional/{id}")]
+        public async Task<ActionResult<IEnumerable<Rating>>> GetRatingsByProfessional(string id)
         {
-            var tag = await _context.Tags.FindAsync(id);
+            return await _context.Ratings.Where(x => x.IdP1 == id).ToListAsync();
+        }
+        
+        // GET: api/Ratings/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Rating>> GetRating(string id)
+        {
+            var rating = await _context.Ratings.FindAsync(id);
 
-            if (tag == null)
+            if (rating == null)
             {
                 return NotFound();
             }
 
-            return tag;
+            return rating;
         }
 
-        // PUT: api/Tags/5
+        // PUT: api/Ratings/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTag(string id, Tag tag)
+        public async Task<IActionResult> PutRating(string id, Rating rating)
         {
-            if (id != tag.IdT)
+            if (id != rating.IdRt)
             {
                 return BadRequest();
             }
 
-            _context.Entry(tag).State = EntityState.Modified;
+            _context.Entry(rating).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +67,7 @@ namespace WebService.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TagExists(id))
+                if (!RatingExists(id))
                 {
                     return NotFound();
                 }
@@ -73,19 +80,19 @@ namespace WebService.Controllers
             return NoContent();
         }
 
-        // POST: api/Tags
+        // POST: api/Ratings
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Tag>> PostTag(Tag tag)
+        public async Task<ActionResult<Rating>> PostRating(Rating rating)
         {
-            _context.Tags.Add(tag);
+            _context.Ratings.Add(rating);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (TagExists(tag.IdT))
+                if (RatingExists(rating.IdRt))
                 {
                     return Conflict();
                 }
@@ -95,28 +102,28 @@ namespace WebService.Controllers
                 }
             }
 
-            return CreatedAtAction("GetTag", new { id = tag.IdT }, tag);
+            return CreatedAtAction("GetRating", new { id = rating.IdRt }, rating);
         }
 
-        // DELETE: api/Tags/5
+        // DELETE: api/Ratings/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTag(string id)
+        public async Task<IActionResult> DeleteRating(string id)
         {
-            var tag = await _context.Tags.FindAsync(id);
-            if (tag == null)
+            var rating = await _context.Ratings.FindAsync(id);
+            if (rating == null)
             {
                 return NotFound();
             }
 
-            _context.Tags.Remove(tag);
+            _context.Ratings.Remove(rating);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool TagExists(string id)
+        private bool RatingExists(string id)
         {
-            return _context.Tags.Any(e => e.IdT == id);
+            return _context.Ratings.Any(e => e.IdRt == id);
         }
     }
 }
