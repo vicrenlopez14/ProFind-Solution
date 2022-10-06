@@ -219,7 +219,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
                     await dialog.ShowAsync();
                     return;
                 }
-                if (!FieldsChecker.OnlyInts(Afp.Text) || !FieldsChecker.CheckAfp(Afp.Text))
+                if (!FieldsChecker.OnlyInts(Afp.Text))
                 {
                     var dialog = new MessageDialog("The Afp must be valid.");
                     await dialog.ShowAsync();
@@ -231,7 +231,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
                     await dialog.ShowAsync();
                     return;
                 }
-                if (!FieldsChecker.OnlyInts(SeguroSocial.Text) || !FieldsChecker.CheckIsss(SeguroSocial.Text))
+                if (!FieldsChecker.OnlyInts(SeguroSocial.Text))
                 {
                     var dialog = new MessageDialog("The Isss must be valid.");
                     await dialog.ShowAsync();

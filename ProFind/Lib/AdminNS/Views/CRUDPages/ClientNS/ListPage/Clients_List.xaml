@@ -28,6 +28,7 @@
                     Click="Update_Click_1"
                     Icon="Edit"
                     Label="Edit " />
+                
                 <AppBarButton
                     Click="Add_Click_1"
                     Icon="Add"
@@ -37,7 +38,9 @@
                     Icon="NewFolder"
                     Label="Report " />
                 <CommandBar.SecondaryCommands>
-                    <AppBarButton Icon="Setting" Label="Settings">
+                    <AppBarButton Click="AppBarButton_Click_1"
+                    Icon="Refresh"
+                    Label="Refresh ">
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Key="I" Modifiers="Control" />
                         </AppBarButton.KeyboardAccelerators>
