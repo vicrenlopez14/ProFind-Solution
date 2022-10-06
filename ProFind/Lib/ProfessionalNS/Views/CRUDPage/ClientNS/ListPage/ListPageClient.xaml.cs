@@ -38,21 +38,10 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ClientNS.ListPage
             var loggedProfessional = LoggedProfessionalStore.LoggedProfessional;
 
             // Major lists
-            var projects = await APIConnection.GetConnection.GetProjectsAsync();
-            var clients = await APIConnection.GetConnection.GetClientsAsync();
+          
+            var projects = await APIConnection.GetConnection.GetProjectsOfProfessionalAsync(loggedProfessional.IdP);
 
-            // Projects where loggedProfessional is related
-            var relatedProjects = projects.Where(p => p.IdP1 == loggedProfessional.IdP).ToList();
-
-            // Notifications where loggedProfessional is related through a project
-            var relatedClients = new List<Client>();
-            foreach (var project in projects)
-            {
-                var relatedClientsForThisProject = clients.Where(n => n.IdC == project.IdC1).ToList();
-                relatedClients.AddRange(relatedClientsForThisProject);
-            }
-
-            Clients_lw.ItemsSource = relatedClients.Distinct().ToList();
+            Clients_lw.ItemsSource = projects.ToList();
         }
 
         private void Add_btn_Click(object sender, RoutedEventArgs e)

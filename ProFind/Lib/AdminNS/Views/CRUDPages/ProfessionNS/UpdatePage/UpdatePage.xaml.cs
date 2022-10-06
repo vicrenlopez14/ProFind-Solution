@@ -1,31 +1,61 @@
-﻿using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using ProFind.Lib.Global.Services;
-using Profession = ProFind.Lib.Global.Services.Profession;
+﻿using ProFind.Lib.AdminNS.Controllers;
 using ProFind.Lib.Global.Helpers;
-using Windows.UI.Popups;
+using ProFind.Lib.Global.Services;
 using System;
-using ProFind.Lib.AdminNS.Controllers;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
 
-// La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.CreatePage
+namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.UpdatePage
 {
     /// <summary>
-    /// Una página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
+    /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Profession_Create : Page
+    public sealed partial class UpdatePage : Page
     {
         private string picturestring;
         private string bannerstring;
-        public Profession_Create()
+        private Profession tomanipulateprofession;
+        public UpdatePage()
         {
             this.InitializeComponent();
         }
 
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            if (e.Parameter is Profession)
+            {
+                tomanipulateprofession = (Profession)e.Parameter;
+                Name_tb.Text = tomanipulateprofession.NamePfs;
+                Description_tb.Text = tomanipulateprofession.DescriptionPfs;
+                ProfessionBanner_img.Source = await tomanipulateprofession.BannerPfs.FromBase64String();
+                ProfessionPicture_img.Source = await tomanipulateprofession.PicturePfs.FromBase64String();
+            }
+            else
+            {
+                new InAppNavigationController().GoBack();
+                return;
+            }
+        }
+
         private async void Create_btn_Click(object sender, RoutedEventArgs e)
         {
-           
+
         }
 
         private void Title_tb_TextChanged(object sender, TextChangedEventArgs e)
@@ -35,7 +65,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.CreatePage
 
         private void Name_tb_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
-           
+
 
         }
 
@@ -47,25 +77,25 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
-            
+
 
             try
             {
-                var toCreateClien = new Profession { IdPfs = 0, NamePfs = Name_tb.Text, DescriptionPfs = Description_tb.Text, BannerPfs = bannerstring, PicturePfs = picturestring };
-                var result = await APIConnection.GetConnection.PostProfessionAsync(toCreateClien);
-                var dialog = new MessageDialog("The profession has been created");
+                var toupdateprofession = new Profession { IdPfs = tomanipulateprofession.IdPfs, NamePfs = Name_tb.Text, DescriptionPfs = Description_tb.Text, BannerPfs = bannerstring, PicturePfs = picturestring };
+                await APIConnection.GetConnection.PutProfessionAsync(toupdateprofession.IdPfs.Value, toupdateprofession);
+                var dialog = new MessageDialog("The profession has been updated");
                 await dialog.ShowAsync();
             }
             catch (ProFindServicesException ex)
             {
-                if(ex.StatusCode>=200 && ex.StatusCode <= 205)
+                if (ex.StatusCode >= 200 && ex.StatusCode <= 205)
                 {
-                    var dialog = new MessageDialog("The profession has been created");
+                    var dialog = new MessageDialog("The profession has been updated");
                     await dialog.ShowAsync();
                 }
                 else
                 {
-                    var dialog = new MessageDialog("There was a problem while creating the profession, try again later.");
+                    var dialog = new MessageDialog("There was a problem while updating the profession, try again later.");
                     await dialog.ShowAsync();
                 }
             }
@@ -79,12 +109,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.CreatePage
         {
             try
             {
-                
+
                 var selectedImage = await PickFileHelper.PickImage();
                 if (selectedImage != null)
                 {
                     picturestring = await selectedImage.ToBase64StringAsync();
-                    
+
                     ProfessionPicture_img.Source = await picturestring.FromBase64String();
                 }
 

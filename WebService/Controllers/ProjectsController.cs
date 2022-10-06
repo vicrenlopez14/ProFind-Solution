@@ -30,6 +30,33 @@ public class ProjectsController : ControllerBase
             .Include(x => x.TimeRequiredTr1Navigation).ToListAsync();
     }
 
+    // projects of a professional
+    [HttpGet("professional/{id}")]
+    public async Task<ActionResult<IEnumerable<Project>>> GetProjectsOfProfessional(string id)
+    {
+        if (_context.Projects == null)
+        {
+            return NotFound();
+        }
+
+        return await _context.Projects.Where(x => x.IdP1 == id).Include(x => x.IdP1Navigation).Include(x => x.IdC1Navigation)
+            .Include(x => x.TimeRequiredTr1Navigation).ToListAsync();
+    }
+    
+    
+    // projects of a client
+    [HttpGet("client/{id}")]
+    public async Task<ActionResult<IEnumerable<Project>>> GetProjectsOfClient(string id)
+    {
+        if (_context.Projects == null)
+        {
+            return NotFound();
+        }
+
+        return await _context.Projects.Where(x => x.IdC1 == id).Include(x => x.IdP1Navigation).Include(x => x.IdC1Navigation)
+            .Include(x => x.TimeRequiredTr1Navigation).ToListAsync();
+    }
+    
     // GET: api/Projects/5
     [HttpGet("{id}")]
     public async Task<ActionResult<Project>> GetProject(string id)

@@ -150,7 +150,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ListPage
             else
             {
                 // Validation content dialog
-                var dialog = new MessageDialog("You have to select a Admin.");
+                var dialog = new MessageDialog("You have to select an Admin.");
                 await dialog.ShowAsync();
 
             }

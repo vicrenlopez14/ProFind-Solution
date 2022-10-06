@@ -8,24 +8,34 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <Grid  Padding="30">
+    <Grid Padding="30">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*" />
-            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.9*" />
         </Grid.RowDefinitions>
-        <CommandBar  Grid.ColumnSpan="3"
-                Margin="-22,-30,-30,0"
-                Background="Transparent"
-                DefaultLabelPosition="Right"
-                IsOpen="False">
-            <AppBarButton Icon="Delete" Label="Delete" Click="Delete_Click_1"/>
-            
-            <AppBarButton Icon="Add" Label="Add " Click="Add_Click_1"/>
+        <CommandBar
+            Grid.ColumnSpan="3"
+            Background="Transparent"
+            DefaultLabelPosition="Right"
+            IsOpen="False">
+            <AppBarButton
+                Click="Delete_Click_1"
+                Icon="Delete"
+                Label="Delete" />
+            <AppBarButton
+                Click="AppBarButton_Click"
+                Icon="Switch"
+                Label="Update" />
+            <AppBarButton
+                Click="Add_Click_1"
+                Icon="Add"
+                Label="Add " />
 
 
             <CommandBar.SecondaryCommands>
-                <AppBarButton Click="AppBarButton_Click_1"
+                <AppBarButton
+                    Click="AppBarButton_Click_1"
                     Icon="Refresh"
                     Label="Refresh ">
                     <AppBarButton.KeyboardAccelerators>
@@ -34,55 +44,55 @@
                 </AppBarButton>
             </CommandBar.SecondaryCommands>
         </CommandBar>
-       
-        
 
-        <ListView Name="ProfessionalsListView"   Grid.Row="1">
-                <ListView.ItemTemplate>
 
-                    <DataTemplate x:DataType="services:Profession">
-                        <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="0.1*" />
-                                    <ColumnDefinition Width="0.9*" />
-                                </Grid.ColumnDefinitions>
-                                <StackPanel
+
+        <ListView Name="ProfessionsListView" Grid.Row="1">
+            <ListView.ItemTemplate>
+
+                <DataTemplate x:DataType="services:Profession">
+                    <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.1*" />
+                                <ColumnDefinition Width="0.9*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel
                                 Grid.Column="1"
                                 Padding="0,30"
                                 Orientation="Vertical">
-                                    <StackPanel>
-                                        <TextBlock
+                                <StackPanel>
+                                    <TextBlock
                                         Height="25"
                                         Style="{StaticResource ListTitleStyle}"
                                         Text="Profession" />
-                                    </StackPanel>
-                                    <StackPanel />
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontWeight="Bold" Text="Name:" />
-                                        <TextBlock
+                                </StackPanel>
+                                <StackPanel />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Name:" />
+                                    <TextBlock
                                         Height="31"
                                         Margin="10,0,0,0"
                                         Text="{Binding NamePfs}" />
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontWeight="Bold" Text="" />
-                                        <TextBlock
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="" />
+                                    <TextBlock
                                         Height="31"
                                         Margin="10,0,0,0"
                                         Text="" />
-                                    </StackPanel>
-                                    <StackPanel
+                                </StackPanel>
+                                <StackPanel
                                     Grid.Column="1"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center" />
-                                </StackPanel>
-                            </Grid>
-                        </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
 
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-   
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </Grid>
 </Page>

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using ProFind.Lib.AdminNS.Controllers;
 using Windows.UI.Popups;
 using System;
+using ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.UpdatePage;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,7 +24,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.ListPage
         }
         private async void InitializeData()
         {
-            ProfessionalsListView.ItemsSource = await APIConnection.GetConnection.GetProfessionsAsync() as List<Profession>;
+            ProfessionsListView.ItemsSource = await APIConnection.GetConnection.GetProfessionsAsync() as List<Profession>;
         }
     
 
@@ -33,9 +34,9 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.ListPage
         {
             try
             {
-                if (ProfessionalsListView.SelectedItem != null)
+                if (ProfessionsListView.SelectedItem != null)
                 {
-                    var obj = (ProfessionalsListView.SelectedItem as Profession);
+                    var obj = (ProfessionsListView.SelectedItem as Profession);
                     await APIConnection.GetConnection.DeleteProfessionAsync(obj.IdPfs.GetValueOrDefault());
                     var dialog = new MessageDialog("The profession has been deleted.");
                     await dialog.ShowAsync();
@@ -76,6 +77,22 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.ListPage
         private void AppBarButton_Click_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             InitializeData();
+        }
+
+        private async void AppBarButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            if (ProfessionsListView.SelectedItem != null)
+            {
+                var obj = ProfessionsListView.SelectedItem as Profession;
+                new InAppNavigationController().NavigateTo(typeof(ProfessionNS.UpdatePage.UpdatePage), obj);
+            }
+            else
+            {
+                // Validation content dialog
+                var dialog = new MessageDialog("You have to select a Profession.");
+                await dialog.ShowAsync();
+
+            }
         }
     }
 }

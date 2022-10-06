@@ -323,6 +323,9 @@
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProfessionNS\ListPage\List-Page.xaml.cs">
       <DependentUpon>List-Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\AdminNS\Views\CRUDPages\ProfessionNS\UpdatePage\UpdatePage.xaml.cs">
+      <DependentUpon>UpdatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lib\AdminNS\Views\CRUDPages\ProfileAdminNS\ProfileAdminNS.xaml.cs">
       <DependentUpon>ProfileAdminNS.xaml</DependentUpon>
     </Compile>
@@ -658,6 +661,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\AdminNS\Views\CRUDPages\ProfessionNS\ListPage\List-Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lib\AdminNS\Views\CRUDPages\ProfessionNS\UpdatePage\UpdatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -30,12 +30,9 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProjectNS.ReadPage
         private async void InitializeData()
         {
             var loggendProject = LoggedClientStore.LoggedClient;
-            var Projects = await APIConnection.GetConnection.GetProjectsAsync();
-
-            var RelatedProject = Projects.Where(c => c.IdC1 == loggendProject.IdC).ToList();
-
-
-            AdminsListView.ItemsSource = RelatedProject;
+            var Projects = await APIConnection.GetConnection.GetProjectsOfClientAsync(loggendProject.IdC);
+            
+            AdminsListView.ItemsSource = Projects;
         }
 
         private void AdminListView_ItemClick(object sender, ItemClickEventArgs e)
