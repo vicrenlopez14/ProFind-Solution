@@ -227,17 +227,19 @@ public class ClientsController : ControllerBase
         {
             return Problem("Email already in use.");
         }
+
         // Check that name doesnt contain numbers
         if (!Utils.DataIntegrityValidations.CheckText(client.NameC))
         {
             return Problem("Name cannot contain numbers.");
         }
+
         // Check email format
         if (!Utils.DataIntegrityValidations.CheckEmail(client.EmailC))
         {
             return Problem("Invalid email format.");
         }
-        
+
         if (client.PasswordC.Length < 50)
         {
             // Check that the new password is not the same
@@ -245,7 +247,7 @@ public class ClientsController : ControllerBase
             {
                 return Problem("New password cannot be the same as the old one.");
             }
-            
+
             client.PasswordC = ShaOperations.ShaPassword(client.PasswordC);
         }
 
@@ -270,6 +272,42 @@ public class ClientsController : ControllerBase
         return NoContent();
     }
 
+    // Professionals with that have a Project in common with Client
+    // GET: api/Clients/GetProfessionalsWithProjects/5
+    [HttpGet("GetProfessionalsWithProjects/{id}")]
+    public async Task<ActionResult<IEnumerable<Professional>>> GetProfessionalsWithProjects(string id)
+    {
+        if (_context.Clients == null)
+        {
+            return NotFound();
+        }
+        
+        var professionals = await _context.Professionals
+            .Where(p => p.Projects.Any(pr => pr.IdC1 == id)).Distinct()
+            .ToListAsync();
+
+        return professionals;
+    }
+
+    // GetClientsWithProjects
+    // GET: api/Clients/GetClientsWithProjects/5
+    [HttpGet("GetClientsWithProjects/{id}")]
+    public async Task<ActionResult<IEnumerable<Client>>> GetClientsWithProjects(string id)
+    {
+        if (_context.Clients == null)
+        {
+            return NotFound();
+        }
+
+        var clients = await _context.Clients
+            .Where(p => p.Projects.Any(pr => pr.IdP1 == id)).Distinct()
+            .ToListAsync();
+
+        return clients;
+    }
+    
+    
+
     // POST: api/Clients
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
@@ -286,11 +324,13 @@ public class ClientsController : ControllerBase
         {
             return Problem("Email already in use.");
         }
+
         // Check that name doesnt contain numbers
         if (!Utils.DataIntegrityValidations.CheckText(client.NameC))
         {
             return Problem("Name cannot contain numbers.");
         }
+
         // Check email format
         if (!Utils.DataIntegrityValidations.CheckEmail(client.EmailC))
         {

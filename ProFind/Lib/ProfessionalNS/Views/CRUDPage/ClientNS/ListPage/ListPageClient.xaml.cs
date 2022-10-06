@@ -39,7 +39,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ClientNS.ListPage
 
             // Major lists
           
-            var projects = await APIConnection.GetConnection.GetProjectsOfProfessionalAsync(loggedProfessional.IdP);
+            var projects = await APIConnection.GetConnection.GetClientsWithProjectsAsync(loggedProfessional.IdP);
 
             Clients_lw.ItemsSource = projects.ToList();
         }

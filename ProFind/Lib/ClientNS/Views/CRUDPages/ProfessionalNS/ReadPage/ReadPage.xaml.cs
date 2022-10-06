@@ -31,8 +31,7 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage
 
         {
 
-
-            ProfessionalsListView.ItemsSource = await APIConnection.GetConnection.GetProjectsOfClientAsync(LoggedClientStore.LoggedClient.IdC);
+            ProfessionalsListView.ItemsSource = await APIConnection.GetConnection.GetProfessionalsWithProjectsAsync(LoggedClientStore.LoggedClient.IdC);
         }
 
         private void Control2_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
