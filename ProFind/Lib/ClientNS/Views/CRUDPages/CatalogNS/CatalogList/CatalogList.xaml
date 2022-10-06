@@ -30,7 +30,9 @@
 
 
                 <CommandBar.SecondaryCommands>
-                    <AppBarButton Icon="Setting" Label="Settings">
+                    <AppBarButton Click="AppBarButton_Click_1"
+                    Icon="Refresh"
+                    Label="Refresh ">
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Key="I" Modifiers="Control" />
                         </AppBarButton.KeyboardAccelerators>

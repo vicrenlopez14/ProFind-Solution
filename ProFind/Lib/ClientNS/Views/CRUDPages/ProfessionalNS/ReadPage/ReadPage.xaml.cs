@@ -152,5 +152,10 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage
                 await dialog.ShowAsync();
             }
         }
+
+        private void AppBarButton_Click_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            GetProjectsList();
+        }
     }
 }

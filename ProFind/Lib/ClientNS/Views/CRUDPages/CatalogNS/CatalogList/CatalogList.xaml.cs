@@ -159,5 +159,10 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.CatalogNS.CatalogList
 
             }
         }
+
+        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            GetProfessionalsList();
+        }
     }
 }

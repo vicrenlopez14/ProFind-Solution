@@ -166,6 +166,9 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ClientNS.ListPage
             }
         }
 
-      
+        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            GetProjectsList();
+        }
     }
 }

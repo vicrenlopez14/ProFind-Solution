@@ -25,6 +25,15 @@
                     Click="CallAProfessional"
                     Icon="Phone"
                     Label="Call" />
+                <CommandBar.SecondaryCommands>
+                    <AppBarButton Click="AppBarButton_Click_1"
+                    Icon="Refresh"
+                    Label="Refresh ">
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Key="I" Modifiers="Control" />
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
+                </CommandBar.SecondaryCommands>
             </CommandBar>
         </StackPanel>
         <ListView

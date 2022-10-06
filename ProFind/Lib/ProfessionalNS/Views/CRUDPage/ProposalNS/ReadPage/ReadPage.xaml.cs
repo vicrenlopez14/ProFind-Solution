@@ -99,5 +99,10 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProposalNS.ReadPage
             }
            
         }
+
+        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            InitializeData();
+        }
     }
 }
