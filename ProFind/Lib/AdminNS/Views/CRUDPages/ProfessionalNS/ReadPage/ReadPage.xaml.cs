@@ -301,5 +301,10 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ReadPage
 
             }
         }
+
+        private void btnCancelar_Click_1(object sender, RoutedEventArgs e)
+        {
+            new InAppNavigationController().GoBack();
+        }
     }
 }
