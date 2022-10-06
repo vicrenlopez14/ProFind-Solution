@@ -126,7 +126,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.ReadItemPage
 
         private void Update_btn_Click_2(object sender, RoutedEventArgs e)
         {
-            new InAppNavigationController().NavigateTo(typeof(ReadPage.ReadPage));
+            new InAppNavigationController().GoBack();
         }
     }
 }
