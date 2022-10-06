@@ -54,38 +54,44 @@
                     <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.1*" />
-                                <ColumnDefinition Width="0.9*" />
+                                <ColumnDefinition Width="0.3*" />
+                                <ColumnDefinition Width="0.7*" />
                             </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Orientation="Vertical">
+                                <PersonPicture
+                                        Width="100"
+                                        Height="100"
+                                        ProfilePicture="{Binding PicturePfs, Converter={StaticResource ImageModelConverter}}" />
+                            </StackPanel>
                             <StackPanel
-                                Grid.Column="1"
-                                Padding="0,30"
-                                Orientation="Vertical">
+                                    Grid.Column="1"
+                                    Padding="0,30"
+                                    Orientation="Vertical">
                                 <StackPanel>
                                     <TextBlock
-                                        Height="25"
-                                        Style="{StaticResource ListTitleStyle}"
-                                        Text="Profession" />
+                                            Height="25"
+                                            Style="{StaticResource ListTitleStyle}"
+                                            Text="{Binding NamePfs}" />
                                 </StackPanel>
                                 <StackPanel />
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontWeight="Bold" Text="Name:" />
+                                    <TextBlock FontWeight="Bold" Text="Description:" />
                                     <TextBlock
-                                        Height="31"
-                                        Margin="10,0,0,0"
-                                        Text="{Binding NamePfs}" />
+                                            Height="31"
+                                            Margin="10,0,0,0"
+                                            Text="{Binding DescriptionPfs}" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock FontWeight="Bold" Text="" />
                                     <TextBlock
-                                        Height="31"
-                                        Margin="10,0,0,0"
-                                        Text="" />
+                                            Height="31"
+                                            Margin="10,0,0,0"
+                                            Text="" />
                                 </StackPanel>
                                 <StackPanel
-                                    Grid.Column="1"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center" />
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center" />
                             </StackPanel>
                         </Grid>
                     </StackPanel>
