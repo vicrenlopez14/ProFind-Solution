@@ -20,18 +20,19 @@
                 Background="Transparent"
                 DefaultLabelPosition="Right"
                 IsOpen="False">
-                <AppBarButton
+                <!--<AppBarButton
                     Click="WaitForCall"
                     Icon="PhoneBook"
                     Label="Wait for them call" />
                 <AppBarButton
                     Click="CallAProfessional"
                     Icon="Phone"
-                    Label="Call" />
+                    Label="Call" />-->
                 <CommandBar.SecondaryCommands>
-                    <AppBarButton Click="AppBarButton_Click_1"
-                    Icon="Refresh"
-                    Label="Refresh ">
+                    <AppBarButton
+                        Click="AppBarButton_Click_1"
+                        Icon="Refresh"
+                        Label="Refresh ">
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Key="I" Modifiers="Control" />
                         </AppBarButton.KeyboardAccelerators>
@@ -40,58 +41,61 @@
             </CommandBar>
         </StackPanel>
 
-        <ListView Name="Clients_lw" Grid.Row="1" DoubleTapped="Clients_lw_DoubleTapped_1">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="services:Client">
-                        <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="0.3*" />
-                                    <ColumnDefinition Width="0.7*" />
-                                </Grid.ColumnDefinitions>
-                                <StackPanel Grid.Column="0" Orientation="Vertical">
-                                    <Image
+        <ListView
+            Name="Clients_lw"
+            Grid.Row="1"
+            DoubleTapped="Clients_lw_DoubleTapped_1">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="services:Client">
+                    <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.3*" />
+                                <ColumnDefinition Width="0.7*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Orientation="Vertical">
+                                <Image
                                     Width="100"
                                     Height="100"
                                     Source="{Binding PictureC, Converter={StaticResource ImageModelConverter}}" />
-                                </StackPanel>
-                                <StackPanel
+                            </StackPanel>
+                            <StackPanel
                                 Grid.Column="1"
                                 Padding="0,30"
                                 Orientation="Vertical">
-                                    <StackPanel>
-                                        <TextBlock
+                                <StackPanel>
+                                    <TextBlock
                                         Height="25"
                                         Style="{StaticResource ListTitleStyle}"
                                         Text="Client" />
-                                    </StackPanel>
-                                    <StackPanel />
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontWeight="Bold" Text="Name:" />
-                                        <TextBlock
+                                </StackPanel>
+                                <StackPanel />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Name:" />
+                                    <TextBlock
                                         Height="31"
                                         Margin="10,0,0,0"
                                         Text="{Binding NameC}" />
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontWeight="Bold" Text="E-mail:" />
-                                        <TextBlock
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="E-mail:" />
+                                    <TextBlock
                                         Height="31"
                                         Margin="10,0,0,0"
                                         Text="{Binding EmailC}" />
-                                    </StackPanel>
-                                    <StackPanel
+                                </StackPanel>
+                                <StackPanel
                                     Grid.Column="1"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center" />
-                                </StackPanel>
-                            </Grid>
-                        </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
 
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+                </DataTemplate>
+            </ListView.ItemTemplate>
 
-            </ListView>
-     
+        </ListView>
+
     </Grid>
 </Page>
