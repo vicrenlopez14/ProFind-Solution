@@ -32,6 +32,15 @@
                     Click="AppBarButton_Click"
                     Icon="NewFolder"
                     Label="Report " />
+                <CommandBar.SecondaryCommands>
+                    <AppBarButton Click="AppBarButton_Click_1"
+                    Icon="Refresh"
+                    Label="Refresh ">
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Key="I" Modifiers="Control" />
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
+                </CommandBar.SecondaryCommands>
 
             </CommandBar>
             <SearchBox PlaceholderText="Search" QueryChanged="SearchBox_QueryChanged" />

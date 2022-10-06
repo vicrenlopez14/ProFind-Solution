@@ -72,5 +72,10 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.ListPage
             new InAppNavigationController().NavigateTo(typeof(ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.CreatePage.Profession_Create));
 
         }
+
+        private void AppBarButton_Click_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            InitializeData();
+        }
     }
 }

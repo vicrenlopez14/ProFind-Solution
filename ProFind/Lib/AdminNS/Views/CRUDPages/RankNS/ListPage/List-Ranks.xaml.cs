@@ -81,5 +81,10 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.RankNS.ListPage
             new InAppNavigationController().NavigateTo(typeof(ProFind.Lib.AdminNS.Views.CRUDPages.RankNS.CreatePage.Create_Page));
 
         }
+
+        private void AppBarButton_Click_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            InitializeData();
+        }
     }
 }
