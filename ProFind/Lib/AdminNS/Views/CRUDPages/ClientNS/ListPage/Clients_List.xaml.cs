@@ -137,5 +137,15 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.ListPage
 
             }
         }
+
+        private void Refresh_Click_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            GetClientsList();
+        }
+
+        private void AppBarButton_Click_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            GetClientsList();
+        }
     }
 }

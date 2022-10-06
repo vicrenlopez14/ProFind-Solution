@@ -168,14 +168,14 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
-            var textCheck = !FieldsChecker.OnlyInts(Afp.Text);
-            var afpCheck = !FieldsChecker.CheckAfp(Afp.Text);
-            if (textCheck || afpCheck)
+            if (!FieldsChecker.OnlyFloats(Afp.Text))
             {
                 var dialog = new MessageDialog("The Afp must be valid.");
                 await dialog.ShowAsync();
                 return;
             }
+
+
             if (!FieldsChecker.OnlyInts(CodigoPostal.Text))
             {
                 var dialog = new MessageDialog("The Code Postal must be valid.");
@@ -200,7 +200,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
-            if (!FieldsChecker.OnlyInts(SeguroSocial.Text) || !FieldsChecker.CheckIsss(SeguroSocial.Text))
+            if (!FieldsChecker.OnlyInts(SeguroSocial.Text))
             {
                 var dialog = new MessageDialog("The Isss must be valid.");
                 await dialog.ShowAsync();
