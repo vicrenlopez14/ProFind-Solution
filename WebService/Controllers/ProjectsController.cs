@@ -40,9 +40,8 @@ public class ProjectsController : ControllerBase
         }
 
         return await _context.Projects.Where(x => x.IdP1 == id).Include(x => x.IdP1Navigation).Include(x => x.IdC1Navigation)
-            .Include(x => x.TimeRequiredTr1Navigation).ToListAsync();
+            .Include(x => x.TimeRequiredTr1Navigation).Distinct().ToListAsync();
     }
-    
     
     // projects of a client
     [HttpGet("client/{id}")]
@@ -54,7 +53,7 @@ public class ProjectsController : ControllerBase
         }
 
         return await _context.Projects.Where(x => x.IdC1 == id).Include(x => x.IdP1Navigation).Include(x => x.IdC1Navigation)
-            .Include(x => x.TimeRequiredTr1Navigation).ToListAsync();
+            .Include(x => x.TimeRequiredTr1Navigation).Distinct().ToListAsync();
     }
     
     // GET: api/Projects/5

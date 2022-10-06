@@ -31,28 +31,8 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage
 
         {
 
-            
 
-
-
-            var loggedClient = LoggedClientStore.LoggedClient;
-
-            // Major lists
-            var projects = await APIConnection.GetConnection.GetProjectsAsync();
-            var clients = await APIConnection.GetConnection.GetProfessionalsAsync();
-
-            // Projects where loggedProfessional is related
-            var relatedProjects = projects.Where(p => p.IdC1 == loggedClient.IdC).ToList();
-
-            // Notifications where loggedProfessional is related through a project
-            var relateProfessional = new List<Professional>();
-            foreach (var project in projects)
-            {
-                var relatedProfessionalForThisProject = clients.Where(n => n.IdP == project.IdP1).ToList();
-                relateProfessional.AddRange(relatedProfessionalForThisProject);
-            }
-
-            ProfessionalsListView.ItemsSource = relateProfessional.Distinct().ToList();
+            ProfessionalsListView.ItemsSource = await APIConnection.GetConnection.GetProjectsOfClientAsync(LoggedClientStore.LoggedClient.IdC);
         }
 
         private void Control2_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)

@@ -32,10 +32,9 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.ListPage
         {
 
             // Projects of the loggedProfessoinal
-            var projects = await APIConnection.GetConnection.GetProjectsAsync();
-            var ForThisProfessional = projects.Where(x => x.IdP1 == LoggedProfessionalStore.LoggedProfessional.IdP).ToList();
+            var projects = await APIConnection.GetConnection.GetProjectsOfProfessionalAsync(LoggedProfessionalStore.LoggedProfessional.IdP);
 
-            ProjectsListView.ItemsSource = ForThisProfessional;
+            ProjectsListView.ItemsSource = projects;
 
         }
 
