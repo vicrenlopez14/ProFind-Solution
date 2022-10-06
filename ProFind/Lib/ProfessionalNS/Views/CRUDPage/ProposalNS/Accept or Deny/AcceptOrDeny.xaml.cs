@@ -64,6 +64,15 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProposalNS.Accept_or_Deny
             ExpectedBegin_dp.Date = InComingProposal.SuggestedStart.Value;
             Theend.Date = InComingProposal.SuggestedEnd.Value;
             TimeRequired_cb.SelectedIndex = 0;
+
+            PictureSelection_btn.IsEnabled = false;
+            Title_tb.IsEnabled = false;
+            Description_tb.IsEnabled = false;
+            ExpectedBegin_dp.IsEnabled = false;
+            Theend.IsEnabled = false;
+
+
+
         }
 
         private async void Cargar()
