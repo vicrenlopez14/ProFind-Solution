@@ -221,8 +221,31 @@ public class ClientsController : ControllerBase
             return BadRequest();
         }
 
+        // Check if the email is already in use
+        var clientFromDb = await _context.Clients.FirstOrDefaultAsync(a => a.EmailC == client.EmailC);
+        if (clientFromDb != null)
+        {
+            return Problem("Email already in use.");
+        }
+        // Check that name doesnt contain numbers
+        if (!Utils.DataIntegrityValidations.CheckText(client.NameC))
+        {
+            return Problem("Name cannot contain numbers.");
+        }
+        // Check email format
+        if (!Utils.DataIntegrityValidations.CheckEmail(client.EmailC))
+        {
+            return Problem("Invalid email format.");
+        }
+        
         if (client.PasswordC.Length < 50)
         {
+            // Check that the new password is not the same
+            if (clientFromDb.PasswordC == ShaOperations.ShaPassword(client.PasswordC))
+            {
+                return Problem("New password cannot be the same as the old one.");
+            }
+            
             client.PasswordC = ShaOperations.ShaPassword(client.PasswordC);
         }
 
@@ -255,6 +278,23 @@ public class ClientsController : ControllerBase
         if (_context.Clients == null)
         {
             return Problem("Entity set 'ProFindContext.Clients'  is null.");
+        }
+
+        // Check if the email is already in use
+        var clientFromDb = await _context.Clients.FirstOrDefaultAsync(a => a.EmailC == client.EmailC);
+        if (clientFromDb != null)
+        {
+            return Problem("Email already in use.");
+        }
+        // Check that name doesnt contain numbers
+        if (!Utils.DataIntegrityValidations.CheckText(client.NameC))
+        {
+            return Problem("Name cannot contain numbers.");
+        }
+        // Check email format
+        if (!Utils.DataIntegrityValidations.CheckEmail(client.EmailC))
+        {
+            return Problem("Invalid email format.");
         }
 
         client.AssignId();
