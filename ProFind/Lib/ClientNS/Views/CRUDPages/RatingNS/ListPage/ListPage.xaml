@@ -63,7 +63,7 @@
                                     <muxc:RatingControl
                                         HorizontalAlignment="Left"
                                         IsReadOnly="True"
-                                        Value="{x:Bind RatingRt, Mode=OneWay}" />
+                                        Value="{Binding RatingRt, Mode=OneWay}" />
                                 </StackPanel>
                             </StackPanel>
                         </Grid>

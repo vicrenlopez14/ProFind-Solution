@@ -102,10 +102,10 @@ CREATE TABLE Profession
     BannerPFS      LONGTEXT
 );
 
-# INSERT INTO Profession (NamePFS)
-# VALUES ('Law firm'),
-#        ('Automotive services'),
-#        ('General medicine');
+INSERT INTO Profession (NamePFS)
+VALUES ('Law firm'),
+       ('Automotive services'),
+       ('General medicine');
 
 SELECT *
 FROM Profession;
@@ -166,6 +166,11 @@ CREATE TABLE TimeRequired
     IdTR   INT AUTO_INCREMENT PRIMARY KEY,
     NameTR VARCHAR(50)
 );
+
+INSERT INTO TimeRequired (NameTR)
+VALUES ('Short time'),
+       ('Medium time'),
+       ('Long time');
 
 ###############################################
 CREATE TABLE Project
@@ -236,7 +241,6 @@ CREATE TABLE ThreadIds
     CONSTRAINT FK_ThreadIds_Client FOREIGN KEY (IdC) REFERENCES Client (IdC) ON DELETE CASCADE,
     CONSTRAINT FK_ThreadIds_Professional FOREIGN KEY (IdP) REFERENCES Professional (IdP) ON DELETE CASCADE
 );
-
 
 
 ################################################

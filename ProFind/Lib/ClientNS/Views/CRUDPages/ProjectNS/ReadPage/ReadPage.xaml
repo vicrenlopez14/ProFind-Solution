@@ -8,77 +8,86 @@
 
     <Grid Padding="30">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*" />
-            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.9*" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <CommandBar Grid.ColumnSpan="3"
-                Margin="-22,-30,-30,0"
-                Background="Transparent"
+            <CommandBar
+                Grid.ColumnSpan="3"
                 DefaultLabelPosition="Right"
                 IsOpen="False">
 
-                <AppBarButton Icon="Add" Label="To accept " Click="Add_Click_1" Visibility="Collapsed" />
-                <AppBarButton Icon="Delete" Label="Decline " Click="Decline_Click_1"/>
+                <AppBarButton
+                    Click="Add_Click_1"
+                    Icon="Add"
+                    Label="To accept "
+                    Visibility="Collapsed" />
+                <AppBarButton
+                    Click="Decline_Click_1"
+                    Icon="Delete"
+                    Label="Decline " />
 
 
 
-                <CommandBar.SecondaryCommands>
-                    <AppBarButton Icon="Setting"  Label="Settings">
-                        <AppBarButton.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Control" Key="I" />
-                        </AppBarButton.KeyboardAccelerators>
-                    </AppBarButton>
-                </CommandBar.SecondaryCommands>
+
             </CommandBar>
         </StackPanel>
-    
-            <ListView
-                    Grid.Row="1"
-                    Name="AdminsListView"
-                    IsItemClickEnabled="True" DoubleTapped="AdminsListView_DoubleTapped"
-                  >
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="models1:Project">
-                        <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="0.3*"/>
-                                    <ColumnDefinition Width="0.7*"/>
-                                </Grid.ColumnDefinitions>
-                                <StackPanel Grid.Column="0" Orientation="Vertical">
-                                    <Image
+
+        <ListView
+            Name="AdminsListView"
+            Grid.Row="1"
+            DoubleTapped="AdminsListView_DoubleTapped"
+            IsItemClickEnabled="True">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models1:Project">
+                    <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.3*" />
+                                <ColumnDefinition Width="0.7*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Orientation="Vertical">
+                                <Image
                                     Width="100"
                                     Height="100"
                                     Source="{Binding PicturePj, Converter={StaticResource ImageModelConverter}}" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Column="1"
+                                Padding="0,30"
+                                Orientation="Vertical">
+                                <StackPanel>
+                                    <TextBlock
+                                        Height="25"
+                                        Style="{StaticResource ListTitleStyle}"
+                                        Text="{Binding TitlePj}" />
                                 </StackPanel>
-                                <StackPanel Grid.Column="1" Orientation="Vertical" Padding="0 30">
-                                    <StackPanel>
-                                        <TextBlock Height="25" Text="{Binding TitlePj}"  Style="{StaticResource ListTitleStyle}"/>
-                                    </StackPanel>
-                                    <StackPanel>
-
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontWeight="Bold" Text="Tag - Duration:" />
-                                    <TextBlock Margin="10 0 0 0" Height="31" Text="{Binding TagDurationPj, Converter={StaticResource TagDurationReadable}}" />
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontWeight="Bold" Text="Professional:" />
-                                        <TextBlock Margin="10 0 0 0" Height="31" Text="{Binding IdP1Navigation.NameP}" />
-                                    </StackPanel>
-                                    <StackPanel
-                                     Grid.Column="1"
-                                     HorizontalAlignment="Center"
-                                      VerticalAlignment="Center">
-                                    </StackPanel>
+                                <StackPanel />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Required time:" />
+                                    <TextBlock
+                                        Height="31"
+                                        Margin="10,0,0,0"
+                                        Text="{Binding TimeRequiredTr1Navigation.NameTr}" />
                                 </StackPanel>
-                            </Grid>
-                        </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Professional:" />
+                                    <TextBlock
+                                        Height="31"
+                                        Margin="10,0,0,0"
+                                        Text="{Binding IdP1Navigation.NameP}" />
+                                </StackPanel>
+                                <StackPanel
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
 
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-      
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </Grid>
 </Page>

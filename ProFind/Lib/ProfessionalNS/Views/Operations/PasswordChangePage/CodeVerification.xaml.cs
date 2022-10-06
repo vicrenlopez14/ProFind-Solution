@@ -50,6 +50,8 @@ namespace ProFind.Lib.ProfessionalNS.Views.Operations.PasswordChangePage
             try
             {
                 await APIConnection.GetConnection.VerifyRecoveryCodeProfessionalsAsync(Code_tb.Text);
+                new GlobalNavigationController().NavigateTo(typeof(PasswordChangePage), email);
+
 
             }
             catch (ProFindServicesException ex)

@@ -61,6 +61,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProposalNS.Accept_or_Deny
             Description_tb.Text = InComingProposal.DescriptionPp;
             SelectedPicture_pp.ProfilePicture = await InComingProposal.PicturePp.FromBase64String();
             TimeRequired_cb.ItemsSource = await APIConnection.GetConnection.GetTimerequiredsAsync();
+            TimeRequired_cb.SelectedIndex = 0;
         }
 
         private async void Cargar()
