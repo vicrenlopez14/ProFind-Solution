@@ -43,7 +43,6 @@ public class ProjectsController : ControllerBase
             .Include(x => x.TimeRequiredTr1Navigation).Distinct().ToListAsync();
     }
     
-    
     // projects of a client
     [HttpGet("client/{id}")]
     public async Task<ActionResult<IEnumerable<Project>>> GetProjectsOfClient(string id)
@@ -102,6 +101,36 @@ public class ProjectsController : ControllerBase
             {
                 throw;
             }
+        }
+
+        return NoContent();
+    }
+    
+    // Mark a project as completed
+    [HttpPut("complete/{id}")]
+    public async Task<IActionResult> CompleteProject(string id)
+    {
+        var project = await _context.Projects.FindAsync(id);
+        if (project == null)
+        {
+            return NotFound();
+        }
+
+        project.Completed = true;
+        _context.Entry(project).State = EntityState.Modified;
+
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!ProjectExists(id))
+            {
+                return NotFound();
+            }
+
+            throw;
         }
 
         return NoContent();

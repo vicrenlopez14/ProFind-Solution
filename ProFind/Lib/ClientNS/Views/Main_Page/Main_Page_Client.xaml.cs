@@ -39,7 +39,7 @@ namespace ProFind.Lib.ClientNS.Views.Main_Page
         {
             this.InitializeComponent();
             new InAppNavigationController().Init(ClientsContentFrame);
-            new InAppNavigationController().NavigateTo(typeof(CRUDPages.ProjectNS.ReadPage.ReadPage));
+            new InAppNavigationController().NavigateTo(typeof(CRUDPages.CatalogNS.CatalogList.CatalogList));
 
             LoadLoggedProfessionalDataAsync();
         }

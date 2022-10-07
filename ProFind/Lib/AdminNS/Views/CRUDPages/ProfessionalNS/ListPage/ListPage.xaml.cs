@@ -20,6 +20,8 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ListPage
     public sealed partial class ReadPage : Page
     {
         //Professional Id1 = new Professional();
+        private List<Professional> professionalsListObj = new List<Professional>();
+
         public ReadPage()
         {
             this.InitializeComponent();
@@ -27,7 +29,9 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ListPage
         }
         public async void GetProfessionalsList()
         {
-            ProfessionalsListView.ItemsSource = await APIConnection.GetConnection.GetProfessionalsAsync() as List<Professional>;
+            professionalsListObj = await APIConnection.GetConnection.GetProfessionalsAsync() as List<Professional>;
+
+            ProfessionalsListView.ItemsSource = professionalsListObj;
         }
 
         private async void ProjectsActiveListView_ItemClick(object sender, ItemClickEventArgs e)
@@ -37,22 +41,9 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ListPage
             new InAppNavigationController().NavigateTo(typeof(Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ListPage.ReadPage), professional);
         }
 
-
-
-
-
         private async void SearchBox_QueryChanged(SearchBox sender, SearchBoxQueryChangedEventArgs args)
         {
-            var allList = await APIConnection.GetConnection.GetProfessionalsAsync();
-
-            if (string.IsNullOrEmpty(sender.QueryText))
-            {
-                ProfessionalsListView.ItemsSource = null;
-                ProfessionalsListView.ItemsSource = allList;
-                return;
-            }
-
-            var newList = allList.Where(x => x.NameP.Contains(sender.QueryText));
+            var newList = professionalsListObj.Where(x => x.NameP.ToLower().Contains(sender.QueryText.ToLower()));
 
             ProfessionalsListView.ItemsSource = null;
             ProfessionalsListView.ItemsSource = newList;

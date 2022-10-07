@@ -11,8 +11,8 @@
 
     <Grid Padding="30">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*" />
-            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.9*" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <CommandBar
@@ -30,9 +30,10 @@
 
 
                 <CommandBar.SecondaryCommands>
-                    <AppBarButton Click="AppBarButton_Click_1"
-                    Icon="Refresh"
-                    Label="Refresh ">
+                    <AppBarButton
+                        Click="AppBarButton_Click_1"
+                        Icon="Refresh"
+                        Label="Refresh ">
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Key="I" Modifiers="Control" />
                         </AppBarButton.KeyboardAccelerators>
@@ -51,32 +52,22 @@
             ItemClick="ProjectsActiveListView_ItemClick">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="services:Professional">
-                    <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
+                    <StackPanel
+                        Margin="15"
+                        Background="{StaticResource ButtonBackgroundThemeBrush}"
+                        CornerRadius="45">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="0.3*" />
                                 <ColumnDefinition Width="0.7*" />
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0" Orientation="Vertical">
-                                <Image
+                                <PersonPicture
                                     Width="100"
                                     Height="100"
-                                    Source="{Binding PictureP, Converter={StaticResource ImageModelConverter}}" />
+                                    ProfilePicture="{Binding PictureP, Converter={StaticResource ImageModelConverter}}" />
                             </StackPanel>
-                            <StackPanel
-                                Grid.Column="1"
-                                Padding="0,30"
-                                Orientation="Vertical">
-                                <StackPanel Orientation="Horizontal">
-
-                                    <TextBlock FontWeight="Bold" Text="Profession:" />
-
-                                    <TextBlock
-                                        Height="31"
-                                        Margin="10,0,0,0"
-                                        Text="{Binding IdPfs1Navigation.NamePfs}" />
-                                </StackPanel>
-                                <StackPanel />
+                            <StackPanel Grid.Column="1" Orientation="Vertical">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock FontWeight="Bold" Text="Name:" />
                                     <TextBlock
@@ -85,12 +76,27 @@
                                         Text="{Binding NameP}" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontWeight="Bold" Text="E-mail" />
+                                    <TextBlock FontWeight="Bold" Text="Email: " />
                                     <TextBlock
                                         Height="31"
                                         Margin="10,0,0,0"
                                         Text="{Binding EmailP}" />
                                 </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="From:" />
+                                    <TextBlock
+                                        Height="31"
+                                        Margin="10,0,0,0"
+                                        Text="{Binding IdDp1Navigation.NameDp}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Profession:" />
+                                    <TextBlock
+                                        Height="31"
+                                        Margin="10,0,0,0"
+                                        Text="{Binding IdPfs1Navigation.NamePfs}" />
+                                </StackPanel>
+
                                 <StackPanel
                                     Grid.Column="1"
                                     HorizontalAlignment="Center"

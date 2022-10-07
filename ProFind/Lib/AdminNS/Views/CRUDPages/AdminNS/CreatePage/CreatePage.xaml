@@ -18,7 +18,9 @@
             Title="Administrator created successfuly!"
             ActionButtonClick="ToggleThemeTeachingTip2_ActionButtonClick_1"
             ActionButtonContent="Lets login"
+            CloseButtonClick="ToggleThemeTeachingTip2_CloseButtonClick"
             CloseButtonContent="Got it! Let me create more"
+            Closed="ToggleThemeTeachingTip2_Closed_1"
             IsLightDismissEnabled="True"
             PlacementMargin="20"
             PreferredPlacement="Auto"
@@ -79,7 +81,8 @@
                                 Grid.Column="0"
                                 Width="150"
                                 HorizontalAlignment="Left"
-                                Content="Select a picture" Checked="PictureSelection_btn_Checked_2" />
+                                Checked="PictureSelection_btn_Checked_2"
+                                Content="Select a picture" />
                             <TextBlock
                                 Name="SelectedPicture_tbk"
                                 Margin="10,0,0,0"
@@ -103,14 +106,26 @@
                         </StackPanel>
                     </Grid>
 
-                    <Button
-                        x:Name="Create_btn"
-                        Width="100"
-                        Margin="0,50,0,0"
-                        HorizontalAlignment="Center"
-                        Click="Create_btn_Click_1"
-                        Content="Create"
-                        Style="{StaticResource AccentButtonStyle}" />
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Button
+                            x:Name="Create_btn"
+                            Width="100"
+                            Margin="0,50,0,0"
+                            HorizontalAlignment="Center"
+                            Click="Create_btn_Click_1"
+                            Content="Create"
+                            Style="{StaticResource AccentButtonStyle}" />
+                        <Button
+                            x:Name="Login_btn"
+                            Width="100"
+                            Margin="25,50,0,0"
+                            HorizontalAlignment="Center"
+                            d:Visibility="Visible"
+                            Click="Login_btn_Click"
+                            Content="Login"
+                            Style="{StaticResource AccentButtonStyle}"
+                            Visibility="Collapsed" />
+                    </StackPanel>
 
                     <Button
                         x:Name="CreateProfessionals_btn"

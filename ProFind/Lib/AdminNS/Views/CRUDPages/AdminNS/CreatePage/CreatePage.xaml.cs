@@ -282,5 +282,38 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.CreatePage
                 PictureSelection_btn.IsChecked = false;
             }
         }
+
+        private void ToggleThemeTeachingTip2_CloseButtonClick(TeachingTip sender, object args)
+        {
+
+        }
+
+        private void ToggleThemeTeachingTip2_Closed_1(TeachingTip sender, TeachingTipClosedEventArgs args)
+        {
+            ClearFields();
+            Login_btn.Visibility = Visibility.Visible;
+        }
+
+        private void Login_btn_Click(object sender, RoutedEventArgs e)
+        {
+            GoToLogin();
+        }
+
+        private void GoToLogin()
+        {
+            new GlobalNavigationController().NavigateTo(typeof(Int_Page.Int_Page));
+
+        }
+
+        private void ClearFields()
+        {
+            Name_tb.Text = "";
+            Email_tb.Text = "";
+            PhoneNumber_tb.Text = "";
+            Password_pb.Password = "";
+            Rank_cb.SelectedIndex = 0;
+            SelectedPicture_tbk.Text = "No image selected";
+            SelectedPicture_pp.ProfilePicture = null;
+        }
     }
 }

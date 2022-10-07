@@ -53,7 +53,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.UpdatePage
         private async void loadUsefulthings()
         {
             Name_tb.Text = tomanipulateprofession.NamePfs;
-            Description_tb.Text = tomanipulateprofession.DescriptionPfs;
+            Description_tb.Text = tomanipulateprofession.DescriptionPfs ?? "";
             ProfessionBanner_img.Source = await tomanipulateprofession.BannerPfs.FromBase64String();
             ProfessionPicture_img.Source = await tomanipulateprofession.PicturePfs.FromBase64String();
             bannerstring = tomanipulateprofession.BannerPfs;
