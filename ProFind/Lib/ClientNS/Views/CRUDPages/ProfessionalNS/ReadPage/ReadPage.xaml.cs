@@ -30,8 +30,19 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage
         public async void GetProjectsList()
 
         {
+            try
+            {
 
-            ProfessionalsListView.ItemsSource = await APIConnection.GetConnection.GetProfessionalsWithProjectsAsync(LoggedClientStore.LoggedClient.IdC);
+
+                ProfessionalsListView.ItemsSource = await APIConnection.GetConnection.GetProfessionalsWithProjectsAsync(LoggedClientStore.LoggedClient.IdC);
+            }
+            catch
+            {
+                {
+                    var dialog = new MessageDialog("There are no related professionals");
+                    await dialog.ShowAsync();
+                }
+            }
         }
 
         private void Control2_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
