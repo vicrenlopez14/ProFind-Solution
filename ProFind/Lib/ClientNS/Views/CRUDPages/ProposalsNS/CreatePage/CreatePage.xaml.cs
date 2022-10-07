@@ -94,12 +94,6 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.CreatePage
                     await dialog.ShowAsync();
                     return;
                 }
-                if (!FieldsChecker.OnlyLetters(Description_tb.Text))
-                {
-                    var dialog = new MessageDialog("The description must be valid");
-                    await dialog.ShowAsync();
-                    return;
-                }
                 if (!FieldsChecker.CheckDateUp(ExpectedBegin_dp.Date))
                 {
                     var dialog = new MessageDialog("The Date Begin must be valid");
