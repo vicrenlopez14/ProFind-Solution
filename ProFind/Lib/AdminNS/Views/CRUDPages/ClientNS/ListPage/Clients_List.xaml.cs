@@ -18,6 +18,8 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.ListPage
     /// </summary>
     public sealed partial class Clients_List : Page
     {
+        private List<Client> clientsListObj = new List<Client>();
+
         Client Id1;
         public Clients_List()
         {
@@ -27,28 +29,22 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.ListPage
 
         public async void GetClientsList()
         {
-            Activities_lw.ItemsSource = await APIConnection.GetConnection.GetClientsAsync() as List<Client>;
-        }
+            try
+            {
+                clientsListObj = await APIConnection.GetConnection.GetClientsAsync() as List<Client>;
 
-        private void ClientListView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Client clickedItem = e.ClickedItem as Client;
-
-
+                Activities_lw.ItemsSource = clientsListObj;
+            }
+            catch
+            {
+                await new MessageDialog("Couldn't load clients list. Please try again later.").ShowAsync();
+            }
         }
 
         private async void SearchBox_QueryChanged(SearchBox sender, SearchBoxQueryChangedEventArgs args)
         {
-            var allList = await APIConnection.GetConnection.GetClientsAsync();
 
-            if (string.IsNullOrEmpty(sender.QueryText))
-            {
-                Activities_lw.ItemsSource = null;
-                Activities_lw.ItemsSource = allList;
-                return;
-            }
-
-            var newList = allList.Where(x => x.NameC.Contains(sender.QueryText));
+            var newList = clientsListObj.Where(x => x.NameC.ToLower().Contains(sender.QueryText.ToLower()));
 
             Activities_lw.ItemsSource = null;
             Activities_lw.ItemsSource = newList;

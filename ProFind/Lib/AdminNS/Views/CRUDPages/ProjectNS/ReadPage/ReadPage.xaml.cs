@@ -8,6 +8,7 @@ using ProFind.Lib.ProfessionalNS.Controllers;
 using Windows.UI.Popups;
 using System;
 using ProFind.Lib.Global.Helpers;
+using System.Collections.Generic;
 
 namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.ReadPage
 {
@@ -16,6 +17,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.ReadPage
     /// </summary>
     public sealed partial class ReadPage : Page
     {
+        private List<Project> projectsListObj = new List<Project>();
 
         public ReadPage()
         {
@@ -27,9 +29,9 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.ReadPage
         private async void InitializeData()
         {
             // Projects in which professional is related
-            var projects = await APIConnection.GetConnection.GetProjectsAsync();
+            projectsListObj = await APIConnection.GetConnection.GetProjectsAsync() as List<Project>;
 
-            ProjectsListView.ItemsSource = projects;
+            ProjectsListView.ItemsSource = projectsListObj;
         }
 
         private void AdminListView_ItemClick(object sender, ItemClickEventArgs e)
@@ -42,13 +44,11 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.ReadPage
         private async void SearchBox_QueryChanged(SearchBox sender, SearchBoxQueryChangedEventArgs args)
         {
             // Projects in which professional is related
-            var projects = await APIConnection.GetConnection.GetProjectsAsync();
-            projects = projects.Where(x => x.TitlePj.ToLower().Contains(args.QueryText.ToLower())).ToList();
+            var matchProjects = projectsListObj.Where(x => x.TitlePj.ToLower().Contains(args.QueryText.ToLower())).ToList();
 
-            ProjectsListView.ItemsSource = projects;
+            ProjectsListView.ItemsSource = null;
+            ProjectsListView.ItemsSource = matchProjects;
         }
-
-       
 
         private async void Update_Click_1(object sender, RoutedEventArgs e)
         {
@@ -113,7 +113,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.ReadPage
                 await dialog.ShowAsync();
 
             }
-            
+
         }
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)

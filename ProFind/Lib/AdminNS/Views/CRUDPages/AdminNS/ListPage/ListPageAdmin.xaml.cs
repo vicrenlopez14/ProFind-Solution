@@ -18,7 +18,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ListPage
     /// </summary>
     public sealed partial class ListPageAdmin : Page
     {
-        private List<Admin> adminsListObj;
+        private List<Admin> adminsListObj = new List<Admin>();
 
         public ListPageAdmin()
         {
@@ -55,7 +55,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ListPage
         private async void SearchBox_QueryChanged(SearchBox sender, SearchBoxQueryChangedEventArgs args)
         {
 
-            var newList = adminsListObj.Where(x => x.NameA.Contains(sender.QueryText));
+            var newList = adminsListObj.Where(x => x.NameA.ToLower().Contains(sender.QueryText.ToLower()));
 
             AdminsListView.ItemsSource = null;
             AdminsListView.ItemsSource = newList;

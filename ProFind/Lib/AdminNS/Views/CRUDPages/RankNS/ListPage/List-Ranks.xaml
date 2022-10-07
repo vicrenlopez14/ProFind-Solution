@@ -64,12 +64,8 @@
                             </StackPanel>
                             <StackPanel Grid.Column="1" Orientation="Vertical">
                                 <StackPanel />
-                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                                    <TextBlock FontWeight="Bold" Text="Name:" />
-                                    <TextBlock
-                                        Height="31"
-                                        Margin="10,0,0,0"
-                                        Text="{Binding NameR}" />
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource FlyoutPickerTitleTextBlockStyle}" Text="{Binding NameR}" />
                                 </StackPanel>
                                 <StackPanel
                                     Grid.Column="1"

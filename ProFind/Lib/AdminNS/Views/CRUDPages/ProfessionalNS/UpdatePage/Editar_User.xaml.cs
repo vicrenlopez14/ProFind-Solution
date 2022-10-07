@@ -58,6 +58,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
             departamento.ItemsSource = await APIConnection.GetConnection.GetDepartmentsAsync();
             departamento.SelectedIndex = 0;
 
+            curriculumBytes = ToManipulateProfessional.CurriculumP;
             ProfilePicture_pp.ProfilePicture = await ToManipulateProfessional.PictureP.FromBase64String();
 
         }
@@ -95,7 +96,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
 
             if (ToManipulateProfessional.IdPfs1 == 3) profession_cbx.SelectedIndex = 2;
 
-            departamento.SelectedIndex = (ToManipulateProfessional.IdDp1 == null ? 0 : (int)ToManipulateProfessional.IdDp1-1);
+            departamento.SelectedIndex = (ToManipulateProfessional.IdDp1 == null ? 0 : (int)ToManipulateProfessional.IdDp1 - 1);
             Phone_nb.Text = ToManipulateProfessional.PhoneP;
 
             Afp.Text = ToManipulateProfessional.Afpp;
@@ -109,16 +110,16 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
             FirstName1_tbx.Text = ToManipulateProfessional.NameP;
             ProfilePicture_pp.ProfilePicture = await ToManipulateProfessional.PictureP.FromBase64String();
             imageString = ToManipulateProfessional.PictureP;
-           
+
         }
 
         private async void btnExaminar_Click_1(object sender, RoutedEventArgs e)
         {
             try
-            { 
-                    imageString = await (await PickFileHelper.PickImage()).ToBase64StringAsync();
-                    ProfilePicture_pp.ProfilePicture = await imageString.FromBase64String();
-      
+            {
+                imageString = await (await PickFileHelper.PickImage()).ToBase64StringAsync();
+                ProfilePicture_pp.ProfilePicture = await imageString.FromBase64String();
+
             }
             catch
             {
@@ -256,7 +257,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
 
 
                     ToManipulateProfessional.IdP = ToManipulateProfessional.IdP;
-                   ToManipulateProfessional.NameP =  FirstName1_tbx.Text;
+                    ToManipulateProfessional.NameP = FirstName1_tbx.Text;
                     ToManipulateProfessional.EmailP = Email.Text;
                     ToManipulateProfessional.Afpp = Afp.Text;
                     ToManipulateProfessional.Isssp = SeguroSocial.Text;
@@ -264,24 +265,18 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
                     ToManipulateProfessional.DateBirthP = (DateTimeOffset)Nacimiento.Date;
                     ToManipulateProfessional.SalaryP = int.Parse(Salario.Text);
                     ToManipulateProfessional.ActiveP = true;
-
                     ToManipulateProfessional.SexP = Sexo.SelectedValue == "Male" ? true : false;
                     ToManipulateProfessional.CurriculumP = curriculumBytes;
                     ToManipulateProfessional.PhoneP = Phone_nb.Text;
-               
                     ToManipulateProfessional.PictureP = imageString;
-                    ToManipulateProfessional.IdDp1 = (int)departamento.SelectedIndex+1;
-                    ToManipulateProfessional.IdPfs1 = (int)profession_cbx.SelectedIndex+1;
+                    ToManipulateProfessional.IdDp1 = (int)departamento.SelectedIndex + 1;
+                    ToManipulateProfessional.IdPfs1 = (int)profession_cbx.SelectedIndex + 1;
                     ToManipulateProfessional.ZipCodeP = CodigoPostal.Text;
                     ToManipulateProfessional.HiringDateP = (DateTimeOffset)FechadeIngreso.Date;
                     ToManipulateProfessional.PasswordP = ToManipulateProfessional.PasswordP;
-                   
-                  
-
-
 
                     if (passwordBox.Password.Length > 0) ToManipulateProfessional.PasswordP = passwordBox.Password;
-                    
+
                     await APIConnection.GetConnection.PutProfessionalAsync(ToManipulateProfessional.IdP, ToManipulateProfessional);
 
 
