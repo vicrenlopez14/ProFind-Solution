@@ -249,10 +249,9 @@ namespace WebService.Controllers
             {
                 return BadRequest();
             }
-            
+
             if (professional.PasswordP.Length < 50)
             {
-
                 professional.PasswordP = ShaOperations.ShaPassword(professional.PasswordP);
             }
 
@@ -277,25 +276,37 @@ namespace WebService.Controllers
             return NoContent();
         }
 
+        // Get professionals of a profession
+        [HttpGet("profession/{id}")]
+        public async Task<ActionResult<IEnumerable<Professional>>> GetProfessionalsOfProfession(int id)
+        {
+            var professionals = await _context.Professionals.Where(p => p.IdPfs1Navigation.IdPfs == id).Distinct().ToListAsync();
+
+            if (professionals == null)
+            {
+                return NotFound();
+            }
+
+            return professionals;
+        }
+
         // POST: api/Professionals
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Professional>> PostProfessional(Professional professional)
         {
-            
             if (_context.Professionals == null)
             {
                 return Problem("Entity set 'ProFindContext.Professionals'  is null.");
             }
-          
+
             professional.AssignId();
             professional.PasswordP = ShaOperations.ShaPassword(professional.PasswordP);
             professional.CommunicationIdP = TokensGeneratorIssuer.GenerateCommunicationId();
 
             _context.Professionals.Add(professional);
-            
-            
-            
+
+
             try
             {
                 await _context.SaveChangesAsync();

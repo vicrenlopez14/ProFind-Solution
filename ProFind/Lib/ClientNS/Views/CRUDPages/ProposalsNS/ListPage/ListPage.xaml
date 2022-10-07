@@ -59,25 +59,20 @@
                             </StackPanel>
                             <StackPanel Grid.Column="1" Orientation="Vertical">
                                 <StackPanel>
-                                    <TextBlock
-                                        Height="25"
-                                        Style="{StaticResource ListTitleStyle}"
-                                        Text="{Binding TitlePp}" />
+                                    <TextBlock Style="{StaticResource FlyoutPickerTitleTextBlockStyle}" Text="{Binding TitlePp}" />
                                 </StackPanel>
                                 <StackPanel />
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock FontWeight="Bold" Text="Description:" />
-                                    <TextBlock
-                                        Height="31"
-                                        Margin="10,0,0,0"
-                                        Text="{Binding DescriptionPp}" />
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding DescriptionPp}" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontWeight="Bold" Text="Email:" />
-                                    <TextBlock
-                                        Height="31"
-                                        Margin="10,0,0,0"
-                                        Text="{x:Bind IdP3Navigation.EmailP}" />
+                                    <TextBlock FontWeight="Bold" Text="To:" />
+                                    <TextBlock Margin="10,0,0,0" Text="{x:Bind IdP3Navigation.NameP}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Suggested start:" />
+                                    <TextBlock Margin="10,0,0,0" Text="{x:Bind SuggestedStart, Converter={StaticResource LegibleDateTime}}" />
                                 </StackPanel>
                                 <StackPanel
                                     Grid.Column="1"

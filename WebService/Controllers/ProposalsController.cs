@@ -91,7 +91,7 @@ public class ProposalsController : ControllerBase
     {
         var result = await (from proposal in _context.Proposals
             where (proposal.IdC3 == id)
-            select proposal).Distinct().ToListAsync();
+            select proposal).Distinct().Include(x => x.IdP3Navigation).Include(x => x.IdC3Navigation).ToListAsync();
 
         if (result.Any() == false)
         {
