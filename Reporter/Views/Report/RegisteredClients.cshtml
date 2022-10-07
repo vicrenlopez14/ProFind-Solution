@@ -50,7 +50,6 @@
         <th scope="col">Picture</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
-        <th scope="col">Projects involved in</th>
         <th scope="col">Registration date</th>
     </tr>
     </thead>
@@ -63,7 +62,6 @@
             </th>
             <th scope="row">@client.NameC</th>
             <td>@client.EmailC</td>
-            <td>@(client.Projects.Count)</td>
             <td>@(client.RegistrationDateC.Value.ToString())</td>
         </tr>
     }
