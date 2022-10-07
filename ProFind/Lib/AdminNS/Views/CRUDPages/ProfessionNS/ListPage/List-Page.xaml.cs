@@ -17,6 +17,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.ListPage
     /// </summary>
     public sealed partial class List_Page : Page
     {
+        private List<Profession> professionListObj = new List<Profession>();
         public List_Page()
         {
             this.InitializeComponent();
@@ -24,11 +25,19 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.ListPage
         }
         private async void InitializeData()
         {
-            ProfessionsListView.ItemsSource = await APIConnection.GetConnection.GetProfessionsAsync() as List<Profession>;
-        }
-    
+            try
+            {
+                professionListObj = await APIConnection.GetConnection.GetProfessionsAsync() as List<Profession>;
+                ProfessionsListView.ItemsSource = professionListObj;
+            }
+            catch
+            {
+                // Message dialog
+                await new Windows.UI.Popups.MessageDialog("Error loading professions list").ShowAsync();
 
-       
+
+            }
+        }
 
         private async void Delete_Click_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
@@ -36,6 +45,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.ListPage
             {
                 if (ProfessionsListView.SelectedItem != null)
                 {
+                    if (professionListObj.Count == 1)
+                    {
+                        await new MessageDialog("You can't delete the last profession").ShowAsync();
+                        return;
+                    }
+                    
                     var obj = (ProfessionsListView.SelectedItem as Profession);
                     await APIConnection.GetConnection.DeleteProfessionAsync(obj.IdPfs.GetValueOrDefault());
                     var dialog = new MessageDialog("The profession has been deleted.");

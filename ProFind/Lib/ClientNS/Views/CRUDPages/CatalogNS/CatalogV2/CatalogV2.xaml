@@ -11,69 +11,154 @@
     Style="{StaticResource PageStyle}"
     mc:Ignorable="d">
 
-    <Grid Padding="15">
+
+    <Grid Padding="30">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*" />
-            <RowDefinition Height="0.7*" />
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.9*" />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Vertical">
-            <TextBlock HorizontalAlignment="Center" Style="{StaticResource HeaderTextBlockStyle}">ProFind Catalog</TextBlock>
-            <TextBlock HorizontalAlignment="Center" Style="{StaticResource BodyTextStyle}">Select a profession and discover professionals willing to work for you.</TextBlock>
+        <StackPanel Grid.Row="0">
+            <CommandBar
+                Grid.ColumnSpan="3"
+                Margin="-22,-30,-30,0"
+                Background="Transparent"
+                DefaultLabelPosition="Right"
+                IsOpen="False">
 
-            <!--  Professions list  -->
-            <ListView
-                Name="Professions_lw"
-                HorizontalAlignment="Center"
-                IsItemClickEnabled="True"
-                ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                ScrollViewer.HorizontalScrollMode="Enabled"
-                ScrollViewer.IsHorizontalRailEnabled="True"
-                SelectionMode="Single" SelectionChanged="Professions_lw_SelectionChanged">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="services:Profession">
-                        <StackPanel
-                            Width="150"
-                            Height="300"
-                            Orientation="Vertical">
-                            <Image Source="https://cdn.pixabay.com/photo/2017/03/27/11/19/welding-2178127_960_720.jpg" />
-                            <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Text="{x:Bind NamePfs}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-            <!--  Professionals showtime  -->
-            <ItemsControl Name="ProfessionalsGrid">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate x:DataType="services:Professional">
-                        <StackPanel>
-                            <Image
-                                Width="200"
-                                Height="350"
-                                HorizontalAlignment="Center"
-                                Source="{Binding PictureP, Converter={StaticResource ImageModelConverter}}" />
-                            <TextBlock
-                                HorizontalAlignment="Center"
-                                Style="{StaticResource FlyoutPickerTitleTextBlockStyle}"
-                                Text="{Binding NameP}" />
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock>From:</TextBlock>
-                                <TextBlock Margin="5,0,0,0" Text="{Binding IdDp1Navigation.NameDp}" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock>Hired on:</TextBlock>
-                                <TextBlock Margin="5,0,0,0" Text="{Binding HiringDateP, Converter={StaticResource LegibleDateTime}}" />
-                            </StackPanel>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <controls:StaggeredPanel />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
-
+                <AppBarButton
+                    Click="Add_Click_1"
+                    Icon="Add"
+                    Label="Add Proposal " />
+                <CommandBar.SecondaryCommands>
+                    <AppBarButton
+                        Click="AppBarButton_Click_1"
+                        Icon="Refresh"
+                        Label="Refresh ">
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Key="I" Modifiers="Control" />
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
+                </CommandBar.SecondaryCommands>
+            </CommandBar>
+            <SearchBox PlaceholderText="Search" QueryChanged="SearchBox_QueryChanged" />
         </StackPanel>
+
+        <Grid Grid.Row="1" Padding="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.05*" />
+                <RowDefinition Height="0.95*" />
+            </Grid.RowDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                HorizontalAlignment="Center"
+                Style="{StaticResource BodyTextStyle}">
+                Select a profession and discover professionals willing to work for you.
+            </TextBlock>
+            <SplitView
+                Grid.Row="1"
+                DisplayMode="Inline"
+                IsPaneOpen="True"
+                OpenPaneLength="300"
+                PaneBackground="Transparent">
+                <SplitView.Pane>
+                    <Grid Padding="5" CornerRadius="45">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Name="PaneHeader"
+                            Margin="60,12,0,0"
+                            Style="{StaticResource SubheaderTextBlockStyle}"
+                            Text="Professions" />
+                        <ListView
+                            Name="Professions_lw"
+                            Grid.Row="1"
+                            VerticalAlignment="Stretch"
+                            SelectionChanged="Professions_lw_SelectionChanged"
+                            SelectionMode="Single">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="services:Profession">
+                                    <StackPanel
+                                        Height="250"
+                                        Margin="15"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                        <Image
+                                            Margin="5"
+                                            HorizontalAlignment="Center"
+                                            Source="{Binding PicturePfs, Converter={StaticResource ImageModelConverter}}"
+                                            Stretch="UniformToFill" />
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            Style="{StaticResource SubheaderTextBlockStyle}"
+                                            Text="{x:Bind NamePfs}" />
+                                        <TextBlock HorizontalAlignment="Center" Text="{x:Bind DescriptionPfs}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                        </ListView>
+                    </Grid>
+                </SplitView.Pane>
+
+                <SplitView.Content>
+                    <Grid Padding="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Margin="12,12,0,0"
+                            Style="{StaticResource SubheaderTextBlockStyle}"
+                            Text="Professionals" />
+                        <ListView Name="ProfessionalsListView" Grid.Row="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="services:Professional">
+                                    <StackPanel Padding="15">
+                                        <Image
+                                            MaxWidth="300"
+                                            Margin="15"
+                                            HorizontalAlignment="Center"
+                                            Source="{Binding PictureP, Converter={StaticResource ImageModelConverter}}"
+                                            Stretch="UniformToFill" />
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            Style="{StaticResource FlyoutPickerTitleTextBlockStyle}"
+                                            Text="{Binding NameP}" />
+                                        <Rectangle
+                                            Width="25"
+                                            Height="2"
+                                            Margin="0,10"
+                                            Fill="{ThemeResource SystemAccentColor}" />
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}">Email:</TextBlock>
+                                            <TextBlock Margin="5,0,0,0" Text="{Binding EmailP}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}">From:</TextBlock>
+                                            <TextBlock Margin="5,0,0,0" Text="{Binding IdDp1Navigation.NameDp}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}">Phone number:</TextBlock>
+                                            <TextBlock Margin="5,0,0,0" Text="{Binding PhoneP}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource DetailBodyBaseMediumStyle}">Hired on:</TextBlock>
+                                            <TextBlock Margin="5,0,0,0" Text="{Binding HiringDateP, Converter={StaticResource LegibleDateTime}}" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                    </Grid>
+
+                </SplitView.Content>
+            </SplitView>
+        </Grid>
+
     </Grid>
+
+
 </Page>

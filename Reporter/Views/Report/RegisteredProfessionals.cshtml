@@ -59,7 +59,6 @@
         <th scope="col">Profession</th>
         <th scope="col">Is active</th>
         <th scope="col">ZipCode</th>
-        <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -80,11 +79,6 @@
             <td>@(professional.IdPfs1Navigation.NamePfs)</td>
             <td>@((professional.ActiveP ?? false) ? "Yes" : "No")</td>
             <td>@(professional.ZipCodeP)</td>
-            <td>
-                <button type="button" class="btn btn-success">
-                    <a class="text-light" style="text-decoration: none;" asp-action="ProfessionalDetail" asp-route-id="@professional.IdP">View</a>
-                </button>
-            </td>
         </tr>
     }
 </table>

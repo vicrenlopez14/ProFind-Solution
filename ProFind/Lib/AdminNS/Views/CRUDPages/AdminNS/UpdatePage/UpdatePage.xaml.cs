@@ -186,6 +186,17 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.UpdatePage
         {
             try
             {
+                var admins = await APIConnection.GetConnection.GetAdminsAsync();
+
+                if (admins.Count == 1)
+                {
+
+                    var dialogNo = new MessageDialog("You can't delete the last admin.");
+                    await dialogNo.ShowAsync();
+                    return;
+
+                }
+
                 await APIConnection.GetConnection.DeleteAdminAsync(toManipulate.IdA);
 
                 var dialog = new MessageDialog("Admin deleted successfully.");

@@ -52,7 +52,6 @@
         <th scope="col">Email</th>
         <th scope="col">Projects involved in</th>
         <th scope="col">Registration date</th>
-        <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -66,11 +65,6 @@
             <td>@client.EmailC</td>
             <td>@(client.Projects.Count)</td>
             <td>@(client.RegistrationDateC.Value.ToString())</td>
-            <td>
-                <button type="button" class="btn btn-success">
-                    <a class="text-light" style="text-decoration: none;" asp-action="ClientDetail" asp-route-id="@client.IdC">View</a>
-                </button>
-            </td>
         </tr>
     }
 </table>
