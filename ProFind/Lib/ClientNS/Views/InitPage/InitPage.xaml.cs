@@ -107,15 +107,21 @@ namespace ProFind.Lib.ClientNS.Views.InitPage
                 await dialog.ShowAsync();
                 return;
             }
-            else if (string.IsNullOrEmpty(Email_tb.Text))
+            if (!FieldsChecker.CheckName(Name_tb.Text))
             {
-                var dialog = new MessageDialog("The field is empty");
+                var dialog = new MessageDialog("The name must be valid.");
                 await dialog.ShowAsync();
                 return;
             }
-            else if (string.IsNullOrEmpty(Password_tb.Password))
+            if (!FieldsChecker.CheckEmail(Email_tb.Text))
             {
-                var dialog = new MessageDialog("The field is empty");
+                var dialog = new MessageDialog("The Email must be valid.");
+                await dialog.ShowAsync();
+                return;
+            }
+            if (!FieldsChecker.CheckPassword(Password_tb.Password))
+            {
+                var dialog = new MessageDialog("The Password must be valid.");
                 await dialog.ShowAsync();
                 return;
             }

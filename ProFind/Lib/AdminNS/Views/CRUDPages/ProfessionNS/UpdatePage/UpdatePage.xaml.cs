@@ -85,6 +85,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.UpdatePage
                 await dialog.ShowAsync();
                 return;
             }
+            if (!FieldsChecker.OnlyLetters(Description_tb.Text))
+            {
+                var dialog = new MessageDialog("The Description must be valid");
+                await dialog.ShowAsync();
+                return;
+            }
 
 
             try
