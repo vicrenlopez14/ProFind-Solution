@@ -127,7 +127,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.UpdatePage
             }
             if (!FieldsChecker.CheckPhoneNumber(Phone_tbx.Text))
             {
-                var dialog = new MessageDialog("The email must be valid.");
+                var dialog = new MessageDialog("The Phone must be valid.");
                 await dialog.ShowAsync();
                 return;
             }

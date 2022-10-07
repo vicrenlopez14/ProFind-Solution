@@ -143,14 +143,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.CreatePage
                 return;
             }
 
-            numero = Convert.ToInt32(PhoneNumber_tb.Text);
-
-            if ( numero >= 1)
-            {
-                var dialog = new MessageDialog("The Phone must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
+           
     
             if (!FieldsChecker.CheckPhoneNumber(PhoneNumber_tb.Text))
             {
