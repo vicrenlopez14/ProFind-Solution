@@ -30,6 +30,8 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
 
         private byte[] curriculumBytes;
 
+        private string contra;
+
         private bool _isFirstAdmin;
 
         public Editar_User()
@@ -60,6 +62,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
 
             curriculumBytes = ToManipulateProfessional.CurriculumP;
             ProfilePicture_pp.ProfilePicture = await ToManipulateProfessional.PictureP.FromBase64String();
+            contra = ToManipulateProfessional.PasswordP;
 
         }
         private void position_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
@@ -192,6 +195,8 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
 
         private async void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
+
+
             bool ChangeThePassword = false;
 
             if (ToManipulateProfessional != null)
@@ -240,18 +245,13 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
                     await dialog.ShowAsync();
                     return;
                 }
-                if (int.Parse(CodigoPostal.Text) <= 0)
+                if (int.Parse(CodigoPostal.Text) <= -1)
                 {
                     var dialog = new MessageDialog("The Code Postal must be valid.");
                     await dialog.ShowAsync();
                     return;
                 }
-                if (!FieldsChecker.CheckPassword(passwordBox.Password))
-                {
-                    var dialog = new MessageDialog("The password must be valid.");
-                    await dialog.ShowAsync();
-                    return;
-                }
+               
                 if (!FieldsChecker.CheckPhoneNumber(Phone_nb.Text))
                 {
                     var dialog = new MessageDialog("The phone number must be valid.");
@@ -264,7 +264,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
                     await dialog.ShowAsync();
                     return;
                 }
-                if (int.Parse(Afp.Text) <= 0)
+                if (Convert.ToInt64(Afp.Text) <= -1)
                 {
                     var dialog = new MessageDialog("The afp must be valid.");
                     await dialog.ShowAsync();
@@ -282,13 +282,13 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
                     await dialog.ShowAsync();
                     return;
                 }
-                if (int.Parse(SeguroSocial.Text) <= 0)
+                if (int.Parse(SeguroSocial.Text) <= -1)
                 {
                     var dialog = new MessageDialog("The Isss must be valid.");
                     await dialog.ShowAsync();
                     return;
                 }
-                
+
 
                 if (string.IsNullOrEmpty(ToManipulateProfessional.PasswordP) && !string.IsNullOrEmpty(passwordBox.Password))
                 {
@@ -366,7 +366,6 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
                     new InAppNavigationController().NavigateTo(typeof(Lib.AdminNS.Views.CRUDPages.ProfessionalNS.ListPage.ReadPage));
                 }
             }
-
 
         }
 

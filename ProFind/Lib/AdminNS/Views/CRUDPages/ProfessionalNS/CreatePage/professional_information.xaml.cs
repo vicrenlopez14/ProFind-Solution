@@ -188,7 +188,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
-            if (int.Parse(CodigoPostal.Text) <= 0)
+            if (int.Parse(CodigoPostal.Text) <= -1)
             {
                 var dialog = new MessageDialog("The Code Postal must be valid.");
                 await dialog.ShowAsync();
@@ -212,7 +212,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
-            if (int.Parse(Afp.Text) <= 0)
+            if (int.Parse(Afp.Text) <= -1)
             {
                 var dialog = new MessageDialog("The afp must be valid.");
                 await dialog.ShowAsync();
@@ -230,7 +230,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
-            if (int.Parse(SeguroSocial.Text) <= 0)
+            if (int.Parse(SeguroSocial.Text) <= -1)
             {
                 var dialog = new MessageDialog("The Isss must be valid.");
                 await dialog.ShowAsync();
