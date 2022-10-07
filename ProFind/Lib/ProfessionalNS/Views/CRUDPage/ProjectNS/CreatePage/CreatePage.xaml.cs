@@ -148,7 +148,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
-            if (int.Parse(TotalPrice_tb.Text) >= 1)
+            if (int.Parse(TotalPrice_tb.Text) <= 0)
             {
                 var dialog = new MessageDialog("The price must be valid.");
                 await dialog.ShowAsync();

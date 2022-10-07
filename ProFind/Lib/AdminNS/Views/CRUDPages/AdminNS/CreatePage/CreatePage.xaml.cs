@@ -158,6 +158,14 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
+
+            if (int.Parse(PhoneNumber_tb.Text) <= 0)
+            {
+                var dialog = new MessageDialog("The Phone must be valid.");
+                await dialog.ShowAsync();
+                return;
+            }
+
             try
             {
                 Creation_pr.IsActive = true;

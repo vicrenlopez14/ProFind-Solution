@@ -238,7 +238,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
                     await dialog.ShowAsync();
                     return;
                 }
-                if (int.Parse(Phone_nb.Text) >= 1)
+                if (int.Parse(Phone_nb.Text) <= 0)
                 {
                     var dialog = new MessageDialog("The Phone must be valid.");
                     await dialog.ShowAsync();
