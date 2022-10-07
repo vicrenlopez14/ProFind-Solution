@@ -112,7 +112,7 @@
                             Margin="12,12,0,0"
                             Style="{StaticResource SubheaderTextBlockStyle}"
                             Text="Professionals" />
-                        <ListView Name="ProfessionalsListView" Grid.Row="1">
+                        <ListView Name="ProfessionalsListView" Grid.Row="1" DoubleTapped="ProfessionalsListView_DoubleTapped_1">
                             <ListView.ItemTemplate>
                                 <DataTemplate x:DataType="services:Professional">
                                     <StackPanel Padding="15">

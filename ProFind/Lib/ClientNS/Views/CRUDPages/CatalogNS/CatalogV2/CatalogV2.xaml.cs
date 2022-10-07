@@ -90,8 +90,20 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.CatalogNS.CatalogV2
             }
         }
 
-     
-        private async void ProfessionalsListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        private async void SearchBox_QueryChanged(SearchBox sender, SearchBoxQueryChangedEventArgs args)
+        {
+            var newList = professionalsListObj.Where(x => x.NameP.ToLower().Contains(sender.QueryText));
+
+            ProfessionalsListView.ItemsSource = null;
+            ProfessionalsListView.ItemsSource = newList;
+        }
+
+        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            OnSelectedItem();
+        }
+
+        private async void ProfessionalsListView_DoubleTapped_1(object sender, DoubleTappedRoutedEventArgs e)
         {
             if (ProfessionalsListView.SelectedItem != null)
             {
@@ -105,19 +117,6 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.CatalogNS.CatalogV2
                 await dialog.ShowAsync();
 
             }
-        }
-
-        private async void SearchBox_QueryChanged(SearchBox sender, SearchBoxQueryChangedEventArgs args)
-        {
-            var newList = professionalsListObj.Where(x => x.NameP.ToLower().Contains(sender.QueryText));
-
-            ProfessionalsListView.ItemsSource = null;
-            ProfessionalsListView.ItemsSource = newList;
-        }
-
-        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
-        {
-            OnSelectedItem();
         }
     }
 }

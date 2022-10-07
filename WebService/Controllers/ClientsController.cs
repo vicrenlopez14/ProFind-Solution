@@ -110,7 +110,7 @@ public class ClientsController : ControllerBase
 
         return BadRequest(ModelState);
     }
-
+    
     // Method to verify a password recovery code
     // POST: api/Admins/VerifyRecoveryCode
     [HttpPost("VerifyRecoveryCode")]
