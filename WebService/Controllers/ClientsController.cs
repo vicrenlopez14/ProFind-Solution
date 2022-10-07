@@ -68,7 +68,7 @@ public class ClientsController : ControllerBase
             return NotFound();
         }
 
-        return await _context.Clients.ToListAsync();
+        return await _context.Clients.Include(x => x.Projects).ToListAsync();
     }
 
     // POST: api/Admins/SendRecoveryEmail

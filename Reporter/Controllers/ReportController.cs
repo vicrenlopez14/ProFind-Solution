@@ -52,7 +52,7 @@ public class ReportController : Controller
 
     public async Task<IActionResult> RegisteredClients()
     {
-        ViewData["clients"] = await _context.Clients.ToListAsync();
+        ViewData["clients"] = await _context.Clients.Include(x=> x.Projects).ToListAsync();
         return View();
     }
 
