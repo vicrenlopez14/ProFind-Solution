@@ -20,11 +20,8 @@
                 <!--<AppBarButton
                     Click="WaitForCall"
                     Icon="PhoneBook"
-                    Label="Wait for them call" />
-                <AppBarButton
-                    Click="CallAProfessional"
-                    Icon="Phone"
-                    Label="Call" />-->
+                    Label="Wait for them call" />-->
+                <!--<AppBarButton Icon="Mail" Label="Mail" Click="AppBarButton_Click" />-->
                 <CommandBar.SecondaryCommands>
                     <AppBarButton
                         Click="AppBarButton_Click_1"

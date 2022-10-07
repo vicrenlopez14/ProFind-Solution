@@ -147,5 +147,10 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage
         {
             GetProjectsList();
         }
+
+        private void AppBarButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+        }
     }
 }
