@@ -24,7 +24,7 @@ namespace ProFind.Lib.ClientNS.Views.Main_Page
         static Dictionary<string, Type> DefinedPagesDictionary = new Dictionary<string, Type>()
         {
             {"Projects_Page_Clients", typeof(Lib.ClientNS.Views.CRUDPages.ProjectNS.ReadPage.ReadPage) },
-            {"Catalog_Page", typeof(Lib.ClientNS.Views.CRUDPages.CatalogNS.CatalogList.CatalogList) },
+            {"Catalog_Page", typeof(Lib.ClientNS.Views.CRUDPages.CatalogNS.CatalogV2.CatalogV2) },
             {"Professionals_Page_Clients", typeof(Lib.ClientNS.Views.CRUDPages.ProfessionalNS.ReadPage.ReadPage) },
             {"GeneralNotifications_Page_Clients", typeof(Lib.ClientNS.Views.CRUDPages.ProposalsNS.ListPage.ListPAge) },
             {"ProposalNotifications_Page_Clients", typeof(Lib.ClientNS.Views.CRUDPages.ProposalsNS.ListPage.ListPAge) },
@@ -39,7 +39,7 @@ namespace ProFind.Lib.ClientNS.Views.Main_Page
         {
             this.InitializeComponent();
             new InAppNavigationController().Init(ClientsContentFrame);
-            new InAppNavigationController().NavigateTo(typeof(CRUDPages.CatalogNS.CatalogList.CatalogList));
+            new InAppNavigationController().NavigateTo(typeof(CRUDPages.CatalogNS.CatalogV2.CatalogV2));
 
             LoadLoggedProfessionalDataAsync();
         }

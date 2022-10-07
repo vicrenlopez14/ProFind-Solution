@@ -280,7 +280,8 @@ namespace WebService.Controllers
         [HttpGet("profession/{id}")]
         public async Task<ActionResult<IEnumerable<Professional>>> GetProfessionalsOfProfession(int id)
         {
-            var professionals = await _context.Professionals.Where(p => p.IdPfs1Navigation.IdPfs == id).Distinct().ToListAsync();
+            var professionals = await _context.Professionals.Where(p => p.IdPfs1Navigation.IdPfs == id).Distinct()
+                .Include(x => x.IdPfs1Navigation).Include(x => x.IdDp1Navigation).ToListAsync();
 
             if (professionals == null)
             {

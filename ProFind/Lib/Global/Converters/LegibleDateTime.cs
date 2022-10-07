@@ -13,9 +13,11 @@ namespace ProFind.Lib.Global.Converters
 
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            if (!(value is DateTime)) return "Unknown";
+            var type = value.GetType();
 
-            var dateToParse = value as DateTime?;
+            if (!(type == typeof(DateTimeOffset))) return "Unknown";
+
+            var dateToParse = value as DateTimeOffset?;
 
             return dateToParse.Value.ToString("dd MMM yyyy");
 

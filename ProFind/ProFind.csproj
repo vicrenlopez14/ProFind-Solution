@@ -372,9 +372,6 @@
       <DependentUpon>SendEmailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lib\ClientNS\Controllers\LoggedClientStore.cs" />
-    <Compile Include="Lib\ClientNS\Views\CRUDPages\CatalogNS\CatalogList\CatalogList.xaml.cs">
-      <DependentUpon>CatalogList.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Lib\ClientNS\Views\CRUDPages\CatalogNS\CatalogV2\CatalogV2.xaml.cs">
       <DependentUpon>CatalogV2.xaml</DependentUpon>
     </Compile>
@@ -725,10 +722,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lib\AdminNS\Views\Operations\PasswordChangePage\SendEmailPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Lib\ClientNS\Views\CRUDPages\CatalogNS\CatalogList\CatalogList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

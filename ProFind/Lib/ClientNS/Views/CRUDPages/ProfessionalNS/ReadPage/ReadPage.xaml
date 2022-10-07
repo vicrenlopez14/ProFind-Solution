@@ -43,7 +43,10 @@
             DoubleTapped="ProfessionalsListView_DoubleTapped">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="models11:Professional">
-                    <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
+                    <StackPanel
+                        Margin="15"
+                        Background="{StaticResource ButtonBackgroundThemeBrush}"
+                        CornerRadius="45">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="0.3*" />
@@ -55,17 +58,7 @@
                                     Height="100"
                                     ProfilePicture="{Binding PictureP, Converter={StaticResource ImageModelConverter}}" />
                             </StackPanel>
-                            <StackPanel
-                                Grid.Column="1"
-                                Padding="0,30"
-                                Orientation="Vertical">
-                                <StackPanel>
-                                    <TextBlock
-                                        Height="25"
-                                        Style="{StaticResource ListTitleStyle}"
-                                        Text="Profession" />
-                                </StackPanel>
-                                <StackPanel />
+                            <StackPanel Grid.Column="1" Orientation="Vertical">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock FontWeight="Bold" Text="Name:" />
                                     <TextBlock
@@ -74,12 +67,27 @@
                                         Text="{Binding NameP}" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontWeight="Bold" Text="E-mail" />
+                                    <TextBlock FontWeight="Bold" Text="Email: " />
                                     <TextBlock
                                         Height="31"
                                         Margin="10,0,0,0"
                                         Text="{Binding EmailP}" />
                                 </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="From:" />
+                                    <TextBlock
+                                        Height="31"
+                                        Margin="10,0,0,0"
+                                        Text="{Binding IdDp1Navigation.NameDp}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Profession:" />
+                                    <TextBlock
+                                        Height="31"
+                                        Margin="10,0,0,0"
+                                        Text="{Binding IdPfs1Navigation.NamePfs}" />
+                                </StackPanel>
+
                                 <StackPanel
                                     Grid.Column="1"
                                     HorizontalAlignment="Center"

@@ -5,35 +5,35 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProposalNS.ReadPage"
     xmlns:services="using:ProFind.Lib.Global.Services"
-     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Padding="30">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*" />
-            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.9*" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <CommandBar
-            Grid.ColumnSpan="3"
-            Margin="-22,-30,-30,0"
-            Background="Transparent"
-            DefaultLabelPosition="Right"
-            IsOpen="False">
+                Grid.ColumnSpan="3"
+                Background="Transparent"
+                DefaultLabelPosition="Right"
+                IsOpen="False">
                 <AppBarButton
-                Click="Delete_Click_1"
-                Icon="Accept"
-                Label="To accept" />
+                    Click="Delete_Click_1"
+                    Icon="Accept"
+                    Label="To accept" />
 
                 <AppBarButton
-                Click="Add_Click_1"
-                Icon="Cancel"
-                Label="Deny " />
+                    Click="Add_Click_1"
+                    Icon="Cancel"
+                    Label="Deny " />
 
 
                 <CommandBar.SecondaryCommands>
-                    <AppBarButton Click="AppBarButton_Click_1"
-                    Icon="Refresh"
-                    Label="Refresh ">
+                    <AppBarButton
+                        Click="AppBarButton_Click_1"
+                        Icon="Refresh"
+                        Label="Refresh ">
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Key="I" Modifiers="Control" />
                         </AppBarButton.KeyboardAccelerators>
@@ -43,57 +43,57 @@
         </StackPanel>
 
         <ListView Name="Activities_lw" Grid.Row="1">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="services:Proposal">
-                            <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.3*" />
-                                        <ColumnDefinition Width="0.7*" />
-                                    </Grid.ColumnDefinitions>
-                                    <StackPanel Grid.Column="0" Orientation="Vertical">
-                                        <Image
-                                            Width="100"
-                                            Height="100"
-                                            Source="{Binding PicturePp, Converter={StaticResource ImageModelConverter}}" />
-                                    </StackPanel>
-                                    <StackPanel
-                                        Grid.Column="1"
-                                        Padding="0,30"
-                                        Orientation="Vertical">
-                                        <StackPanel>
-                                            <TextBlock
-                                                Height="25"
-                                                Style="{StaticResource ListTitleStyle}"
-                                                Text="{Binding TitlePp}" />
-                                        </StackPanel>
-                                        <StackPanel />
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock FontWeight="Bold" Text="Description:" />
-                                            <TextBlock
-                                                Height="31"
-                                                Margin="10,0,0,0"
-                                                Text="{Binding DescriptionPp}" />
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock FontWeight="Bold" Text=" Professional :" />
-                                            <TextBlock
-                                                Height="31"
-                                                Margin="10,0,0,0"
-                                                Text="{Binding IdP3Navigation.NameP}" />
-                                        </StackPanel>
-                                        <StackPanel
-                                            Grid.Column="1"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center" />
-                                    </StackPanel>
-                                </Grid>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="services:Proposal">
+                    <StackPanel Background="{StaticResource ButtonBackgroundThemeBrush}" CornerRadius="45">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.3*" />
+                                <ColumnDefinition Width="0.7*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Orientation="Vertical">
+                                <Image
+                                    Width="100"
+                                    Height="100"
+                                    Source="{Binding PicturePp, Converter={StaticResource ImageModelConverter}}" />
                             </StackPanel>
+                            <StackPanel
+                                Grid.Column="1"
+                                Padding="0,30"
+                                Orientation="Vertical">
+                                <StackPanel>
+                                    <TextBlock
+                                        Height="25"
+                                        Style="{StaticResource ListTitleStyle}"
+                                        Text="{Binding TitlePp}" />
+                                </StackPanel>
+                                <StackPanel />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Description:" />
+                                    <TextBlock
+                                        Height="31"
+                                        Margin="10,0,0,0"
+                                        Text="{Binding DescriptionPp}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text=" Professional :" />
+                                    <TextBlock
+                                        Height="31"
+                                        Margin="10,0,0,0"
+                                        Text="{Binding IdP3Navigation.NameP}" />
+                                </StackPanel>
+                                <StackPanel
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
 
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
-           
+
     </Grid>
 </Page>

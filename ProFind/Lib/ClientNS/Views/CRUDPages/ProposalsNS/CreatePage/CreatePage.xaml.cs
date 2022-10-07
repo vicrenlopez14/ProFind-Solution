@@ -139,7 +139,7 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.CreatePage
             }
             finally
             {
-                new InAppNavigationController().NavigateTo(typeof(ProFind.Lib.ClientNS.Views.CRUDPages.CatalogNS.CatalogList.CatalogList));
+                new InAppNavigationController().NavigateTo(typeof(ProFind.Lib.ClientNS.Views.CRUDPages.CatalogNS.CatalogV2.CatalogV2));
             }
         }
 

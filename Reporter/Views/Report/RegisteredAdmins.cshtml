@@ -52,7 +52,6 @@
         <th scope="col">Email</th>
         <th scope="col">Phone number</th>
         <th scope="col">Rank</th>
-        <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -66,11 +65,6 @@
             <td>@admin.EmailA</td>
             <td>@admin.TelA</td>
             <td>@(admin.IdR1Navigation?.NameR ?? "Undefined")</td>
-            <td>
-                <button type="button" class="btn btn-success">
-                    <a class="text-light" style="text-decoration: none;" asp-action="AdminDetail" asp-route-id="@admin.IdA">View</a>
-                </button>
-            </td>
         </tr>
     }
 </table>
