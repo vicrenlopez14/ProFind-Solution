@@ -34,25 +34,33 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.UpdatePage
             this.InitializeComponent();
         }
 
-        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
-            if (e.Parameter is Profession)
+            if (e.Parameter != null)
             {
-                tomanipulateprofession = (Profession)e.Parameter;
-                Name_tb.Text = tomanipulateprofession.NamePfs;
-                Description_tb.Text = tomanipulateprofession.DescriptionPfs ?? "";
-                ProfessionBanner_img.Source = await tomanipulateprofession.BannerPfs.FromBase64String();
-                ProfessionPicture_img.Source = await tomanipulateprofession.PicturePfs.FromBase64String();
+                tomanipulateprofession = e.Parameter as Profession;
+                loadUsefulthings();
+
+
             }
             else
             {
-                new InAppNavigationController().GoBack();
-                return;
+                var dialog = new MessageDialog("The profession no valid");
+                await dialog.ShowAsync();
             }
         }
+        private async void loadUsefulthings()
+        {
+            Name_tb.Text = tomanipulateprofession.NamePfs;
+            Description_tb.Text = tomanipulateprofession.DescriptionPfs;
+            ProfessionBanner_img.Source = await tomanipulateprofession.BannerPfs.FromBase64String();
+            ProfessionPicture_img.Source = await tomanipulateprofession.PicturePfs.FromBase64String();
+            bannerstring = tomanipulateprofession.BannerPfs;
+            picturestring = tomanipulateprofession.PicturePfs;
 
+
+        }
         private async void Create_btn_Click(object sender, RoutedEventArgs e)
         {
 
@@ -74,6 +82,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionNS.UpdatePage
             if (!FieldsChecker.CheckName(Name_tb.Text))
             {
                 var dialog = new MessageDialog("The name must be valid");
+                await dialog.ShowAsync();
+                return;
+            }
+            if (!FieldsChecker.OnlyLetters(Description_tb.Text))
+            {
+                var dialog = new MessageDialog("The Description must be valid");
                 await dialog.ShowAsync();
                 return;
             }

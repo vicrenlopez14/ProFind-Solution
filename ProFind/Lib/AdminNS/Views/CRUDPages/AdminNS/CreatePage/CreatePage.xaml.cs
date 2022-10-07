@@ -139,6 +139,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
+            if (!FieldsChecker.OnlyFloats(PhoneNumber_tb.Text))
+            {
+                var dialog = new MessageDialog("The name must be valid.");
+                await dialog.ShowAsync();
+                return;
+            }
             try
             {
                 Creation_pr.IsActive = true;

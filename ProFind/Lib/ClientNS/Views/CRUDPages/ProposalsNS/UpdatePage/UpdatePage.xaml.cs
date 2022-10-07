@@ -48,6 +48,7 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.UpdatePage
             if (e.Parameter != null)
             {
                 ToManipulate = (Proposal)e.Parameter;
+                LoadData();
             }
         }
 

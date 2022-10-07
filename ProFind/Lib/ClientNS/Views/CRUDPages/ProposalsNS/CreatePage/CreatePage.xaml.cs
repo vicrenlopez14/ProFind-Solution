@@ -96,6 +96,19 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
+            if (!FieldsChecker.CheckDateUp(ExpectedBegin_dp.Date))
+            {
+                var dialog = new MessageDialog("The Date Begin must be valid");
+                await dialog.ShowAsync();
+                return;
+            }
+            if (!FieldsChecker.CheckRangeDate(ExpectedBegin_dp.Date, Theend.Date))
+            {
+                var dialog = new MessageDialog("The Date end must be valid");
+                await dialog.ShowAsync();
+                return;
+            }
+           
             try
             {
 
