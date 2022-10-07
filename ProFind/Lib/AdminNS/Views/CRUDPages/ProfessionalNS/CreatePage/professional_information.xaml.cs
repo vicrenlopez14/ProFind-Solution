@@ -239,6 +239,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
                     await dialog.ShowAsync();
                     return;
                 }
+                if (passwordBox == Confirm_passwordBox)
+                {
+                    var dialog = new MessageDialog("The password must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
             }
             catch(Exception ex)
             {

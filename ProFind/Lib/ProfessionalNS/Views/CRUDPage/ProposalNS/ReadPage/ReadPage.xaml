@@ -76,11 +76,11 @@
                                         Text="{Binding DescriptionPp}" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontWeight="Bold" Text=" Professional :" />
+                                    <TextBlock FontWeight="Bold" Text="Client :" />
                                     <TextBlock
                                         Height="31"
                                         Margin="10,0,0,0"
-                                        Text="{Binding IdP3Navigation.NameP}" />
+                                        Text="{Binding IdC3Navigation.NameC}" />
                                 </StackPanel>
                                 <StackPanel
                                     Grid.Column="1"

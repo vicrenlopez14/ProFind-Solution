@@ -294,11 +294,17 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
                         return;
                     }
 
-
+                    
                     if (string.IsNullOrEmpty(ToManipulateProfessional.PasswordP) && !string.IsNullOrEmpty(passwordBox.Password))
                     {
 
                         if (!FieldsChecker.CheckPassword(passwordBox.Password))
+                        {
+                            var dialog = new MessageDialog("The password must be valid.");
+                            await dialog.ShowAsync();
+                            return;
+                        }
+                        if (passwordBox == Confirm_passwordBox)
                         {
                             var dialog = new MessageDialog("The password must be valid.");
                             await dialog.ShowAsync();
