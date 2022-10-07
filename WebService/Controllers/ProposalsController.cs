@@ -85,6 +85,22 @@ public class ProposalsController : ControllerBase
         return result;
     }
 
+    // Get proposals from a client
+    [HttpGet("client/{id}")]
+    public async Task<ActionResult<IEnumerable<Proposal>>> GetProposalsFromClient(string id)
+    {
+        var result = await (from proposal in _context.Proposals
+            where (proposal.IdC3 == id)
+            select proposal).Distinct().ToListAsync();
+
+        if (result.Any() == false)
+        {
+            return NotFound();
+        }
+
+        return result;
+    }
+
     [HttpGet("filter/")]
     public async Task<ActionResult<IEnumerable<Proposal>>> FilterProposals([FromQuery] DateTime? suggestedStart,
         [FromQuery] string? suggestedStarRel,
@@ -165,8 +181,8 @@ public class ProposalsController : ControllerBase
         {
             return BadRequest();
         }
-    
-       
+
+
         _context.Entry(proposal).State = EntityState.Modified;
 
         try

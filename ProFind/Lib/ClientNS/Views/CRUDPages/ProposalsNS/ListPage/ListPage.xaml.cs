@@ -26,6 +26,7 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.ListPage
     /// </summary>
     public sealed partial class ListPAge : Page
     {
+        private List<Proposal> proposalsListObj = new List<Proposal>();
         Proposal Id;
         public ListPAge()
         {
@@ -34,24 +35,27 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.ListPage
         }
         private async void InitializeData()
         {
-            var loggendClient = LoggedClientStore.LoggedClient;
-            var Proposals = await APIConnection.GetConnection.GetProposalsAsync();
-            var RelatePropals = Proposals.Where(c => c.IdC3 == loggendClient.IdC).ToList();
-           
-           
+            try
+            {
+                proposalsListObj = await APIConnection.GetConnection.GetProposalsFromClientAsync(LoggedClientStore.LoggedClient.IdC) as List<Proposal>;
 
-            Activities_lw.ItemsSource = RelatePropals;
+                Proposals_lw.ItemsSource = proposalsListObj;
+            }
+            catch
+            {
+                await new MessageDialog("Couldn't load proposals list. Please try again later.").ShowAsync();
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-           
-        
+
+
         }
 
         private void Add_btn_Click(object sender, RoutedEventArgs e)
         {
-           
+
 
         }
 
@@ -59,15 +63,15 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.ListPage
         {
             new InAppNavigationController().NavigateTo(typeof(ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.CreatePage.CreatePage));
         }
-         
+
 
         private async void Delete_Click_1(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (Activities_lw.SelectedItem != null)
+                if (Proposals_lw.SelectedItem != null)
                 {
-                    var obj = Activities_lw.SelectedItem as Proposal;
+                    var obj = Proposals_lw.SelectedItem as Proposal;
                     await APIConnection.GetConnection.DeleteProposalAsync(obj.IdPp);
                     var dialog = new MessageDialog("Proposal deleted successfully.");
                     await dialog.ShowAsync();
@@ -104,9 +108,9 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.ListPage
         private async void Update_Click_1(object sender, RoutedEventArgs e)
         {
 
-            if (Activities_lw.SelectedItem != null)
+            if (Proposals_lw.SelectedItem != null)
             {
-                Proposal selectedProject = Activities_lw.SelectedItem as Proposal;
+                Proposal selectedProject = Proposals_lw.SelectedItem as Proposal;
 
                 new InAppNavigationController().NavigateTo(typeof(ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.UpdatePage.UpdatePage), selectedProject);
             }
@@ -122,6 +126,14 @@ namespace ProFind.Lib.ClientNS.Views.CRUDPages.ProposalsNS.ListPage
         private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
         {
             InitializeData();
+        }
+
+        private void SearchBox_QueryChanged(SearchBox sender, SearchBoxQueryChangedEventArgs args)
+        {
+            var newList = proposalsListObj.Where(x => x.TitlePp.ToLower().Contains(sender.QueryText.ToLower()));
+
+            Proposals_lw.ItemsSource = null;
+            Proposals_lw.ItemsSource = newList;
         }
     }
 }
