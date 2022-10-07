@@ -185,7 +185,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.UpdatePage
                 await dialog.ShowAsync();
                 return;
             }
-            if (int.Parse(TotalPrice_tb.Text) >= 1)
+            if (int.Parse(TotalPrice_tb.Text) <= 0)
             {
                 var dialog = new MessageDialog("The price must be valid.");
                 await dialog.ShowAsync();
