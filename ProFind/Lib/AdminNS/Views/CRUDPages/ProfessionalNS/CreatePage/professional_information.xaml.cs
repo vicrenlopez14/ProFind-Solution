@@ -143,98 +143,107 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
 
         private async void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-
-            if (!FieldsChecker.CheckName(FirstName1_tbx.Text))
+            try
             {
-                var dialog = new MessageDialog("The name must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (!FieldsChecker.CheckEmail(Email.Text))
-            {
-                var dialog = new MessageDialog("The email must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (!FieldsChecker.CheckDateDown(Nacimiento.Date))
-            {
-                var dialog = new MessageDialog("The birth date must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (!FieldsChecker.OnlyFloats(Salario.Text))
-            {
-                var dialog = new MessageDialog("The salary must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (int.Parse(Salario.Text) <= 0)
-            {
-                var dialog = new MessageDialog("The salary must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (!FieldsChecker.OnlyFloats(Afp.Text))
-            {
-                var dialog = new MessageDialog("The Afp must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
 
 
-            if (!FieldsChecker.OnlyInts(CodigoPostal.Text))
-            {
-                var dialog = new MessageDialog("The Code Postal must be valid.");
-                await dialog.ShowAsync();
-                return;
+                if (!FieldsChecker.CheckName(FirstName1_tbx.Text))
+                {
+                    var dialog = new MessageDialog("The name must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (!FieldsChecker.CheckEmail(Email.Text))
+                {
+                    var dialog = new MessageDialog("The email must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (!FieldsChecker.CheckDateDown(Nacimiento.Date))
+                {
+                    var dialog = new MessageDialog("The birth date must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (!FieldsChecker.OnlyFloats(Salario.Text))
+                {
+                    var dialog = new MessageDialog("The salary must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (Convert.ToInt64(Salario.Text) <= 0)
+                {
+                    var dialog = new MessageDialog("The salary must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (!FieldsChecker.OnlyFloats(Afp.Text))
+                {
+                    var dialog = new MessageDialog("The Afp must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+
+
+                if (!FieldsChecker.OnlyInts(CodigoPostal.Text))
+                {
+                    var dialog = new MessageDialog("The Code Postal must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (Convert.ToInt64(CodigoPostal.Text) <= -1)
+                {
+                    var dialog = new MessageDialog("The Code Postal must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (!FieldsChecker.CheckPassword(passwordBox.Password))
+                {
+                    var dialog = new MessageDialog("The password must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (!FieldsChecker.CheckPhoneNumber(Phone_nb.Text))
+                {
+                    var dialog = new MessageDialog("The phone number must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (int.Parse(Phone_nb.Text) <= 0)
+                {
+                    var dialog = new MessageDialog("The Phone must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (Convert.ToInt64(Afp.Text) <= -1)
+                {
+                    var dialog = new MessageDialog("The afp must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (curriculumBytes == null)
+                {
+                    var dialog = new MessageDialog("The curriculum must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (!FieldsChecker.OnlyInts(SeguroSocial.Text))
+                {
+                    var dialog = new MessageDialog("The Isss must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (Convert.ToInt64(SeguroSocial.Text) <= -1)
+                {
+                    var dialog = new MessageDialog("The Isss must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
             }
-            if (int.Parse(CodigoPostal.Text) <= -1)
+            catch(Exception ex)
             {
-                var dialog = new MessageDialog("The Code Postal must be valid.");
+                var dialog = new MessageDialog("Check the fields.");
                 await dialog.ShowAsync();
-                return;
-            }
-            if (!FieldsChecker.CheckPassword(passwordBox.Password))
-            {
-                var dialog = new MessageDialog("The password must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (!FieldsChecker.CheckPhoneNumber(Phone_nb.Text))
-            {
-                var dialog = new MessageDialog("The phone number must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (int.Parse(Phone_nb.Text) <= 0)
-            {
-                var dialog = new MessageDialog("The Phone must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (int.Parse(Afp.Text) <= -1)
-            {
-                var dialog = new MessageDialog("The afp must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (curriculumBytes == null)
-            {
-                var dialog = new MessageDialog("The curriculum must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (!FieldsChecker.OnlyInts(SeguroSocial.Text))
-            {
-                var dialog = new MessageDialog("The Isss must be valid.");
-                await dialog.ShowAsync();
-                return;
-            }
-            if (int.Parse(SeguroSocial.Text) <= -1)
-            {
-                var dialog = new MessageDialog("The Isss must be valid.");
-                await dialog.ShowAsync();
-                return;
             }
             try
             {

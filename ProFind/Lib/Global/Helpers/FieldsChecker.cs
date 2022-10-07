@@ -29,7 +29,7 @@ namespace ProFind.Lib.Global.Helpers
 
         public static bool CheckRangeDate(DateTimeOffset begin, DateTimeOffset end)
         {
-            return begin >= DateTimeOffset.Now && end >= begin;
+            return begin >= DateTimeOffset.Now.Date && end >= begin;
         }
         
         public static bool CheckDateUp(DateTimeOffset date)

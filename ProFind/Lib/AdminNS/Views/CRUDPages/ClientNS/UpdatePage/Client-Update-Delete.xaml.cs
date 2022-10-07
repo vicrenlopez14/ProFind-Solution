@@ -116,6 +116,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.UpdatePage
                 await dialog.ShowAsync();
                 return;
             }
+            else if (!FieldsChecker.CheckName(Name1_tbx.Text))
+            {
+                var dialog = new MessageDialog("The name is invalid.");
+                await dialog.ShowAsync();
+                return;
+            }
             else if (!FieldsChecker.CheckEmail(Email_tbx.Text))
             {
                 var dialog = new MessageDialog("The email is invalid.");

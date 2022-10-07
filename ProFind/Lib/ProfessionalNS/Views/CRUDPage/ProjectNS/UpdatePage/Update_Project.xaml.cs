@@ -147,24 +147,34 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.UpdatePage
 
         private async void Update_btn_Click_1(object sender, RoutedEventArgs e)
         {
-            if (!FieldsChecker.CheckName(Title_tb.Text))
+            try
             {
 
-                var dialog = new MessageDialog("The Title must be valid");
-                await dialog.ShowAsync();
-                return;
+
+                if (!FieldsChecker.CheckName(Title_tb.Text))
+                {
+
+                    var dialog = new MessageDialog("The Title must be valid");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                else if (!FieldsChecker.OnlyLetters(Description_tb.Text))
+                {
+                    var dialog = new MessageDialog("The description must be valid");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (int.Parse(TotalPrice_tb.Text) <= 0)
+                {
+                    var dialog = new MessageDialog("The price must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
             }
-            else if (!FieldsChecker.OnlyLetters(Description_tb.Text))
+            catch (Exception ex)
             {
-                var dialog = new MessageDialog("The description must be valid");
+                var dialog = new MessageDialog("Check the fields.");
                 await dialog.ShowAsync();
-                return;
-            }
-            if (int.Parse(TotalPrice_tb.Text) <= 0)
-            {
-                var dialog = new MessageDialog("The price must be valid.");
-                await dialog.ShowAsync();
-                return;
             }
 
             try
