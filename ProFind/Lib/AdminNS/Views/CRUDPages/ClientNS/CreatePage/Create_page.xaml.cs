@@ -73,6 +73,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
+            if (int.Parse(PhoneNumber_tb.Text) >= 1)
+            {
+                var dialog = new MessageDialog("The Phone must be valid.");
+                await dialog.ShowAsync();
+                return;
+            }
             try
             {
                 var ToCreateAdmin = new Client

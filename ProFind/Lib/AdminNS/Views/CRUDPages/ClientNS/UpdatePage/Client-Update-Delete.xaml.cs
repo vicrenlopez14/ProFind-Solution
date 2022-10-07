@@ -139,6 +139,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.UpdatePage
 
                 ChangeThePassword = true;
             }
+            
             try
             {
                 toManipulateClient.EmailC = Email_tbx.Text;

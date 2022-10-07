@@ -166,16 +166,28 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.UpdatePage
 
         private async void Update_btn_Click_1(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(Title_tb.Text))
+            if (!FieldsChecker.CheckName(Title_tb.Text))
             {
 
-                var dialog = new MessageDialog("The field is empty");
+                var dialog = new MessageDialog("The title is empty");
                 await dialog.ShowAsync();
                 return;
             }
-            else if (string.IsNullOrEmpty(Description_tb.Text))
+            else if (!FieldsChecker.OnlyLetters(Description_tb.Text))
             {
-                var dialog = new MessageDialog("The field is empty");
+                var dialog = new MessageDialog("The Description is empty");
+                await dialog.ShowAsync();
+                return;
+            }
+            else if (!FieldsChecker.OnlyLetters(Description_tb.Text))
+            {
+                var dialog = new MessageDialog("The price is empty");
+                await dialog.ShowAsync();
+                return;
+            }
+            if (int.Parse(TotalPrice_tb.Text) >= 1)
+            {
+                var dialog = new MessageDialog("The price must be valid.");
                 await dialog.ShowAsync();
                 return;
             }

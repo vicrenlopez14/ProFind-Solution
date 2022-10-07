@@ -125,6 +125,14 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.UpdatePage
                 await dialog.ShowAsync();
                 return;
             }
+
+            if (int.Parse(Phone_tbx.Text) >= 1)
+            {
+                var dialog = new MessageDialog("The Phone must be valid.");
+                await dialog.ShowAsync();
+                return;
+            }
+
             if (string.IsNullOrEmpty(toManipulate.PasswordA) && !string.IsNullOrEmpty(Password_tbx.Password))
             {
                 if (!FieldsChecker.CheckPassword(Password_tbx.Password))

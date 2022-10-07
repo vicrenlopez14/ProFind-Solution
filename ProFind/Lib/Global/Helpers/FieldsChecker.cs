@@ -66,11 +66,11 @@ namespace ProFind.Lib.Global.Helpers
 
         public static bool OnlyInts(string number)
         {
-            //foreach (char character in number.ToString())
-            //{
-            //    if ((character >= '0' && character <= '9')) continue;
-            //    return false;
-            //}
+            foreach (char character in number.ToString())
+             {
+             if ((character >= '0' && character <= '9')) continue;
+              return false;
+             }
             return true;
         }
 

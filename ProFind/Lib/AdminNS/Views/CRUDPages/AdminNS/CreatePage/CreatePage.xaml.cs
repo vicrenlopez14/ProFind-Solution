@@ -30,6 +30,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.CreatePage
         private List<Rank> ranks = new List<Rank>();
         private string imageString;
         private bool isFirstAdmin = false;
+        int numero;
 
         public CreatePage()
         {
@@ -121,6 +122,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.CreatePage
 
         private async void Create_btn_Click_1(object sender, RoutedEventArgs e)
         {
+           
             if (!FieldsChecker.CheckEmail(Email_tb.Text))
             {
                 var dialog = new MessageDialog("The email must be valid.");
@@ -133,15 +135,26 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
+
             if (!FieldsChecker.CheckName(Name_tb.Text))
             {
                 var dialog = new MessageDialog("The name must be valid.");
                 await dialog.ShowAsync();
                 return;
             }
-            if (!FieldsChecker.OnlyFloats(PhoneNumber_tb.Text))
+
+            numero = Convert.ToInt32(PhoneNumber_tb.Text);
+
+            if ( numero >= 1)
             {
-                var dialog = new MessageDialog("The name must be valid.");
+                var dialog = new MessageDialog("The Phone must be valid.");
+                await dialog.ShowAsync();
+                return;
+            }
+    
+            if (!FieldsChecker.OnlyInts(PhoneNumber_tb.Text))
+            {
+                var dialog = new MessageDialog("The Phone must be valid.");
                 await dialog.ShowAsync();
                 return;
             }

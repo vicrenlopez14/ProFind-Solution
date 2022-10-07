@@ -237,7 +237,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
                     await dialog.ShowAsync();
                     return;
                 }
-
+                if (int.Parse(Phone_nb.Text) >= 1)
+                {
+                    var dialog = new MessageDialog("The Phone must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
 
                 if (string.IsNullOrEmpty(ToManipulateProfessional.PasswordP) && !string.IsNullOrEmpty(passwordBox.Password))
                 {

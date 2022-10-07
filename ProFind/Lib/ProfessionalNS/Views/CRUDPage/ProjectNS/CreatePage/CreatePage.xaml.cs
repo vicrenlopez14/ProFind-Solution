@@ -148,6 +148,12 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ProjectNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
+            if (int.Parse(TotalPrice_tb.Text) >= 1)
+            {
+                var dialog = new MessageDialog("The price must be valid.");
+                await dialog.ShowAsync();
+                return;
+            }
             try
             {
                 var toCreateProject = new Project { IdPj = "", TitlePj = Title_tb.Text, DescriptionPj = Description_tb.Text, PicturePj = imageString, TotalPricePj = int.Parse(TotalPrice_tb.Text), IdP1 = SourceProposal.IdP3, IdC1 = SourceProposal.IdC3, TimeRequiredTr1 = (TimeRequired_cb.SelectedItem as Timerequired).IdTr };

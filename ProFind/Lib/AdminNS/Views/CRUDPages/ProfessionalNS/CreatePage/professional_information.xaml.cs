@@ -194,7 +194,13 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
-            if(curriculumBytes == null)
+            if (int.Parse(Phone_nb.Text) >= 1)
+            {
+                var dialog = new MessageDialog("The Phone must be valid.");
+                await dialog.ShowAsync();
+                return;
+            }
+            if (curriculumBytes == null)
             {
                 var dialog = new MessageDialog("The curriculum must be valid.");
                 await dialog.ShowAsync();
