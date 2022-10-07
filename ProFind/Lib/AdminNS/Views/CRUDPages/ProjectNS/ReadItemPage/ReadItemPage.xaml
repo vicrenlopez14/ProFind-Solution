@@ -13,56 +13,71 @@
             <ScrollViewer Grid.Column="1">
                 <Grid>
                     <StackPanel Padding="100" Orientation="Vertical">
-
-
                         <muxc:PersonPicture
-                            Name="SelectedPicture_pp"
+                            x:Name="SelectedPicture_pp"
                             Width="100"
                             Height="100"
-                            Margin="0,30,0,0" />
-
+                            Margin="0,0,0,15" />
                         <TextBox
                             x:Name="Title_tb"
                             Margin="0,30,0,0"
+                            Header="Title"
+                            IsEnabled="False"
                             KeyDown="Title_tb_KeyDown"
                             PlaceholderText="Title" />
                         <TextBox
                             x:Name="Description_tb"
                             Margin="0,15,0,0"
+                            Header="Description"
+                            IsEnabled="False"
                             KeyDown="Description_tb_KeyDown"
                             PlaceholderText="Description" />
-
                         <muxc:NumberBox
                             x:Name="TotalPrice_tb"
                             Margin="0,15,0,0"
+                            Header="Total Price"
+                            IsEnabled="False"
                             KeyDown="TotalPrice_tb_KeyDown"
                             PlaceholderText="Total price" />
-                        <Grid Margin="0,15,0,0">
+                        <DatePicker
+                            Name="ExpectedBegin_dp"
+                            Margin="0,15,0,0"
+                            Header="Expected beginning"
+                            IsEnabled="False" />
+                        <DatePicker
+                            Name="Theend"
+                            Margin="0,15,0,0"
+                            Header="Expected end"
+                            IsEnabled="False" />
+                        <ComboBox
+                            x:Name="TimeRequired_cb"
+                            Margin="0,15,0,0"
+                            Header="Time required"
+                            IsEnabled="False"
+                            SelectedIndex="0"
+                            SelectionChanged="Tag_cb_SelectionChanged">
+                            <x:String>Short</x:String>
+                            <x:String>Medium</x:String>
+                            <x:String>Long</x:String>
+                        </ComboBox>
+                        <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.5*" />
-                                <ColumnDefinition Width="0.5*" />
+                                <ColumnDefinition Width="433*" />
+                                <ColumnDefinition Width="378*" />
+                                <ColumnDefinition Width="57*" />
+                                <ColumnDefinition Width="433*" />
                             </Grid.ColumnDefinitions>
-                            <ComboBox
-                                Name="TimeRequired_cb"
-                                Grid.Column="1"
-                                Header="Tag - Duration of the project" />
+                            <StackPanel Grid.Column="1" Orientation="Vertical" />
                         </Grid>
+
+
+
                         <Grid Margin="0,10,0,0" VerticalAlignment="Center">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="0.7*" />
                                 <ColumnDefinition Width="0.3*" />
                             </Grid.ColumnDefinitions>
                         </Grid>
-
-
-                        <Button
-                            x:Name="Back_btn"
-                            Width="100"
-                            Margin="0,50,0,0"
-                            HorizontalAlignment="Center"
-                            Click="Update_btn_Click_2"
-                            Content="Cancel"
-                            Style="{StaticResource AccentButtonStyle}" />
                         <d:ProgressRing
                             x:Name="Creation_pr"
                             Margin="0,20,0,0"
@@ -73,4 +88,5 @@
         </Grid>
 
     </Grid>
+
 </Page>

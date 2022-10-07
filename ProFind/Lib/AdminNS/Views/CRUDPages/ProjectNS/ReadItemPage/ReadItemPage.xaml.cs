@@ -11,6 +11,8 @@ using Project = ProFind.Lib.Global.Services.Project;
 using ProFind.Lib.AdminNS.Controllers;
 using Windows.UI.Xaml.Navigation;
 using System.Net;
+using ProFind.Lib.ProfessionalNS.Controllers;
+using System.Threading;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -21,13 +23,16 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.ReadItemPage
     /// </summary>
     public sealed partial class ReadItemPage : Page
     {
-        Project toManipulate = new Project();
         private string imageString;
+        Professional Id;
+        Proposal Denegada;
 
+                private Project IncomingProject;
+        
         public ReadItemPage()
         {
             this.InitializeComponent();
-
+            Cargar();
         }
         private void AddEvents()
         {
@@ -37,78 +42,63 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.ReadItemPage
 
         }
 
-        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            if (e.Parameter == null || e.Parameter.GetType() != typeof(Project))
+            if (e.Parameter != null)
             {
-                // Message dialog
-                var dialog = new MessageDialog("Error while loading the project");
-                await dialog.ShowAsync();
-                // Navigate back
-                new InAppNavigationController().GoBack();
+                IncomingProject = (Project)e.Parameter;
             }
+            imageString = IncomingProject.PicturePj;
+            Title_tb.Text = IncomingProject.TitlePj;
+            Description_tb.Text = IncomingProject.DescriptionPj;
+            SelectedPicture_pp.ProfilePicture = await IncomingProject.PicturePj.FromBase64String();
+            ExpectedBegin_dp.Date = IncomingProject.StartDate.Value;
+            Theend.Date = IncomingProject.EndDate.Value;
+            TotalPrice_tb.Value = IncomingProject.TotalPricePj.Value;
+            TimeRequired_cb.SelectedItem = IncomingProject.TimeRequiredTr1Navigation;
+            Title_tb.IsEnabled = false;
+            Description_tb.IsEnabled = false;
+            ExpectedBegin_dp.IsEnabled = false;
+            Theend.IsEnabled = false;
 
-            toManipulate = e.Parameter as Project;
 
-            Cargar();
-            AddEvents();
+
         }
 
         private async void Cargar()
         {
-            SelectedPicture_pp.ProfilePicture = await toManipulate.PicturePj.FromBase64String();
-            Title_tb.Text = toManipulate.TitlePj;
-            Description_tb.Text = toManipulate.DescriptionPj;
-            TotalPrice_tb.Text = toManipulate.TotalPricePj.ToString();
-            TimeRequired_cb.ItemsSource = await APIConnection.GetConnection.GetTimerequiredsAsync();
 
 
-            Title_tb.IsEnabled = false;
-            Description_tb.IsEnabled = false;
-            TotalPrice_tb.IsEnabled = false;
-            TimeRequired_cb.IsEnabled = false;
-        }
-
-
-        private void PictureSelection_btn_Click(object sender, RoutedEventArgs e)
-        {
 
         }
 
-        private void Title_tb_TextChanged(object sender, TextChangedEventArgs e)
+        private async void PictureSelection_btn_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
 
-        }
 
-        private void Description_tb_TextChanged(object sender, TextChangedEventArgs e)
-        {
+                var file = await PickFileHelper.PickImage();
 
-        }
+                if (file != null)
+                {
+                    imageString = await file.ToBase64StringAsync();
+                    SelectedPicture_pp.ProfilePicture = await imageString.FromBase64String();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
 
-        private void InitialStatus_cb_RightTapped(object sender, RightTappedRoutedEventArgs e)
-        {
-
-        }
-
-        private void InitialStatus_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Professional_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Client_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            }
         }
 
         private void Title_tb_KeyDown(object sender, KeyRoutedEventArgs e)
         {
-
         }
 
         private void Description_tb_KeyDown(object sender, KeyRoutedEventArgs e)
@@ -123,10 +113,15 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProjectNS.ReadItemPage
 
 
 
-
-        private void Update_btn_Click_2(object sender, RoutedEventArgs e)
+        private void Tag_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            new InAppNavigationController().GoBack();
+
+        }
+
+        private void PictureSelection_btn_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
+
 }
