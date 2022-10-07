@@ -53,7 +53,7 @@
                                     <x:String>Automotive services</x:String>
                                     <x:String>General medicine</x:String>
                                 </ComboBox>
-                                
+
 
                             </StackPanel>
                         </Grid>
@@ -64,7 +64,7 @@
                                 <ColumnDefinition Width="0.4*" />
                                 <ColumnDefinition Width="0.4*" />
                             </Grid.ColumnDefinitions>
-                            
+
 
                             <StackPanel Grid.Column="0" Orientation="Vertical">
                                 <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center">Profile picture</TextBlock>
@@ -73,7 +73,7 @@
                                     Margin="0,0,0,0"
                                     HorizontalAlignment="Center"
                                     RenderTransformOrigin="0.48,0.99" />
-                               
+
                                 <TextBox
                                     Name="Afp"
                                     Grid.RowSpan="2"
@@ -126,7 +126,7 @@
                                     VerticalAlignment="Top"
                                     Header="Birth date"
                                     KeyDown="Nacimiento_KeyDown" />
-                                
+
                             </StackPanel>
                             <StackPanel Grid.Column="1" Orientation="Vertical">
                                 <ComboBox
@@ -217,16 +217,19 @@
                                         VerticalAlignment="Top"
                                         Header="Hiring date"
                                         PlaceholderText="Pick a date" />
-                                   
+
                                 </StackPanel>
 
-                                <StackPanel Margin="50,15,0,0" Orientation="Horizontal">
+                                <StackPanel
+                                    Margin="50,15,0,0"
+                                    Orientation="Horizontal"
+                                    Visibility="Collapsed">
                                     <Button
                                         Margin="0,0,15,0"
                                         VerticalAlignment="Center"
                                         Click="SelectCurriculum_Click_2"
                                         Content="Curriculum" />
-                                    
+
                                 </StackPanel>
 
                                 <StackPanel Margin="0,20" Orientation="Horizontal" />
@@ -243,17 +246,18 @@
                 Margin="0,25"
                 HorizontalAlignment="Center"
                 Orientation="Horizontal">
-                
+
                 <Button
                     x:Name="btnCancelar"
                     Grid.Row="1"
                     Margin="50,0"
                     Padding="{StaticResource SmallLeftTopRightBottomMargin}"
                     VerticalAlignment="Top"
+                    Click="btnCancelar_Click_1"
                     Content="Cancel"
                     CornerRadius="5"
-                    RenderTransformOrigin="1.663,0.216" Click="btnCancelar_Click_1" />
-                
+                    RenderTransformOrigin="1.663,0.216" />
+
             </StackPanel>
 
         </Grid>
