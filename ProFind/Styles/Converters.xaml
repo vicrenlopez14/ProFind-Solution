@@ -4,5 +4,5 @@
     xmlns:converters="using:ProFind.Lib.Global.Converters">
     <converters:ToImageSourceConverter x:Key="ImageModelConverter" />
     <converters:TagDurationReadable x:Key="TagDurationReadable" />
-
+    <converters:LegibleDateTime x:Key="LegibleDateTime" />
 </ResourceDictionary>

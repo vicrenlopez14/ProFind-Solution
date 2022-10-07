@@ -31,6 +31,7 @@ namespace ProFind.Lib.Global.Helpers
         {
             return begin >= DateTimeOffset.Now && end >= begin;
         }
+        
         public static bool CheckDateUp(DateTimeOffset date)
         {
             return date >= DateTimeOffset.Now.Date;

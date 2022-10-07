@@ -1,23 +1,13 @@
 ﻿using ProFind.Lib.AdminNS.Controllers;
-using ProFind.Lib.Global.Controllers;
 using ProFind.Lib.Global.Helpers;
 using ProFind.Lib.Global.Services;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -28,6 +18,8 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ListPage
     /// </summary>
     public sealed partial class ListPageAdmin : Page
     {
+        private List<Admin> adminsListObj;
+
         public ListPageAdmin()
         {
             this.InitializeComponent();
@@ -35,8 +27,15 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ListPage
         }
         public async void GetAdminsList()
         {
-
-            AdminsListView.ItemsSource = await APIConnection.GetConnection.GetAdminsAsync();
+            try
+            {
+                adminsListObj = await APIConnection.GetConnection.GetAdminsAsync() as List<Admin>;
+                AdminsListView.ItemsSource = adminsListObj;
+            }
+            catch (Exception ex)
+            {
+                await new MessageDialog("Couldn't load admins list. Please try again later.").ShowAsync();
+            }
         }
 
 
@@ -47,8 +46,6 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ListPage
         }
 
 
-
-
         private async void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -57,16 +54,8 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ListPage
 
         private async void SearchBox_QueryChanged(SearchBox sender, SearchBoxQueryChangedEventArgs args)
         {
-            var allList = await APIConnection.GetConnection.GetAdminsAsync();
 
-            if (string.IsNullOrEmpty(sender.QueryText))
-            {
-                AdminsListView.ItemsSource = null;
-                AdminsListView.ItemsSource = allList;
-                return;
-            }
-
-            var newList = allList.Where(x => x.NameA.Contains(sender.QueryText));
+            var newList = adminsListObj.Where(x => x.NameA.Contains(sender.QueryText));
 
             AdminsListView.ItemsSource = null;
             AdminsListView.ItemsSource = newList;
@@ -75,41 +64,47 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.ListPage
 
         private async void Delete_Click_1(object sender, RoutedEventArgs e)
         {
-            
-                try
+
+            try
+            {
+                if (AdminsListView.SelectedItem != null)
                 {
-                    if (AdminsListView.SelectedItem != null)
+                    if (adminsListObj.Count == 1)
                     {
-                        var obj = AdminsListView.SelectedItem as Admin;
-                        await APIConnection.GetConnection.DeleteAdminAsync(obj.IdA);
-                        var dialog = new MessageDialog("Admin deleted successfully.");
-                        await dialog.ShowAsync();
+                        await new MessageDialog("You can't delete the last admin.").ShowAsync();
+                        return;
                     }
-                    else
-                    {
-                        var dialog = new MessageDialog("You have to select an admin.");
-                        await dialog.ShowAsync();
-                    }
+
+                    var obj = AdminsListView.SelectedItem as Admin;
+                    await APIConnection.GetConnection.DeleteAdminAsync(obj.IdA);
+                    var dialog = new MessageDialog("Admin deleted successfully.");
+                    await dialog.ShowAsync();
                 }
-                catch (ProFindServicesException ex)
+                else
                 {
-                    if (ex.StatusCode == 204)
-                    {
-                        var dialog = new MessageDialog("Admin deleted successfully.");
-                        await dialog.ShowAsync();
-                    }
-                    else
-                    {
-                        var dialog = new MessageDialog("You have to select an admin.");
-                        await dialog.ShowAsync();
-                    }
+                    var dialog = new MessageDialog("You have to select an admin.");
+                    await dialog.ShowAsync();
                 }
-                finally
+            }
+            catch (ProFindServicesException ex)
+            {
+                if (ex.StatusCode == 204)
                 {
-                    GetAdminsList();
+                    var dialog = new MessageDialog("Admin deleted successfully.");
+                    await dialog.ShowAsync();
                 }
-           
-            
+                else
+                {
+                    var dialog = new MessageDialog("You have to select an admin.");
+                    await dialog.ShowAsync();
+                }
+            }
+            finally
+            {
+                GetAdminsList();
+            }
+
+
         }
 
         private async void Update_Click_1(object sender, RoutedEventArgs e)
