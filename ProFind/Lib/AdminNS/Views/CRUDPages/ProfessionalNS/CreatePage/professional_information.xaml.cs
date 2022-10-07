@@ -168,6 +168,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
+            if (int.Parse(Salario.Text) <= 0)
+            {
+                var dialog = new MessageDialog("The salary must be valid.");
+                await dialog.ShowAsync();
+                return;
+            }
             if (!FieldsChecker.OnlyFloats(Afp.Text))
             {
                 var dialog = new MessageDialog("The Afp must be valid.");
@@ -177,6 +183,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
 
 
             if (!FieldsChecker.OnlyInts(CodigoPostal.Text))
+            {
+                var dialog = new MessageDialog("The Code Postal must be valid.");
+                await dialog.ShowAsync();
+                return;
+            }
+            if (int.Parse(CodigoPostal.Text) <= 0)
             {
                 var dialog = new MessageDialog("The Code Postal must be valid.");
                 await dialog.ShowAsync();
@@ -200,6 +212,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
+            if (int.Parse(Afp.Text) <= 0)
+            {
+                var dialog = new MessageDialog("The afp must be valid.");
+                await dialog.ShowAsync();
+                return;
+            }
             if (curriculumBytes == null)
             {
                 var dialog = new MessageDialog("The curriculum must be valid.");
@@ -207,6 +225,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.CreatePage
                 return;
             }
             if (!FieldsChecker.OnlyInts(SeguroSocial.Text))
+            {
+                var dialog = new MessageDialog("The Isss must be valid.");
+                await dialog.ShowAsync();
+                return;
+            }
+            if (int.Parse(SeguroSocial.Text) <= 0)
             {
                 var dialog = new MessageDialog("The Isss must be valid.");
                 await dialog.ShowAsync();

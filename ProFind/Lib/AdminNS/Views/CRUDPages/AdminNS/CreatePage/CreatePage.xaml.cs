@@ -152,7 +152,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.AdminNS.CreatePage
                 return;
             }
     
-            if (!FieldsChecker.OnlyInts(PhoneNumber_tb.Text))
+            if (!FieldsChecker.CheckPhoneNumber(PhoneNumber_tb.Text))
             {
                 var dialog = new MessageDialog("The Phone must be valid.");
                 await dialog.ShowAsync();

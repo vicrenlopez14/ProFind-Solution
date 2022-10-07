@@ -73,6 +73,12 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.CreatePage
                 await dialog.ShowAsync();
                 return;
             }
+            if (!FieldsChecker.CheckPhoneNumber(PhoneNumber_tb.Text))
+            {
+                var dialog = new MessageDialog("The email must be valid.");
+                await dialog.ShowAsync();
+                return;
+            }
             if (int.Parse(PhoneNumber_tb.Text) <= 0)
             {
                 var dialog = new MessageDialog("The Phone must be valid.");
