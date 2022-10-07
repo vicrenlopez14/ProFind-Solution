@@ -128,6 +128,7 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.UpdatePage
                 await dialog.ShowAsync();
                 return;
             }
+           
             if (string.IsNullOrEmpty(toManipulateClient.PasswordC) && !string.IsNullOrEmpty(Password_tbx.Password))
             {
                 if (!FieldsChecker.CheckPassword(Password_tbx.Password))

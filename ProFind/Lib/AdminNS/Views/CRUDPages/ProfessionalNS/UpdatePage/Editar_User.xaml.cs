@@ -220,21 +220,41 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
                     await dialog.ShowAsync();
                     return;
                 }
-                if (!FieldsChecker.OnlyInts(Afp.Text))
+                if (int.Parse(Salario.Text) <= 0)
+                {
+                    var dialog = new MessageDialog("The salary must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (!FieldsChecker.OnlyFloats(Afp.Text))
                 {
                     var dialog = new MessageDialog("The Afp must be valid.");
                     await dialog.ShowAsync();
                     return;
                 }
+
+
                 if (!FieldsChecker.OnlyInts(CodigoPostal.Text))
                 {
                     var dialog = new MessageDialog("The Code Postal must be valid.");
                     await dialog.ShowAsync();
                     return;
                 }
-                if (!FieldsChecker.OnlyInts(SeguroSocial.Text))
+                if (int.Parse(CodigoPostal.Text) <= 0)
                 {
-                    var dialog = new MessageDialog("The Isss must be valid.");
+                    var dialog = new MessageDialog("The Code Postal must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (!FieldsChecker.CheckPassword(passwordBox.Password))
+                {
+                    var dialog = new MessageDialog("The password must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (!FieldsChecker.CheckPhoneNumber(Phone_nb.Text))
+                {
+                    var dialog = new MessageDialog("The phone number must be valid.");
                     await dialog.ShowAsync();
                     return;
                 }
@@ -244,6 +264,31 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ProfessionalNS.UpdatePage
                     await dialog.ShowAsync();
                     return;
                 }
+                if (int.Parse(Afp.Text) <= 0)
+                {
+                    var dialog = new MessageDialog("The afp must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (curriculumBytes == null)
+                {
+                    var dialog = new MessageDialog("The curriculum must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (!FieldsChecker.OnlyInts(SeguroSocial.Text))
+                {
+                    var dialog = new MessageDialog("The Isss must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                if (int.Parse(SeguroSocial.Text) <= 0)
+                {
+                    var dialog = new MessageDialog("The Isss must be valid.");
+                    await dialog.ShowAsync();
+                    return;
+                }
+                
 
                 if (string.IsNullOrEmpty(ToManipulateProfessional.PasswordP) && !string.IsNullOrEmpty(passwordBox.Password))
                 {
