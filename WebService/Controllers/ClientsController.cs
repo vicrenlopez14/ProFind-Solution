@@ -223,7 +223,6 @@ public class ClientsController : ControllerBase
 
         if (client.PasswordC.Length < 50)
         {
-
             client.PasswordC = ShaOperations.ShaPassword(client.PasswordC);
         }
 
@@ -257,9 +256,10 @@ public class ClientsController : ControllerBase
         {
             return NotFound();
         }
-        
+
         var professionals = await _context.Professionals
-            .Where(p => p.Projects.Any(pr => pr.IdC1 == id)).Distinct()
+            .Where(p => p.Projects.Any(pr => pr.IdC1 == id)).Distinct().Include(x => x.IdPfs1Navigation)
+            .Include(x => x.IdDp1Navigation)
             .ToListAsync();
 
         return professionals;
@@ -281,8 +281,7 @@ public class ClientsController : ControllerBase
 
         return clients;
     }
-    
-    
+
 
     // POST: api/Clients
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

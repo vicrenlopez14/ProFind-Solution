@@ -35,13 +35,23 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ClientNS.ListPage
         }
         public async void GetProjectsList()
         {
-            var loggedProfessional = LoggedProfessionalStore.LoggedProfessional;
+            try
+            {
+                var loggedProfessional = LoggedProfessionalStore.LoggedProfessional;
 
-            // Major lists
-          
-            var projects = await APIConnection.GetConnection.GetClientsWithProjectsAsync(loggedProfessional.IdP);
+                // Major lists
 
-            Clients_lw.ItemsSource = projects.ToList();
+                var projects = await APIConnection.GetConnection.GetClientsWithProjectsAsync(loggedProfessional.IdP);
+
+                Clients_lw.ItemsSource = projects.ToList();
+            }
+            catch
+            {
+                {
+                    var dialog = new MessageDialog("There are no related clients");
+                    await dialog.ShowAsync();
+                }
+            }
         }
 
         private void Add_btn_Click(object sender, RoutedEventArgs e)
@@ -107,7 +117,7 @@ namespace ProFind.Lib.ProfessionalNS.Views.CRUDPage.ClientNS.ListPage
 
         }
 
-        
+
 
         private async void Clients_lw_DoubleTapped_1(object sender, DoubleTappedRoutedEventArgs e)
         {
