@@ -87,14 +87,14 @@ namespace ProFind.Lib.AdminNS.Views.CRUDPages.ClientNS.ReadPage
         {
         }
 
-       
-        
+
+
 
 
         private void Back_btn_Click_1(object sender, RoutedEventArgs e)
         {
 
-            new InAppNavigationController().NavigateTo(typeof(Lib.AdminNS.Views.CRUDPages.ClientNS.ListPage.Clients_List));
+            new InAppNavigationController().GoBack();
 
 
         }
